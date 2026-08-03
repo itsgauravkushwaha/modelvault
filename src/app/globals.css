@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   TIER 1 — PRIMITIVES  (`--raw-*`)
+   Raw literal values. The only tier allowed to contain a hex/px/ms literal.
+   --------------------------------------------------------------------------- */
+:root {
+  --raw-color-white: #ffffff;
+  --raw-color-neutral-900: #0f172a;
+  --raw-color-ink: #020617;
+  --raw-color-muted: #64748b;
+  --raw-color-subtle: #cbd5e1;
+  --raw-color-line: #e2e8f0;
+  --raw-color-surface: #f8fafc;
+  --raw-color-surface-2: #f1f5f9;
+  --raw-color-accent: #2563eb;
+  --raw-color-accent-from: #3b82f6;
+  --raw-color-accent-to: #1d4ed8;
+  --raw-color-hero-from: #f8fafc;
+  --raw-color-hero-to: #e2e8f0;
+
+  --raw-color-success: #059669;
+  --raw-color-warning: #d97706;
+  --raw-color-purple: #7c3aed;
+  --raw-color-cyan: #0891b2;
+
+  --raw-duration-fast: 150ms;
+  --raw-duration-normal: 250ms;
+}
+
+/* ---------------------------------------------------------------------------
+   TIER 2 — SEMANTIC  (role names, no namespace prefix)
+   --------------------------------------------------------------------------- */
+:root {
+  --background: var(--raw-color-white);
+  --foreground: var(--raw-color-neutral-900);
+  --ink: var(--raw-color-ink);
+  --muted: var(--raw-color-muted);
+  --subtle: var(--raw-color-subtle);
+  --line: var(--raw-color-line);
+  --surface: var(--raw-color-surface);
+  --surface-2: var(--raw-color-surface-2);
+  --accent: var(--raw-color-accent);
+  --accent-from: var(--raw-color-accent-from);
+  --accent-to: var(--raw-color-accent-to);
+  --hero-from: var(--raw-color-hero-from);
+  --hero-to: var(--raw-color-hero-to);
+
+  --duration-fast: var(--raw-duration-fast);
+  --duration-normal: var(--raw-duration-normal);
+
+  --surface-elevated: var(--raw-color-surface);
+  --accent-subtle: var(--raw-color-subtle);
+  --text-muted: var(--raw-color-muted);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--raw-color-white);
+    --foreground: var(--raw-color-neutral-900);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   THEME BINDINGS — map semantic tokens into Tailwind namespaces.
+   --------------------------------------------------------------------------- */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-accent: var(--accent);
+  --color-accent-from: var(--accent-from);
+  --color-accent-to: var(--accent-to);
+
+  --font-sans: var(--font-onest);
+
+  --radius-pill: 9999px;
+  --radius-card: 1.5rem;
+  --radius-card-sm: 1rem;
+  --radius-control: 0.75rem;
+
+  --leading-display: 1.1;
+  --ease-entrance: cubic-bezier(0.2, 0, 0, 1);
+
+  --color-surface-elevated: var(--surface-elevated);
+  --color-accent-subtle: var(--accent-subtle);
+  --color-text-muted: var(--text-muted);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@layer base {
+  html {
+    font-size: 16px;
+  }
+
+  @media (max-width: 1920px) {
+    html {
+      font-size: 0.833333vw;
+    }
+  }
+
+  @media (max-width: 1440px) {
+    html {
+      font-size: 1.111111vw;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    html {
+      font-size: 1.5625vw;
+    }
+  }
+
+  @media (max-width: 640px) {
+    html {
+      font-size: 4.444444vw;
+    }
+  }
+}
+
+.shell {
+  max-width: 88rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .shell {
+    padding-inline: 2rem;
+  }
+}

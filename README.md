@@ -23,6 +23,7 @@
 # ✨ Features
 
 - 🔍 Search over 500+ AI models
+- 🗄️ Powered by Supabase database
 - ⚖️ Compare multiple models side-by-side
 - 💰 AI Cost Calculator
 - ☁️ Cloud AI model directory
@@ -52,12 +53,13 @@
 
 # 🏗 Tech Stack
 
-### Frontend
+### Frontend & Backend
 
 - Next.js 16
 - React
 - TypeScript
 - Tailwind CSS
+- Supabase (`@supabase/supabase-js`)
 
 ### State Management
 
@@ -86,15 +88,16 @@
 ```
 src/
 │
-├── app/              # Next.js App Router
+├── app/              # Next.js App Router & API routes
 ├── views/            # Page views
 ├── components/       # Reusable UI components
-├── data/             # AI model dataset
+├── data/             # AI model dataset fallback
 ├── hooks/            # Custom React hooks
-├── lib/              # Utilities & helpers
+├── lib/              # Supabase client, db helpers, & utilities
 ├── stores/           # Zustand stores
 ├── types/            # Shared TypeScript types
 └── utils/            # SEO & helper utilities
+scripts/              # Database migration scripts
 ```
 
 ---
@@ -113,17 +116,22 @@ git clone https://github.com/itsgauravkushwaha/modelvault.git
 npm install
 ```
 
+## Environment Variables
+
+Copy `.env.example` to `.env.local` and add your Supabase credentials:
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
 ## Run Development Server
 
 ```bash
 npm run dev
 ```
 
-Open:
-
-```
-http://localhost:3000
-```
+Open `http://localhost:3000` in your browser.
 
 ---
 
@@ -143,63 +151,9 @@ npm start
 
 ---
 
-# 🔑 Environment Variables
-
-Copy
-
-```
-.env.example
-```
-
-to
-
-```
-.env.local
-```
-
-and configure the required values.
-
-Sensitive credentials should **never** be committed to Git.
-
----
-
-# 🌟 Current Features
-
-- ✅ AI Model Directory
-- ✅ Advanced Search
-- ✅ Cloud Models
-- ✅ Local Models
-- ✅ Compare Models
-- ✅ AI Cost Calculator
-- ✅ Dashboard
-- ✅ Responsive Design
-- ✅ Accessibility Improvements
-- ✅ SEO Optimization
-- ✅ Structured Data
-- ✅ Analytics Support
-
----
-
-# 🛣 Roadmap
-
-Planned for future releases:
-
-- API Playground
-- Token Calculator
-- VRAM Calculator
-- Provider Comparison
-- User Accounts
-- Saved Collections
-- Model Reviews
-- AI News Integration
-- Public API
-
----
-
 # 🤝 Contributing
 
 Contributions, suggestions, and issue reports are welcome.
-
 If you'd like to improve ModelVault, please open an issue or submit a pull request.
 
 ---
@@ -216,13 +170,10 @@ See **LICENSE.md** for details.
 
 **Gaurav Kushwaha**
 
-GitHub:
-https://github.com/itsgauravkushwaha
+GitHub: [itsgauravkushwaha](https://github.com/itsgauravkushwaha)
 
 ---
 
 <p align="center">
-
-Made with ❤️ using Next.js & TypeScript
-
+  Made with ❤️ using Next.js, TypeScript & Supabase
 </p>

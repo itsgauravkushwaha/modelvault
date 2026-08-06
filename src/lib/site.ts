@@ -9,7 +9,7 @@ import { publicEnv } from "@/env";
 export const siteConfig = {
   name: "ModelVault",
   description:
-    "The open directory for discovering, comparing, and benchmarking 500+ cloud and local AI models. Built for engineers, researchers, and technical leaders.",
+    "The open directory for discovering, comparing, and benchmarking 11,000+ cloud and local AI models. Built for engineers, researchers, and technical leaders.",
   /**
    * Public origin, no trailing slash. Drives canonical URLs, OG tags, the
    * sitemap, and JSON-LD. Set `NEXT_PUBLIC_SITE_URL` in production.

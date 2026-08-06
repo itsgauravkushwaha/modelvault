@@ -56,7 +56,7 @@ export const Header = () => {
             type="text"
             value={searchQuery}
             onChange={handleSearchChange}
-            placeholder="Search 500+ models, benchmarks, providers..."
+            placeholder="Search 11,000+ models, benchmarks, providers..."
             aria-label="Search models"
             className="w-full pl-9 pr-4 py-1.5 text-xs bg-slate-100/70 border border-slate-200 rounded-lg text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-all"
           />
@@ -238,7 +238,7 @@ export const Header = () => {
               type="text"
               value={searchQuery}
               onChange={handleSearchChange}
-              placeholder="Search 500+ AI models..."
+              placeholder="Search 11,000+ AI models..."
               aria-label="Search models"
               className="w-full pl-9 pr-4 py-2 text-xs bg-slate-100 border border-slate-200 rounded-xl text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-blue-500 focus:bg-white"
             />

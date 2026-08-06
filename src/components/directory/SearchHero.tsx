@@ -19,7 +19,7 @@ export const SearchHero = () => {
         {/* Glassmorphic Badge */}
         <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-xs font-semibold text-blue-400 backdrop-blur-md shadow-sm">
           <SparklesIcon className="w-3.5 h-3.5" />
-          <span>Searchable Directory of 500+ Cloud & Local AI Models</span>
+          <span>Searchable Directory of 11,000+ Cloud & Local AI Models</span>
         </div>
 
         {/* Headline */}
@@ -29,7 +29,7 @@ export const SearchHero = () => {
 
         {/* Supporting Copy */}
         <p className="text-xs sm:text-base text-slate-300 max-w-2xl font-medium leading-relaxed">
-          Discover, compare, and benchmark 500+ cloud APIs and open-weight local models. Filter by modality, context window, VRAM requirements, and pricing.
+          Discover, compare, and benchmark 11,000+ cloud APIs and open-weight local models. Filter by modality, context window, VRAM requirements, and pricing.
         </p>
 
         {/* Primary & Secondary CTA Buttons */}
@@ -57,7 +57,7 @@ export const SearchHero = () => {
             type="text"
             value={searchQuery}
             onChange={handleSearchChange}
-            placeholder="Search 500+ models (e.g. 'coding', 'GPT-4o', 'local')..."
+            placeholder="Search 11,000+ models (e.g. 'coding', 'GPT-4o', 'local')..."
             aria-label="Search models"
             className="w-full rounded-2xl bg-white text-slate-900 pl-10 sm:pl-12 pr-20 sm:pr-28 py-3.5 sm:py-4 text-xs sm:text-sm font-semibold shadow-2xl placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-blue-500/40 transition-all"
           />

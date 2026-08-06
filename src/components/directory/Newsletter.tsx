@@ -6,11 +6,33 @@ import { CheckIcon, SparklesIcon } from "./icons";
 export const Newsletter = () => {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      setSubmitted(true);
+    if (!email) return;
+
+    setLoading(true);
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSubmitted(true);
+      } else {
+        setErrorMsg(data.error || "Failed to subscribe. Please try again.");
+      }
+    } catch {
+      setErrorMsg("Network error. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -53,22 +75,28 @@ export const Newsletter = () => {
             ✓ You&apos;re subscribed! We&apos;ll keep you posted when new models release.
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="mt-2 flex w-full max-w-md items-center gap-2">
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your work email address..."
-              className="flex-1 rounded-xl bg-slate-900/90 border border-slate-800 px-4 py-3.5 text-xs text-white font-semibold placeholder:text-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 shadow-inner"
-            />
-            <button
-              type="submit"
-              className="rounded-xl bg-blue-600 hover:bg-blue-500 px-6 py-3.5 text-xs font-bold text-white transition-all shadow-lg hover:shadow-blue-500/25"
-            >
-              Subscribe
-            </button>
-          </form>
+          <div className="w-full max-w-md">
+            <form onSubmit={handleSubmit} className="flex w-full items-center gap-2">
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your work email address..."
+                className="flex-1 rounded-xl bg-slate-900/90 border border-slate-800 px-4 py-3.5 text-xs text-white font-semibold placeholder:text-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 shadow-inner"
+              />
+              <button
+                type="submit"
+                disabled={loading}
+                className="rounded-xl bg-blue-600 hover:bg-blue-500 disabled:opacity-50 px-6 py-3.5 text-xs font-bold text-white transition-all shadow-lg hover:shadow-blue-500/25"
+              >
+                {loading ? "Subscribing..." : "Subscribe"}
+              </button>
+            </form>
+            {errorMsg && (
+              <p className="mt-2 text-[0.7rem] font-bold text-rose-400 text-left">{errorMsg}</p>
+            )}
+          </div>
         )}
       </div>
     </section>

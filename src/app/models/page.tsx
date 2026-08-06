@@ -6,7 +6,7 @@ import { getBreadcrumbStructuredData } from "@/utils/seo/structured-data";
 export const metadata: Metadata = generatePageMetadata({
   title: "All AI Models Directory — ModelVault",
   description:
-    "Browse and filter 500+ AI models across LLMs, vision, audio, reasoning, and coding agents. Compare context windows, licensing, and pricing.",
+    "Browse and filter 11,000+ AI models across LLMs, vision, audio, reasoning, and coding agents. Compare context windows, licensing, and pricing.",
   url: "/models",
 });
 

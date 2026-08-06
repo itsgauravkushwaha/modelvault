@@ -33,6 +33,7 @@ interface SidebarItem {
   label: string;
   icon: React.FC<{ className?: string }>;
   comingSoon?: boolean;
+  href?: string;
 }
 
 const SIDEBAR_ITEMS: SidebarItem[] = [
@@ -40,7 +41,7 @@ const SIDEBAR_ITEMS: SidebarItem[] = [
   { id: "favorites", label: "Favorites", icon: HeartIcon },
   { id: "recent", label: "Recently Viewed", icon: ClockIcon, comingSoon: true },
   { id: "comparisons", label: "Saved Comparisons", icon: BookmarkIcon, comingSoon: true },
-  { id: "tools", label: "Developer Tools", icon: WrenchIcon, comingSoon: true },
+  { id: "tools", label: "Developer Tools", icon: WrenchIcon, href: "/tools" },
   { id: "settings", label: "Settings", icon: SettingsIcon, comingSoon: true },
 ];
 
@@ -82,7 +83,7 @@ export const DashboardView = () => {
     { label: "Favorite Models", value: favorites.length, icon: HeartIcon, color: "text-rose-500", bg: "bg-rose-500/10", border: "border-rose-500/20" },
     { label: "Recently Viewed", value: 0, icon: ClockIcon, color: "text-sky-500", bg: "bg-sky-500/10", border: "border-sky-500/20" },
     { label: "Saved Comparisons", value: 0, icon: BookmarkIcon, color: "text-purple-500", bg: "bg-purple-500/10", border: "border-purple-500/20" },
-    { label: "Dev Tools Used", value: 0, icon: WrenchIcon, color: "text-emerald-500", bg: "bg-emerald-500/10", border: "border-emerald-500/20" },
+    { label: "Dev Tools Used", value: 5, icon: WrenchIcon, color: "text-emerald-500", bg: "bg-emerald-500/10", border: "border-emerald-500/20" },
   ];
 
   const quickActions = [
@@ -103,6 +104,40 @@ export const DashboardView = () => {
             {SIDEBAR_ITEMS.map((item) => {
               const IconComp = item.icon;
               const isActive = activeSection === item.id;
+              const content = (
+                <>
+                  <IconComp className={`w-4 h-4 flex-shrink-0 ${isActive ? "text-blue-600" : ""}`} />
+                  <span>{item.label}</span>
+                  {item.id === "favorites" && favorites.length > 0 && (
+                    <span className="ml-auto rounded-full bg-rose-500 px-2 py-0.5 text-[0.65rem] font-bold text-white shadow-xs">
+                      {favorites.length}
+                    </span>
+                  )}
+                  {item.href && (
+                    <span className="ml-auto rounded-full bg-emerald-100 px-2 py-0.5 text-[0.6rem] font-extrabold uppercase tracking-wider text-emerald-700">
+                      Live
+                    </span>
+                  )}
+                  {item.comingSoon && (
+                    <span className="ml-auto rounded-full bg-slate-100 px-2 py-0.5 text-[0.6rem] font-extrabold uppercase tracking-wider text-slate-400">
+                      Soon
+                    </span>
+                  )}
+                </>
+              );
+
+              if (item.href) {
+                return (
+                  <Link
+                    key={item.id}
+                    href={item.href}
+                    className="flex items-center gap-2.5 whitespace-nowrap rounded-xl px-3.5 py-2.5 text-xs font-semibold transition-all w-full text-left text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                  >
+                    {content}
+                  </Link>
+                );
+              }
+
               return (
                 <button
                   key={item.id}
@@ -116,18 +151,7 @@ export const DashboardView = () => {
                       : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
                   }`}
                 >
-                  <IconComp className={`w-4 h-4 flex-shrink-0 ${isActive ? "text-blue-600" : ""}`} />
-                  <span>{item.label}</span>
-                  {item.id === "favorites" && favorites.length > 0 && (
-                    <span className="ml-auto rounded-full bg-rose-500 px-2 py-0.5 text-[0.65rem] font-bold text-white shadow-xs">
-                      {favorites.length}
-                    </span>
-                  )}
-                  {item.comingSoon && (
-                    <span className="ml-auto rounded-full bg-slate-100 px-2 py-0.5 text-[0.6rem] font-extrabold uppercase tracking-wider text-slate-400">
-                      Soon
-                    </span>
-                  )}
+                  {content}
                 </button>
               );
             })}

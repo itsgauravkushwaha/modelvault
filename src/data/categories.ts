@@ -1,76 +1,81 @@
-import { CategoryDef, UseCase } from "@/types/model";
-import { MODELS } from "./models";
+import { CategoryDef } from "@/types/model";
 
-const BASE_CATEGORIES: Omit<CategoryDef, "modelCount">[] = [
+export const CATEGORIES: CategoryDef[] = [
   {
     slug: "text-chat",
     name: "Text / Chat",
     description: "General-purpose conversation, writing, translation, and summary models.",
     iconName: "MessageSquare",
+    modelCount: 2953,
   },
   {
     slug: "reasoning",
     name: "Reasoning",
     description: "Advanced step-by-step thinking, complex problem solving, and math.",
     iconName: "Brain",
+    modelCount: 544,
   },
   {
     slug: "coding",
     name: "Coding Agents",
     description: "Code generation, debugging, repository refactoring, and agentic workflows.",
     iconName: "Code",
+    modelCount: 1172,
   },
   {
     slug: "image-gen",
     name: "Image Generation",
     description: "High-fidelity text-to-image synthesis, artistic styling, and graphics.",
     iconName: "Image",
+    modelCount: 1130,
   },
   {
     slug: "image-edit",
     name: "Image Editing",
     description: "Inpainting, outpainting, background removal, and image-to-image tasks.",
     iconName: "Sliders",
+    modelCount: 1,
   },
   {
     slug: "video-gen",
     name: "Video Generation",
     description: "Photorealistic text-to-video, image-to-video, and motion synthesis.",
     iconName: "Video",
+    modelCount: 19,
   },
   {
     slug: "audio-speech",
     name: "Audio & Speech",
     description: "Speech-to-text transcription, voice synthesis, and music generation.",
     iconName: "Mic",
+    modelCount: 2033,
   },
   {
     slug: "vision-language",
     name: "Vision-Language",
     description: "Multimodal understanding of images, documents, charts, and diagrams.",
     iconName: "Eye",
+    modelCount: 1050,
   },
   {
     slug: "embeddings-rag",
     name: "Embeddings / RAG",
     description: "Vector representations, semantic search, and knowledge retrieval.",
     iconName: "Database",
+    modelCount: 3032,
   },
   {
     slug: "local",
     name: "Local Models",
     description: "Open-weight models optimized to run on consumer hardware & Ollama.",
     iconName: "HardDrive",
+    modelCount: 423,
   },
   {
     slug: "enterprise",
     name: "Enterprise Models",
     description: "High-compliance, SOC2 certified, private deployment ready models.",
     iconName: "Building",
+    modelCount: 5,
   },
 ];
-
-export const CATEGORIES: CategoryDef[] = BASE_CATEGORIES.map((cat) => ({
-  ...cat,
-  modelCount: MODELS.filter((m) => m.useCases.includes(cat.slug as UseCase)).length,
-}));

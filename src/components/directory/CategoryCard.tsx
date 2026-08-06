@@ -2,7 +2,14 @@ import Link from "next/link";
 import { CategoryDef } from "@/types/model";
 import { ArrowUpRightIcon, CodeIcon, CpuIcon, SparklesIcon } from "./icons";
 
-export const CategoryCard: React.FC<{ category: CategoryDef }> = ({ category }) => {
+interface CategoryCardProps {
+  category: CategoryDef;
+  overrideCount?: number;
+}
+
+export const CategoryCard: React.FC<CategoryCardProps> = ({ category, overrideCount }) => {
+  const displayCount = overrideCount !== undefined ? overrideCount : category.modelCount;
+
   return (
     <Link
       href={`/category/${category.slug}`}
@@ -20,7 +27,7 @@ export const CategoryCard: React.FC<{ category: CategoryDef }> = ({ category }) 
             )}
           </div>
           <span className="rounded-full bg-slate-100 px-3 py-1 text-[0.7rem] font-extrabold text-slate-600">
-            {category.modelCount} Models
+            {displayCount.toLocaleString()} Models
           </span>
         </div>
 

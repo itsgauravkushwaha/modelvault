@@ -8,7 +8,7 @@ interface Params {
 export async function GET(_request: Request, { params }: Params) {
   try {
     const { slug } = await params;
-    const model = db.getModelBySlug(slug);
+    const model = await db.getModelBySlug(slug);
 
     if (!model) {
       return NextResponse.json({ error: "Model not found" }, { status: 404 });

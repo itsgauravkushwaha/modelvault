@@ -32,11 +32,15 @@ const publicSchema = z.object({
   NEXT_PUBLIC_CLARITY_ID: optionalString(),
   NEXT_PUBLIC_GSC_VERIFICATION: optionalString(),
   NEXT_PUBLIC_BING_VERIFICATION: optionalString(),
+  NEXT_PUBLIC_SUPABASE_URL: z.string().url(),
+  NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1),
 });
 
 const serverSchema = z.object({
   /** Optional upstream the contact endpoint forwards leads to (CRM / webhook). */
   CONTACT_ENDPOINT: optionalUrl(),
+  SUPABASE_SERVICE_ROLE_KEY: optionalString(),
+  ADMIN_SECRET_KEY: optionalString(),
 });
 
 /** Public env — safe to read anywhere (server or client). */
@@ -46,6 +50,8 @@ export const publicEnv = publicSchema.parse({
   NEXT_PUBLIC_CLARITY_ID: process.env.NEXT_PUBLIC_CLARITY_ID,
   NEXT_PUBLIC_GSC_VERIFICATION: process.env.NEXT_PUBLIC_GSC_VERIFICATION,
   NEXT_PUBLIC_BING_VERIFICATION: process.env.NEXT_PUBLIC_BING_VERIFICATION,
+  NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
+  NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
 });
 
 let cachedServerEnv: z.infer<typeof serverSchema> | undefined;
@@ -57,6 +63,8 @@ let cachedServerEnv: z.infer<typeof serverSchema> | undefined;
 export function getServerEnv() {
   cachedServerEnv ??= serverSchema.parse({
     CONTACT_ENDPOINT: process.env.CONTACT_ENDPOINT,
+    SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY,
+    ADMIN_SECRET_KEY: process.env.ADMIN_SECRET_KEY,
   });
   return cachedServerEnv;
 }

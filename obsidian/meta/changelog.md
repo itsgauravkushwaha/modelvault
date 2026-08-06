@@ -8,6 +8,14 @@ updated: 2026-07-25
 Chronological log of notable changes to the project. Newest first.
 This is a human-curated log — not a mirror of `git log`.
 
+## 2026-08-04
+
+- **Secured admin login authentication** — Removed the insecure default passcode
+  fallback (`admin123`) from `src/app/api/admin/auth/route.ts`. The route now
+  strictly requires `ADMIN_SECRET_KEY` to be defined in the environment. If it
+  is missing, the server logs an error and returns HTTP 500 with a generic
+  message.
+
 ## 2026-07-25
 
 - **Released into the public domain (Unlicense)** — the starter now ships a root

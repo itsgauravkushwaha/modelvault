@@ -1,13 +1,13 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
-import { MODELS } from "@/data/models";
+import { db } from "@/lib/db";
 
 /**
  * Generates `/sitemap.xml`.
  * Static routes are listed explicitly; dynamic model pages are derived from
- * the MODELS dataset so the sitemap stays in sync automatically.
+ * Supabase models dataset so the sitemap stays in sync automatically.
  */
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = siteConfig.url;
   const now = new Date();
 
@@ -29,7 +29,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   /* ---- Dynamic model pages ---- */
-  const modelRoutes: MetadataRoute.Sitemap = MODELS.map((model) => ({
+  const models = await db.getModels();
+  const modelRoutes: MetadataRoute.Sitemap = models.map((model) => ({
     url: `${base}/models/${model.slug}`,
     lastModified: now,
     changeFrequency: "monthly" as const,

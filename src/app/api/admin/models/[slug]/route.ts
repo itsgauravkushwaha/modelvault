@@ -20,7 +20,7 @@ export async function PUT(request: Request, { params }: Params) {
       );
     }
 
-    const result = db.updateModel(slug, validation.data as unknown as Partial<AIModel>);
+    const result = await db.updateModel(slug, validation.data as unknown as Partial<AIModel>);
 
     if (!result.success) {
       return NextResponse.json({ error: result.error }, { status: 404 });
@@ -36,7 +36,7 @@ export async function PUT(request: Request, { params }: Params) {
 export async function DELETE(_request: Request, { params }: Params) {
   try {
     const { slug } = await params;
-    const result = db.deleteModel(slug);
+    const result = await db.deleteModel(slug);
 
     if (!result.success) {
       return NextResponse.json({ error: result.error }, { status: 404 });

@@ -5,7 +5,7 @@ import { aiModelSchema } from "@/lib/validations/model";
 
 export async function GET() {
   try {
-    const models = db.getModels();
+    const models = await db.getModels();
     return NextResponse.json({ data: models, total: models.length });
   } catch (error) {
     console.error("GET /api/admin/models error:", error);
@@ -25,7 +25,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const result = db.createModel(validation.data as unknown as AIModel);
+    const result = await db.createModel(validation.data as unknown as AIModel);
 
     if (!result.success) {
       return NextResponse.json({ error: result.error }, { status: 400 });

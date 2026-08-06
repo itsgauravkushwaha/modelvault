@@ -2,8 +2,13 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
+    const secretKey = process.env.ADMIN_SECRET_KEY;
+    if (!secretKey) {
+      console.error("ADMIN_SECRET_KEY environment variable is missing");
+      return NextResponse.json({ error: "Authentication failed" }, { status: 500 });
+    }
+
     const { passcode } = await request.json();
-    const secretKey = process.env.ADMIN_SECRET_KEY || "admin123";
 
     if (passcode === secretKey) {
       return NextResponse.json({ success: true, message: "Authentication successful" });

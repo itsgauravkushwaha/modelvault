@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { ModelDetailView } from "@/views/model-detail";
-import { MODELS } from "@/data/models";
+import { db } from "@/lib/db";
 import { generateMetadata as generatePageMetadata } from "@/utils/seo/generate-page-metadata";
 import {
   getBreadcrumbStructuredData,
@@ -12,14 +12,15 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return MODELS.map((model) => ({
+  const models = await db.getModels();
+  return models.map((model) => ({
     slug: model.slug,
   }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const model = MODELS.find((m) => m.slug === slug);
+  const model = await db.getModelBySlug(slug);
 
   if (!model) {
     return generatePageMetadata({
@@ -40,7 +41,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ModelDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const model = MODELS.find((m) => m.slug === slug);
+  const model = await db.getModelBySlug(slug);
 
   const breadcrumbsJsonLd = getBreadcrumbStructuredData([
     { name: "Home", path: "/" },

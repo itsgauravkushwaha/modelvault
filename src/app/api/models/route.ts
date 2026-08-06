@@ -9,7 +9,7 @@ export async function GET(request: Request) {
     const category = searchParams.get("category");
     const availability = searchParams.get("availability");
 
-    let models = db.getModels();
+    let models = await db.getModels();
 
     if (q) {
       models = models.filter(

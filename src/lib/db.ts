@@ -2,103 +2,188 @@ import fs from "fs";
 import path from "path";
 import { AIModel } from "@/types/model";
 import { MODELS as INITIAL_MODELS } from "@/data/models";
+import { supabase } from "@/lib/supabase";
+import { publicEnv } from "@/env";
 
 const DB_PATH = path.join(process.cwd(), "src/data/models_db.json");
 
-// In-memory cache for ultra fast reads
+// In-memory server-side cache with TTL for ultra fast reads
 let memoryCache: AIModel[] | null = null;
+let cacheExpiry: number = 0;
+const CACHE_TTL_MS = 60 * 1000; // 60 seconds TTL
 
-function ensureDbFile(): AIModel[] {
-  if (memoryCache) {
-    return memoryCache;
-  }
+function invalidateCache(): void {
+  memoryCache = null;
+  cacheExpiry = 0;
+}
 
+function ensureLocalDbFile(): AIModel[] {
   try {
     if (fs.existsSync(DB_PATH)) {
       const raw = fs.readFileSync(DB_PATH, "utf-8");
-      memoryCache = JSON.parse(raw) as AIModel[];
-      return memoryCache;
+      return JSON.parse(raw) as AIModel[];
     }
   } catch (error) {
-    console.error("Failed to read database file, falling back to initial models:", error);
+    console.error("Failed to read local database file, falling back to initial models:", error);
   }
-
-  // Fallback / initialization
-  memoryCache = INITIAL_MODELS;
-  saveDbFile(memoryCache);
-  return memoryCache;
+  return INITIAL_MODELS;
 }
 
-function saveDbFile(models: AIModel[]): void {
+function saveLocalDbFile(models: AIModel[]): void {
   try {
-    memoryCache = models;
     const tempPath = `${DB_PATH}.tmp`;
     fs.writeFileSync(tempPath, JSON.stringify(models, null, 2), "utf-8");
     fs.renameSync(tempPath, DB_PATH);
   } catch (error) {
-    console.error("Error saving database file:", error);
+    console.error("Error saving local database file:", error);
   }
 }
 
 export const db = {
-  // Read all models
-  getModels(): AIModel[] {
-    return ensureDbFile();
+  /**
+   * Reads all models from Supabase with TTL caching and local JSON fallback.
+   */
+  async getModels(): Promise<AIModel[]> {
+    const now = Date.now();
+    if (memoryCache && now < cacheExpiry) {
+      return memoryCache;
+    }
+
+    const isPlaceholder = publicEnv.NEXT_PUBLIC_SUPABASE_URL?.includes("placeholder");
+
+    if (!isPlaceholder) {
+      try {
+        const { data, error } = await supabase.from("models").select("*");
+        if (!error && data && data.length > 0) {
+          memoryCache = data as AIModel[];
+          cacheExpiry = now + CACHE_TTL_MS;
+          return memoryCache;
+        }
+        if (error) {
+          console.warn("Supabase query error, using local JSON fallback:", error.message);
+        }
+      } catch (err) {
+        console.warn("Failed to connect to Supabase, using local JSON fallback:", err);
+      }
+    }
+
+    // Fallback to local JSON file
+    memoryCache = ensureLocalDbFile();
+    cacheExpiry = now + CACHE_TTL_MS;
+    return memoryCache;
   },
 
-  // Get single model by slug
-  getModelBySlug(slug: string): AIModel | undefined {
-    const models = ensureDbFile();
+  /**
+   * Get single model by slug.
+   */
+  async getModelBySlug(slug: string): Promise<AIModel | undefined> {
+    const models = await this.getModels();
     return models.find((m) => m.slug === slug);
   },
 
-  // Create new model
-  createModel(newModel: AIModel): { success: boolean; model?: AIModel; error?: string } {
-    const models = ensureDbFile();
+  /**
+   * Create new model.
+   */
+  async createModel(newModel: AIModel): Promise<{ success: boolean; model?: AIModel; error?: string }> {
+    const models = await this.getModels();
     const existing = models.find((m) => m.slug === newModel.slug);
     if (existing) {
       return { success: false, error: `Model with slug "${newModel.slug}" already exists.` };
     }
 
-    const updated = [newModel, ...models];
-    saveDbFile(updated);
+    const isPlaceholder = publicEnv.NEXT_PUBLIC_SUPABASE_URL?.includes("placeholder");
+    if (!isPlaceholder) {
+      try {
+        const { error } = await supabase.from("models").insert([newModel]);
+        if (error) {
+          console.error("Supabase createModel error:", error.message);
+        }
+      } catch (err) {
+        console.error("Supabase createModel connection error:", err);
+      }
+    }
+
+    const updated = [newModel, ...ensureLocalDbFile()];
+    saveLocalDbFile(updated);
+    invalidateCache();
+
     return { success: true, model: newModel };
   },
 
-  // Update existing model
-  updateModel(slug: string, updates: Partial<AIModel>): { success: boolean; model?: AIModel; error?: string } {
-    const models = ensureDbFile();
-    const index = models.findIndex((m) => m.slug === slug);
-    if (index === -1) {
+  /**
+   * Update existing model.
+   */
+  async updateModel(slug: string, updates: Partial<AIModel>): Promise<{ success: boolean; model?: AIModel; error?: string }> {
+    const models = await this.getModels();
+    const existing = models.find((m) => m.slug === slug);
+    if (!existing) {
       return { success: false, error: `Model with slug "${slug}" not found.` };
     }
 
     const updatedModel: AIModel = {
-      ...models[index],
+      ...existing,
       ...updates,
       lastUpdated: new Date().toISOString().split("T")[0],
     };
 
-    models[index] = updatedModel;
-    saveDbFile([...models]);
+    const isPlaceholder = publicEnv.NEXT_PUBLIC_SUPABASE_URL?.includes("placeholder");
+    if (!isPlaceholder) {
+      try {
+        const { error } = await supabase.from("models").update(updatedModel).eq("slug", slug);
+        if (error) {
+          console.error("Supabase updateModel error:", error.message);
+        }
+      } catch (err) {
+        console.error("Supabase updateModel connection error:", err);
+      }
+    }
+
+    const localModels = ensureLocalDbFile();
+    const index = localModels.findIndex((m) => m.slug === slug);
+    if (index !== -1) {
+      localModels[index] = updatedModel;
+      saveLocalDbFile(localModels);
+    }
+    invalidateCache();
+
     return { success: true, model: updatedModel };
   },
 
-  // Delete model by slug
-  deleteModel(slug: string): { success: boolean; error?: string } {
-    const models = ensureDbFile();
-    const filtered = models.filter((m) => m.slug !== slug);
-    if (filtered.length === models.length) {
+  /**
+   * Delete model by slug.
+   */
+  async deleteModel(slug: string): Promise<{ success: boolean; error?: string }> {
+    const models = await this.getModels();
+    const existing = models.find((m) => m.slug === slug);
+    if (!existing) {
       return { success: false, error: `Model with slug "${slug}" not found.` };
     }
 
-    saveDbFile(filtered);
+    const isPlaceholder = publicEnv.NEXT_PUBLIC_SUPABASE_URL?.includes("placeholder");
+    if (!isPlaceholder) {
+      try {
+        const { error } = await supabase.from("models").delete().eq("slug", slug);
+        if (error) {
+          console.error("Supabase deleteModel error:", error.message);
+        }
+      } catch (err) {
+        console.error("Supabase deleteModel connection error:", err);
+      }
+    }
+
+    const localModels = ensureLocalDbFile();
+    const filtered = localModels.filter((m) => m.slug !== slug);
+    saveLocalDbFile(filtered);
+    invalidateCache();
+
     return { success: true };
   },
 
-  // Import batch models (replaces or merges)
-  importModels(newModels: AIModel[], overwrite = false): { success: boolean; count: number } {
-    const existing = ensureDbFile();
+  /**
+   * Import batch models (replaces or merges).
+   */
+  async importModels(newModels: AIModel[], overwrite = false): Promise<{ success: boolean; count: number }> {
+    const existing = await this.getModels();
     let result: AIModel[];
 
     if (overwrite) {
@@ -109,7 +194,20 @@ export const db = {
       result = Array.from(existingMap.values());
     }
 
-    saveDbFile(result);
+    const isPlaceholder = publicEnv.NEXT_PUBLIC_SUPABASE_URL?.includes("placeholder");
+    if (!isPlaceholder) {
+      try {
+        const { error } = await supabase.from("models").upsert(newModels, { onConflict: "slug" });
+        if (error) {
+          console.error("Supabase importModels error:", error.message);
+        }
+      } catch (err) {
+        console.error("Supabase importModels connection error:", err);
+      }
+    }
+
+    saveLocalDbFile(result);
+    invalidateCache();
     return { success: true, count: result.length };
   },
 };

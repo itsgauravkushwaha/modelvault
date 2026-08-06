@@ -11,9 +11,13 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+export const revalidate = 3600; // ISR cache for 1 hour
+export const dynamicParams = true; // On-demand rendering for remaining 10,000+ models
+
 export async function generateStaticParams() {
   const models = await db.getModels();
-  return models.map((model) => ({
+  // Prerender top 500 models (featured / trending / popular) during build
+  return models.slice(0, 500).map((model) => ({
     slug: model.slug,
   }));
 }

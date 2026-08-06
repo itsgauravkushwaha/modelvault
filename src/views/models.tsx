@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDirectorySearch } from "@/hooks/use-directory-search";
 import { useDirectoryStore } from "@/stores/use-directory-store";
 import { Header } from "@/components/directory/Header";
@@ -13,6 +13,7 @@ import { FilterIcon, SearchIcon } from "@/components/directory/icons";
 
 export const ModelsView = () => {
   const { searchQuery, handleSearchChange, clearSearch } = useDirectorySearch();
+  const allModels = useDirectoryStore((s) => s.allModels);
   const debouncedSearchQuery = useDirectoryStore((s) => s.debouncedSearchQuery);
   const useCaseFilter = useDirectoryStore((s) => s.useCaseFilter);
   const availabilityFilter = useDirectoryStore((s) => s.availabilityFilter);
@@ -51,6 +52,10 @@ export const ModelsView = () => {
   void sortBy;
   void debouncedSearchQuery;
 
+  // Pagination for large dataset performance
+  const [displayCount, setDisplayCount] = useState(36);
+  const displayedModels = filteredModels.slice(0, displayCount);
+
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
       <Header />
@@ -65,7 +70,7 @@ export const ModelsView = () => {
                   AI Models Directory
                 </h1>
                 <p className="text-xs sm:text-sm text-slate-600 font-medium mt-1">
-                  Filter and search through cloud API and local open-weight AI models.
+                  Filter and search through {allModels.length.toLocaleString()}+ cloud API and local open-weight AI models.
                 </p>
               </div>
               {activeFilterCount > 0 && (
@@ -120,18 +125,33 @@ export const ModelsView = () => {
               {/* Controls bar */}
               <div className="flex items-center justify-between gap-4 mb-4 bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
                 <span className="text-xs font-bold text-slate-700">
-                  Showing <span className="text-blue-600">{filteredModels.length}</span> models
+                  Showing <span className="text-blue-600">{Math.min(displayCount, filteredModels.length)}</span> of{" "}
+                  <span className="text-slate-900 font-extrabold">{filteredModels.length.toLocaleString()}</span> models
                 </span>
                 <SortDropdown />
               </div>
 
               {/* Grid or Empty state */}
               {filteredModels.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                  {filteredModels.map((model) => (
-                    <ModelCard key={model.slug} model={model} />
-                  ))}
-                </div>
+                <>
+                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                    {displayedModels.map((model) => (
+                      <ModelCard key={model.slug} model={model} />
+                    ))}
+                  </div>
+
+                  {/* Load More Button */}
+                  {displayCount < filteredModels.length && (
+                    <div className="mt-10 text-center">
+                      <button
+                        onClick={() => setDisplayCount((prev) => prev + 36)}
+                        className="rounded-xl bg-blue-600 hover:bg-blue-500 px-8 py-3 text-xs font-bold text-white transition-all shadow-md hover:shadow-blue-500/25"
+                      >
+                        Load More Models ({filteredModels.length - displayCount} remaining)
+                      </button>
+                    </div>
+                  )}
+                </>
               ) : (
                 <div className="rounded-xl border border-slate-200 bg-white p-12 text-center">
                   <h3 className="text-lg font-bold text-slate-900">No models found</h3>

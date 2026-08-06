@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAdminStore } from "@/stores/use-admin-store";
 import { AdminHeader } from "@/components/admin/AdminHeader";
@@ -10,12 +10,32 @@ import { ModelFormModal } from "@/components/admin/ModelFormModal";
 import { DeleteConfirmModal } from "@/components/admin/DeleteConfirmModal";
 import { ImportExportModal } from "@/components/admin/ImportExportModal";
 
+interface Subscriber {
+  id: string | number;
+  email: string;
+  subscribed_at?: string;
+}
+
+interface ContactMessage {
+  id: string | number;
+  name?: string;
+  email: string;
+  subject?: string;
+  message?: string;
+  created_at?: string;
+}
+
 export const AdminView = () => {
   const router = useRouter();
   const isAuthenticated = useAdminStore((s) => s.isAuthenticated);
   const fetchAdminModels = useAdminStore((s) => s.fetchAdminModels);
   const openAddModal = useAdminStore((s) => s.openAddModal);
   const openImportModal = useAdminStore((s) => s.openImportModal);
+
+  const [activeTab, setActiveTab] = useState<"models" | "subscribers" | "messages">("models");
+  const [subscribers, setSubscribers] = useState<Subscriber[]>([]);
+  const [messages, setMessages] = useState<ContactMessage[]>([]);
+  const [loadingData, setLoadingData] = useState(false);
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -25,6 +45,20 @@ export const AdminView = () => {
     }
   }, [isAuthenticated, router, fetchAdminModels]);
 
+  useEffect(() => {
+    if (isAuthenticated) {
+      setLoadingData(true);
+      Promise.all([
+        fetch("/api/admin/subscribers").then((res) => res.json()).catch(() => ({ subscribers: [] })),
+        fetch("/api/admin/contacts").then((res) => res.json()).catch(() => ({ contacts: [] })),
+      ]).then(([subData, contactData]) => {
+        if (subData.subscribers) setSubscribers(subData.subscribers);
+        if (contactData.contacts) setMessages(contactData.contacts);
+        setLoadingData(false);
+      });
+    }
+  }, [isAuthenticated]);
+
   if (!isAuthenticated) return null;
 
   return (
@@ -32,15 +66,15 @@ export const AdminView = () => {
       <AdminHeader />
 
       <main className="flex-1 py-8">
-        <div className="shell flex flex-col gap-8">
-          {/* Action Header */}
+        <div className="shell flex flex-col gap-6">
+          {/* Top Header */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-                AI Models Database Dashboard
+                ModelVault Admin Panel
               </h1>
               <p className="text-xs text-slate-500 font-medium mt-1">
-                Manage persistent AI models, edit specs, add new releases, or export database dumps.
+                Manage 11,000+ AI models, newsletter subscriber lists, and contact enquiries.
               </p>
             </div>
 
@@ -60,11 +94,136 @@ export const AdminView = () => {
             </div>
           </div>
 
-          {/* Stats Cards */}
-          <StatsOverview />
+          {/* Navigation Tabs */}
+          <div className="flex items-center gap-2 border-b border-slate-200 pb-2">
+            <button
+              onClick={() => setActiveTab("models")}
+              className={`px-4 py-2 text-xs font-extrabold rounded-xl transition-all ${
+                activeTab === "models"
+                  ? "bg-blue-600 text-white shadow-md"
+                  : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
+              }`}
+            >
+              🤖 AI Models ({useAdminStore.getState().models.length || "11,000+"})
+            </button>
+            <button
+              onClick={() => setActiveTab("subscribers")}
+              className={`px-4 py-2 text-xs font-extrabold rounded-xl transition-all ${
+                activeTab === "subscribers"
+                  ? "bg-blue-600 text-white shadow-md"
+                  : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
+              }`}
+            >
+              📧 Newsletter Subscribers ({subscribers.length})
+            </button>
+            <button
+              onClick={() => setActiveTab("messages")}
+              className={`px-4 py-2 text-xs font-extrabold rounded-xl transition-all ${
+                activeTab === "messages"
+                  ? "bg-blue-600 text-white shadow-md"
+                  : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
+              }`}
+            >
+              📩 Contact Messages ({messages.length})
+            </button>
+          </div>
 
-          {/* Table */}
-          <ModelTable />
+          {/* TAB 1: MODELS */}
+          {activeTab === "models" && (
+            <>
+              <StatsOverview />
+              <ModelTable />
+            </>
+          )}
+
+          {/* TAB 2: SUBSCRIBERS */}
+          {activeTab === "subscribers" && (
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-base font-extrabold text-slate-900">
+                  Email Newsletter Subscribers ({subscribers.length})
+                </h2>
+                <span className="text-[0.65rem] font-bold text-emerald-600 bg-emerald-50 rounded-full px-3 py-1">
+                  Saved in Supabase
+                </span>
+              </div>
+
+              {loadingData ? (
+                <p className="text-xs text-slate-400 font-bold py-6 text-center">Loading subscribers...</p>
+              ) : subscribers.length === 0 ? (
+                <div className="p-8 text-center border border-dashed border-slate-200 rounded-xl">
+                  <p className="text-xs font-bold text-slate-500">No subscribers yet.</p>
+                </div>
+              ) : (
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left text-xs">
+                    <thead>
+                      <tr className="border-b border-slate-200 text-slate-400 font-extrabold uppercase text-[0.65rem]">
+                        <th className="py-3 px-4">#</th>
+                        <th className="py-3 px-4">Email Address</th>
+                        <th className="py-3 px-4">Subscribed Date</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 font-medium text-slate-800">
+                      {subscribers.map((sub, idx) => (
+                        <tr key={sub.id || idx} className="hover:bg-slate-50">
+                          <td className="py-3.5 px-4 text-slate-400 font-extrabold">{idx + 1}</td>
+                          <td className="py-3.5 px-4 font-bold text-slate-900">{sub.email}</td>
+                          <td className="py-3.5 px-4 text-slate-500">
+                            {sub.subscribed_at ? new Date(sub.subscribed_at).toLocaleString() : "Recently"}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* TAB 3: CONTACT MESSAGES */}
+          {activeTab === "messages" && (
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-base font-extrabold text-slate-900">
+                  Contact Form Enquiries ({messages.length})
+                </h2>
+                <span className="text-[0.65rem] font-bold text-blue-600 bg-blue-50 rounded-full px-3 py-1">
+                  Incoming Enquiries
+                </span>
+              </div>
+
+              {loadingData ? (
+                <p className="text-xs text-slate-400 font-bold py-6 text-center">Loading messages...</p>
+              ) : messages.length === 0 ? (
+                <div className="p-8 text-center border border-dashed border-slate-200 rounded-xl">
+                  <p className="text-xs font-bold text-slate-500">No contact messages yet.</p>
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {messages.map((msg, idx) => (
+                    <div key={msg.id || idx} className="rounded-xl border border-slate-200 bg-slate-50/50 p-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center gap-2">
+                          <span className="font-extrabold text-slate-900 text-sm">{msg.name || "Anonymous User"}</span>
+                          <span className="text-xs font-bold text-blue-600">({msg.email})</span>
+                        </div>
+                        <span className="text-[0.65rem] font-bold text-slate-400">
+                          {msg.created_at ? new Date(msg.created_at).toLocaleString() : "Recently"}
+                        </span>
+                      </div>
+                      {msg.subject && (
+                        <p className="text-xs font-extrabold text-slate-800 mb-1">Subject: {msg.subject}</p>
+                      )}
+                      <p className="text-xs text-slate-600 font-medium bg-white p-3 rounded-lg border border-slate-200/60 leading-relaxed">
+                        {msg.message || "No message content."}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </main>
 

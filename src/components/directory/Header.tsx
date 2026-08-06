@@ -121,17 +121,45 @@ export const Header = () => {
 
                 <div className="h-px bg-slate-100 mx-1 my-0.5" />
 
-                {["Token Calculator", "Context Calculator", "VRAM Calculator"].map((label) => (
-                  <div
-                    key={label}
-                    className="flex items-center justify-between rounded-lg px-3 py-2.5 text-xs font-semibold text-slate-400 cursor-not-allowed select-none"
-                  >
-                    <span>{label}</span>
-                    <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[0.55rem] font-extrabold uppercase tracking-wide text-slate-400">
-                      Soon
-                    </span>
-                  </div>
-                ))}
+                <Link
+                  href="/tools/model-finder"
+                  className="flex items-center justify-between rounded-lg px-3 py-2.5 text-xs font-semibold text-slate-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                >
+                  <span>AI Model Finder</span>
+                  <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[0.55rem] font-extrabold uppercase tracking-wide text-emerald-700">
+                    Live
+                  </span>
+                </Link>
+
+                <Link
+                  href="/tools/token-calculator"
+                  className="flex items-center justify-between rounded-lg px-3 py-2.5 text-xs font-semibold text-slate-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                >
+                  <span>Token Calculator</span>
+                  <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[0.55rem] font-extrabold uppercase tracking-wide text-emerald-700">
+                    Live
+                  </span>
+                </Link>
+
+                <Link
+                  href="/tools/context-calculator"
+                  className="flex items-center justify-between rounded-lg px-3 py-2.5 text-xs font-semibold text-slate-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                >
+                  <span>Context Calculator</span>
+                  <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[0.55rem] font-extrabold uppercase tracking-wide text-emerald-700">
+                    Live
+                  </span>
+                </Link>
+
+                <Link
+                  href="/tools/vram-calculator"
+                  className="flex items-center justify-between rounded-lg px-3 py-2.5 text-xs font-semibold text-slate-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                >
+                  <span>VRAM Calculator</span>
+                  <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[0.55rem] font-extrabold uppercase tracking-wide text-emerald-700">
+                    Live
+                  </span>
+                </Link>
               </div>
             </div>
           </div>
@@ -244,6 +272,34 @@ export const Header = () => {
               className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors min-h-[44px]"
             >
               <span>AI Cost Calculator</span>
+            </Link>
+
+            <Link
+              href="/tools/model-finder"
+              className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors min-h-[44px]"
+            >
+              <span>AI Model Finder</span>
+            </Link>
+
+            <Link
+              href="/tools/token-calculator"
+              className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors min-h-[44px]"
+            >
+              <span>Token Calculator</span>
+            </Link>
+
+            <Link
+              href="/tools/context-calculator"
+              className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors min-h-[44px]"
+            >
+              <span>Context Calculator</span>
+            </Link>
+
+            <Link
+              href="/tools/vram-calculator"
+              className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors min-h-[44px]"
+            >
+              <span>VRAM Calculator</span>
             </Link>
 
             <Link

@@ -53,14 +53,26 @@ export const db = {
 
     if (!isPlaceholder) {
       try {
-        const { data, error } = await supabase.from("models").select("*");
-        if (!error && data && data.length > 0) {
-          memoryCache = data as AIModel[];
+        let allSupabaseModels: AIModel[] = [];
+        let page = 0;
+        const pageSize = 1000;
+
+        while (page < 20) {
+          const { data, error } = await supabase
+            .from("models")
+            .select("*")
+            .range(page * pageSize, (page + 1) * pageSize - 1);
+
+          if (error || !data || data.length === 0) break;
+          allSupabaseModels.push(...(data as AIModel[]));
+          page++;
+          if (data.length < pageSize) break;
+        }
+
+        if (allSupabaseModels.length > 0) {
+          memoryCache = allSupabaseModels;
           cacheExpiry = now + CACHE_TTL_MS;
           return memoryCache;
-        }
-        if (error) {
-          console.warn("Supabase query error, using local JSON fallback:", error.message);
         }
       } catch (err) {
         console.warn("Failed to connect to Supabase, using local JSON fallback:", err);

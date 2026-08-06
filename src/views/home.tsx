@@ -175,14 +175,14 @@ export const HomeView = () => {
             <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-2">
               <div>
                 <span className="text-xs font-extrabold text-purple-600 uppercase tracking-widest block mb-1">
-                  Ecosystem Roadmap
+                  Developer Utilities & Calculators
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                  Upcoming Developer Utilities
+                  Interactive Developer Tools
                 </h2>
               </div>
-              <span className="text-xs font-bold text-slate-400">
-                In Active Development
+              <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                5 Tools Live
               </span>
             </div>
 

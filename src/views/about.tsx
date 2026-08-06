@@ -21,7 +21,7 @@ export const AboutView = () => {
               The Open Intelligence <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Model Directory</span>
             </h1>
             <p className="text-xs sm:text-sm text-slate-600 font-medium mt-3 leading-relaxed">
-              ModelVault provides verified specifications, benchmark results, pricing structures, and hardware requirements for cloud API and open-weight AI models.
+              ModelVault provides verified specifications, benchmark results, pricing structures, and hardware requirements for over 11,000+ cloud API and open-weight AI models across Hugging Face, OpenRouter, CivitAI, and custom registries.
             </p>
           </div>
 

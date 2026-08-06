@@ -1,43 +1,80 @@
+import { NextResponse } from "next/server";
 import { z } from "zod";
+import { supabase } from "@/lib/supabase";
+import { publicEnv } from "@/env";
+import fs from "fs";
+import path from "path";
 
-import { getServerEnv } from "@/env";
-import { ApiError, handle } from "@/lib/api";
-
-/**
- * Example `app/api` endpoint — a contact / lead submission.
- *
- * Demonstrates the convention: the handler owns the work — it validates input,
- * reads a secret env var, and calls an upstream service inline. Secrets are
- * safe here because `route.ts` is never bundled to the browser.
- */
-
-// Request schema — kept in the route since it isn't shared. Lift to a shared
-// module only once another route needs it.
 const contactSchema = z.object({
   name: z.string().min(1).max(100),
-  email: z.email(),
+  email: z.string().email(),
   message: z.string().min(1).max(2000),
 });
 
-export const POST = handle(async (req) => {
-  const input = contactSchema.parse(await req.json());
+const CONTACTS_FILE = path.join(process.cwd(), "src/data/contacts_db.json");
 
-  const { CONTACT_ENDPOINT } = getServerEnv();
-
-  if (CONTACT_ENDPOINT) {
-    // Forward the lead to the configured upstream (CRM, webhook, …).
-    const upstream = await fetch(CONTACT_ENDPOINT, {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(input),
-    });
-    if (!upstream.ok) {
-      throw new ApiError(502, "upstream_error", "Failed to deliver the message.");
+function ensureLocalContactsFile(): any[] {
+  try {
+    if (fs.existsSync(CONTACTS_FILE)) {
+      const raw = fs.readFileSync(CONTACTS_FILE, "utf-8");
+      return JSON.parse(raw);
     }
-  } else {
-    // No upstream configured — log server-side so the starter runs as-is.
-    console.log("[api/contact] submission:", input);
+  } catch (e) {
+    console.error("Failed to read local contacts file:", e);
   }
+  return [];
+}
 
-  return { received: true };
-});
+function saveLocalContact(record: any): void {
+  try {
+    const list = ensureLocalContactsFile();
+    list.unshift(record);
+    fs.writeFileSync(CONTACTS_FILE, JSON.stringify(list, null, 2), "utf-8");
+  } catch (e) {
+    console.error("Failed to save local contact record:", e);
+  }
+}
+
+export async function POST(req: Request) {
+  try {
+    const body = await req.json();
+    const parsed = contactSchema.safeParse(body);
+
+    if (!parsed.success) {
+      return NextResponse.json(
+        { error: "Invalid form input. Please fill out all fields." },
+        { status: 400 }
+      );
+    }
+
+    const { name, email, message } = parsed.data;
+    const newRecord = {
+      id: Date.now(),
+      name,
+      email,
+      message,
+      created_at: new Date().toISOString(),
+    };
+
+    const isPlaceholder = publicEnv.NEXT_PUBLIC_SUPABASE_URL?.includes("placeholder");
+
+    if (!isPlaceholder) {
+      try {
+        const { error } = await supabase.from("contacts").insert([newRecord]);
+        if (error) {
+          console.warn("Supabase insert error on contacts:", error.message);
+        }
+      } catch (err) {
+        console.warn("Failed to connect to Supabase for contacts:", err);
+      }
+    }
+
+    // Always save local JSON fallback
+    saveLocalContact(newRecord);
+
+    return NextResponse.json({ success: true, message: "Thank you! Your message has been received." });
+  } catch (error) {
+    console.error("Contact submission error:", error);
+    return NextResponse.json({ error: "Failed to deliver message." }, { status: 500 });
+  }
+}

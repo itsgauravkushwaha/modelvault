@@ -9,9 +9,36 @@ export const ContactView = () => {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", subject: "model-update", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: `[Subject: ${formData.subject}] ${formData.message}`,
+        }),
+      });
+
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSubmitted(true);
+      } else {
+        setErrorMsg(data.error || "Failed to deliver message. Please try again.");
+      }
+    } catch {
+      setErrorMsg("Network error. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -114,11 +141,16 @@ export const ContactView = () => {
                   />
                 </div>
 
+                {errorMsg && (
+                  <p className="text-xs font-bold text-rose-600 bg-rose-50 p-3 rounded-xl border border-rose-200">{errorMsg}</p>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-extrabold py-3 text-xs transition-all shadow-md hover:shadow-blue-500/20"
+                  disabled={loading}
+                  className="w-full rounded-xl bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white font-extrabold py-3 text-xs transition-all shadow-md hover:shadow-blue-500/20"
                 >
-                  Send Message
+                  {loading ? "Sending Message..." : "Send Message"}
                 </button>
               </form>
             )}

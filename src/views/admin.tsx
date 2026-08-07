@@ -59,6 +59,28 @@ export const AdminView = () => {
     }
   }, [isAuthenticated]);
 
+  const [syncing, setSyncing] = useState(false);
+  const [syncMsg, setSyncMsg] = useState("");
+
+  const handleSyncNow = async () => {
+    setSyncing(true);
+    setSyncMsg("");
+    try {
+      const res = await fetch("/api/cron/sync-models");
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSyncMsg(`Sync Complete! ${data.updatedCount} models updated, ${data.newlyAddedCount} new models added.`);
+        fetchAdminModels();
+      } else {
+        setSyncMsg("Failed to run sync. Please try again.");
+      }
+    } catch {
+      setSyncMsg("Network error triggering sync.");
+    } finally {
+      setSyncing(false);
+    }
+  };
+
   if (!isAuthenticated) return null;
 
   return (
@@ -80,6 +102,13 @@ export const AdminView = () => {
 
             <div className="flex items-center gap-2">
               <button
+                onClick={handleSyncNow}
+                disabled={syncing}
+                className="rounded-xl border border-purple-200 bg-purple-50 hover:bg-purple-100 disabled:opacity-50 text-purple-700 px-4 py-2 text-xs font-bold shadow-sm transition-all"
+              >
+                {syncing ? "🔄 Syncing Platforms..." : "🔄 Sync All Platforms"}
+              </button>
+              <button
                 onClick={openImportModal}
                 className="rounded-xl border border-slate-200 bg-white hover:bg-slate-100 text-slate-800 px-4 py-2 text-xs font-bold shadow-sm transition-all"
               >
@@ -93,6 +122,13 @@ export const AdminView = () => {
               </button>
             </div>
           </div>
+
+          {syncMsg && (
+            <div className="rounded-xl bg-emerald-50 border border-emerald-200 p-3.5 text-xs font-extrabold text-emerald-700 shadow-sm flex items-center justify-between">
+              <span>{syncMsg}</span>
+              <button onClick={() => setSyncMsg("")} className="text-emerald-500 hover:text-emerald-800 font-bold ml-2">✕</button>
+            </div>
+          )}
 
           {/* Navigation Tabs */}
           <div className="flex items-center gap-2 border-b border-slate-200 pb-2">

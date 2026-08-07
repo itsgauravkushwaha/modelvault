@@ -32,9 +32,16 @@ const publicSchema = z.object({
   NEXT_PUBLIC_CLARITY_ID: optionalString(),
   NEXT_PUBLIC_GSC_VERIFICATION: optionalString(),
   NEXT_PUBLIC_BING_VERIFICATION: optionalString(),
-  NEXT_PUBLIC_SUPABASE_URL: z.string().url(),
-  NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1),
+  NEXT_PUBLIC_SUPABASE_URL: z.preprocess(
+    (v) => (v === "" || v === undefined ? "https://placeholder.supabase.co" : v),
+    z.string().url()
+  ),
+  NEXT_PUBLIC_SUPABASE_ANON_KEY: z.preprocess(
+    (v) => (v === "" || v === undefined ? "placeholder-key" : v),
+    z.string().min(1)
+  ),
 });
+
 
 const serverSchema = z.object({
   /** Optional upstream the contact endpoint forwards leads to (CRM / webhook). */

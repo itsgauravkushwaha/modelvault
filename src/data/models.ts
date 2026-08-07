@@ -2,6 +2,52 @@ import { AIModel } from "@/types/model";
 
 export const MODELS: AIModel[] = [
   {
+    "slug": "moonshotai-kimi-k3",
+    "name": "kimi-k3",
+    "provider": "kimi",
+    "providerSlug": "kimi",
+    "description": "test 1",
+    "type": "Large Language Model",
+    "useCases": [
+      "text-chat"
+    ],
+    "modalities": [
+      "text"
+    ],
+    "availability": "both",
+    "hasApi": true,
+    "hasSelfHost": false,
+    "license": "Proprietary",
+    "pricing": "free",
+    "pricingDetails": "$1.00 / 1M tokens",
+    "contextWindow": "2.8T",
+    "hardwareRequirements": "",
+    "benchmarks": [
+      {
+        "name": "MMLU",
+        "score": 80
+      }
+    ],
+    "releaseDate": "2026-07-28",
+    "lastUpdated": "2026-07-28",
+    "lastVerified": "2026-07-28",
+    "strengths": [
+      "Fast inference"
+    ],
+    "weaknesses": [
+      "Closed source"
+    ],
+    "docUrl": "https://platform.moonshot.cn/docs/intro",
+    "tags": [
+      "ai"
+    ],
+    "featured": false,
+    "trending": false,
+    "isDeprecated": false,
+    "modelCardUrl": "https://github.com/MoonshotAI/Kimi-k1.5",
+    "playgroundUrl": "https://kimi.moonshot.cn/"
+  },
+  {
     "slug": "gpt-4o",
     "name": "GPT-4o",
     "provider": "OpenAI",
@@ -43,15 +89,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=GPT-4o",
-    "modelCardUrl": "https://huggingface.co/models?search=GPT-4o",
+    "docUrl": "https://platform.openai.com/docs/models/gpt-4o",
+    "modelCardUrl": "https://openai.com/index/hello-gpt-4o/",
     "tags": [
       "flagship",
       "omni",
       "openai"
     ],
     "featured": true,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://platform.openai.com/playground"
   },
   {
     "slug": "gpt-4o-mini",
@@ -92,15 +139,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=GPT-4o%20mini",
-    "modelCardUrl": "https://huggingface.co/models?search=GPT-4o%20mini",
+    "docUrl": "https://platform.openai.com/docs/models/gpt-4o",
+    "modelCardUrl": "https://openai.com/index/hello-gpt-4o/",
     "tags": [
       "mini",
       "fast",
       "openai"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://platform.openai.com/playground"
   },
   {
     "slug": "openai-o3",
@@ -142,15 +190,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=OpenAI%20o3",
-    "modelCardUrl": "https://huggingface.co/models?search=OpenAI%20o3",
+    "docUrl": "https://platform.openai.com/docs/guides/reasoning",
+    "modelCardUrl": "https://openai.com/index/openai-o3-mini/",
     "tags": [
       "reasoning",
       "math",
       "o3"
     ],
     "featured": true,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://platform.openai.com/playground"
   },
   {
     "slug": "openai-o3-mini",
@@ -190,14 +239,15 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=OpenAI%20o3-mini",
-    "modelCardUrl": "https://huggingface.co/models?search=OpenAI%20o3-mini",
+    "docUrl": "https://platform.openai.com/docs/guides/reasoning",
+    "modelCardUrl": "https://openai.com/index/openai-o3-mini/",
     "tags": [
       "reasoning",
       "o3-mini"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://platform.openai.com/playground"
   },
   {
     "slug": "openai-o1",
@@ -238,14 +288,15 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=OpenAI%20o1",
-    "modelCardUrl": "https://huggingface.co/models?search=OpenAI%20o1",
+    "docUrl": "https://platform.openai.com/docs/guides/reasoning",
+    "modelCardUrl": "https://openai.com/index/introducing-openai-o1/",
     "tags": [
       "reasoning",
       "o1"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.openai.com/playground"
   },
   {
     "slug": "openai-o1-mini",
@@ -285,14 +336,15 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=OpenAI%20o1-mini",
-    "modelCardUrl": "https://huggingface.co/models?search=OpenAI%20o1-mini",
+    "docUrl": "https://platform.openai.com/docs/guides/reasoning",
+    "modelCardUrl": "https://openai.com/index/introducing-openai-o1/",
     "tags": [
       "o1-mini",
       "coding"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.openai.com/playground"
   },
   {
     "slug": "gpt-4-turbo",
@@ -333,14 +385,15 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=GPT-4%20Turbo",
-    "modelCardUrl": "https://huggingface.co/models?search=GPT-4%20Turbo",
+    "docUrl": "https://platform.openai.com/docs/models/gpt-4-turbo",
+    "modelCardUrl": "https://openai.com/index/gpt-4-research/",
     "tags": [
       "gpt4",
       "turbo"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.openai.com/playground"
   },
   {
     "slug": "gpt-4",
@@ -379,14 +432,15 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=GPT-4",
-    "modelCardUrl": "https://huggingface.co/models?search=GPT-4",
+    "docUrl": "https://platform.openai.com/docs/models/gpt-4-turbo",
+    "modelCardUrl": "https://openai.com/index/gpt-4-research/",
     "tags": [
       "gpt4",
       "legacy"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.openai.com/playground"
   },
   {
     "slug": "gpt-3-5-turbo",
@@ -424,13 +478,14 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=GPT-3.5%20Turbo",
-    "modelCardUrl": "https://huggingface.co/models?search=GPT-3.5%20Turbo",
+    "docUrl": "https://platform.openai.com/docs/models",
+    "modelCardUrl": "https://openai.com/research",
     "tags": [
       "gpt3.5"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.openai.com/playground"
   },
   {
     "slug": "dall-e-3",
@@ -468,14 +523,15 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DALL-E%203",
-    "modelCardUrl": "https://huggingface.co/models?search=DALL-E%203",
+    "docUrl": "https://platform.openai.com/docs/guides/images",
+    "modelCardUrl": "https://openai.com/index/dall-e-3/",
     "tags": [
       "image-gen",
       "dalle3"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.openai.com/playground"
   },
   {
     "slug": "dall-e-2",
@@ -514,14 +570,15 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DALL-E%202",
-    "modelCardUrl": "https://huggingface.co/models?search=DALL-E%202",
+    "docUrl": "https://platform.openai.com/docs/guides/images",
+    "modelCardUrl": "https://openai.com/index/dall-e-3/",
     "tags": [
       "image-gen",
       "legacy"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.openai.com/playground"
   },
   {
     "slug": "whisper-large-v3",
@@ -562,15 +619,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Whisper%20Large%20v3",
-    "modelCardUrl": "https://huggingface.co/models?search=Whisper%20Large%20v3",
+    "docUrl": "https://platform.openai.com/docs/guides/speech-to-text",
+    "modelCardUrl": "https://github.com/openai/whisper",
     "tags": [
       "speech",
       "asr",
       "whisper"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.openai.com/playground"
   },
   {
     "slug": "whisper-large-v2",
@@ -611,14 +669,15 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Whisper%20Large%20v2",
-    "modelCardUrl": "https://huggingface.co/models?search=Whisper%20Large%20v2",
+    "docUrl": "https://platform.openai.com/docs/guides/speech-to-text",
+    "modelCardUrl": "https://github.com/openai/whisper",
     "tags": [
       "whisper",
       "asr"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.openai.com/playground"
   },
   {
     "slug": "whisper-medium",
@@ -659,13 +718,14 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Whisper%20Medium",
-    "modelCardUrl": "https://huggingface.co/models?search=Whisper%20Medium",
+    "docUrl": "https://platform.openai.com/docs/guides/speech-to-text",
+    "modelCardUrl": "https://github.com/openai/whisper",
     "tags": [
       "whisper"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.openai.com/playground"
   },
   {
     "slug": "whisper-small",
@@ -706,14 +766,15 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Whisper%20Small",
-    "modelCardUrl": "https://huggingface.co/models?search=Whisper%20Small",
+    "docUrl": "https://platform.openai.com/docs/guides/speech-to-text",
+    "modelCardUrl": "https://github.com/openai/whisper",
     "tags": [
       "whisper",
       "small"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.openai.com/playground"
   },
   {
     "slug": "text-embedding-3-large",
@@ -751,14 +812,15 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=text-embedding-3-large",
-    "modelCardUrl": "https://huggingface.co/models?search=text-embedding-3-large",
+    "docUrl": "https://platform.openai.com/docs/models",
+    "modelCardUrl": "https://openai.com/research",
     "tags": [
       "embeddings",
       "rag"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.openai.com/playground"
   },
   {
     "slug": "text-embedding-3-small",
@@ -796,14 +858,15 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=text-embedding-3-small",
-    "modelCardUrl": "https://huggingface.co/models?search=text-embedding-3-small",
+    "docUrl": "https://platform.openai.com/docs/models",
+    "modelCardUrl": "https://openai.com/research",
     "tags": [
       "embeddings",
       "cheap"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.openai.com/playground"
   },
   {
     "slug": "text-embedding-ada-002",
@@ -841,14 +904,15 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=text-embedding-ada-002",
-    "modelCardUrl": "https://huggingface.co/models?search=text-embedding-ada-002",
+    "docUrl": "https://platform.openai.com/docs/models",
+    "modelCardUrl": "https://openai.com/research",
     "tags": [
       "embeddings",
       "ada"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.openai.com/playground"
   },
   {
     "slug": "tts-1",
@@ -887,14 +951,15 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=OpenAI%20TTS-1",
-    "modelCardUrl": "https://huggingface.co/models?search=OpenAI%20TTS-1",
+    "docUrl": "https://platform.openai.com/docs/models",
+    "modelCardUrl": "https://openai.com/research",
     "tags": [
       "tts",
       "audio"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.openai.com/playground"
   },
   {
     "slug": "tts-1-hd",
@@ -933,14 +998,15 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=OpenAI%20TTS-1%20HD",
-    "modelCardUrl": "https://huggingface.co/models?search=OpenAI%20TTS-1%20HD",
+    "docUrl": "https://platform.openai.com/docs/models",
+    "modelCardUrl": "https://openai.com/research",
     "tags": [
       "tts",
       "hd"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.openai.com/playground"
   },
   {
     "slug": "claude-3-5-sonnet",
@@ -987,15 +1053,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Claude%203.5%20Sonnet",
-    "modelCardUrl": "https://huggingface.co/models?search=Claude%203.5%20Sonnet",
+    "docUrl": "https://docs.anthropic.com/en/docs/models-overview",
+    "modelCardUrl": "https://www.anthropic.com/news/claude-3-5-sonnet",
     "tags": [
       "claude",
       "coding",
       "flagship"
     ],
     "featured": true,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://console.anthropic.com/dashboard"
   },
   {
     "slug": "claude-3-5-haiku",
@@ -1035,15 +1102,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Claude%203.5%20Haiku",
-    "modelCardUrl": "https://huggingface.co/models?search=Claude%203.5%20Haiku",
+    "docUrl": "https://docs.anthropic.com/en/docs/models-overview",
+    "modelCardUrl": "https://www.anthropic.com/news/claude-3-5-haiku",
     "tags": [
       "claude",
       "haiku",
       "fast"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://console.anthropic.com/dashboard"
   },
   {
     "slug": "claude-3-opus",
@@ -1085,14 +1153,15 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Claude%203%20Opus",
-    "modelCardUrl": "https://huggingface.co/models?search=Claude%203%20Opus",
+    "docUrl": "https://docs.anthropic.com/en/docs/models-overview",
+    "modelCardUrl": "https://www.anthropic.com/news/claude-3-family",
     "tags": [
       "claude",
       "opus"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://console.anthropic.com/dashboard"
   },
   {
     "slug": "claude-3-sonnet",
@@ -1133,14 +1202,15 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Claude%203%20Sonnet",
-    "modelCardUrl": "https://huggingface.co/models?search=Claude%203%20Sonnet",
+    "docUrl": "https://docs.anthropic.com/en/docs/models-overview",
+    "modelCardUrl": "https://www.anthropic.com/news/claude-3-family",
     "tags": [
       "claude",
       "sonnet"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://console.anthropic.com/dashboard"
   },
   {
     "slug": "claude-3-haiku",
@@ -1179,14 +1249,15 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Claude%203%20Haiku",
-    "modelCardUrl": "https://huggingface.co/models?search=Claude%203%20Haiku",
+    "docUrl": "https://docs.anthropic.com/en/docs/models-overview",
+    "modelCardUrl": "https://www.anthropic.com/news/claude-3-family",
     "tags": [
       "claude",
       "haiku"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://console.anthropic.com/dashboard"
   },
   {
     "slug": "claude-2-1",
@@ -1224,13 +1295,14 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Claude%202.1",
-    "modelCardUrl": "https://huggingface.co/models?search=Claude%202.1",
+    "docUrl": "https://docs.anthropic.com/en/docs/models-overview",
+    "modelCardUrl": "https://www.anthropic.com/research",
     "tags": [
       "claude2"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://console.anthropic.com/dashboard"
   },
   {
     "slug": "claude-2-0",
@@ -1268,13 +1340,14 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Claude%202.0",
-    "modelCardUrl": "https://huggingface.co/models?search=Claude%202.0",
+    "docUrl": "https://docs.anthropic.com/en/docs/models-overview",
+    "modelCardUrl": "https://www.anthropic.com/research",
     "tags": [
       "claude2"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://console.anthropic.com/dashboard"
   },
   {
     "slug": "claude-instant-1-2",
@@ -1312,13 +1385,14 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Claude%20Instant%201.2",
-    "modelCardUrl": "https://huggingface.co/models?search=Claude%20Instant%201.2",
+    "docUrl": "https://docs.anthropic.com/en/docs/models-overview",
+    "modelCardUrl": "https://www.anthropic.com/research",
     "tags": [
       "instant"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://console.anthropic.com/dashboard"
   },
   {
     "slug": "gemini-2-0-flash",
@@ -1360,15 +1434,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemini%202.0%20Flash",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemini%202.0%20Flash",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini#gemini-2.0",
+    "modelCardUrl": "https://blog.google/technology/developers/gemini-2-flash/",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": true,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "gemini-2-0-flash-lite",
@@ -1410,15 +1485,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemini%202.0%20Flash-Lite",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemini%202.0%20Flash-Lite",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini#gemini-2.0",
+    "modelCardUrl": "https://blog.google/technology/developers/gemini-2-flash/",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": true,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "gemini-2-0-pro",
@@ -1460,15 +1536,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemini%202.0%20Pro",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemini%202.0%20Pro",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini#gemini-2.0",
+    "modelCardUrl": "https://blog.google/technology/developers/gemini-2-flash/",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": true,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "gemini-2-0-flash-thinking",
@@ -1510,15 +1587,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemini%202.0%20Flash%20Thinking",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemini%202.0%20Flash%20Thinking",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini#gemini-2.0",
+    "modelCardUrl": "https://blog.google/technology/developers/gemini-2-flash/",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "gemini-1-5-pro",
@@ -1560,15 +1638,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemini%201.5%20Pro",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemini%201.5%20Pro",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini",
+    "modelCardUrl": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "gemini-1-5-flash",
@@ -1610,15 +1689,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemini%201.5%20Flash",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemini%201.5%20Flash",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini",
+    "modelCardUrl": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "gemini-1-5-flash-8b",
@@ -1660,15 +1740,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemini%201.5%20Flash-8B",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemini%201.5%20Flash-8B",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini",
+    "modelCardUrl": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "gemini-1-0-pro",
@@ -1710,15 +1791,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemini%201.0%20Pro",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemini%201.0%20Pro",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini",
+    "modelCardUrl": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "gemini-1-0-ultra",
@@ -1760,15 +1842,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemini%201.0%20Ultra",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemini%201.0%20Ultra",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini",
+    "modelCardUrl": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "gemma-2-27b",
@@ -1810,15 +1893,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma%202%2027B",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma%202%2027B",
+    "docUrl": "https://ai.google.dev/gemma/docs",
+    "modelCardUrl": "https://huggingface.co/google/gemma-2-27b-it",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "gemma-2-9b",
@@ -1860,15 +1944,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma%202%209B",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma%202%209B",
+    "docUrl": "https://ai.google.dev/gemma/docs",
+    "modelCardUrl": "https://huggingface.co/google/gemma-2-27b-it",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "gemma-2-2b",
@@ -1910,15 +1995,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma%202%202B",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma%202%202B",
+    "docUrl": "https://ai.google.dev/gemma/docs",
+    "modelCardUrl": "https://huggingface.co/google/gemma-2-27b-it",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "gemma-7b",
@@ -1960,15 +2046,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma%207B",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma%207B",
+    "docUrl": "https://ai.google.dev/gemma/docs",
+    "modelCardUrl": "https://huggingface.co/google/gemma-2-27b-it",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "gemma-2b",
@@ -2010,15 +2097,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma%202B",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma%202B",
+    "docUrl": "https://ai.google.dev/gemma/docs",
+    "modelCardUrl": "https://huggingface.co/google/gemma-2-27b-it",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "codegemma-7b",
@@ -2060,15 +2148,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=CodeGemma%207B",
-    "modelCardUrl": "https://huggingface.co/models?search=CodeGemma%207B",
+    "docUrl": "https://ai.google.dev/gemma/docs",
+    "modelCardUrl": "https://huggingface.co/google/gemma-2-27b-it",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "codegemma-2b",
@@ -2110,15 +2199,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=CodeGemma%202B",
-    "modelCardUrl": "https://huggingface.co/models?search=CodeGemma%202B",
+    "docUrl": "https://ai.google.dev/gemma/docs",
+    "modelCardUrl": "https://huggingface.co/google/gemma-2-27b-it",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "recurrentgemma-2b",
@@ -2160,15 +2250,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=RecurrentGemma%202B",
-    "modelCardUrl": "https://huggingface.co/models?search=RecurrentGemma%202B",
+    "docUrl": "https://ai.google.dev/gemma/docs",
+    "modelCardUrl": "https://huggingface.co/google/gemma-2-27b-it",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "imagen-3",
@@ -2206,15 +2297,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Imagen%203",
-    "modelCardUrl": "https://huggingface.co/models?search=Imagen%203",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/imagen",
+    "modelCardUrl": "https://deepmind.google/technologies/imagen-3/",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "imagen-2",
@@ -2252,15 +2344,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Imagen%202",
-    "modelCardUrl": "https://huggingface.co/models?search=Imagen%202",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/imagen",
+    "modelCardUrl": "https://deepmind.google/technologies/imagen-3/",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "veo-2",
@@ -2298,15 +2391,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Veo%202",
-    "modelCardUrl": "https://huggingface.co/models?search=Veo%202",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini",
+    "modelCardUrl": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "veo-1",
@@ -2344,15 +2438,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Veo%201",
-    "modelCardUrl": "https://huggingface.co/models?search=Veo%201",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini",
+    "modelCardUrl": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "musiclm",
@@ -2394,15 +2489,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=MusicLM",
-    "modelCardUrl": "https://huggingface.co/models?search=MusicLM",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini",
+    "modelCardUrl": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "audiolm",
@@ -2444,15 +2540,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=AudioLM",
-    "modelCardUrl": "https://huggingface.co/models?search=AudioLM",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini",
+    "modelCardUrl": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "palm-2",
@@ -2494,15 +2591,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=PaLM%202",
-    "modelCardUrl": "https://huggingface.co/models?search=PaLM%202",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini",
+    "modelCardUrl": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "palm-2-bison",
@@ -2544,15 +2642,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=PaLM%202%20Bison",
-    "modelCardUrl": "https://huggingface.co/models?search=PaLM%202%20Bison",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini",
+    "modelCardUrl": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
     "tags": [
       "google",
       "gemini",
       "gemma"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "llama-3-3-70b",
@@ -2593,8 +2692,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama%203.3%2070B",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama%203.3%2070B",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-3",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
     "tags": [
       "meta",
       "llama",
@@ -2602,7 +2701,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": true,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-2-11b-vision",
@@ -2643,8 +2743,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama%203.2%2011B%20Vision",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama%203.2%2011B%20Vision",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-2",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct",
     "tags": [
       "meta",
       "llama",
@@ -2652,7 +2752,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-2-90b-vision",
@@ -2693,8 +2794,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama%203.2%2090B%20Vision",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama%203.2%2090B%20Vision",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-2",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct",
     "tags": [
       "meta",
       "llama",
@@ -2702,7 +2803,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-2-3b",
@@ -2743,8 +2845,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama%203.2%203B",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama%203.2%203B",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-2",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct",
     "tags": [
       "meta",
       "llama",
@@ -2752,7 +2854,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-2-1b",
@@ -2793,8 +2896,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama%203.2%201B",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama%203.2%201B",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-2",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct",
     "tags": [
       "meta",
       "llama",
@@ -2802,7 +2905,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-405b",
@@ -2843,8 +2947,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama%203.1%20405B",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama%203.1%20405B",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "meta",
       "llama",
@@ -2852,7 +2956,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": true,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-70b",
@@ -2893,8 +2998,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama%203.1%2070B",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama%203.1%2070B",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "meta",
       "llama",
@@ -2902,7 +3007,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-8b",
@@ -2943,8 +3049,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama%203.1%208B",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama%203.1%208B",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "meta",
       "llama",
@@ -2952,7 +3058,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-70b",
@@ -2993,8 +3100,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama%203%2070B",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama%203%2070B",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct",
     "tags": [
       "meta",
       "llama",
@@ -3002,7 +3109,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-8b",
@@ -3043,8 +3151,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama%203%208B",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama%203%208B",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct",
     "tags": [
       "meta",
       "llama",
@@ -3052,7 +3160,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-2-70b",
@@ -3093,8 +3202,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama%202%2070B",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama%202%2070B",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-2",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Llama-2-70b-chat-hf",
     "tags": [
       "meta",
       "llama",
@@ -3102,7 +3211,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-2-13b",
@@ -3143,8 +3253,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama%202%2013B",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama%202%2013B",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-2",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Llama-2-70b-chat-hf",
     "tags": [
       "meta",
       "llama",
@@ -3152,7 +3262,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-2-7b",
@@ -3193,8 +3304,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama%202%207B",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama%202%207B",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-2",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Llama-2-70b-chat-hf",
     "tags": [
       "meta",
       "llama",
@@ -3202,7 +3313,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "code-llama-70b",
@@ -3243,8 +3355,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Code%20Llama%2070B",
-    "modelCardUrl": "https://huggingface.co/models?search=Code%20Llama%2070B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "meta",
       "llama",
@@ -3252,7 +3364,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "code-llama-34b",
@@ -3293,8 +3406,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Code%20Llama%2034B",
-    "modelCardUrl": "https://huggingface.co/models?search=Code%20Llama%2034B",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct",
     "tags": [
       "meta",
       "llama",
@@ -3302,7 +3415,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "code-llama-13b",
@@ -3343,8 +3457,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Code%20Llama%2013B",
-    "modelCardUrl": "https://huggingface.co/models?search=Code%20Llama%2013B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "meta",
       "llama",
@@ -3352,7 +3466,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "code-llama-7b",
@@ -3393,8 +3508,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Code%20Llama%207B",
-    "modelCardUrl": "https://huggingface.co/models?search=Code%20Llama%207B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "meta",
       "llama",
@@ -3402,7 +3517,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-guard-3-8b",
@@ -3443,8 +3559,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama%20Guard%203%208B",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama%20Guard%203%208B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "meta",
       "llama",
@@ -3452,7 +3568,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-guard-3-1b",
@@ -3493,8 +3610,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama%20Guard%203%201B",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama%20Guard%203%201B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "meta",
       "llama",
@@ -3502,7 +3619,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "prompt-guard-86m",
@@ -3543,8 +3661,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Prompt%20Guard%2086M",
-    "modelCardUrl": "https://huggingface.co/models?search=Prompt%20Guard%2086M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "meta",
       "llama",
@@ -3552,7 +3670,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "segment-anything-2--sam-2-",
@@ -3593,8 +3712,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Segment%20Anything%202%20(SAM%202)",
-    "modelCardUrl": "https://huggingface.co/models?search=Segment%20Anything%202%20(SAM%202)",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "meta",
       "llama",
@@ -3602,7 +3721,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "sam-1",
@@ -3643,8 +3763,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=SAM%201",
-    "modelCardUrl": "https://huggingface.co/models?search=SAM%201",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "meta",
       "llama",
@@ -3652,7 +3772,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "seamlessm4t-v2",
@@ -3693,8 +3814,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=SeamlessM4T%20v2",
-    "modelCardUrl": "https://huggingface.co/models?search=SeamlessM4T%20v2",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "meta",
       "llama",
@@ -3702,7 +3823,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "seamless-expressive",
@@ -3743,8 +3865,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Seamless%20Expressive",
-    "modelCardUrl": "https://huggingface.co/models?search=Seamless%20Expressive",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "meta",
       "llama",
@@ -3752,7 +3874,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "audiocraft",
@@ -3791,8 +3914,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=AudioCraft",
-    "modelCardUrl": "https://huggingface.co/models?search=AudioCraft",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "meta",
       "llama",
@@ -3800,7 +3923,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "musicgen",
@@ -3839,8 +3963,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=MusicGen",
-    "modelCardUrl": "https://huggingface.co/models?search=MusicGen",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "meta",
       "llama",
@@ -3848,7 +3972,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bark",
@@ -3889,8 +4014,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Bark",
-    "modelCardUrl": "https://huggingface.co/models?search=Bark",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "meta",
       "llama",
@@ -3898,7 +4023,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "encodec",
@@ -3939,8 +4065,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=EnCodec",
-    "modelCardUrl": "https://huggingface.co/models?search=EnCodec",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "meta",
       "llama",
@@ -3948,7 +4074,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "moviegen",
@@ -3989,8 +4116,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=MovieGen",
-    "modelCardUrl": "https://huggingface.co/models?search=MovieGen",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "meta",
       "llama",
@@ -3998,7 +4125,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-large-2",
@@ -4038,15 +4166,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral%20Large%202",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral%20Large%202",
+    "docUrl": "https://docs.mistral.ai/getting-started/models/models_overview/",
+    "modelCardUrl": "https://huggingface.co/mistralai/Mistral-Large-Instruct-2411",
     "tags": [
       "mistral",
       "open-weights",
       "european"
     ],
     "featured": true,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.mistral.ai/"
   },
   {
     "slug": "mistral-large",
@@ -4086,15 +4215,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral%20Large",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral%20Large",
+    "docUrl": "https://docs.mistral.ai/getting-started/models/models_overview/",
+    "modelCardUrl": "https://huggingface.co/mistralai/Mistral-Large-Instruct-2411",
     "tags": [
       "mistral",
       "open-weights",
       "european"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://chat.mistral.ai/"
   },
   {
     "slug": "mistral-medium",
@@ -4134,15 +4264,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral%20Medium",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral%20Medium",
+    "docUrl": "https://docs.mistral.ai/getting-started/models/models_overview/",
+    "modelCardUrl": "https://huggingface.co/mistralai",
     "tags": [
       "mistral",
       "open-weights",
       "european"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.mistral.ai/"
   },
   {
     "slug": "mistral-small-3",
@@ -4182,15 +4313,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral%20Small%203",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral%20Small%203",
+    "docUrl": "https://docs.mistral.ai/getting-started/models/models_overview/",
+    "modelCardUrl": "https://huggingface.co/mistralai",
     "tags": [
       "mistral",
       "open-weights",
       "european"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://chat.mistral.ai/"
   },
   {
     "slug": "mistral-small-2",
@@ -4230,15 +4362,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral%20Small%202",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral%20Small%202",
+    "docUrl": "https://docs.mistral.ai/getting-started/models/models_overview/",
+    "modelCardUrl": "https://huggingface.co/mistralai",
     "tags": [
       "mistral",
       "open-weights",
       "european"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.mistral.ai/"
   },
   {
     "slug": "mistral-nemo-12b",
@@ -4278,15 +4411,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral%20NeMo%2012B",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral%20NeMo%2012B",
+    "docUrl": "https://docs.mistral.ai/getting-started/models/models_overview/",
+    "modelCardUrl": "https://huggingface.co/mistralai",
     "tags": [
       "mistral",
       "open-weights",
       "european"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://chat.mistral.ai/"
   },
   {
     "slug": "mistral-7b-v0-3",
@@ -4326,15 +4460,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral%207B%20v0.3",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral%207B%20v0.3",
+    "docUrl": "https://docs.mistral.ai/getting-started/models/models_overview/",
+    "modelCardUrl": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3",
     "tags": [
       "mistral",
       "open-weights",
       "european"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.mistral.ai/"
   },
   {
     "slug": "mistral-7b-v0-2",
@@ -4374,15 +4509,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral%207B%20v0.2",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral%207B%20v0.2",
+    "docUrl": "https://docs.mistral.ai/getting-started/models/models_overview/",
+    "modelCardUrl": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3",
     "tags": [
       "mistral",
       "open-weights",
       "european"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://chat.mistral.ai/"
   },
   {
     "slug": "mistral-7b-v0-1",
@@ -4422,15 +4558,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral%207B%20v0.1",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral%207B%20v0.1",
+    "docUrl": "https://docs.mistral.ai/getting-started/models/models_overview/",
+    "modelCardUrl": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3",
     "tags": [
       "mistral",
       "open-weights",
       "european"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.mistral.ai/"
   },
   {
     "slug": "codestral-22b",
@@ -4470,15 +4607,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Codestral%2022B",
-    "modelCardUrl": "https://huggingface.co/models?search=Codestral%2022B",
+    "docUrl": "https://docs.mistral.ai/getting-started/models/models_overview/",
+    "modelCardUrl": "https://huggingface.co/mistralai",
     "tags": [
       "mistral",
       "open-weights",
       "european"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://chat.mistral.ai/"
   },
   {
     "slug": "codestral-mamba",
@@ -4518,15 +4656,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Codestral%20Mamba",
-    "modelCardUrl": "https://huggingface.co/models?search=Codestral%20Mamba",
+    "docUrl": "https://docs.mistral.ai/getting-started/models/models_overview/",
+    "modelCardUrl": "https://huggingface.co/mistralai",
     "tags": [
       "mistral",
       "open-weights",
       "european"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.mistral.ai/"
   },
   {
     "slug": "pixtral-12b",
@@ -4565,15 +4704,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Pixtral%2012B",
-    "modelCardUrl": "https://huggingface.co/models?search=Pixtral%2012B",
+    "docUrl": "https://docs.mistral.ai/getting-started/models/models_overview/",
+    "modelCardUrl": "https://huggingface.co/mistralai",
     "tags": [
       "mistral",
       "open-weights",
       "european"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://chat.mistral.ai/"
   },
   {
     "slug": "pixtral-large",
@@ -4612,15 +4752,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Pixtral%20Large",
-    "modelCardUrl": "https://huggingface.co/models?search=Pixtral%20Large",
+    "docUrl": "https://docs.mistral.ai/getting-started/models/models_overview/",
+    "modelCardUrl": "https://huggingface.co/mistralai/Mistral-Large-Instruct-2411",
     "tags": [
       "mistral",
       "open-weights",
       "european"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.mistral.ai/"
   },
   {
     "slug": "mixtral-8x22b",
@@ -4660,15 +4801,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mixtral%208x22B",
-    "modelCardUrl": "https://huggingface.co/models?search=Mixtral%208x22B",
+    "docUrl": "https://docs.mistral.ai/getting-started/models/models_overview/",
+    "modelCardUrl": "https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1",
     "tags": [
       "mistral",
       "open-weights",
       "european"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://chat.mistral.ai/"
   },
   {
     "slug": "mixtral-8x7b",
@@ -4708,15 +4850,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mixtral%208x7B",
-    "modelCardUrl": "https://huggingface.co/models?search=Mixtral%208x7B",
+    "docUrl": "https://docs.mistral.ai/getting-started/models/models_overview/",
+    "modelCardUrl": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3",
     "tags": [
       "mistral",
       "open-weights",
       "european"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.mistral.ai/"
   },
   {
     "slug": "mathstral-7b",
@@ -4756,15 +4899,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mathstral%207B",
-    "modelCardUrl": "https://huggingface.co/models?search=Mathstral%207B",
+    "docUrl": "https://docs.mistral.ai/getting-started/models/models_overview/",
+    "modelCardUrl": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3",
     "tags": [
       "mistral",
       "open-weights",
       "european"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://chat.mistral.ai/"
   },
   {
     "slug": "mistral-embed-2",
@@ -4804,15 +4948,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral%20Embed%202",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral%20Embed%202",
+    "docUrl": "https://docs.mistral.ai/getting-started/models/models_overview/",
+    "modelCardUrl": "https://huggingface.co/mistralai",
     "tags": [
       "mistral",
       "open-weights",
       "european"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.mistral.ai/"
   },
   {
     "slug": "deepseek-r1",
@@ -4853,8 +4998,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-R1",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-R1",
+    "docUrl": "https://github.com/deepseek-ai/DeepSeek-R1",
+    "modelCardUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
     "tags": [
       "deepseek",
       "mit-license",
@@ -4862,7 +5007,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": true,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.deepseek.com/"
   },
   {
     "slug": "deepseek-r1-zero",
@@ -4903,8 +5049,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-R1-Zero",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-R1-Zero",
+    "docUrl": "https://github.com/deepseek-ai/DeepSeek-R1",
+    "modelCardUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
     "tags": [
       "deepseek",
       "mit-license",
@@ -4912,7 +5058,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": true,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.deepseek.com/"
   },
   {
     "slug": "deepseek-v3",
@@ -4953,8 +5100,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3",
+    "docUrl": "https://github.com/deepseek-ai/DeepSeek-V3",
+    "modelCardUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V3",
     "tags": [
       "deepseek",
       "mit-license",
@@ -4962,7 +5109,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": true,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.deepseek.com/"
   },
   {
     "slug": "deepseek-v2-5",
@@ -5003,8 +5151,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V2.5",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V2.5",
+    "docUrl": "https://github.com/deepseek-ai",
+    "modelCardUrl": "https://huggingface.co/deepseek-ai",
     "tags": [
       "deepseek",
       "mit-license",
@@ -5012,7 +5160,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.deepseek.com/"
   },
   {
     "slug": "deepseek-v2",
@@ -5053,8 +5202,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V2",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V2",
+    "docUrl": "https://github.com/deepseek-ai",
+    "modelCardUrl": "https://huggingface.co/deepseek-ai",
     "tags": [
       "deepseek",
       "mit-license",
@@ -5062,7 +5211,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.deepseek.com/"
   },
   {
     "slug": "deepseek-coder-v2",
@@ -5103,8 +5253,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek%20Coder%20V2",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek%20Coder%20V2",
+    "docUrl": "https://github.com/deepseek-ai/DeepSeek-Coder",
+    "modelCardUrl": "https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Instruct",
     "tags": [
       "deepseek",
       "mit-license",
@@ -5112,7 +5262,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.deepseek.com/"
   },
   {
     "slug": "deepseek-coder-v2-lite",
@@ -5153,8 +5304,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek%20Coder%20V2%20Lite",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek%20Coder%20V2%20Lite",
+    "docUrl": "https://github.com/deepseek-ai/DeepSeek-Coder",
+    "modelCardUrl": "https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Instruct",
     "tags": [
       "deepseek",
       "mit-license",
@@ -5162,7 +5313,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.deepseek.com/"
   },
   {
     "slug": "deepseek-coder-33b",
@@ -5203,8 +5355,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek%20Coder%2033B",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek%20Coder%2033B",
+    "docUrl": "https://github.com/deepseek-ai/DeepSeek-Coder",
+    "modelCardUrl": "https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Instruct",
     "tags": [
       "deepseek",
       "mit-license",
@@ -5212,7 +5364,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.deepseek.com/"
   },
   {
     "slug": "deepseek-coder-7b",
@@ -5253,8 +5406,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek%20Coder%207B",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek%20Coder%207B",
+    "docUrl": "https://github.com/deepseek-ai/DeepSeek-Coder",
+    "modelCardUrl": "https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Instruct",
     "tags": [
       "deepseek",
       "mit-license",
@@ -5262,7 +5415,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.deepseek.com/"
   },
   {
     "slug": "deepseek-coder-1-3b",
@@ -5303,8 +5457,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek%20Coder%201.3B",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek%20Coder%201.3B",
+    "docUrl": "https://github.com/deepseek-ai/DeepSeek-Coder",
+    "modelCardUrl": "https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Instruct",
     "tags": [
       "deepseek",
       "mit-license",
@@ -5312,7 +5466,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.deepseek.com/"
   },
   {
     "slug": "deepseek-math-7b",
@@ -5353,8 +5508,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek%20Math%207B",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek%20Math%207B",
+    "docUrl": "https://github.com/deepseek-ai/DeepSeek-Math",
+    "modelCardUrl": "https://huggingface.co/deepseek-ai/deepseek-math-7b-instruct",
     "tags": [
       "deepseek",
       "mit-license",
@@ -5362,7 +5517,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.deepseek.com/"
   },
   {
     "slug": "deepseek-vl2",
@@ -5403,8 +5559,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek%20VL2",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek%20VL2",
+    "docUrl": "https://github.com/deepseek-ai",
+    "modelCardUrl": "https://huggingface.co/deepseek-ai",
     "tags": [
       "deepseek",
       "mit-license",
@@ -5412,7 +5568,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.deepseek.com/"
   },
   {
     "slug": "deepseek-vl-7b",
@@ -5453,8 +5610,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek%20VL%207B",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek%20VL%207B",
+    "docUrl": "https://github.com/deepseek-ai",
+    "modelCardUrl": "https://huggingface.co/deepseek-ai",
     "tags": [
       "deepseek",
       "mit-license",
@@ -5462,7 +5619,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.deepseek.com/"
   },
   {
     "slug": "deepseek-r1-distill-qwen-32b",
@@ -5503,8 +5661,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-R1-Distill-Qwen-32B",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-R1-Distill-Qwen-32B",
+    "docUrl": "https://github.com/deepseek-ai/DeepSeek-R1",
+    "modelCardUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
     "tags": [
       "deepseek",
       "mit-license",
@@ -5512,7 +5670,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.deepseek.com/"
   },
   {
     "slug": "deepseek-r1-distill-qwen-14b",
@@ -5553,8 +5712,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-R1-Distill-Qwen-14B",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-R1-Distill-Qwen-14B",
+    "docUrl": "https://github.com/deepseek-ai/DeepSeek-R1",
+    "modelCardUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
     "tags": [
       "deepseek",
       "mit-license",
@@ -5562,7 +5721,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.deepseek.com/"
   },
   {
     "slug": "deepseek-r1-distill-qwen-7b",
@@ -5603,8 +5763,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-R1-Distill-Qwen-7B",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-R1-Distill-Qwen-7B",
+    "docUrl": "https://github.com/deepseek-ai/DeepSeek-R1",
+    "modelCardUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
     "tags": [
       "deepseek",
       "mit-license",
@@ -5612,7 +5772,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.deepseek.com/"
   },
   {
     "slug": "deepseek-r1-distill-qwen-1-5b",
@@ -5653,8 +5814,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-R1-Distill-Qwen-1.5B",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-R1-Distill-Qwen-1.5B",
+    "docUrl": "https://github.com/deepseek-ai/DeepSeek-R1",
+    "modelCardUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
     "tags": [
       "deepseek",
       "mit-license",
@@ -5662,7 +5823,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.deepseek.com/"
   },
   {
     "slug": "deepseek-r1-distill-llama-70b",
@@ -5703,8 +5865,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-R1-Distill-Llama-70B",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-R1-Distill-Llama-70B",
+    "docUrl": "https://github.com/deepseek-ai/DeepSeek-R1",
+    "modelCardUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
     "tags": [
       "deepseek",
       "mit-license",
@@ -5712,7 +5874,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.deepseek.com/"
   },
   {
     "slug": "deepseek-r1-distill-llama-8b",
@@ -5753,8 +5916,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-R1-Distill-Llama-8B",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-R1-Distill-Llama-8B",
+    "docUrl": "https://github.com/deepseek-ai/DeepSeek-R1",
+    "modelCardUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
     "tags": [
       "deepseek",
       "mit-license",
@@ -5762,7 +5925,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.deepseek.com/"
   },
   {
     "slug": "janus-pro-7b",
@@ -5803,8 +5967,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Janus%20Pro%207B",
-    "modelCardUrl": "https://huggingface.co/models?search=Janus%20Pro%207B",
+    "docUrl": "https://github.com/deepseek-ai",
+    "modelCardUrl": "https://huggingface.co/deepseek-ai",
     "tags": [
       "deepseek",
       "mit-license",
@@ -5812,7 +5976,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.deepseek.com/"
   },
   {
     "slug": "janus-1-3b",
@@ -5853,8 +6018,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Janus%201.3B",
-    "modelCardUrl": "https://huggingface.co/models?search=Janus%201.3B",
+    "docUrl": "https://github.com/deepseek-ai",
+    "modelCardUrl": "https://huggingface.co/deepseek-ai",
     "tags": [
       "deepseek",
       "mit-license",
@@ -5862,7 +6027,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.deepseek.com/"
   },
   {
     "slug": "qwen-2-5-72b",
@@ -5903,8 +6069,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen%202.5%2072B",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen%202.5%2072B",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
     "tags": [
       "qwen",
       "alibaba",
@@ -5912,7 +6078,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": true,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-2-5-32b",
@@ -5953,8 +6120,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen%202.5%2032B",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen%202.5%2032B",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
     "tags": [
       "qwen",
       "alibaba",
@@ -5962,7 +6129,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-2-5-14b",
@@ -6003,8 +6171,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen%202.5%2014B",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen%202.5%2014B",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
     "tags": [
       "qwen",
       "alibaba",
@@ -6012,7 +6180,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-2-5-7b",
@@ -6053,8 +6222,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen%202.5%207B",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen%202.5%207B",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
     "tags": [
       "qwen",
       "alibaba",
@@ -6062,7 +6231,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-2-5-3b",
@@ -6103,8 +6273,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen%202.5%203B",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen%202.5%203B",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
     "tags": [
       "qwen",
       "alibaba",
@@ -6112,7 +6282,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-2-5-1-5b",
@@ -6153,8 +6324,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen%202.5%201.5B",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen%202.5%201.5B",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
     "tags": [
       "qwen",
       "alibaba",
@@ -6162,7 +6333,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-2-5-0-5b",
@@ -6203,8 +6375,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen%202.5%200.5B",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen%202.5%200.5B",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
     "tags": [
       "qwen",
       "alibaba",
@@ -6212,7 +6384,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-2-5-coder-32b",
@@ -6253,8 +6426,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen%202.5%20Coder%2032B",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen%202.5%20Coder%2032B",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
     "tags": [
       "qwen",
       "alibaba",
@@ -6262,7 +6435,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": true,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-2-5-coder-14b",
@@ -6303,8 +6477,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen%202.5%20Coder%2014B",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen%202.5%20Coder%2014B",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
     "tags": [
       "qwen",
       "alibaba",
@@ -6312,7 +6486,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-2-5-coder-7b",
@@ -6353,8 +6528,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen%202.5%20Coder%207B",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen%202.5%20Coder%207B",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
     "tags": [
       "qwen",
       "alibaba",
@@ -6362,7 +6537,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-2-5-coder-3b",
@@ -6403,8 +6579,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen%202.5%20Coder%203B",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen%202.5%20Coder%203B",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
     "tags": [
       "qwen",
       "alibaba",
@@ -6412,7 +6588,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-2-5-coder-1-5b",
@@ -6453,8 +6630,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen%202.5%20Coder%201.5B",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen%202.5%20Coder%201.5B",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
     "tags": [
       "qwen",
       "alibaba",
@@ -6462,7 +6639,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-2-5-coder-0-5b",
@@ -6503,8 +6681,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen%202.5%20Coder%200.5B",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen%202.5%20Coder%200.5B",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
     "tags": [
       "qwen",
       "alibaba",
@@ -6512,7 +6690,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-2-5-math-72b",
@@ -6553,8 +6732,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen%202.5%20Math%2072B",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen%202.5%20Math%2072B",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
     "tags": [
       "qwen",
       "alibaba",
@@ -6562,7 +6741,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-2-5-math-7b",
@@ -6603,8 +6783,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen%202.5%20Math%207B",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen%202.5%20Math%207B",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
     "tags": [
       "qwen",
       "alibaba",
@@ -6612,7 +6792,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-2-vl-72b",
@@ -6652,8 +6833,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen%202%20VL%2072B",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen%202%20VL%2072B",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen",
     "tags": [
       "qwen",
       "alibaba",
@@ -6661,7 +6842,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-2-vl-7b",
@@ -6701,8 +6883,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen%202%20VL%207B",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen%202%20VL%207B",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen",
     "tags": [
       "qwen",
       "alibaba",
@@ -6710,7 +6892,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-2-vl-2b",
@@ -6750,8 +6933,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen%202%20VL%202B",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen%202%20VL%202B",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen",
     "tags": [
       "qwen",
       "alibaba",
@@ -6759,7 +6942,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-2-72b",
@@ -6800,8 +6984,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen%202%2072B",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen%202%2072B",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen",
     "tags": [
       "qwen",
       "alibaba",
@@ -6809,7 +6993,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-2-57b-a14b",
@@ -6850,8 +7035,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen%202%2057B%20A14B",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen%202%2057B%20A14B",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
     "tags": [
       "qwen",
       "alibaba",
@@ -6859,7 +7044,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-1-5-110b",
@@ -6900,8 +7086,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen%201.5%20110B",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen%201.5%20110B",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen",
     "tags": [
       "qwen",
       "alibaba",
@@ -6909,7 +7095,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-1-5-72b",
@@ -6950,8 +7137,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen%201.5%2072B",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen%201.5%2072B",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen",
     "tags": [
       "qwen",
       "alibaba",
@@ -6959,7 +7146,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qpad",
@@ -7000,8 +7188,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=QPad",
-    "modelCardUrl": "https://huggingface.co/models?search=QPad",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen",
     "tags": [
       "qwen",
       "alibaba",
@@ -7009,7 +7197,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-audio",
@@ -7049,8 +7238,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-Audio",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-Audio",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen",
     "tags": [
       "qwen",
       "alibaba",
@@ -7058,7 +7247,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "qwen-agent",
@@ -7099,8 +7289,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-Agent",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-Agent",
+    "docUrl": "https://qwen.readthedocs.io/en/latest/",
+    "modelCardUrl": "https://huggingface.co/Qwen",
     "tags": [
       "qwen",
       "alibaba",
@@ -7108,7 +7298,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://chat.qwenlm.ai/"
   },
   {
     "slug": "smollm2-1-7b",
@@ -7149,15 +7340,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=SmolLM2%201.7B",
-    "modelCardUrl": "https://huggingface.co/models?search=SmolLM2%201.7B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": true,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "smollm2-360m",
@@ -7198,15 +7390,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=SmolLM2%20360M",
-    "modelCardUrl": "https://huggingface.co/models?search=SmolLM2%20360M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "smollm2-135m",
@@ -7247,15 +7440,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=SmolLM2%20135M",
-    "modelCardUrl": "https://huggingface.co/models?search=SmolLM2%20135M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-8b",
@@ -7296,15 +7490,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite%203.1%208B",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite%203.1%208B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-2b",
@@ -7345,15 +7540,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite%203.1%202B",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite%203.1%202B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-0-8b",
@@ -7394,15 +7590,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite%203.0%208B",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite%203.0%208B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-code-34b",
@@ -7443,15 +7640,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite%20Code%2034B",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite%20Code%2034B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-4-14b",
@@ -7492,15 +7690,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-4%2014B",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-4%2014B",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini",
+    "modelCardUrl": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "phi-3-5-vision",
@@ -7541,15 +7740,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5%20Vision",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5%20Vision",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini",
+    "modelCardUrl": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "phi-3-5-mini",
@@ -7590,15 +7790,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5%20Mini",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5%20Mini",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini",
+    "modelCardUrl": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "phi-3-5-moe",
@@ -7639,15 +7840,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5%20MoE",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5%20MoE",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini",
+    "modelCardUrl": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "phi-3-medium",
@@ -7688,15 +7890,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3%20Medium",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3%20Medium",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini",
+    "modelCardUrl": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "phi-3-small",
@@ -7737,15 +7940,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3%20Small",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3%20Small",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini",
+    "modelCardUrl": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "phi-3-mini",
@@ -7786,15 +7990,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3%20Mini",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3%20Mini",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini",
+    "modelCardUrl": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "phi-2",
@@ -7835,15 +8040,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-2",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-2",
+    "docUrl": "https://ai.google.dev/gemini-api/docs/models/gemini",
+    "modelCardUrl": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://aistudio.google.com/"
   },
   {
     "slug": "bge-m3",
@@ -7884,15 +8090,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": true,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-large-en-v1-5",
@@ -7933,15 +8140,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-Large-EN-v1.5",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-Large-EN-v1.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-small-en-v1-5",
@@ -7982,15 +8190,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-Small-EN-v1.5",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-Small-EN-v1.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-reranker-large",
@@ -8031,15 +8240,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-Reranker-Large",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-Reranker-Large",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "nomic-embed-text-v1-5",
@@ -8080,15 +8290,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Nomic%20Embed%20Text%20v1.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Nomic%20Embed%20Text%20v1.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "nomic-vision-v1-5",
@@ -8129,15 +8340,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Nomic%20Vision%20v1.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Nomic%20Vision%20v1.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gte-large-en-v1-5",
@@ -8178,15 +8390,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=GTE-Large-en-v1.5",
-    "modelCardUrl": "https://huggingface.co/models?search=GTE-Large-en-v1.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gte-qwen2-7b-instruct",
@@ -8227,15 +8440,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=GTE-Qwen2-7B-instruct",
-    "modelCardUrl": "https://huggingface.co/models?search=GTE-Qwen2-7B-instruct",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "instructor-large",
@@ -8276,15 +8490,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Instructor%20Large",
-    "modelCardUrl": "https://huggingface.co/models?search=Instructor%20Large",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "sentence-transformers-all-minilm-l6-v2",
@@ -8325,15 +8540,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Sentence-Transformers%20All-MiniLM-L6-v2",
-    "modelCardUrl": "https://huggingface.co/models?search=Sentence-Transformers%20All-MiniLM-L6-v2",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "all-mpnet-base-v2",
@@ -8374,15 +8590,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=All-mpnet-base-v2",
-    "modelCardUrl": "https://huggingface.co/models?search=All-mpnet-base-v2",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "modernbert-base",
@@ -8423,15 +8640,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=ModernBERT%20Base",
-    "modelCardUrl": "https://huggingface.co/models?search=ModernBERT%20Base",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "modernbert-large",
@@ -8472,15 +8690,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=ModernBERT%20Large",
-    "modelCardUrl": "https://huggingface.co/models?search=ModernBERT%20Large",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bert-base-uncased",
@@ -8521,15 +8740,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BERT%20Base%20Uncased",
-    "modelCardUrl": "https://huggingface.co/models?search=BERT%20Base%20Uncased",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "roberta-large",
@@ -8570,15 +8790,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=RoBERTa%20Large",
-    "modelCardUrl": "https://huggingface.co/models?search=RoBERTa%20Large",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "biobert",
@@ -8619,15 +8840,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BioBERT",
-    "modelCardUrl": "https://huggingface.co/models?search=BioBERT",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": true,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "scibert",
@@ -8668,15 +8890,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=SciBERT",
-    "modelCardUrl": "https://huggingface.co/models?search=SciBERT",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "clinicalbert",
@@ -8717,15 +8940,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=ClinicalBERT",
-    "modelCardUrl": "https://huggingface.co/models?search=ClinicalBERT",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "pubmedbert",
@@ -8766,15 +8990,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=PubMedBERT",
-    "modelCardUrl": "https://huggingface.co/models?search=PubMedBERT",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "finbert",
@@ -8815,15 +9040,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=FinBERT",
-    "modelCardUrl": "https://huggingface.co/models?search=FinBERT",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "longformer",
@@ -8864,15 +9090,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Longformer",
-    "modelCardUrl": "https://huggingface.co/models?search=Longformer",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bigbird",
@@ -8913,15 +9140,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BigBird",
-    "modelCardUrl": "https://huggingface.co/models?search=BigBird",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "layoutlmv3",
@@ -8962,15 +9190,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=LayoutLMv3",
-    "modelCardUrl": "https://huggingface.co/models?search=LayoutLMv3",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "donut",
@@ -9011,15 +9240,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Donut",
-    "modelCardUrl": "https://huggingface.co/models?search=Donut",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "trocr",
@@ -9060,15 +9290,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=TrOCR",
-    "modelCardUrl": "https://huggingface.co/models?search=TrOCR",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "easyocr",
@@ -9109,15 +9340,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=EasyOCR",
-    "modelCardUrl": "https://huggingface.co/models?search=EasyOCR",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "kokoro-82m",
@@ -9158,15 +9390,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Kokoro%2082M",
-    "modelCardUrl": "https://huggingface.co/models?search=Kokoro%2082M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "minicpm-v-2-6",
@@ -9207,15 +9440,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=MiniCPM-V%202.6",
-    "modelCardUrl": "https://huggingface.co/models?search=MiniCPM-V%202.6",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "minicpm-3-4b",
@@ -9256,15 +9490,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=MiniCPM%203%204B",
-    "modelCardUrl": "https://huggingface.co/models?search=MiniCPM%203%204B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "starcoder-2-15b",
@@ -9305,15 +9540,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=StarCoder%202%2015B",
-    "modelCardUrl": "https://huggingface.co/models?search=StarCoder%202%2015B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "starcoder-2-7b",
@@ -9354,15 +9590,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=StarCoder%202%207B",
-    "modelCardUrl": "https://huggingface.co/models?search=StarCoder%202%207B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": true,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "starcoder-2-3b",
@@ -9403,15 +9640,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=StarCoder%202%203B",
-    "modelCardUrl": "https://huggingface.co/models?search=StarCoder%202%203B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "codegen-16b",
@@ -9452,15 +9690,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=CodeGen%2016B",
-    "modelCardUrl": "https://huggingface.co/models?search=CodeGen%2016B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-34b",
@@ -9501,15 +9740,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi%201.5%2034B",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi%201.5%2034B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-9b",
@@ -9550,15 +9790,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi%201.5%209B",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi%201.5%209B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-6b",
@@ -9599,15 +9840,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi%201.5%206B",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi%201.5%206B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-lightning",
@@ -9648,15 +9890,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi%20Lightning",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi%20Lightning",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "ernie-4-0-turbo",
@@ -9697,15 +9940,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=ERNIE%204.0%20Turbo",
-    "modelCardUrl": "https://huggingface.co/models?search=ERNIE%204.0%20Turbo",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "ernie-3-5",
@@ -9746,15 +9990,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=ERNIE%203.5",
-    "modelCardUrl": "https://huggingface.co/models?search=ERNIE%203.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "tencent-hunyuan",
@@ -9795,15 +10040,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Tencent%20Hunyuan",
-    "modelCardUrl": "https://huggingface.co/models?search=Tencent%20Hunyuan",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "glm-4-9b",
@@ -9844,15 +10090,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=GLM-4%209B",
-    "modelCardUrl": "https://huggingface.co/models?search=GLM-4%209B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "glm-4v-9b",
@@ -9893,15 +10140,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=GLM-4V%209B",
-    "modelCardUrl": "https://huggingface.co/models?search=GLM-4V%209B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "glm-4-flash",
@@ -9942,15 +10190,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=GLM-4%20Flash",
-    "modelCardUrl": "https://huggingface.co/models?search=GLM-4%20Flash",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "baichuan-2-13b",
@@ -9991,15 +10240,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Baichuan%202%2013B",
-    "modelCardUrl": "https://huggingface.co/models?search=Baichuan%202%2013B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "internlm-2-5-20b",
@@ -10040,15 +10290,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=InternLM%202.5%2020B",
-    "modelCardUrl": "https://huggingface.co/models?search=InternLM%202.5%2020B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "internlm-2-5-7b",
@@ -10089,15 +10340,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=InternLM%202.5%207B",
-    "modelCardUrl": "https://huggingface.co/models?search=InternLM%202.5%207B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": true,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "internvl-2-5-78b",
@@ -10138,15 +10390,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=InternVL%202.5%2078B",
-    "modelCardUrl": "https://huggingface.co/models?search=InternVL%202.5%2078B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "internvl-2-8b",
@@ -10187,15 +10440,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=InternVL%202%208B",
-    "modelCardUrl": "https://huggingface.co/models?search=InternVL%202%208B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "reka-flash",
@@ -10236,15 +10490,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Reka%20Flash",
-    "modelCardUrl": "https://huggingface.co/models?search=Reka%20Flash",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "reka-core",
@@ -10285,15 +10540,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Reka%20Core",
-    "modelCardUrl": "https://huggingface.co/models?search=Reka%20Core",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "reka-edge",
@@ -10334,15 +10590,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Reka%20Edge",
-    "modelCardUrl": "https://huggingface.co/models?search=Reka%20Edge",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "dbrx-instruct",
@@ -10383,15 +10640,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DBRX%20Instruct",
-    "modelCardUrl": "https://huggingface.co/models?search=DBRX%20Instruct",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "snowflake-arctic-480b",
@@ -10432,15 +10690,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Snowflake%20Arctic%20480B",
-    "modelCardUrl": "https://huggingface.co/models?search=Snowflake%20Arctic%20480B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "decilm-7b",
@@ -10481,15 +10740,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeciLM%207B",
-    "modelCardUrl": "https://huggingface.co/models?search=DeciLM%207B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "rwkv-6-7b",
@@ -10530,15 +10790,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=RWKV%206%207B",
-    "modelCardUrl": "https://huggingface.co/models?search=RWKV%206%207B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mamba-2-8b",
@@ -10579,15 +10840,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mamba%202.8B",
-    "modelCardUrl": "https://huggingface.co/models?search=Mamba%202.8B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "jamba-1-5-large",
@@ -10628,15 +10890,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Jamba%201.5%20Large",
-    "modelCardUrl": "https://huggingface.co/models?search=Jamba%201.5%20Large",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "jamba-1-5-mini",
@@ -10677,15 +10940,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Jamba%201.5%20Mini",
-    "modelCardUrl": "https://huggingface.co/models?search=Jamba%201.5%20Mini",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "jurassic-2-ultra",
@@ -10726,15 +10990,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Jurassic%202%20Ultra",
-    "modelCardUrl": "https://huggingface.co/models?search=Jurassic%202%20Ultra",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "solar-10-7b",
@@ -10775,15 +11040,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Solar%2010.7B",
-    "modelCardUrl": "https://huggingface.co/models?search=Solar%2010.7B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "solar-pro-22b",
@@ -10824,15 +11090,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Solar%20Pro%2022B",
-    "modelCardUrl": "https://huggingface.co/models?search=Solar%20Pro%2022B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": true,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-11b",
@@ -10873,15 +11140,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon%202%2011B",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon%202%2011B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-180b",
@@ -10922,15 +11190,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon%20180B",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon%20180B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-40b",
@@ -10971,15 +11240,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon%2040B",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon%2040B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-7b",
@@ -11020,15 +11290,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon%207B",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon%207B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "command-r-",
@@ -11069,15 +11340,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Command%20R%2B",
-    "modelCardUrl": "https://huggingface.co/models?search=Command%20R%2B",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "command-r",
@@ -11118,15 +11390,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Command%20R",
-    "modelCardUrl": "https://huggingface.co/models?search=Command%20R",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "cohere-embed-v3",
@@ -11167,15 +11440,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Cohere%20Embed%20v3",
-    "modelCardUrl": "https://huggingface.co/models?search=Cohere%20Embed%20v3",
+    "docUrl": "https://docs.cohere.com/docs/models",
+    "modelCardUrl": "https://huggingface.co/CohereForAI/c4ai-command-r-plus",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://dashboard.cohere.com/playground/chat"
   },
   {
     "slug": "cohere-aya-23",
@@ -11216,15 +11490,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Cohere%20Aya%2023",
-    "modelCardUrl": "https://huggingface.co/models?search=Cohere%20Aya%2023",
+    "docUrl": "https://docs.cohere.com/docs/models",
+    "modelCardUrl": "https://huggingface.co/CohereForAI/c4ai-command-r-plus",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://dashboard.cohere.com/playground/chat"
   },
   {
     "slug": "aya-101",
@@ -11265,15 +11540,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Aya%20101",
-    "modelCardUrl": "https://huggingface.co/models?search=Aya%20101",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "huggingface",
       "open-source",
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "flux-1-1-pro",
@@ -11312,15 +11588,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Flux%201.1%20Pro",
-    "modelCardUrl": "https://huggingface.co/models?search=Flux%201.1%20Pro",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "image",
       "creative",
       "genai"
     ],
     "featured": true,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "flux-1-dev",
@@ -11359,15 +11636,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Flux%201%20Dev",
-    "modelCardUrl": "https://huggingface.co/models?search=Flux%201%20Dev",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "image",
       "creative",
       "genai"
     ],
     "featured": true,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "flux-1-schnell",
@@ -11406,15 +11684,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Flux%201%20Schnell",
-    "modelCardUrl": "https://huggingface.co/models?search=Flux%201%20Schnell",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "image",
       "creative",
       "genai"
     ],
     "featured": true,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "stable-diffusion-3-5-large",
@@ -11453,15 +11732,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Stable%20Diffusion%203.5%20Large",
-    "modelCardUrl": "https://huggingface.co/models?search=Stable%20Diffusion%203.5%20Large",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large",
     "tags": [
       "image",
       "creative",
       "genai"
     ],
     "featured": true,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "stable-diffusion-3-5-medium",
@@ -11500,15 +11780,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Stable%20Diffusion%203.5%20Medium",
-    "modelCardUrl": "https://huggingface.co/models?search=Stable%20Diffusion%203.5%20Medium",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large",
     "tags": [
       "image",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "sdxl-1-0",
@@ -11547,15 +11828,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=SDXL%201.0",
-    "modelCardUrl": "https://huggingface.co/models?search=SDXL%201.0",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0",
     "tags": [
       "image",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "sdxl-turbo",
@@ -11594,15 +11876,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=SDXL%20Turbo",
-    "modelCardUrl": "https://huggingface.co/models?search=SDXL%20Turbo",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0",
     "tags": [
       "image",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "sd-1-5",
@@ -11641,15 +11924,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=SD%201.5",
-    "modelCardUrl": "https://huggingface.co/models?search=SD%201.5",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "image",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "sd-2-1",
@@ -11688,15 +11972,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=SD%202.1",
-    "modelCardUrl": "https://huggingface.co/models?search=SD%202.1",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "image",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "stable-video-diffusion--svd-",
@@ -11737,15 +12022,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Stable%20Video%20Diffusion%20(SVD)",
-    "modelCardUrl": "https://huggingface.co/models?search=Stable%20Video%20Diffusion%20(SVD)",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "video",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "stable-audio-2-0",
@@ -11785,15 +12071,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Stable%20Audio%202.0",
-    "modelCardUrl": "https://huggingface.co/models?search=Stable%20Audio%202.0",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "audio",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "stable-audio-open",
@@ -11833,15 +12120,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Stable%20Audio%20Open",
-    "modelCardUrl": "https://huggingface.co/models?search=Stable%20Audio%20Open",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "audio",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "midjourney-v6",
@@ -11880,15 +12168,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Midjourney%20v6",
-    "modelCardUrl": "https://huggingface.co/models?search=Midjourney%20v6",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "image",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "midjourney-v5-2",
@@ -11927,15 +12216,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Midjourney%20v5.2",
-    "modelCardUrl": "https://huggingface.co/models?search=Midjourney%20v5.2",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "image",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "nijijourney-v6",
@@ -11974,15 +12264,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=NijiJourney%20v6",
-    "modelCardUrl": "https://huggingface.co/models?search=NijiJourney%20v6",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "image",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "ideogram-2-0",
@@ -12021,15 +12312,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Ideogram%202.0",
-    "modelCardUrl": "https://huggingface.co/models?search=Ideogram%202.0",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "image",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "ideogram-1-0",
@@ -12068,15 +12360,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Ideogram%201.0",
-    "modelCardUrl": "https://huggingface.co/models?search=Ideogram%201.0",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "image",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "runway-gen-3-alpha",
@@ -12117,15 +12410,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Runway%20Gen-3%20Alpha",
-    "modelCardUrl": "https://huggingface.co/models?search=Runway%20Gen-3%20Alpha",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "video",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "runway-gen-2",
@@ -12166,15 +12460,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Runway%20Gen-2",
-    "modelCardUrl": "https://huggingface.co/models?search=Runway%20Gen-2",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "video",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "luma-dream-machine-1-5",
@@ -12215,15 +12510,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Luma%20Dream%20Machine%201.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Luma%20Dream%20Machine%201.5",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "video",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "luma-ray-2",
@@ -12264,15 +12560,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Luma%20Ray%202",
-    "modelCardUrl": "https://huggingface.co/models?search=Luma%20Ray%202",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "video",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "kling-ai-1-5",
@@ -12313,15 +12610,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Kling%20AI%201.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Kling%20AI%201.5",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "video",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "sora--openai-",
@@ -12362,15 +12660,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Sora%20(OpenAI)",
-    "modelCardUrl": "https://huggingface.co/models?search=Sora%20(OpenAI)",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "video",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "pika-1-5",
@@ -12411,15 +12710,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Pika%201.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Pika%201.5",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "video",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "minimax-video-01",
@@ -12460,15 +12760,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=MiniMax%20Video-01",
-    "modelCardUrl": "https://huggingface.co/models?search=MiniMax%20Video-01",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "video",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "hunyuan-video--tencent-",
@@ -12509,15 +12810,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Hunyuan%20Video%20(Tencent)",
-    "modelCardUrl": "https://huggingface.co/models?search=Hunyuan%20Video%20(Tencent)",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "video",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "cogvideox-5b",
@@ -12558,15 +12860,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=CogVideoX%205B",
-    "modelCardUrl": "https://huggingface.co/models?search=CogVideoX%205B",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "video",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "hailuo-ai",
@@ -12605,15 +12908,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Hailuo%20AI",
-    "modelCardUrl": "https://huggingface.co/models?search=Hailuo%20AI",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "image",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "suno-v4",
@@ -12653,15 +12957,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Suno%20v4",
-    "modelCardUrl": "https://huggingface.co/models?search=Suno%20v4",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "audio",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "suno-v3-5",
@@ -12701,15 +13006,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Suno%20v3.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Suno%20v3.5",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large",
     "tags": [
       "audio",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "udio-v1-5",
@@ -12749,15 +13055,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Udio%20v1.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Udio%20v1.5",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "audio",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "cartesia-sonic",
@@ -12797,15 +13104,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Cartesia%20Sonic",
-    "modelCardUrl": "https://huggingface.co/models?search=Cartesia%20Sonic",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "audio",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "eleven-multilingual-v2",
@@ -12845,15 +13153,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Eleven%20Multilingual%20v2",
-    "modelCardUrl": "https://huggingface.co/models?search=Eleven%20Multilingual%20v2",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "audio",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "eleven-flash",
@@ -12893,15 +13202,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Eleven%20Flash",
-    "modelCardUrl": "https://huggingface.co/models?search=Eleven%20Flash",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "audio",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "play3-0-mini",
@@ -12940,15 +13250,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Play3.0-mini",
-    "modelCardUrl": "https://huggingface.co/models?search=Play3.0-mini",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "image",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "xtts-v2",
@@ -12988,15 +13299,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=XTTS%20v2",
-    "modelCardUrl": "https://huggingface.co/models?search=XTTS%20v2",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "audio",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "openvoice-v2",
@@ -13036,15 +13348,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=OpenVoice%20v2",
-    "modelCardUrl": "https://huggingface.co/models?search=OpenVoice%20v2",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "audio",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "tripo3d-2-0",
@@ -13083,15 +13396,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Tripo3D%202.0",
-    "modelCardUrl": "https://huggingface.co/models?search=Tripo3D%202.0",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "image",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "meshy-4",
@@ -13130,15 +13444,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Meshy%204",
-    "modelCardUrl": "https://huggingface.co/models?search=Meshy%204",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "image",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "gaussian-splatting",
@@ -13177,15 +13492,16 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gaussian%20Splatting",
-    "modelCardUrl": "https://huggingface.co/models?search=Gaussian%20Splatting",
+    "docUrl": "https://platform.stability.ai/docs/getting-started",
+    "modelCardUrl": "https://huggingface.co/stabilityai",
     "tags": [
       "image",
       "creative",
       "genai"
     ],
     "featured": false,
-    "trending": true
+    "trending": true,
+    "playgroundUrl": "https://platform.stability.ai/"
   },
   {
     "slug": "llama-3-1-code-gguf-q4-k-m",
@@ -13226,8 +13542,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Code-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Code-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "code",
       "ollama",
@@ -13236,7 +13552,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-code-gguf-q4-k-m",
@@ -13277,8 +13594,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -13287,7 +13604,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-code-gguf-q4-k-m",
@@ -13328,8 +13646,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -13338,7 +13656,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-code-gguf-q4-k-m",
@@ -13379,8 +13698,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Code-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Code-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -13389,7 +13708,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-code-gguf-q4-k-m",
@@ -13430,8 +13750,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Code-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Code-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -13440,7 +13760,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-code-gguf-q4-k-m",
@@ -13481,8 +13802,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Code-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Code-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -13491,7 +13812,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-code-gguf-q4-k-m",
@@ -13532,8 +13854,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Code-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Code-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -13542,7 +13864,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-code-gguf-q4-k-m",
@@ -13583,8 +13906,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Code-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Code-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -13593,7 +13916,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-code-gguf-q4-k-m",
@@ -13634,8 +13958,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Code-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Code-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -13644,7 +13968,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-code-gguf-q4-k-m",
@@ -13685,8 +14010,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Code-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Code-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -13695,7 +14020,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-code-gguf-q8-0",
@@ -13736,8 +14062,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Code-GGUF-Q8_0",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Code-GGUF-Q8_0",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "code",
       "ollama",
@@ -13746,7 +14072,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-code-gguf-q8-0",
@@ -13787,8 +14114,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-GGUF-Q8_0",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-GGUF-Q8_0",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -13797,7 +14124,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-code-gguf-q8-0",
@@ -13838,8 +14166,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-GGUF-Q8_0",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-GGUF-Q8_0",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -13848,7 +14176,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-code-gguf-q8-0",
@@ -13889,8 +14218,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Code-GGUF-Q8_0",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Code-GGUF-Q8_0",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -13899,7 +14228,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-code-gguf-q8-0",
@@ -13940,8 +14270,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Code-GGUF-Q8_0",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Code-GGUF-Q8_0",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -13950,7 +14280,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-code-gguf-q8-0",
@@ -13991,8 +14322,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Code-GGUF-Q8_0",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Code-GGUF-Q8_0",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -14001,7 +14332,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-code-gguf-q8-0",
@@ -14042,8 +14374,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Code-GGUF-Q8_0",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Code-GGUF-Q8_0",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -14052,7 +14384,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-code-gguf-q8-0",
@@ -14093,8 +14426,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Code-GGUF-Q8_0",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Code-GGUF-Q8_0",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -14103,7 +14436,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-code-gguf-q8-0",
@@ -14144,8 +14478,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Code-GGUF-Q8_0",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Code-GGUF-Q8_0",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -14154,7 +14488,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-code-gguf-q8-0",
@@ -14195,8 +14530,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Code-GGUF-Q8_0",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Code-GGUF-Q8_0",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -14205,7 +14540,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-code-awq-int4",
@@ -14246,8 +14582,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Code-AWQ-INT4",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Code-AWQ-INT4",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "code",
       "ollama",
@@ -14256,7 +14592,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-code-awq-int4",
@@ -14297,8 +14634,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-AWQ-INT4",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-AWQ-INT4",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -14307,7 +14644,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-code-awq-int4",
@@ -14348,8 +14686,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-AWQ-INT4",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-AWQ-INT4",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -14358,7 +14696,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-code-awq-int4",
@@ -14399,8 +14738,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Code-AWQ-INT4",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Code-AWQ-INT4",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -14409,7 +14748,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-code-awq-int4",
@@ -14450,8 +14790,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Code-AWQ-INT4",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Code-AWQ-INT4",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -14460,7 +14800,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-code-awq-int4",
@@ -14501,8 +14842,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Code-AWQ-INT4",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Code-AWQ-INT4",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -14511,7 +14852,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-code-awq-int4",
@@ -14552,8 +14894,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Code-AWQ-INT4",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Code-AWQ-INT4",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -14562,7 +14904,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-code-awq-int4",
@@ -14603,8 +14946,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Code-AWQ-INT4",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Code-AWQ-INT4",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -14613,7 +14956,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-code-awq-int4",
@@ -14654,8 +14998,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Code-AWQ-INT4",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Code-AWQ-INT4",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -14664,7 +15008,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-code-awq-int4",
@@ -14705,8 +15050,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Code-AWQ-INT4",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Code-AWQ-INT4",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -14715,7 +15060,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-code-gptq-4bit",
@@ -14756,8 +15102,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Code-GPTQ-4bit",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Code-GPTQ-4bit",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "code",
       "ollama",
@@ -14766,7 +15112,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-code-gptq-4bit",
@@ -14807,8 +15154,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-GPTQ-4bit",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-GPTQ-4bit",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -14817,7 +15164,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-code-gptq-4bit",
@@ -14858,8 +15206,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-GPTQ-4bit",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-GPTQ-4bit",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -14868,7 +15216,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-code-gptq-4bit",
@@ -14909,8 +15258,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Code-GPTQ-4bit",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Code-GPTQ-4bit",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -14919,7 +15268,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-code-gptq-4bit",
@@ -14960,8 +15310,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Code-GPTQ-4bit",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Code-GPTQ-4bit",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -14970,7 +15320,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-code-gptq-4bit",
@@ -15011,8 +15362,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Code-GPTQ-4bit",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Code-GPTQ-4bit",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -15021,7 +15372,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-code-gptq-4bit",
@@ -15062,8 +15414,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Code-GPTQ-4bit",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Code-GPTQ-4bit",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -15072,7 +15424,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-code-gptq-4bit",
@@ -15113,8 +15466,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Code-GPTQ-4bit",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Code-GPTQ-4bit",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -15123,7 +15476,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-code-gptq-4bit",
@@ -15164,8 +15518,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Code-GPTQ-4bit",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Code-GPTQ-4bit",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -15174,7 +15528,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-code-gptq-4bit",
@@ -15215,8 +15570,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Code-GPTQ-4bit",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Code-GPTQ-4bit",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -15225,7 +15580,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-code-exl2-5-0bpw",
@@ -15266,8 +15622,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Code-EXL2-5.0bpw",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Code-EXL2-5.0bpw",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "code",
       "ollama",
@@ -15276,7 +15632,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-code-exl2-5-0bpw",
@@ -15317,8 +15674,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-EXL2-5.0bpw",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-EXL2-5.0bpw",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -15327,7 +15684,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-code-exl2-5-0bpw",
@@ -15368,8 +15726,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-EXL2-5.0bpw",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-EXL2-5.0bpw",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -15378,7 +15736,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-code-exl2-5-0bpw",
@@ -15419,8 +15778,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Code-EXL2-5.0bpw",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Code-EXL2-5.0bpw",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -15429,7 +15788,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-code-exl2-5-0bpw",
@@ -15470,8 +15830,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Code-EXL2-5.0bpw",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Code-EXL2-5.0bpw",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -15480,7 +15840,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-code-exl2-5-0bpw",
@@ -15521,8 +15882,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Code-EXL2-5.0bpw",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Code-EXL2-5.0bpw",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -15531,7 +15892,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-code-exl2-5-0bpw",
@@ -15572,8 +15934,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Code-EXL2-5.0bpw",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Code-EXL2-5.0bpw",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -15582,7 +15944,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-code-exl2-5-0bpw",
@@ -15623,8 +15986,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Code-EXL2-5.0bpw",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Code-EXL2-5.0bpw",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -15633,7 +15996,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-code-exl2-5-0bpw",
@@ -15674,8 +16038,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Code-EXL2-5.0bpw",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Code-EXL2-5.0bpw",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -15684,7 +16048,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-code-exl2-5-0bpw",
@@ -15725,8 +16090,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Code-EXL2-5.0bpw",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Code-EXL2-5.0bpw",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -15735,7 +16100,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-code-fp8-quant",
@@ -15776,8 +16142,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Code-FP8-quant",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Code-FP8-quant",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "code",
       "ollama",
@@ -15786,7 +16152,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-code-fp8-quant",
@@ -15827,8 +16194,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-FP8-quant",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-FP8-quant",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -15837,7 +16204,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-code-fp8-quant",
@@ -15878,8 +16246,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-FP8-quant",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-FP8-quant",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -15888,7 +16256,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-code-fp8-quant",
@@ -15929,8 +16298,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Code-FP8-quant",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Code-FP8-quant",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -15939,7 +16308,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-code-fp8-quant",
@@ -15980,8 +16350,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Code-FP8-quant",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Code-FP8-quant",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -15990,7 +16360,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-code-fp8-quant",
@@ -16031,8 +16402,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Code-FP8-quant",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Code-FP8-quant",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -16041,7 +16412,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-code-fp8-quant",
@@ -16082,8 +16454,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Code-FP8-quant",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Code-FP8-quant",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -16092,7 +16464,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-code-fp8-quant",
@@ -16133,8 +16506,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Code-FP8-quant",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Code-FP8-quant",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -16143,7 +16516,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-code-fp8-quant",
@@ -16184,8 +16558,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Code-FP8-quant",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Code-FP8-quant",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -16194,7 +16568,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-code-fp8-quant",
@@ -16235,8 +16610,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Code-FP8-quant",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Code-FP8-quant",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -16245,7 +16620,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-code-fp16-full",
@@ -16286,8 +16662,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Code-FP16-full",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Code-FP16-full",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "code",
       "ollama",
@@ -16296,7 +16672,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-code-fp16-full",
@@ -16337,8 +16714,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-FP16-full",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-FP16-full",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -16347,7 +16724,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-code-fp16-full",
@@ -16388,8 +16766,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-FP16-full",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-FP16-full",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -16398,7 +16776,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-code-fp16-full",
@@ -16439,8 +16818,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Code-FP16-full",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Code-FP16-full",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -16449,7 +16828,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-code-fp16-full",
@@ -16490,8 +16870,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Code-FP16-full",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Code-FP16-full",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -16500,7 +16880,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-code-fp16-full",
@@ -16541,8 +16922,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Code-FP16-full",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Code-FP16-full",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -16551,7 +16932,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-code-fp16-full",
@@ -16592,8 +16974,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Code-FP16-full",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Code-FP16-full",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -16602,7 +16984,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-code-fp16-full",
@@ -16643,8 +17026,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Code-FP16-full",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Code-FP16-full",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -16653,7 +17036,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-code-fp16-full",
@@ -16694,8 +17078,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Code-FP16-full",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Code-FP16-full",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -16704,7 +17088,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-code-fp16-full",
@@ -16745,8 +17130,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Code-FP16-full",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Code-FP16-full",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -16755,7 +17140,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-code-uncensored-instruct",
@@ -16796,8 +17182,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Code-Uncensored-Instruct",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Code-Uncensored-Instruct",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "code",
       "ollama",
@@ -16806,7 +17192,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-code-uncensored-instruct",
@@ -16847,8 +17234,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-Uncensored-Instruct",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-Uncensored-Instruct",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -16857,7 +17244,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-code-uncensored-instruct",
@@ -16898,8 +17286,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-Uncensored-Instruct",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-Uncensored-Instruct",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -16908,7 +17296,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-code-uncensored-instruct",
@@ -16949,8 +17338,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Code-Uncensored-Instruct",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Code-Uncensored-Instruct",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -16959,7 +17348,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-code-uncensored-instruct",
@@ -17000,8 +17390,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Code-Uncensored-Instruct",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Code-Uncensored-Instruct",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -17010,7 +17400,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-code-uncensored-instruct",
@@ -17051,8 +17442,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Code-Uncensored-Instruct",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Code-Uncensored-Instruct",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -17061,7 +17452,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-code-uncensored-instruct",
@@ -17102,8 +17494,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Code-Uncensored-Instruct",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Code-Uncensored-Instruct",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -17112,7 +17504,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-code-uncensored-instruct",
@@ -17153,8 +17546,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Code-Uncensored-Instruct",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Code-Uncensored-Instruct",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -17163,7 +17556,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-code-uncensored-instruct",
@@ -17204,8 +17598,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Code-Uncensored-Instruct",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Code-Uncensored-Instruct",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -17214,7 +17608,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-code-uncensored-instruct",
@@ -17255,8 +17650,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Code-Uncensored-Instruct",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Code-Uncensored-Instruct",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -17265,7 +17660,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-code-rag-finetune",
@@ -17306,8 +17702,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Code-RAG-FineTune",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Code-RAG-FineTune",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "code",
       "ollama",
@@ -17316,7 +17712,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-code-rag-finetune",
@@ -17357,8 +17754,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-RAG-FineTune",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-RAG-FineTune",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -17367,7 +17764,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-code-rag-finetune",
@@ -17408,8 +17806,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-RAG-FineTune",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-RAG-FineTune",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -17418,7 +17816,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-code-rag-finetune",
@@ -17459,8 +17858,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Code-RAG-FineTune",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Code-RAG-FineTune",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -17469,7 +17868,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-code-rag-finetune",
@@ -17510,8 +17910,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Code-RAG-FineTune",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Code-RAG-FineTune",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -17520,7 +17920,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-code-rag-finetune",
@@ -17561,8 +17962,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Code-RAG-FineTune",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Code-RAG-FineTune",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -17571,7 +17972,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-code-rag-finetune",
@@ -17612,8 +18014,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Code-RAG-FineTune",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Code-RAG-FineTune",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -17622,7 +18024,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-code-rag-finetune",
@@ -17663,8 +18066,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Code-RAG-FineTune",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Code-RAG-FineTune",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -17673,7 +18076,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-code-rag-finetune",
@@ -17714,8 +18118,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Code-RAG-FineTune",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Code-RAG-FineTune",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -17724,7 +18128,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-code-rag-finetune",
@@ -17765,8 +18170,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Code-RAG-FineTune",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Code-RAG-FineTune",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -17775,7 +18180,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-code-hermes-3",
@@ -17816,8 +18222,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Code-Hermes-3",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Code-Hermes-3",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "code",
       "ollama",
@@ -17826,7 +18232,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-code-hermes-3",
@@ -17867,8 +18274,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-Hermes-3",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-Hermes-3",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -17877,7 +18284,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-code-hermes-3",
@@ -17918,8 +18326,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-Hermes-3",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-Hermes-3",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -17928,7 +18336,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-code-hermes-3",
@@ -17969,8 +18378,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Code-Hermes-3",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Code-Hermes-3",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -17979,7 +18388,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-code-hermes-3",
@@ -18020,8 +18430,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Code-Hermes-3",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Code-Hermes-3",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -18030,7 +18440,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-code-hermes-3",
@@ -18071,8 +18482,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Code-Hermes-3",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Code-Hermes-3",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -18081,7 +18492,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-code-hermes-3",
@@ -18122,8 +18534,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Code-Hermes-3",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Code-Hermes-3",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -18132,7 +18544,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-code-hermes-3",
@@ -18173,8 +18586,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Code-Hermes-3",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Code-Hermes-3",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -18183,7 +18596,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-code-hermes-3",
@@ -18224,8 +18638,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Code-Hermes-3",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Code-Hermes-3",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -18234,7 +18648,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-code-hermes-3",
@@ -18275,8 +18690,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Code-Hermes-3",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Code-Hermes-3",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -18285,7 +18700,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-code-openchat-3-5",
@@ -18326,8 +18742,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Code-OpenChat-3.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Code-OpenChat-3.5",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "code",
       "ollama",
@@ -18336,7 +18752,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-code-openchat-3-5",
@@ -18377,8 +18794,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-OpenChat-3.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-OpenChat-3.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -18387,7 +18804,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-code-openchat-3-5",
@@ -18428,8 +18846,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-OpenChat-3.5",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-OpenChat-3.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -18438,7 +18856,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-code-openchat-3-5",
@@ -18479,8 +18898,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Code-OpenChat-3.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Code-OpenChat-3.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -18489,7 +18908,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-code-openchat-3-5",
@@ -18530,8 +18950,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Code-OpenChat-3.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Code-OpenChat-3.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -18540,7 +18960,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-code-openchat-3-5",
@@ -18581,8 +19002,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Code-OpenChat-3.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Code-OpenChat-3.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -18591,7 +19012,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-code-openchat-3-5",
@@ -18632,8 +19054,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Code-OpenChat-3.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Code-OpenChat-3.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -18642,7 +19064,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-code-openchat-3-5",
@@ -18683,8 +19106,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Code-OpenChat-3.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Code-OpenChat-3.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -18693,7 +19116,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-code-openchat-3-5",
@@ -18734,8 +19158,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Code-OpenChat-3.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Code-OpenChat-3.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -18744,7 +19168,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-code-openchat-3-5",
@@ -18785,8 +19210,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Code-OpenChat-3.5",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Code-OpenChat-3.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -18795,7 +19220,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-code-nexus-agent",
@@ -18836,8 +19262,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Code-Nexus-Agent",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Code-Nexus-Agent",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "code",
       "ollama",
@@ -18846,7 +19272,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-code-nexus-agent",
@@ -18887,8 +19314,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-Nexus-Agent",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Code-Nexus-Agent",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -18897,7 +19324,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-code-nexus-agent",
@@ -18938,8 +19366,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-Nexus-Agent",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Code-Nexus-Agent",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -18948,7 +19376,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-code-nexus-agent",
@@ -18989,8 +19418,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Code-Nexus-Agent",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Code-Nexus-Agent",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -18999,7 +19428,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-code-nexus-agent",
@@ -19040,8 +19470,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Code-Nexus-Agent",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Code-Nexus-Agent",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -19050,7 +19480,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-code-nexus-agent",
@@ -19091,8 +19522,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Code-Nexus-Agent",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Code-Nexus-Agent",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -19101,7 +19532,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-code-nexus-agent",
@@ -19142,8 +19574,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Code-Nexus-Agent",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Code-Nexus-Agent",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -19152,7 +19584,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-code-nexus-agent",
@@ -19193,8 +19626,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Code-Nexus-Agent",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Code-Nexus-Agent",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -19203,7 +19636,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-code-nexus-agent",
@@ -19244,8 +19678,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Code-Nexus-Agent",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Code-Nexus-Agent",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -19254,7 +19688,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-code-nexus-agent",
@@ -19295,8 +19730,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Code-Nexus-Agent",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Code-Nexus-Agent",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "code",
       "ollama",
@@ -19305,7 +19740,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-math-gguf-q4-k-m",
@@ -19346,8 +19782,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Math-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Math-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "math",
       "ollama",
@@ -19356,7 +19792,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-math-gguf-q4-k-m",
@@ -19397,8 +19834,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -19407,7 +19844,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-math-gguf-q4-k-m",
@@ -19448,8 +19886,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -19458,7 +19896,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-math-gguf-q4-k-m",
@@ -19499,8 +19938,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Math-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Math-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -19509,7 +19948,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-math-gguf-q4-k-m",
@@ -19550,8 +19990,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Math-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Math-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -19560,7 +20000,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-math-gguf-q4-k-m",
@@ -19601,8 +20042,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Math-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Math-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -19611,7 +20052,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-math-gguf-q4-k-m",
@@ -19652,8 +20094,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Math-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Math-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -19662,7 +20104,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-math-gguf-q4-k-m",
@@ -19703,8 +20146,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Math-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Math-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -19713,7 +20156,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-math-gguf-q4-k-m",
@@ -19754,8 +20198,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Math-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Math-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -19764,7 +20208,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-math-gguf-q4-k-m",
@@ -19805,8 +20250,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Math-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Math-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -19815,7 +20260,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-math-gguf-q8-0",
@@ -19856,8 +20302,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Math-GGUF-Q8_0",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Math-GGUF-Q8_0",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "math",
       "ollama",
@@ -19866,7 +20312,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-math-gguf-q8-0",
@@ -19907,8 +20354,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-GGUF-Q8_0",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-GGUF-Q8_0",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -19917,7 +20364,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-math-gguf-q8-0",
@@ -19958,8 +20406,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-GGUF-Q8_0",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-GGUF-Q8_0",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -19968,7 +20416,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-math-gguf-q8-0",
@@ -20009,8 +20458,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Math-GGUF-Q8_0",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Math-GGUF-Q8_0",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -20019,7 +20468,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-math-gguf-q8-0",
@@ -20060,8 +20510,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Math-GGUF-Q8_0",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Math-GGUF-Q8_0",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -20070,7 +20520,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-math-gguf-q8-0",
@@ -20111,8 +20562,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Math-GGUF-Q8_0",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Math-GGUF-Q8_0",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -20121,7 +20572,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-math-gguf-q8-0",
@@ -20162,8 +20614,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Math-GGUF-Q8_0",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Math-GGUF-Q8_0",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -20172,7 +20624,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-math-gguf-q8-0",
@@ -20213,8 +20666,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Math-GGUF-Q8_0",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Math-GGUF-Q8_0",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -20223,7 +20676,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-math-gguf-q8-0",
@@ -20264,8 +20718,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Math-GGUF-Q8_0",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Math-GGUF-Q8_0",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -20274,7 +20728,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-math-gguf-q8-0",
@@ -20315,8 +20770,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Math-GGUF-Q8_0",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Math-GGUF-Q8_0",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -20325,7 +20780,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-math-awq-int4",
@@ -20366,8 +20822,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Math-AWQ-INT4",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Math-AWQ-INT4",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "math",
       "ollama",
@@ -20376,7 +20832,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-math-awq-int4",
@@ -20417,8 +20874,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-AWQ-INT4",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-AWQ-INT4",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -20427,7 +20884,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-math-awq-int4",
@@ -20468,8 +20926,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-AWQ-INT4",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-AWQ-INT4",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -20478,7 +20936,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-math-awq-int4",
@@ -20519,8 +20978,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Math-AWQ-INT4",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Math-AWQ-INT4",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -20529,7 +20988,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-math-awq-int4",
@@ -20570,8 +21030,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Math-AWQ-INT4",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Math-AWQ-INT4",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -20580,7 +21040,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-math-awq-int4",
@@ -20621,8 +21082,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Math-AWQ-INT4",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Math-AWQ-INT4",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -20631,7 +21092,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-math-awq-int4",
@@ -20672,8 +21134,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Math-AWQ-INT4",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Math-AWQ-INT4",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -20682,7 +21144,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-math-awq-int4",
@@ -20723,8 +21186,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Math-AWQ-INT4",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Math-AWQ-INT4",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -20733,7 +21196,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-math-awq-int4",
@@ -20774,8 +21238,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Math-AWQ-INT4",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Math-AWQ-INT4",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -20784,7 +21248,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-math-awq-int4",
@@ -20825,8 +21290,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Math-AWQ-INT4",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Math-AWQ-INT4",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -20835,7 +21300,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-math-gptq-4bit",
@@ -20876,8 +21342,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Math-GPTQ-4bit",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Math-GPTQ-4bit",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "math",
       "ollama",
@@ -20886,7 +21352,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-math-gptq-4bit",
@@ -20927,8 +21394,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-GPTQ-4bit",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-GPTQ-4bit",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -20937,7 +21404,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-math-gptq-4bit",
@@ -20978,8 +21446,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-GPTQ-4bit",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-GPTQ-4bit",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -20988,7 +21456,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-math-gptq-4bit",
@@ -21029,8 +21498,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Math-GPTQ-4bit",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Math-GPTQ-4bit",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -21039,7 +21508,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-math-gptq-4bit",
@@ -21080,8 +21550,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Math-GPTQ-4bit",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Math-GPTQ-4bit",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -21090,7 +21560,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-math-gptq-4bit",
@@ -21131,8 +21602,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Math-GPTQ-4bit",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Math-GPTQ-4bit",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -21141,7 +21612,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-math-gptq-4bit",
@@ -21182,8 +21654,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Math-GPTQ-4bit",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Math-GPTQ-4bit",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -21192,7 +21664,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-math-gptq-4bit",
@@ -21233,8 +21706,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Math-GPTQ-4bit",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Math-GPTQ-4bit",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -21243,7 +21716,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-math-gptq-4bit",
@@ -21284,8 +21758,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Math-GPTQ-4bit",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Math-GPTQ-4bit",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -21294,7 +21768,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-math-gptq-4bit",
@@ -21335,8 +21810,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Math-GPTQ-4bit",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Math-GPTQ-4bit",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -21345,7 +21820,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-math-exl2-5-0bpw",
@@ -21386,8 +21862,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Math-EXL2-5.0bpw",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Math-EXL2-5.0bpw",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "math",
       "ollama",
@@ -21396,7 +21872,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-math-exl2-5-0bpw",
@@ -21437,8 +21914,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-EXL2-5.0bpw",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-EXL2-5.0bpw",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -21447,7 +21924,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-math-exl2-5-0bpw",
@@ -21488,8 +21966,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-EXL2-5.0bpw",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-EXL2-5.0bpw",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -21498,7 +21976,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-math-exl2-5-0bpw",
@@ -21539,8 +22018,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Math-EXL2-5.0bpw",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Math-EXL2-5.0bpw",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -21549,7 +22028,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-math-exl2-5-0bpw",
@@ -21590,8 +22070,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Math-EXL2-5.0bpw",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Math-EXL2-5.0bpw",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -21600,7 +22080,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-math-exl2-5-0bpw",
@@ -21641,8 +22122,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Math-EXL2-5.0bpw",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Math-EXL2-5.0bpw",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -21651,7 +22132,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-math-exl2-5-0bpw",
@@ -21692,8 +22174,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Math-EXL2-5.0bpw",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Math-EXL2-5.0bpw",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -21702,7 +22184,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-math-exl2-5-0bpw",
@@ -21743,8 +22226,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Math-EXL2-5.0bpw",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Math-EXL2-5.0bpw",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -21753,7 +22236,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-math-exl2-5-0bpw",
@@ -21794,8 +22278,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Math-EXL2-5.0bpw",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Math-EXL2-5.0bpw",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -21804,7 +22288,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-math-exl2-5-0bpw",
@@ -21845,8 +22330,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Math-EXL2-5.0bpw",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Math-EXL2-5.0bpw",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -21855,7 +22340,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-math-fp8-quant",
@@ -21896,8 +22382,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Math-FP8-quant",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Math-FP8-quant",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "math",
       "ollama",
@@ -21906,7 +22392,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-math-fp8-quant",
@@ -21947,8 +22434,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-FP8-quant",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-FP8-quant",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -21957,7 +22444,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-math-fp8-quant",
@@ -21998,8 +22486,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-FP8-quant",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-FP8-quant",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -22008,7 +22496,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-math-fp8-quant",
@@ -22049,8 +22538,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Math-FP8-quant",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Math-FP8-quant",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -22059,7 +22548,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-math-fp8-quant",
@@ -22100,8 +22590,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Math-FP8-quant",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Math-FP8-quant",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -22110,7 +22600,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-math-fp8-quant",
@@ -22151,8 +22642,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Math-FP8-quant",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Math-FP8-quant",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -22161,7 +22652,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-math-fp8-quant",
@@ -22202,8 +22694,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Math-FP8-quant",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Math-FP8-quant",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -22212,7 +22704,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-math-fp8-quant",
@@ -22253,8 +22746,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Math-FP8-quant",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Math-FP8-quant",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -22263,7 +22756,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-math-fp8-quant",
@@ -22304,8 +22798,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Math-FP8-quant",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Math-FP8-quant",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -22314,7 +22808,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-math-fp8-quant",
@@ -22355,8 +22850,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Math-FP8-quant",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Math-FP8-quant",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -22365,7 +22860,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-math-fp16-full",
@@ -22406,8 +22902,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Math-FP16-full",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Math-FP16-full",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "math",
       "ollama",
@@ -22416,7 +22912,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-math-fp16-full",
@@ -22457,8 +22954,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-FP16-full",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-FP16-full",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -22467,7 +22964,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-math-fp16-full",
@@ -22508,8 +23006,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-FP16-full",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-FP16-full",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -22518,7 +23016,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-math-fp16-full",
@@ -22559,8 +23058,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Math-FP16-full",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Math-FP16-full",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -22569,7 +23068,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-math-fp16-full",
@@ -22610,8 +23110,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Math-FP16-full",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Math-FP16-full",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -22620,7 +23120,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-math-fp16-full",
@@ -22661,8 +23162,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Math-FP16-full",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Math-FP16-full",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -22671,7 +23172,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-math-fp16-full",
@@ -22712,8 +23214,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Math-FP16-full",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Math-FP16-full",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -22722,7 +23224,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-math-fp16-full",
@@ -22763,8 +23266,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Math-FP16-full",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Math-FP16-full",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -22773,7 +23276,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-math-fp16-full",
@@ -22814,8 +23318,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Math-FP16-full",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Math-FP16-full",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -22824,7 +23328,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-math-fp16-full",
@@ -22865,8 +23370,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Math-FP16-full",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Math-FP16-full",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -22875,7 +23380,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-math-uncensored-instruct",
@@ -22916,8 +23422,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Math-Uncensored-Instruct",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Math-Uncensored-Instruct",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "math",
       "ollama",
@@ -22926,7 +23432,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-math-uncensored-instruct",
@@ -22967,8 +23474,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-Uncensored-Instruct",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-Uncensored-Instruct",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -22977,7 +23484,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-math-uncensored-instruct",
@@ -23018,8 +23526,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-Uncensored-Instruct",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-Uncensored-Instruct",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -23028,7 +23536,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-math-uncensored-instruct",
@@ -23069,8 +23578,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Math-Uncensored-Instruct",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Math-Uncensored-Instruct",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -23079,7 +23588,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-math-uncensored-instruct",
@@ -23120,8 +23630,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Math-Uncensored-Instruct",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Math-Uncensored-Instruct",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -23130,7 +23640,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-math-uncensored-instruct",
@@ -23171,8 +23682,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Math-Uncensored-Instruct",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Math-Uncensored-Instruct",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -23181,7 +23692,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-math-uncensored-instruct",
@@ -23222,8 +23734,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Math-Uncensored-Instruct",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Math-Uncensored-Instruct",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -23232,7 +23744,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-math-uncensored-instruct",
@@ -23273,8 +23786,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Math-Uncensored-Instruct",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Math-Uncensored-Instruct",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -23283,7 +23796,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-math-uncensored-instruct",
@@ -23324,8 +23838,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Math-Uncensored-Instruct",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Math-Uncensored-Instruct",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -23334,7 +23848,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-math-uncensored-instruct",
@@ -23375,8 +23890,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Math-Uncensored-Instruct",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Math-Uncensored-Instruct",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -23385,7 +23900,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-math-rag-finetune",
@@ -23426,8 +23942,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Math-RAG-FineTune",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Math-RAG-FineTune",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "math",
       "ollama",
@@ -23436,7 +23952,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-math-rag-finetune",
@@ -23477,8 +23994,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-RAG-FineTune",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-RAG-FineTune",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -23487,7 +24004,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-math-rag-finetune",
@@ -23528,8 +24046,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-RAG-FineTune",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-RAG-FineTune",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -23538,7 +24056,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-math-rag-finetune",
@@ -23579,8 +24098,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Math-RAG-FineTune",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Math-RAG-FineTune",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -23589,7 +24108,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-math-rag-finetune",
@@ -23630,8 +24150,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Math-RAG-FineTune",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Math-RAG-FineTune",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -23640,7 +24160,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-math-rag-finetune",
@@ -23681,8 +24202,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Math-RAG-FineTune",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Math-RAG-FineTune",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -23691,7 +24212,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-math-rag-finetune",
@@ -23732,8 +24254,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Math-RAG-FineTune",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Math-RAG-FineTune",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -23742,7 +24264,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-math-rag-finetune",
@@ -23783,8 +24306,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Math-RAG-FineTune",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Math-RAG-FineTune",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -23793,7 +24316,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-math-rag-finetune",
@@ -23834,8 +24358,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Math-RAG-FineTune",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Math-RAG-FineTune",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -23844,7 +24368,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-math-rag-finetune",
@@ -23885,8 +24410,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Math-RAG-FineTune",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Math-RAG-FineTune",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -23895,7 +24420,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-math-hermes-3",
@@ -23936,8 +24462,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Math-Hermes-3",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Math-Hermes-3",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "math",
       "ollama",
@@ -23946,7 +24472,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-math-hermes-3",
@@ -23987,8 +24514,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-Hermes-3",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-Hermes-3",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -23997,7 +24524,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-math-hermes-3",
@@ -24038,8 +24566,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-Hermes-3",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-Hermes-3",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -24048,7 +24576,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-math-hermes-3",
@@ -24089,8 +24618,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Math-Hermes-3",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Math-Hermes-3",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -24099,7 +24628,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-math-hermes-3",
@@ -24140,8 +24670,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Math-Hermes-3",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Math-Hermes-3",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -24150,7 +24680,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-math-hermes-3",
@@ -24191,8 +24722,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Math-Hermes-3",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Math-Hermes-3",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -24201,7 +24732,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-math-hermes-3",
@@ -24242,8 +24774,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Math-Hermes-3",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Math-Hermes-3",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -24252,7 +24784,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-math-hermes-3",
@@ -24293,8 +24826,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Math-Hermes-3",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Math-Hermes-3",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -24303,7 +24836,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-math-hermes-3",
@@ -24344,8 +24878,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Math-Hermes-3",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Math-Hermes-3",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -24354,7 +24888,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-math-hermes-3",
@@ -24395,8 +24930,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Math-Hermes-3",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Math-Hermes-3",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -24405,7 +24940,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-math-openchat-3-5",
@@ -24446,8 +24982,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Math-OpenChat-3.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Math-OpenChat-3.5",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "math",
       "ollama",
@@ -24456,7 +24992,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-math-openchat-3-5",
@@ -24497,8 +25034,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-OpenChat-3.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-OpenChat-3.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -24507,7 +25044,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-math-openchat-3-5",
@@ -24548,8 +25086,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-OpenChat-3.5",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-OpenChat-3.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -24558,7 +25096,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-math-openchat-3-5",
@@ -24599,8 +25138,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Math-OpenChat-3.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Math-OpenChat-3.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -24609,7 +25148,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-math-openchat-3-5",
@@ -24650,8 +25190,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Math-OpenChat-3.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Math-OpenChat-3.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -24660,7 +25200,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-math-openchat-3-5",
@@ -24701,8 +25242,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Math-OpenChat-3.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Math-OpenChat-3.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -24711,7 +25252,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-math-openchat-3-5",
@@ -24752,8 +25294,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Math-OpenChat-3.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Math-OpenChat-3.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -24762,7 +25304,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-math-openchat-3-5",
@@ -24803,8 +25346,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Math-OpenChat-3.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Math-OpenChat-3.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -24813,7 +25356,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-math-openchat-3-5",
@@ -24854,8 +25398,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Math-OpenChat-3.5",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Math-OpenChat-3.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -24864,7 +25408,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-math-openchat-3-5",
@@ -24905,8 +25450,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Math-OpenChat-3.5",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Math-OpenChat-3.5",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -24915,7 +25460,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-math-nexus-agent",
@@ -24956,8 +25502,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Math-Nexus-Agent",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Math-Nexus-Agent",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "math",
       "ollama",
@@ -24966,7 +25512,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-math-nexus-agent",
@@ -25007,8 +25554,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-Nexus-Agent",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Math-Nexus-Agent",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -25017,7 +25564,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-math-nexus-agent",
@@ -25058,8 +25606,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-Nexus-Agent",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Math-Nexus-Agent",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -25068,7 +25616,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-math-nexus-agent",
@@ -25109,8 +25658,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Math-Nexus-Agent",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Math-Nexus-Agent",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -25119,7 +25668,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-math-nexus-agent",
@@ -25160,8 +25710,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Math-Nexus-Agent",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Math-Nexus-Agent",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -25170,7 +25720,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-math-nexus-agent",
@@ -25211,8 +25762,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Math-Nexus-Agent",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Math-Nexus-Agent",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -25221,7 +25772,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-math-nexus-agent",
@@ -25262,8 +25814,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Math-Nexus-Agent",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Math-Nexus-Agent",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -25272,7 +25824,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-math-nexus-agent",
@@ -25313,8 +25866,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Math-Nexus-Agent",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Math-Nexus-Agent",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -25323,7 +25876,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-math-nexus-agent",
@@ -25364,8 +25918,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Math-Nexus-Agent",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Math-Nexus-Agent",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -25374,7 +25928,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-math-nexus-agent",
@@ -25415,8 +25970,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Math-Nexus-Agent",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Math-Nexus-Agent",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "math",
       "ollama",
@@ -25425,7 +25980,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "llama-3-1-medical-gguf-q4-k-m",
@@ -25466,8 +26022,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Llama-3.1-Medical-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Llama-3.1-Medical-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama-3-1",
+    "modelCardUrl": "https://huggingface.co/meta-llama/Meta-Llama-3.1-70B-Instruct",
     "tags": [
       "medical",
       "ollama",
@@ -25476,7 +26032,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "qwen-2-5-medical-gguf-q4-k-m",
@@ -25517,8 +26074,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Qwen-2.5-Medical-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Qwen-2.5-Medical-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "medical",
       "ollama",
@@ -25527,7 +26084,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "deepseek-v3-medical-gguf-q4-k-m",
@@ -25568,8 +26126,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=DeepSeek-V3-Medical-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=DeepSeek-V3-Medical-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "medical",
       "ollama",
@@ -25578,7 +26136,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "mistral-7b-medical-gguf-q4-k-m",
@@ -25619,8 +26178,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Mistral-7B-Medical-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Mistral-7B-Medical-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "medical",
       "ollama",
@@ -25629,7 +26188,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "gemma-2-medical-gguf-q4-k-m",
@@ -25670,8 +26230,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Gemma-2-Medical-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Gemma-2-Medical-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "medical",
       "ollama",
@@ -25680,7 +26240,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "phi-3-5-medical-gguf-q4-k-m",
@@ -25721,8 +26282,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Phi-3.5-Medical-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Phi-3.5-Medical-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "medical",
       "ollama",
@@ -25731,7 +26292,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "granite-3-1-medical-gguf-q4-k-m",
@@ -25772,8 +26334,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Granite-3.1-Medical-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Granite-3.1-Medical-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "medical",
       "ollama",
@@ -25782,7 +26344,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "yi-1-5-medical-gguf-q4-k-m",
@@ -25823,8 +26386,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Yi-1.5-Medical-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Yi-1.5-Medical-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "medical",
       "ollama",
@@ -25833,7 +26396,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "falcon-2-medical-gguf-q4-k-m",
@@ -25874,8 +26438,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=Falcon-2-Medical-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=Falcon-2-Medical-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "medical",
       "ollama",
@@ -25884,7 +26448,8 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   },
   {
     "slug": "bge-m3-medical-gguf-q4-k-m",
@@ -25925,8 +26490,8 @@ export const MODELS: AIModel[] = [
     "weaknesses": [
       "Closed source API"
     ],
-    "docUrl": "https://huggingface.co/models?search=BGE-M3-Medical-GGUF-Q4_K_M",
-    "modelCardUrl": "https://huggingface.co/models?search=BGE-M3-Medical-GGUF-Q4_K_M",
+    "docUrl": "https://www.llama.com/docs/",
+    "modelCardUrl": "https://github.com/meta-llama/llama-models",
     "tags": [
       "medical",
       "ollama",
@@ -25935,6 +26500,7 @@ export const MODELS: AIModel[] = [
       "local"
     ],
     "featured": false,
-    "trending": false
+    "trending": false,
+    "playgroundUrl": "https://www.llama.com/"
   }
 ];

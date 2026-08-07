@@ -4,6 +4,7 @@ import { AIModel } from "@/types/model";
 import { MODELS as INITIAL_MODELS } from "@/data/models";
 import { supabase } from "@/lib/supabase";
 import { publicEnv } from "@/env";
+import { resolveModelLinks } from "@/lib/utils/link-resolver";
 
 const DB_PATH = path.join(process.cwd(), "src/data/models_db.json");
 
@@ -103,10 +104,18 @@ export const db = {
       return { success: false, error: `Model with slug "${newModel.slug}" already exists.` };
     }
 
+    const resolved = resolveModelLinks(newModel);
+    const enrichedModel: AIModel = {
+      ...newModel,
+      docUrl: resolved.docUrl || newModel.docUrl,
+      modelCardUrl: resolved.modelCardUrl || newModel.modelCardUrl,
+      playgroundUrl: resolved.playgroundUrl || newModel.playgroundUrl,
+    };
+
     const isPlaceholder = publicEnv.NEXT_PUBLIC_SUPABASE_URL?.includes("placeholder");
     if (!isPlaceholder) {
       try {
-        const { error } = await supabase.from("models").insert([newModel]);
+        const { error } = await supabase.from("models").insert([enrichedModel]);
         if (error) {
           console.error("Supabase createModel error:", error.message);
         }
@@ -115,11 +124,11 @@ export const db = {
       }
     }
 
-    const updated = [newModel, ...ensureLocalDbFile()];
+    const updated = [enrichedModel, ...ensureLocalDbFile()];
     saveLocalDbFile(updated);
     invalidateCache();
 
-    return { success: true, model: newModel };
+    return { success: true, model: enrichedModel };
   },
 
   /**
@@ -132,9 +141,14 @@ export const db = {
       return { success: false, error: `Model with slug "${slug}" not found.` };
     }
 
+    const merged = { ...existing, ...updates };
+    const resolved = resolveModelLinks(merged);
+
     const updatedModel: AIModel = {
-      ...existing,
-      ...updates,
+      ...merged,
+      docUrl: resolved.docUrl || merged.docUrl,
+      modelCardUrl: resolved.modelCardUrl || merged.modelCardUrl,
+      playgroundUrl: resolved.playgroundUrl || merged.playgroundUrl,
       lastUpdated: new Date().toISOString().split("T")[0],
     };
 
@@ -196,20 +210,31 @@ export const db = {
    */
   async importModels(newModels: AIModel[], overwrite = false): Promise<{ success: boolean; count: number }> {
     const existing = await this.getModels();
+
+    const enrichedNew = newModels.map((m) => {
+      const resolved = resolveModelLinks(m);
+      return {
+        ...m,
+        docUrl: resolved.docUrl || m.docUrl,
+        modelCardUrl: resolved.modelCardUrl || m.modelCardUrl,
+        playgroundUrl: resolved.playgroundUrl || m.playgroundUrl,
+      };
+    });
+
     let result: AIModel[];
 
     if (overwrite) {
-      result = newModels;
+      result = enrichedNew;
     } else {
       const existingMap = new Map(existing.map((m) => [m.slug, m]));
-      newModels.forEach((m) => existingMap.set(m.slug, m));
+      enrichedNew.forEach((m) => existingMap.set(m.slug, m));
       result = Array.from(existingMap.values());
     }
 
     const isPlaceholder = publicEnv.NEXT_PUBLIC_SUPABASE_URL?.includes("placeholder");
     if (!isPlaceholder) {
       try {
-        const { error } = await supabase.from("models").upsert(newModels, { onConflict: "slug" });
+        const { error } = await supabase.from("models").upsert(enrichedNew, { onConflict: "slug" });
         if (error) {
           console.error("Supabase importModels error:", error.message);
         }
@@ -223,3 +248,4 @@ export const db = {
     return { success: true, count: result.length };
   },
 };
+

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { useDirectoryStore } from "@/stores/use-directory-store";
@@ -10,6 +10,7 @@ import { Footer } from "@/components/directory/Footer";
 import { AvailabilityBadge, PricingBadge } from "@/components/directory/Badges";
 import { ModelCard } from "@/components/directory/ModelCard";
 import { ArrowUpRightIcon, CheckIcon, CodeIcon, CpuIcon, ExternalLinkIcon, HeartFillIcon, HeartIcon } from "@/components/directory/icons";
+import { enrichModelData, getModalityCodeSnippet } from "@/lib/utils/model-enricher";
 
 interface ModelDetailProps {
   slug: string;
@@ -21,16 +22,29 @@ export const ModelDetailView: React.FC<ModelDetailProps> = ({ slug }) => {
 
   const isFav = useDashboardStore((s) => s.favorites.includes(slug));
   const toggleFavorite = useDashboardStore((s) => s.toggleFavorite);
+  const [activeTab, setActiveTab] = useState<"python" | "rest">("python");
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     loadModelsFromDb();
   }, [loadModelsFromDb]);
 
-  const model = allModels.find((m) => m.slug === slug);
+  const rawModel = allModels.find((m) => m.slug === slug);
 
-  if (!model) {
+  if (!rawModel) {
     return notFound();
   }
+
+  const model = enrichModelData(rawModel);
+  const codeSnippet = getModalityCodeSnippet(model);
+
+  const copyCode = () => {
+    const text = activeTab === "python" ? codeSnippet.python : codeSnippet.rest;
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
 
   const similarModels = allModels.filter(
     (m) => m.slug !== model.slug && m.providerSlug === model.providerSlug
@@ -212,30 +226,47 @@ export const ModelDetailView: React.FC<ModelDetailProps> = ({ slug }) => {
                 </div>
               </div>
 
-              {/* Sample Code API snippet */}
-              <div className="rounded-2xl border border-slate-200 bg-slate-950 p-6 text-white shadow-sm">
-                <div className="flex items-center justify-between mb-3 text-xs font-bold text-slate-400">
-                  <span className="flex items-center gap-1.5">
-                    <CodeIcon className="w-4 h-4 text-blue-400" /> API Sample Code
-                  </span>
-                  <span className="text-[0.65rem] uppercase tracking-wider text-slate-500">Python / REST</span>
+              {/* Modality-Aware API Code Snippet */}
+              <div className="rounded-2xl border border-slate-800 bg-slate-950 p-6 text-white shadow-md">
+                <div className="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-800">
+                  <div className="flex items-center gap-2">
+                    <CodeIcon className="w-4 h-4 text-blue-400" />
+                    <span className="text-xs font-extrabold text-slate-200 uppercase tracking-wider">
+                      Integration Code ({model.useCases[0] || "API"})
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center rounded-lg bg-slate-900 p-0.5 border border-slate-800">
+                      <button
+                        onClick={() => setActiveTab("python")}
+                        className={`px-3 py-1 text-[0.7rem] font-bold rounded-md transition-all ${
+                          activeTab === "python" ? "bg-blue-600 text-white shadow-sm" : "text-slate-400 hover:text-white"
+                        }`}
+                      >
+                        Python
+                      </button>
+                      <button
+                        onClick={() => setActiveTab("rest")}
+                        className={`px-3 py-1 text-[0.7rem] font-bold rounded-md transition-all ${
+                          activeTab === "rest" ? "bg-blue-600 text-white shadow-sm" : "text-slate-400 hover:text-white"
+                        }`}
+                      >
+                        cURL / REST
+                      </button>
+                    </div>
+                    <button
+                      onClick={copyCode}
+                      className="px-2.5 py-1 text-[0.7rem] font-bold rounded-lg border border-slate-800 bg-slate-900 text-slate-300 hover:text-white hover:border-slate-700 transition-all"
+                    >
+                      {copied ? "Copied! ✓" : "Copy"}
+                    </button>
+                  </div>
                 </div>
-                <pre className="text-xs font-mono text-slate-200 overflow-x-auto bg-slate-900/80 p-4 rounded-xl leading-relaxed">
-                  {`import openai
-
-client = openai.OpenAI()
-
-response = client.chat.completions.create(
-    model="${model.slug}",
-    messages=[
-        {"role": "system", "content": "You are a helpful expert assistant."},
-        {"role": "user", "content": "Explain quantum computing in 2 sentences."}
-    ]
-)
-
-print(response.choices[0].message.content)`}
+                <pre className="text-xs font-mono text-slate-200 overflow-x-auto bg-slate-900/90 p-4 rounded-xl leading-relaxed whitespace-pre-wrap">
+                  {activeTab === "python" ? codeSnippet.python : codeSnippet.rest}
                 </pre>
               </div>
+
             </div>
 
             {/* Right Col: Pricing & Meta */}

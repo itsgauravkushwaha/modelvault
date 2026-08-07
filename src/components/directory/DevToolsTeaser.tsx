@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRightIcon, CodeIcon, CpuIcon, SparklesIcon } from "./icons";
+import { ArrowRightIcon, CodeIcon, CpuIcon, SparklesIcon, SlidersIcon } from "./icons";
 
 interface Tool {
   title: string;
@@ -14,7 +14,7 @@ const tools: Tool[] = [
   {
     title: "AI API Cost Calculator",
     description:
-      "Estimate monthly API expenditure based on projected input/output token volume across OpenAI, Anthropic, Google, DeepSeek, and Mistral.",
+      "Estimate monthly API expenditure based on projected token volume across OpenAI, Anthropic, DeepSeek, and Mistral.",
     icon: SparklesIcon,
     accent: "text-blue-500 bg-blue-500/10 border-blue-500/20",
     isLive: true,
@@ -39,7 +39,7 @@ const tools: Tool[] = [
     href: "/tools/token-calculator",
   },
   {
-    title: "Local VRAM Hardware Estimator",
+    title: "Local VRAM Estimator",
     description:
       "Determine exact GPU VRAM requirements for quantization levels (GGUF Q4, AWQ INT4, FP16) before downloading weights.",
     icon: CpuIcon,
@@ -47,11 +47,20 @@ const tools: Tool[] = [
     isLive: true,
     href: "/tools/vram-calculator",
   },
+  {
+    title: "Context Window Calculator",
+    description:
+      "Calculate context window fill ratios, document token capacity, and memory pressure limits for long-context LLMs.",
+    icon: SlidersIcon,
+    accent: "text-amber-500 bg-amber-500/10 border-amber-500/20",
+    isLive: true,
+    href: "/tools/context-calculator",
+  },
 ];
 
 export const DevToolsTeaser = () => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
       {tools.map((tool) => {
         const IconComponent = tool.icon;
 

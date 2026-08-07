@@ -48,9 +48,12 @@ export const AdminView = () => {
   useEffect(() => {
     if (isAuthenticated) {
       setLoadingData(true);
+      const passcode = sessionStorage.getItem("admin_passcode") || localStorage.getItem("admin_passcode") || "";
+      const headers: Record<string, string> = passcode ? { "x-admin-passcode": passcode } : {};
+
       Promise.all([
-        fetch("/api/admin/subscribers").then((res) => res.json()).catch(() => ({ subscribers: [] })),
-        fetch("/api/admin/contacts").then((res) => res.json()).catch(() => ({ contacts: [] })),
+        fetch("/api/admin/subscribers", { headers }).then((res) => res.json()).catch(() => ({ subscribers: [] })),
+        fetch("/api/admin/contacts", { headers }).then((res) => res.json()).catch(() => ({ contacts: [] })),
       ]).then(([subData, contactData]) => {
         if (subData.subscribers) setSubscribers(subData.subscribers);
         if (contactData.contacts) setMessages(contactData.contacts);
@@ -66,13 +69,15 @@ export const AdminView = () => {
     setSyncing(true);
     setSyncMsg("");
     try {
-      const res = await fetch("/api/cron/sync-models");
+      const passcode = sessionStorage.getItem("admin_passcode") || localStorage.getItem("admin_passcode") || "";
+      const headers: Record<string, string> = passcode ? { "x-admin-passcode": passcode } : {};
+      const res = await fetch("/api/cron/sync-models", { headers });
       const data = await res.json();
       if (res.ok && data.success) {
         setSyncMsg(`Sync Complete! ${data.updatedCount} models updated, ${data.newlyAddedCount} new models added.`);
         fetchAdminModels();
       } else {
-        setSyncMsg("Failed to run sync. Please try again.");
+        setSyncMsg(data.error || "Failed to run sync. Please try again.");
       }
     } catch {
       setSyncMsg("Network error triggering sync.");

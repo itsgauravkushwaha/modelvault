@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 import { publicEnv } from "@/env";
+import { verifyAdminAuth } from "@/lib/auth";
+import { checkRateLimit } from "@/lib/rate-limit";
 import fs from "fs";
 import path from "path";
 
@@ -18,8 +20,22 @@ function getLocalSubscribers(): any[] {
   return [];
 }
 
-export async function GET() {
+export async function GET(req: Request) {
   try {
+    // 1. Rate limiting
+    const rateLimit = checkRateLimit(req, "admin:subscribers", 30, 60 * 1000);
+    if (!rateLimit.allowed) {
+      return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+    }
+
+    // 2. Strict Authentication check
+    if (!verifyAdminAuth(req)) {
+      return NextResponse.json(
+        { error: "Unauthorized. Admin authentication required." },
+        { status: 401 }
+      );
+    }
+
     const isPlaceholder = publicEnv.NEXT_PUBLIC_SUPABASE_URL?.includes("placeholder");
 
     if (!isPlaceholder) {
@@ -37,7 +53,7 @@ export async function GET() {
       }
     }
 
-    // Merge or fallback to local storage
+    // Fallback to local storage
     const localList = getLocalSubscribers();
     return NextResponse.json({ subscribers: localList });
   } catch (error) {

@@ -51,7 +51,7 @@ export const Newsletter = () => {
         </h2>
 
         <p className="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed max-w-xl">
-          Join 15,000+ AI engineers and researchers. Get weekly breakdowns of new model releases, benchmark shifts, and local LLM quantization tips.
+          Join AI engineers, researchers, and developers receiving weekly breakdowns of new model releases, benchmark shifts, and local LLM quantization tips.
         </p>
 
         {/* Feature Checkmarks */}

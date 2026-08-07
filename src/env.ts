@@ -41,6 +41,7 @@ const serverSchema = z.object({
   CONTACT_ENDPOINT: optionalUrl(),
   SUPABASE_SERVICE_ROLE_KEY: optionalString(),
   ADMIN_SECRET_KEY: optionalString(),
+  CRON_SECRET: optionalString(),
 });
 
 /** Public env — safe to read anywhere (server or client). */
@@ -65,6 +66,7 @@ export function getServerEnv() {
     CONTACT_ENDPOINT: process.env.CONTACT_ENDPOINT,
     SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY,
     ADMIN_SECRET_KEY: process.env.ADMIN_SECRET_KEY,
+    CRON_SECRET: process.env.CRON_SECRET,
   });
   return cachedServerEnv;
 }

@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
-import { publicEnv } from "@/env";
+import { publicEnv, getServerEnv } from "@/env";
 import { AIModel, Modality, UseCase, PricingType, Availability } from "@/types/model";
+import { checkRateLimit } from "@/lib/rate-limit";
+import { verifyAdminAuth } from "@/lib/auth";
 import fs from "fs";
 import path from "path";
 
@@ -30,6 +32,18 @@ function saveLocalModels(models: AIModel[]): void {
   }
 }
 
+/**
+ * Deterministic canonical slug normalization across all platforms.
+ */
+function normalizeSlug(raw: string): string {
+  if (!raw) return "";
+  return raw
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 // Helper to format context window
 function formatContextWindow(num: number): string {
   if (!num || num <= 0) return "128k";
@@ -49,7 +63,7 @@ async function fetchOpenRouterModels(): Promise<Partial<AIModel>[]> {
     if (!json.data || !Array.isArray(json.data)) return [];
 
     return json.data.map((item: any) => {
-      const slug = item.id.toLowerCase().replace(/[^a-z0-9-/]/g, "-").replace(/\//g, "-");
+      const slug = normalizeSlug(item.id);
       const providerName = item.id.split("/")[0] || "OpenRouter";
       const promptCost = parseFloat(item.pricing?.prompt || "0") * 1000000;
       const completionCost = parseFloat(item.pricing?.completion || "0") * 1000000;
@@ -63,7 +77,7 @@ async function fetchOpenRouterModels(): Promise<Partial<AIModel>[]> {
         slug,
         name: item.name || item.id,
         provider: providerName,
-        providerSlug: providerName.toLowerCase().replace(/[^a-z0-9]/g, ""),
+        providerSlug: normalizeSlug(providerName),
         description: item.description || `High-performance cloud AI model indexed from OpenRouter API.`,
         type: "Large Language Model",
         contextWindow: formatContextWindow(item.context_length),
@@ -99,7 +113,7 @@ async function fetchHuggingFaceModels(): Promise<Partial<AIModel>[]> {
       const nameParts = item.id.split("/");
       const repoName = nameParts[1] || nameParts[0];
       const providerName = nameParts[0] || "HuggingFace";
-      const slug = item.id.toLowerCase().replace(/[^a-z0-9-]/g, "-");
+      const slug = normalizeSlug(item.id);
 
       const isVision = item.pipeline_tag?.includes("vision") || item.pipeline_tag?.includes("image");
       const isAudio = item.pipeline_tag?.includes("audio") || item.pipeline_tag?.includes("speech");
@@ -108,7 +122,7 @@ async function fetchHuggingFaceModels(): Promise<Partial<AIModel>[]> {
         slug,
         name: repoName,
         provider: providerName,
-        providerSlug: providerName.toLowerCase().replace(/[^a-z0-9]/g, ""),
+        providerSlug: normalizeSlug(providerName),
         description: `Open-weight AI model from Hugging Face Hub (${item.downloads?.toLocaleString() || "10,000+"} downloads).`,
         type: isVision ? "Multimodal Vision Model" : isAudio ? "Audio Model" : "Open Weights LLM",
         contextWindow: "32k",
@@ -141,7 +155,7 @@ async function fetchCivitAIModels(): Promise<Partial<AIModel>[]> {
     if (!json.items || !Array.isArray(json.items)) return [];
 
     return json.items.map((item: any) => {
-      const slug = `civitai-${item.name.toLowerCase().replace(/[^a-z0-9-]/g, "-")}`;
+      const slug = normalizeSlug(`civitai-${item.name}`);
       return {
         slug,
         name: item.name,
@@ -168,11 +182,41 @@ async function fetchCivitAIModels(): Promise<Partial<AIModel>[]> {
 }
 
 export async function GET(req: Request) {
+  const startTime = Date.now();
+
   try {
-    // Optional cron secret verification
+    // 1. Rate Limiting
+    const rateLimit = checkRateLimit(req, "cron:sync", 5, 60 * 1000);
+    if (!rateLimit.allowed) {
+      return NextResponse.json(
+        { error: "Too many cron sync requests. Please wait a minute." },
+        { status: 429 }
+      );
+    }
+
+    // 2. Strict Authentication check for Cron Secret or Admin Session
+    const serverEnv = getServerEnv();
+    const cronSecret = serverEnv.CRON_SECRET || process.env.CRON_SECRET;
     const authHeader = req.headers.get("authorization");
-    if (process.env.CRON_SECRET && authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
-      console.warn("Unauthorized Cron execution attempt");
+    const cronHeader = req.headers.get("x-cron-secret");
+    const url = new URL(req.url);
+    const secretQuery = url.searchParams.get("secret");
+
+    const isCronAuthorized = Boolean(
+      cronSecret &&
+        (authHeader === `Bearer ${cronSecret}` ||
+          cronHeader === cronSecret ||
+          secretQuery === cronSecret)
+    );
+
+    const isAdminAuthorized = verifyAdminAuth(req);
+
+    if (cronSecret && !isCronAuthorized && !isAdminAuthorized) {
+      console.warn("[cron/sync-models] Rejected unauthorized sync attempt.");
+      return NextResponse.json(
+        { error: "Unauthorized. Valid CRON_SECRET or Admin authentication required." },
+        { status: 401 }
+      );
     }
 
     console.log("[cron/sync-models] Starting multi-platform automated model sync...");
@@ -193,9 +237,18 @@ export async function GET(req: Request) {
 
     if (!isPlaceholder) {
       try {
-        const { data } = await supabase.from("models").select("*");
-        if (data && data.length > 0) {
-          existingModels = data as AIModel[];
+        let page = 0;
+        const pageSize = 1000;
+        while (page < 20) {
+          const { data, error } = await supabase
+            .from("models")
+            .select("*")
+            .range(page * pageSize, (page + 1) * pageSize - 1);
+
+          if (error || !data || data.length === 0) break;
+          existingModels.push(...(data as AIModel[]));
+          page++;
+          if (data.length < pageSize) break;
         }
       } catch (err) {
         console.warn("Supabase fetch error during sync, falling back to local JSON:", err);
@@ -208,25 +261,40 @@ export async function GET(req: Request) {
 
     const existingMap = new Map<string, AIModel>(existingModels.map((m) => [m.slug, m]));
 
+    let insertedCount = 0;
     let updatedCount = 0;
-    let newlyAddedCount = 0;
+    let skippedCount = 0;
+    let duplicatesMergedCount = 0;
+
     const upsertPayload: AIModel[] = [];
+    const processedSlugsInBatch = new Set<string>();
 
     const todayStr = new Date().toISOString().split("T")[0];
 
     for (const item of incomingModels) {
-      if (!item.slug || !item.name) continue;
+      if (!item.slug || !item.name) {
+        skippedCount++;
+        continue;
+      }
+
+      // Deduplicate duplicates within the same incoming batch
+      if (processedSlugsInBatch.has(item.slug)) {
+        duplicatesMergedCount++;
+        continue;
+      }
+      processedSlugsInBatch.add(item.slug);
 
       const existing = existingMap.get(item.slug);
 
       if (existing) {
-        // UPDATE logic: update dynamic fields (pricing, context, modalities) while preserving custom fields
+        // UPDATE-FIRST logic: update dynamic metadata while preserving curated fields
         const updated: AIModel = {
           ...existing,
           pricing: item.pricing || existing.pricing,
           pricingDetails: item.pricingDetails || existing.pricingDetails,
           contextWindow: item.contextWindow || existing.contextWindow,
           modalities: item.modalities || existing.modalities,
+          availability: item.availability || existing.availability,
           trending: item.trending !== undefined ? item.trending : existing.trending,
           lastVerified: todayStr,
         };
@@ -235,13 +303,13 @@ export async function GET(req: Request) {
         upsertPayload.push(updated);
         updatedCount++;
       } else {
-        // ADD NEW logic: insert brand new model
+        // INSERT-NEW logic: insert new model without generating fake benchmarks
         const newModel: AIModel = {
           slug: item.slug,
           name: item.name,
           provider: item.provider || "Community",
           providerSlug: item.providerSlug || "community",
-          description: item.description || "Newly indexed AI model.",
+          description: item.description || `Indexed AI model from ${item.provider || "community"}.`,
           type: item.type || "Large Language Model",
           useCases: item.useCases || ["text-chat"],
           modalities: item.modalities || ["text"],
@@ -253,15 +321,12 @@ export async function GET(req: Request) {
           pricingDetails: item.pricingDetails || "Free Access",
           contextWindow: item.contextWindow || "128k",
           hardwareRequirements: item.availability === "local" ? "Recommended 16GB VRAM GPU" : undefined,
-          benchmarks: [
-            { name: "MMLU", score: 75 + Math.floor(Math.random() * 15) },
-            { name: "HumanEval", score: 65 + Math.floor(Math.random() * 20) },
-          ],
+          benchmarks: [], // REAL DATA ONLY — Never generate fake random benchmark scores
           releaseDate: todayStr,
           lastUpdated: todayStr,
           lastVerified: todayStr,
-          strengths: ["High throughput", "Multilingual instruction following"],
-          weaknesses: ["Context memory degradation beyond limit"],
+          strengths: ["High throughput execution"],
+          weaknesses: ["Context boundary evaluation required"],
           docUrl: `https://modelvault.space/models/${item.slug}`,
           tags: [item.provider || "AI", item.type || "LLM"],
           trending: item.trending ?? false,
@@ -270,7 +335,7 @@ export async function GET(req: Request) {
 
         existingMap.set(item.slug, newModel);
         upsertPayload.push(newModel);
-        newlyAddedCount++;
+        insertedCount++;
       }
     }
 
@@ -295,12 +360,18 @@ export async function GET(req: Request) {
     // Always persist to local models_db.json
     saveLocalModels(finalModelsList);
 
+    const executionTimeMs = Date.now() - startTime;
+
     return NextResponse.json({
       success: true,
       timestamp: new Date().toISOString(),
+      executionTimeMs,
       totalChecked,
+      insertedCount,
       updatedCount,
-      newlyAddedCount,
+      skippedCount,
+      duplicatesMergedCount,
+      newlyAddedCount: insertedCount,
       totalModelsInDb: finalModelsList.length,
       platformBreakdown: {
         openrouter: openrouter.length,

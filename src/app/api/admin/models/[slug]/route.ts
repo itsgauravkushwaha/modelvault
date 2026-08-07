@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { AIModel } from "@/types/model";
 import { modelPartialSchema } from "@/lib/validations/model";
+import { verifyAdminAuth } from "@/lib/auth";
+import { checkRateLimit } from "@/lib/rate-limit";
 
 interface Params {
   params: Promise<{ slug: string }>;
@@ -9,6 +11,18 @@ interface Params {
 
 export async function PUT(request: Request, { params }: Params) {
   try {
+    const rateLimit = checkRateLimit(request, "admin:models:put", 30, 60 * 1000);
+    if (!rateLimit.allowed) {
+      return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+    }
+
+    if (!verifyAdminAuth(request)) {
+      return NextResponse.json(
+        { error: "Unauthorized. Admin authentication required." },
+        { status: 401 }
+      );
+    }
+
     const { slug } = await params;
     const body = await request.json();
     const validation = modelPartialSchema.safeParse(body);
@@ -33,8 +47,20 @@ export async function PUT(request: Request, { params }: Params) {
   }
 }
 
-export async function DELETE(_request: Request, { params }: Params) {
+export async function DELETE(request: Request, { params }: Params) {
   try {
+    const rateLimit = checkRateLimit(request, "admin:models:delete", 30, 60 * 1000);
+    if (!rateLimit.allowed) {
+      return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+    }
+
+    if (!verifyAdminAuth(request)) {
+      return NextResponse.json(
+        { error: "Unauthorized. Admin authentication required." },
+        { status: 401 }
+      );
+    }
+
     const { slug } = await params;
     const result = await db.deleteModel(slug);
 

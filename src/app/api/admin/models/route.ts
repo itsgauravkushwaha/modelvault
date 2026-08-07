@@ -2,9 +2,23 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { AIModel } from "@/types/model";
 import { aiModelSchema } from "@/lib/validations/model";
+import { verifyAdminAuth } from "@/lib/auth";
+import { checkRateLimit } from "@/lib/rate-limit";
 
-export async function GET() {
+export async function GET(req: Request) {
   try {
+    const rateLimit = checkRateLimit(req, "admin:models:get", 60, 60 * 1000);
+    if (!rateLimit.allowed) {
+      return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+    }
+
+    if (!verifyAdminAuth(req)) {
+      return NextResponse.json(
+        { error: "Unauthorized. Admin authentication required." },
+        { status: 401 }
+      );
+    }
+
     const models = await db.getModels();
     return NextResponse.json({ data: models, total: models.length });
   } catch (error) {
@@ -15,6 +29,18 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
+    const rateLimit = checkRateLimit(request, "admin:models:post", 20, 60 * 1000);
+    if (!rateLimit.allowed) {
+      return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+    }
+
+    if (!verifyAdminAuth(request)) {
+      return NextResponse.json(
+        { error: "Unauthorized. Admin authentication required." },
+        { status: 401 }
+      );
+    }
+
     const body = await request.json();
     const validation = aiModelSchema.safeParse(body);
 

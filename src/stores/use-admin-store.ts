@@ -1,6 +1,16 @@
 import { create } from "zustand";
 import { AIModel } from "@/types/model";
 
+function getAdminPasscode(): string {
+  if (typeof window === "undefined") return "";
+  return sessionStorage.getItem("admin_passcode") || localStorage.getItem("admin_passcode") || "";
+}
+
+function getAuthHeaders(): Record<string, string> {
+  const passcode = getAdminPasscode();
+  return passcode ? { "x-admin-passcode": passcode } : {};
+}
+
 interface AdminStore {
   isAuthenticated: boolean;
   models: AIModel[];
@@ -21,7 +31,7 @@ interface AdminStore {
   createModel: (model: AIModel) => Promise<{ success: boolean; error?: string }>;
   updateModel: (slug: string, updates: Partial<AIModel>) => Promise<{ success: boolean; error?: string }>;
   deleteModel: (slug: string) => Promise<{ success: boolean; error?: string }>;
-  
+
   // UI actions
   setSearchQuery: (query: string) => void;
   setCategoryFilter: (cat: string) => void;
@@ -37,7 +47,7 @@ interface AdminStore {
 }
 
 export const useAdminStore = create<AdminStore>((set, get) => ({
-  isAuthenticated: typeof window !== "undefined" ? localStorage.getItem("admin_authed") === "true" : false,
+  isAuthenticated: typeof window !== "undefined" ? Boolean(getAdminPasscode()) : false,
   models: [],
   isLoading: false,
   searchQuery: "",
@@ -57,8 +67,10 @@ export const useAdminStore = create<AdminStore>((set, get) => ({
         body: JSON.stringify({ passcode }),
       });
       const data = await res.json();
-      if (data.success) {
-        localStorage.setItem("admin_authed", "true");
+      if (data.success && (data.token || passcode)) {
+        const token = data.token || passcode;
+        sessionStorage.setItem("admin_passcode", token);
+        localStorage.setItem("admin_passcode", token);
         set({ isAuthenticated: true });
         return true;
       }
@@ -70,15 +82,22 @@ export const useAdminStore = create<AdminStore>((set, get) => ({
 
   logout: () => {
     if (typeof window !== "undefined") {
-      localStorage.removeItem("admin_authed");
+      sessionStorage.removeItem("admin_passcode");
+      localStorage.removeItem("admin_passcode");
     }
-    set({ isAuthenticated: false });
+    set({ isAuthenticated: false, models: [] });
   },
 
   fetchAdminModels: async () => {
     set({ isLoading: true });
     try {
-      const res = await fetch("/api/admin/models");
+      const res = await fetch("/api/admin/models", {
+        headers: getAuthHeaders(),
+      });
+      if (res.status === 401) {
+        get().logout();
+        return;
+      }
       const json = await res.json();
       if (json.data) {
         set({ models: json.data, isLoading: false });
@@ -93,7 +112,10 @@ export const useAdminStore = create<AdminStore>((set, get) => ({
     try {
       const res = await fetch("/api/admin/models", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          ...getAuthHeaders(),
+        },
         body: JSON.stringify(model),
       });
       const json = await res.json();
@@ -113,7 +135,10 @@ export const useAdminStore = create<AdminStore>((set, get) => ({
     try {
       const res = await fetch(`/api/admin/models/${slug}`, {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          ...getAuthHeaders(),
+        },
         body: JSON.stringify(updates),
       });
       const json = await res.json();
@@ -133,6 +158,7 @@ export const useAdminStore = create<AdminStore>((set, get) => ({
     try {
       const res = await fetch(`/api/admin/models/${slug}`, {
         method: "DELETE",
+        headers: getAuthHeaders(),
       });
       const json = await res.json();
 

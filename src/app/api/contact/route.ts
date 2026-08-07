@@ -2,13 +2,14 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { supabase } from "@/lib/supabase";
 import { publicEnv } from "@/env";
+import { checkRateLimit } from "@/lib/rate-limit";
 import fs from "fs";
 import path from "path";
 
 const contactSchema = z.object({
-  name: z.string().min(1).max(100),
-  email: z.string().email(),
-  message: z.string().min(1).max(2000),
+  name: z.string().trim().min(1, "Name is required").max(100, "Name is too long"),
+  email: z.string().trim().email("Invalid email address"),
+  message: z.string().trim().min(1, "Message is required").max(2000, "Message is too long"),
 });
 
 const CONTACTS_FILE = path.join(process.cwd(), "src/data/contacts_db.json");
@@ -37,12 +38,22 @@ function saveLocalContact(record: any): void {
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
+    // Rate limit: max 5 contact submissions per 10 minutes per IP
+    const rateLimit = checkRateLimit(req, "public:contact", 5, 10 * 60 * 1000);
+    if (!rateLimit.allowed) {
+      return NextResponse.json(
+        { error: "Too many contact submissions. Please try again later." },
+        { status: 429 }
+      );
+    }
+
+    const body = await req.json().catch(() => ({}));
     const parsed = contactSchema.safeParse(body);
 
     if (!parsed.success) {
+      const issue = parsed.error.issues[0]?.message || "Invalid form input. Please fill out all fields.";
       return NextResponse.json(
-        { error: "Invalid form input. Please fill out all fields." },
+        { error: issue },
         { status: 400 }
       );
     }

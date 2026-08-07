@@ -12,6 +12,7 @@ import { LazyAnalytics } from "@/components/common/LazyAnalytics";
 import { AdaptiveGrid } from "@/components/common/grid";
 import { ReducedMotion } from "@/components/common/reduced-motion";
 import { ScrollLayout } from "@/layouts/scroll-layout";
+import { NavigationProgress } from "@/components/directory/NavigationProgress";
 
 import "@/app/globals.css";
 
@@ -43,9 +44,11 @@ export default function RootLayout({
           <ReducedMotion />
           <LazyCookie />
           <LazyAnalytics />
+          <NavigationProgress />
           {children}
         </ScrollLayout>
       </body>
     </html>
   );
 }
+

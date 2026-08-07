@@ -262,7 +262,7 @@ export async function GET(req: Request) {
           lastVerified: todayStr,
           strengths: ["High throughput", "Multilingual instruction following"],
           weaknesses: ["Context memory degradation beyond limit"],
-          docUrl: `https://modelvault.io/models/${item.slug}`,
+          docUrl: `https://modelvault.space/models/${item.slug}`,
           tags: [item.provider || "AI", item.type || "LLM"],
           trending: item.trending ?? false,
           featured: false,

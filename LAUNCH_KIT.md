@@ -19,7 +19,7 @@ Hey HN,
 
 Over the past few months, keeping track of model trade-offs—API pricing changes, context window limits, GGUF/AWQ quantization levels, and local VRAM requirements—became increasingly noisy across hundreds of Hugging Face repos and cloud APIs.
 
-I built ModelVault (https://modelvault.io) to bring standardized metadata and developer calculators into one single index:
+I built ModelVault (https://modelvault.space) to bring standardized metadata and developer calculators into one single index:
 
 - 11,000+ Indexed Models: Filter by modality, provider, context length, and license.
 - Local VRAM Hardware Calculator: Calculate exact GPU requirements for FP16, AWQ INT4, and GGUF Q4 before downloading weights.
@@ -43,7 +43,7 @@ Hey everyone,
 
 Finding out whether a newly released model fits on your GPU (or if you need Q4_K_M vs Q8_0) usually meant guessing or opening multiple tabs.
 
-I created **ModelVault** (https://modelvault.io) to solve this:
+I created **ModelVault** (https://modelvault.space) to solve this:
 
 1. **VRAM Calculator**: Input parameters (e.g. 70B, 8B, 14B) and quantization level to see exact VRAM needed for context sizes (8k, 32k, 128k) and recommended GPUs (RTX 3090/4090/A100).
 2. **11,000+ Open & Cloud Models**: Indexed from Hugging Face, OpenRouter, CivitAI, and research labs.
@@ -58,7 +58,7 @@ I created **ModelVault** (https://modelvault.io) to solve this:
 ```markdown
 Hi all,
 
-I launched ModelVault (https://modelvault.io), a single platform to search, filter, and compare 11,000+ AI models across cloud APIs and open weights.
+I launched ModelVault (https://modelvault.space), a single platform to search, filter, and compare 11,000+ AI models across cloud APIs and open weights.
 
 It includes 5 interactive developer calculators:
 - API Cost Estimator
@@ -67,7 +67,7 @@ It includes 5 interactive developer calculators:
 - Local VRAM Hardware Estimator
 - Model Finder Wizard
 
-Check it out: https://modelvault.io — would appreciate any feedback!
+Check it out: https://modelvault.space — would appreciate any feedback!
 ```
 
 ---
@@ -78,6 +78,7 @@ Check it out: https://modelvault.io — would appreciate any feedback!
 
 - **Name**: ModelVault
 - **Tagline**: Searchable index of 11,000+ AI models & developer calculators
+- **Website URL**: https://modelvault.space
 - **Topics**: Artificial Intelligence, Developer Tools, Tech, Open Source
 
 ### 💬 Maker's First Comment:
@@ -108,7 +109,7 @@ I'd love to hear your thoughts, feedback, and feature requests!
 
 Discover, compare, and benchmark cloud APIs and open-weight local models in seconds.
 
-🔗 Try it free: https://modelvault.io 
+🔗 Try it free: https://modelvault.space 
 
 Thread 👇 (1/5)
 ```
@@ -140,7 +141,17 @@ Answer 3 quick questions in our Model Finder Wizard to get tailored recommendati
 ```text
 100% free with zero paywalls.
 
-Check it out and let me know your thoughts: https://modelvault.io
+Check it out and let me know your thoughts: https://modelvault.space
 
 RTs appreciated! 🙏 (5/5)
+```
+
+---
+
+## 5. Embeddable GitHub Badge for Open Source Repos
+
+Add this snippet to your GitHub repo `README.md` files:
+
+```markdown
+[![ModelVault](https://modelvault.space/api/badge?slug=llama-3.3-70b)](https://modelvault.space/models/llama-3.3-70b)
 ```

@@ -27,7 +27,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$2.50 / 1M in, $10.00 / 1M out",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -55,9 +54,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": true,
     "trending": true,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "gpt-4o-mini",
@@ -82,7 +80,6 @@ export const MODELS: AIModel[] = [
     "pricing": "freemium",
     "pricingDetails": "$0.15 / 1M in, $0.60 / 1M out",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -110,9 +107,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": true,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "openai-o3",
@@ -138,7 +134,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$15.00 / 1M in, $60.00 / 1M out",
     "contextWindow": "200k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "AIME 2024",
@@ -166,9 +161,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": true,
     "trending": true,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "openai-o3-mini",
@@ -192,7 +186,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$1.10 / 1M in, $4.40 / 1M out",
     "contextWindow": "200k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "AIME 2024",
@@ -219,9 +212,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": true,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "openai-o1",
@@ -246,7 +238,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$15.00 / 1M in, $60.00 / 1M out",
     "contextWindow": "200k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "AIME 2024",
@@ -273,9 +264,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "openai-o1-mini",
@@ -299,7 +289,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$1.10 / 1M in, $4.40 / 1M out",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "HumanEval",
@@ -326,9 +315,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "gpt-4-turbo",
@@ -353,7 +341,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$10.00 / 1M in, $30.00 / 1M out",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -380,9 +367,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "gpt-4",
@@ -405,7 +391,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$30.00 / 1M in",
     "contextWindow": "8k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -432,9 +417,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "gpt-3-5-turbo",
@@ -456,7 +440,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$0.50 / 1M in",
     "contextWindow": "16k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -482,9 +465,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "dall-e-3",
@@ -506,7 +488,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$0.04 per image",
     "contextWindow": "N/A",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "Prompt Match",
@@ -533,9 +514,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "dall-e-2",
@@ -558,7 +538,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$0.02 per image",
     "contextWindow": "N/A",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "Resolution",
@@ -585,9 +564,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "whisper-large-v3",
@@ -639,9 +617,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "whisper-large-v2",
@@ -692,9 +669,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "whisper-medium",
@@ -744,9 +720,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "whisper-small",
@@ -797,9 +772,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "text-embedding-3-large",
@@ -821,7 +795,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$0.13 / 1M tokens",
     "contextWindow": "8k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MTEB",
@@ -848,9 +821,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "text-embedding-3-small",
@@ -872,7 +844,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$0.02 / 1M tokens",
     "contextWindow": "8k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MTEB",
@@ -899,9 +870,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "text-embedding-ada-002",
@@ -923,7 +893,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$0.10 / 1M tokens",
     "contextWindow": "8k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MTEB",
@@ -950,9 +919,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "tts-1",
@@ -975,7 +943,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$15.00 / 1M chars",
     "contextWindow": "N/A",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MOS",
@@ -1002,9 +969,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "tts-1-hd",
@@ -1027,7 +993,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$30.00 / 1M chars",
     "contextWindow": "N/A",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MOS",
@@ -1054,9 +1019,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "claude-3-5-sonnet",
@@ -1083,7 +1047,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$3.00 / 1M in, $15.00 / 1M out",
     "contextWindow": "200k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "SWE-bench",
@@ -1115,9 +1078,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": true,
     "trending": true,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "claude-3-5-haiku",
@@ -1141,7 +1103,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$1.00 / 1M in, $5.00 / 1M out",
     "contextWindow": "200k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "HumanEval",
@@ -1169,9 +1130,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": true,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "claude-3-opus",
@@ -1197,7 +1157,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$15.00 / 1M in, $75.00 / 1M out",
     "contextWindow": "200k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -1224,9 +1183,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "claude-3-sonnet",
@@ -1251,7 +1209,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$3.00 / 1M in",
     "contextWindow": "200k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -1278,9 +1235,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "claude-3-haiku",
@@ -1303,7 +1259,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$0.25 / 1M in",
     "contextWindow": "200k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -1330,9 +1285,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "claude-2-1",
@@ -1354,7 +1308,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$8.00 / 1M in",
     "contextWindow": "200k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -1380,9 +1333,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "claude-2-0",
@@ -1404,7 +1356,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$8.00 / 1M in",
     "contextWindow": "100k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -1430,9 +1381,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "claude-instant-1-2",
@@ -1454,7 +1404,6 @@ export const MODELS: AIModel[] = [
     "pricing": "paid",
     "pricingDetails": "$0.80 / 1M in",
     "contextWindow": "100k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -1480,9 +1429,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "gemini-2-0-flash",
@@ -1508,7 +1456,6 @@ export const MODELS: AIModel[] = [
     "pricing": "freemium",
     "pricingDetails": "Free Tier / API",
     "contextWindow": "1M",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -1536,9 +1483,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": true,
     "trending": true,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "gemini-2-0-flash-lite",
@@ -1564,7 +1510,6 @@ export const MODELS: AIModel[] = [
     "pricing": "freemium",
     "pricingDetails": "Free Tier / API",
     "contextWindow": "1M",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -1592,9 +1537,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": true,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "gemini-2-0-pro",
@@ -1620,7 +1564,6 @@ export const MODELS: AIModel[] = [
     "pricing": "freemium",
     "pricingDetails": "Free Tier / API",
     "contextWindow": "1M",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -1648,9 +1591,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": true,
     "trending": true,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "gemini-2-0-flash-thinking",
@@ -1676,7 +1618,6 @@ export const MODELS: AIModel[] = [
     "pricing": "freemium",
     "pricingDetails": "Free Tier / API",
     "contextWindow": "1M",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -1704,9 +1645,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "gemini-1-5-pro",
@@ -1732,7 +1672,6 @@ export const MODELS: AIModel[] = [
     "pricing": "freemium",
     "pricingDetails": "Free Tier / API",
     "contextWindow": "1M",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -1760,9 +1699,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": true,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "gemini-1-5-flash",
@@ -1788,7 +1726,6 @@ export const MODELS: AIModel[] = [
     "pricing": "freemium",
     "pricingDetails": "Free Tier / API",
     "contextWindow": "1M",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -1816,9 +1753,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "gemini-1-5-flash-8b",
@@ -1844,7 +1780,6 @@ export const MODELS: AIModel[] = [
     "pricing": "freemium",
     "pricingDetails": "Free Tier / API",
     "contextWindow": "1M",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -1872,9 +1807,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": true,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "gemini-1-0-pro",
@@ -1900,7 +1834,6 @@ export const MODELS: AIModel[] = [
     "pricing": "freemium",
     "pricingDetails": "Free Tier / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -1928,9 +1861,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "gemini-1-0-ultra",
@@ -1956,7 +1888,6 @@ export const MODELS: AIModel[] = [
     "pricing": "freemium",
     "pricingDetails": "Free Tier / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -1984,9 +1915,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": true,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-27b",
@@ -2012,7 +1942,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -2040,9 +1969,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-9b",
@@ -2068,7 +1996,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -2096,9 +2023,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": true,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-2b",
@@ -2124,7 +2050,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -2152,9 +2077,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-7b",
@@ -2180,7 +2104,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -2208,9 +2131,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": true,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2b",
@@ -2236,7 +2158,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -2264,9 +2185,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "codegemma-7b",
@@ -2292,7 +2212,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -2320,9 +2239,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": true,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "codegemma-2b",
@@ -2348,7 +2266,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -2376,9 +2293,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "recurrentgemma-2b",
@@ -2404,7 +2320,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -2432,9 +2347,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": true,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "imagen-3",
@@ -2456,7 +2370,6 @@ export const MODELS: AIModel[] = [
     "pricing": "freemium",
     "pricingDetails": "Free Tier / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -2484,9 +2397,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "imagen-2",
@@ -2508,7 +2420,6 @@ export const MODELS: AIModel[] = [
     "pricing": "freemium",
     "pricingDetails": "Free Tier / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -2536,9 +2447,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": true,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "veo-2",
@@ -2560,7 +2470,6 @@ export const MODELS: AIModel[] = [
     "pricing": "freemium",
     "pricingDetails": "Free Tier / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -2588,9 +2497,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": false,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "veo-1",
@@ -2612,7 +2520,6 @@ export const MODELS: AIModel[] = [
     "pricing": "freemium",
     "pricingDetails": "Free Tier / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -2640,9 +2547,8 @@ export const MODELS: AIModel[] = [
     "aliases": [],
     "featured": false,
     "trending": true,
-    "isDeprecated": null,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.833481+00:00"
+    "isDeprecated": false,
+    "bestForCategory": ""
   },
   {
     "slug": "musiclm",
@@ -2668,7 +2574,6 @@ export const MODELS: AIModel[] = [
     "pricing": "freemium",
     "pricingDetails": "Free Tier / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -2697,8 +2602,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "audiolm",
@@ -2724,7 +2628,6 @@ export const MODELS: AIModel[] = [
     "pricing": "freemium",
     "pricingDetails": "Free Tier / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -2753,8 +2656,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "palm-2",
@@ -2780,7 +2682,6 @@ export const MODELS: AIModel[] = [
     "pricing": "freemium",
     "pricingDetails": "Free Tier / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -2809,8 +2710,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "palm-2-bison",
@@ -2836,7 +2736,6 @@ export const MODELS: AIModel[] = [
     "pricing": "freemium",
     "pricingDetails": "Free Tier / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -2865,8 +2764,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-3-70b",
@@ -2920,8 +2818,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-2-11b-vision",
@@ -2975,8 +2872,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-2-90b-vision",
@@ -3030,8 +2926,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-2-3b",
@@ -3085,8 +2980,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-2-1b",
@@ -3140,8 +3034,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-405b",
@@ -3195,8 +3088,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-70b",
@@ -3250,8 +3142,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-8b",
@@ -3305,8 +3196,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-70b",
@@ -3360,8 +3250,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-8b",
@@ -3415,8 +3304,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-2-70b",
@@ -3470,8 +3358,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-2-13b",
@@ -3525,8 +3412,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-2-7b",
@@ -3580,8 +3466,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "code-llama-70b",
@@ -3635,8 +3520,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "code-llama-34b",
@@ -3690,8 +3574,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "code-llama-13b",
@@ -3745,8 +3628,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "code-llama-7b",
@@ -3800,8 +3682,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-guard-3-8b",
@@ -3855,8 +3736,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-guard-3-1b",
@@ -3910,8 +3790,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "prompt-guard-86m",
@@ -3965,8 +3844,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "segment-anything-2--sam-2-",
@@ -4020,8 +3898,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "sam-1",
@@ -4075,8 +3952,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "seamlessm4t-v2",
@@ -4130,8 +4006,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "seamless-expressive",
@@ -4185,8 +4060,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "audiocraft",
@@ -4238,8 +4112,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "musicgen",
@@ -4291,8 +4164,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bark",
@@ -4346,8 +4218,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "encodec",
@@ -4401,8 +4272,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "moviegen",
@@ -4456,8 +4326,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-large-2",
@@ -4481,7 +4350,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -4510,8 +4378,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-large",
@@ -4535,7 +4402,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -4564,8 +4430,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-medium",
@@ -4589,7 +4454,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -4618,8 +4482,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-small-3",
@@ -4643,7 +4506,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -4672,8 +4534,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-small-2",
@@ -4697,7 +4558,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -4726,8 +4586,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-nemo-12b",
@@ -4751,7 +4610,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -4780,8 +4638,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-v0-3",
@@ -4805,7 +4662,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -4834,8 +4690,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-v0-2",
@@ -4859,7 +4714,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -4888,8 +4742,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-v0-1",
@@ -4913,7 +4766,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -4942,8 +4794,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "codestral-22b",
@@ -4967,7 +4818,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -4996,8 +4846,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "codestral-mamba",
@@ -5021,7 +4870,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -5050,8 +4898,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "pixtral-12b",
@@ -5074,7 +4921,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -5103,8 +4949,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "pixtral-large",
@@ -5127,7 +4972,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -5156,8 +5000,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mixtral-8x22b",
@@ -5181,7 +5024,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -5210,8 +5052,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mixtral-8x7b",
@@ -5235,7 +5076,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -5264,8 +5104,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mathstral-7b",
@@ -5289,7 +5128,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -5318,8 +5156,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-embed-2",
@@ -5343,7 +5180,6 @@ export const MODELS: AIModel[] = [
     "pricing": "open-weights",
     "pricingDetails": "Free Open Weights / API",
     "contextWindow": "128k",
-    "hardwareRequirements": null,
     "benchmarks": [
       {
         "name": "MMLU",
@@ -5372,8 +5208,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.940744+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-r1",
@@ -5427,8 +5262,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-r1-zero",
@@ -5482,8 +5316,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3",
@@ -5537,8 +5370,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v2-5",
@@ -5592,8 +5424,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v2",
@@ -5647,8 +5478,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-coder-v2",
@@ -5702,8 +5532,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-coder-v2-lite",
@@ -5757,8 +5586,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-coder-33b",
@@ -5812,8 +5640,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-coder-7b",
@@ -5867,8 +5694,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-coder-1-3b",
@@ -5922,8 +5748,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-math-7b",
@@ -5977,8 +5802,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-vl2",
@@ -6032,8 +5856,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-vl-7b",
@@ -6087,8 +5910,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-r1-distill-qwen-32b",
@@ -6142,8 +5964,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-r1-distill-qwen-14b",
@@ -6197,8 +6018,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-r1-distill-qwen-7b",
@@ -6252,8 +6072,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-r1-distill-qwen-1-5b",
@@ -6307,8 +6126,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-r1-distill-llama-70b",
@@ -6362,8 +6180,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-r1-distill-llama-8b",
@@ -6417,8 +6234,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "janus-pro-7b",
@@ -6472,8 +6288,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "janus-1-3b",
@@ -6527,8 +6342,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-72b",
@@ -6582,8 +6396,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-32b",
@@ -6637,8 +6450,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-14b",
@@ -6692,8 +6504,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-7b",
@@ -6747,8 +6558,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-3b",
@@ -6802,8 +6612,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-1-5b",
@@ -6857,8 +6666,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-0-5b",
@@ -6912,8 +6720,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-coder-32b",
@@ -6967,8 +6774,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-coder-14b",
@@ -7022,8 +6828,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-coder-7b",
@@ -7077,8 +6882,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-coder-3b",
@@ -7132,8 +6936,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-coder-1-5b",
@@ -7187,8 +6990,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-coder-0-5b",
@@ -7242,8 +7044,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-math-72b",
@@ -7297,8 +7098,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-math-7b",
@@ -7352,8 +7152,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-vl-72b",
@@ -7406,8 +7205,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-vl-7b",
@@ -7460,8 +7258,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-vl-2b",
@@ -7514,8 +7311,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-72b",
@@ -7569,8 +7365,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-57b-a14b",
@@ -7624,8 +7419,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-1-5-110b",
@@ -7679,8 +7473,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-1-5-72b",
@@ -7734,8 +7527,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qpad",
@@ -7789,8 +7581,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-audio",
@@ -7843,8 +7634,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-agent",
@@ -7898,8 +7688,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "smollm2-1-7b",
@@ -7952,8 +7741,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "smollm2-360m",
@@ -8006,8 +7794,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "smollm2-135m",
@@ -8060,8 +7847,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-8b",
@@ -8114,8 +7900,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:38.983948+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-2b",
@@ -8168,8 +7953,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-0-8b",
@@ -8222,8 +8006,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-code-34b",
@@ -8276,8 +8059,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-4-14b",
@@ -8330,8 +8112,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-vision",
@@ -8384,8 +8165,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-mini",
@@ -8438,8 +8218,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-moe",
@@ -8492,8 +8271,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-medium",
@@ -8546,8 +8324,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-small",
@@ -8600,8 +8377,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-mini",
@@ -8654,8 +8430,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-2",
@@ -8708,8 +8483,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3",
@@ -8762,8 +8536,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-large-en-v1-5",
@@ -8816,8 +8589,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-small-en-v1-5",
@@ -8870,8 +8642,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-reranker-large",
@@ -8924,8 +8695,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "nomic-embed-text-v1-5",
@@ -8978,8 +8748,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "nomic-vision-v1-5",
@@ -9032,8 +8801,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gte-large-en-v1-5",
@@ -9086,8 +8854,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gte-qwen2-7b-instruct",
@@ -9140,8 +8907,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "instructor-large",
@@ -9194,8 +8960,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "openrouter-inclusionai-ling-3-0-tiny-free",
@@ -9245,8 +9010,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "all-mpnet-base-v2",
@@ -9299,8 +9063,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "modernbert-base",
@@ -9353,8 +9116,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "modernbert-large",
@@ -9407,8 +9169,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bert-base-uncased",
@@ -9461,8 +9222,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "roberta-large",
@@ -9515,8 +9275,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "biobert",
@@ -9569,8 +9328,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "scibert",
@@ -9623,8 +9381,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "clinicalbert",
@@ -9677,8 +9434,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "pubmedbert",
@@ -9731,8 +9487,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "finbert",
@@ -9785,8 +9540,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "longformer",
@@ -9839,8 +9593,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bigbird",
@@ -9893,8 +9646,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "layoutlmv3",
@@ -9947,8 +9699,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "donut",
@@ -10001,8 +9752,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "trocr",
@@ -10055,8 +9805,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "easyocr",
@@ -10109,8 +9858,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "kokoro-82m",
@@ -10163,8 +9911,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "minicpm-v-2-6",
@@ -10217,8 +9964,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "minicpm-3-4b",
@@ -10271,8 +10017,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "starcoder-2-15b",
@@ -10325,8 +10070,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "starcoder-2-7b",
@@ -10379,8 +10123,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "starcoder-2-3b",
@@ -10433,8 +10176,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "codegen-16b",
@@ -10487,8 +10229,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-34b",
@@ -10541,8 +10282,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-9b",
@@ -10595,8 +10335,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-6b",
@@ -10649,8 +10388,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-lightning",
@@ -10703,8 +10441,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "ernie-4-0-turbo",
@@ -10757,8 +10494,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "ernie-3-5",
@@ -10811,8 +10547,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "tencent-hunyuan",
@@ -10865,8 +10600,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "glm-4-9b",
@@ -10919,8 +10653,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "glm-4v-9b",
@@ -10973,8 +10706,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "glm-4-flash",
@@ -11027,8 +10759,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "baichuan-2-13b",
@@ -11081,8 +10812,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "internlm-2-5-20b",
@@ -11135,8 +10865,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "internlm-2-5-7b",
@@ -11189,8 +10918,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "internvl-2-5-78b",
@@ -11243,8 +10971,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "internvl-2-8b",
@@ -11297,8 +11024,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "reka-flash",
@@ -11351,8 +11077,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "reka-core",
@@ -11405,8 +11130,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "reka-edge",
@@ -11459,8 +11183,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "dbrx-instruct",
@@ -11513,8 +11236,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "snowflake-arctic-480b",
@@ -11567,8 +11289,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "decilm-7b",
@@ -11621,8 +11342,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "rwkv-6-7b",
@@ -11675,8 +11395,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mamba-2-8b",
@@ -11729,8 +11448,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "jamba-1-5-large",
@@ -11783,8 +11501,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "jamba-1-5-mini",
@@ -11837,8 +11554,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "jurassic-2-ultra",
@@ -11891,8 +11607,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "solar-10-7b",
@@ -11945,8 +11660,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "solar-pro-22b",
@@ -11999,8 +11713,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-11b",
@@ -12053,8 +11766,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-180b",
@@ -12107,8 +11819,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-40b",
@@ -12161,8 +11872,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-7b",
@@ -12215,8 +11925,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "command-r-",
@@ -12269,8 +11978,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "command-r",
@@ -12323,8 +12031,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "cohere-embed-v3",
@@ -12377,8 +12084,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "cohere-aya-23",
@@ -12431,8 +12137,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "aya-101",
@@ -12485,8 +12190,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "flux-1-1-pro",
@@ -12537,8 +12241,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "flux-1-dev",
@@ -12589,8 +12292,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "flux-1-schnell",
@@ -12641,8 +12343,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "stable-diffusion-3-5-large",
@@ -12693,8 +12394,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "stable-diffusion-3-5-medium",
@@ -12745,8 +12445,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "sdxl-1-0",
@@ -12797,8 +12496,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "sdxl-turbo",
@@ -12849,8 +12547,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "sd-1-5",
@@ -12901,8 +12598,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "sd-2-1",
@@ -12953,8 +12649,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "stable-video-diffusion--svd-",
@@ -13007,8 +12702,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "stable-audio-2-0",
@@ -13060,8 +12754,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "stable-audio-open",
@@ -13113,8 +12806,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "midjourney-v6",
@@ -13165,8 +12857,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "midjourney-v5-2",
@@ -13217,8 +12908,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "nijijourney-v6",
@@ -13269,8 +12959,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "ideogram-2-0",
@@ -13321,8 +13010,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "ideogram-1-0",
@@ -13373,8 +13061,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "runway-gen-3-alpha",
@@ -13427,8 +13114,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "runway-gen-2",
@@ -13481,8 +13167,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.068534+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "luma-dream-machine-1-5",
@@ -13535,8 +13220,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "luma-ray-2",
@@ -13589,8 +13273,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "kling-ai-1-5",
@@ -13643,8 +13326,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "sora--openai-",
@@ -13697,8 +13379,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "pika-1-5",
@@ -13751,8 +13432,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "minimax-video-01",
@@ -13805,8 +13485,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "hunyuan-video--tencent-",
@@ -13859,8 +13538,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "cogvideox-5b",
@@ -13913,8 +13591,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "hailuo-ai",
@@ -13965,8 +13642,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "suno-v4",
@@ -14018,8 +13694,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "suno-v3-5",
@@ -14071,8 +13746,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "udio-v1-5",
@@ -14124,8 +13798,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "cartesia-sonic",
@@ -14177,8 +13850,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "eleven-multilingual-v2",
@@ -14230,8 +13902,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "eleven-flash",
@@ -14283,8 +13954,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "play3-0-mini",
@@ -14335,8 +14005,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "xtts-v2",
@@ -14388,8 +14057,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "openvoice-v2",
@@ -14441,8 +14109,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "tripo3d-2-0",
@@ -14493,8 +14160,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "meshy-4",
@@ -14545,8 +14211,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gaussian-splatting",
@@ -14597,8 +14262,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-code-gguf-q4-k-m",
@@ -14653,8 +14317,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-code-gguf-q4-k-m",
@@ -14709,8 +14372,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-code-gguf-q4-k-m",
@@ -14765,8 +14427,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-code-gguf-q4-k-m",
@@ -14821,8 +14482,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-code-gguf-q4-k-m",
@@ -14877,8 +14537,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-code-gguf-q4-k-m",
@@ -14933,8 +14592,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-code-gguf-q4-k-m",
@@ -14989,8 +14647,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-code-gguf-q4-k-m",
@@ -15045,8 +14702,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-code-gguf-q4-k-m",
@@ -15101,8 +14757,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-code-gguf-q4-k-m",
@@ -15157,8 +14812,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-code-gguf-q8-0",
@@ -15213,8 +14867,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-code-gguf-q8-0",
@@ -15269,8 +14922,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-code-gguf-q8-0",
@@ -15325,8 +14977,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-code-gguf-q8-0",
@@ -15381,8 +15032,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-code-gguf-q8-0",
@@ -15437,8 +15087,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-code-gguf-q8-0",
@@ -15493,8 +15142,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-code-gguf-q8-0",
@@ -15549,8 +15197,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-code-gguf-q8-0",
@@ -15605,8 +15252,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-code-gguf-q8-0",
@@ -15661,8 +15307,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-code-gguf-q8-0",
@@ -15717,8 +15362,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-code-awq-int4",
@@ -15773,8 +15417,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-code-awq-int4",
@@ -15829,8 +15472,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-code-awq-int4",
@@ -15885,8 +15527,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-code-awq-int4",
@@ -15941,8 +15582,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-code-awq-int4",
@@ -15997,8 +15637,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-code-awq-int4",
@@ -16053,8 +15692,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-code-awq-int4",
@@ -16109,8 +15747,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-code-awq-int4",
@@ -16165,8 +15802,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-code-awq-int4",
@@ -16221,8 +15857,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.114108+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-code-awq-int4",
@@ -16277,8 +15912,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-code-gptq-4bit",
@@ -16333,8 +15967,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-code-gptq-4bit",
@@ -16389,8 +16022,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-code-gptq-4bit",
@@ -16445,8 +16077,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-code-gptq-4bit",
@@ -16501,8 +16132,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-code-gptq-4bit",
@@ -16557,8 +16187,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-code-gptq-4bit",
@@ -16613,8 +16242,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-code-gptq-4bit",
@@ -16669,8 +16297,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-code-gptq-4bit",
@@ -16725,8 +16352,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-code-gptq-4bit",
@@ -16781,8 +16407,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-code-gptq-4bit",
@@ -16837,8 +16462,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-code-exl2-5-0bpw",
@@ -16893,8 +16517,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-code-exl2-5-0bpw",
@@ -16949,8 +16572,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-code-exl2-5-0bpw",
@@ -17005,8 +16627,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-code-exl2-5-0bpw",
@@ -17061,8 +16682,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-code-exl2-5-0bpw",
@@ -17117,8 +16737,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-code-exl2-5-0bpw",
@@ -17173,8 +16792,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-code-exl2-5-0bpw",
@@ -17229,8 +16847,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-code-exl2-5-0bpw",
@@ -17285,8 +16902,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-code-exl2-5-0bpw",
@@ -17341,8 +16957,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-code-exl2-5-0bpw",
@@ -17397,8 +17012,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-code-fp8-quant",
@@ -17453,8 +17067,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-code-fp8-quant",
@@ -17509,8 +17122,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-code-fp8-quant",
@@ -17565,8 +17177,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-code-fp8-quant",
@@ -17621,8 +17232,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-code-fp8-quant",
@@ -17677,8 +17287,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-code-fp8-quant",
@@ -17733,8 +17342,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-code-fp8-quant",
@@ -17789,8 +17397,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-code-fp8-quant",
@@ -17845,8 +17452,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-code-fp8-quant",
@@ -17901,8 +17507,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-code-fp8-quant",
@@ -17957,8 +17562,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-code-fp16-full",
@@ -18013,8 +17617,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-code-fp16-full",
@@ -18069,8 +17672,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-code-fp16-full",
@@ -18125,8 +17727,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-code-fp16-full",
@@ -18181,8 +17782,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-code-fp16-full",
@@ -18237,8 +17837,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-code-fp16-full",
@@ -18293,8 +17892,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-code-fp16-full",
@@ -18349,8 +17947,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-code-fp16-full",
@@ -18405,8 +18002,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-code-fp16-full",
@@ -18461,8 +18057,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-code-fp16-full",
@@ -18517,8 +18112,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-code-uncensored-instruct",
@@ -18573,8 +18167,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-code-uncensored-instruct",
@@ -18629,8 +18222,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-code-uncensored-instruct",
@@ -18685,8 +18277,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-code-uncensored-instruct",
@@ -18741,8 +18332,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-code-uncensored-instruct",
@@ -18797,8 +18387,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-code-uncensored-instruct",
@@ -18853,8 +18442,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-code-uncensored-instruct",
@@ -18909,8 +18497,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-code-uncensored-instruct",
@@ -18965,8 +18552,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-code-uncensored-instruct",
@@ -19021,8 +18607,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.149033+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-code-uncensored-instruct",
@@ -19077,8 +18662,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-code-rag-finetune",
@@ -19133,8 +18717,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-code-rag-finetune",
@@ -19189,8 +18772,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-code-rag-finetune",
@@ -19245,8 +18827,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-code-rag-finetune",
@@ -19301,8 +18882,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-code-rag-finetune",
@@ -19357,8 +18937,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-code-rag-finetune",
@@ -19413,8 +18992,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-code-rag-finetune",
@@ -19469,8 +19047,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-code-rag-finetune",
@@ -19525,8 +19102,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-code-rag-finetune",
@@ -19581,8 +19157,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-code-rag-finetune",
@@ -19637,8 +19212,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-code-hermes-3",
@@ -19693,8 +19267,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-code-hermes-3",
@@ -19749,8 +19322,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-code-hermes-3",
@@ -19805,8 +19377,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-code-hermes-3",
@@ -19861,8 +19432,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-code-hermes-3",
@@ -19917,8 +19487,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-code-hermes-3",
@@ -19973,8 +19542,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-code-hermes-3",
@@ -20029,8 +19597,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-code-hermes-3",
@@ -20085,8 +19652,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-code-hermes-3",
@@ -20141,8 +19707,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-code-hermes-3",
@@ -20197,8 +19762,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-code-openchat-3-5",
@@ -20253,8 +19817,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-code-openchat-3-5",
@@ -20309,8 +19872,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-code-openchat-3-5",
@@ -20365,8 +19927,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-code-openchat-3-5",
@@ -20421,8 +19982,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-code-openchat-3-5",
@@ -20477,8 +20037,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-code-openchat-3-5",
@@ -20533,8 +20092,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-code-openchat-3-5",
@@ -20589,8 +20147,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-code-openchat-3-5",
@@ -20645,8 +20202,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-code-openchat-3-5",
@@ -20701,8 +20257,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-code-openchat-3-5",
@@ -20757,8 +20312,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-code-nexus-agent",
@@ -20813,8 +20367,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-code-nexus-agent",
@@ -20869,8 +20422,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-code-nexus-agent",
@@ -20925,8 +20477,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-code-nexus-agent",
@@ -20981,8 +20532,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-code-nexus-agent",
@@ -21037,8 +20587,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-code-nexus-agent",
@@ -21093,8 +20642,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-code-nexus-agent",
@@ -21149,8 +20697,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-code-nexus-agent",
@@ -21205,8 +20752,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-code-nexus-agent",
@@ -21261,8 +20807,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-code-nexus-agent",
@@ -21317,8 +20862,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-math-gguf-q4-k-m",
@@ -21373,8 +20917,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-math-gguf-q4-k-m",
@@ -21429,8 +20972,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-math-gguf-q4-k-m",
@@ -21485,8 +21027,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-math-gguf-q4-k-m",
@@ -21541,8 +21082,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-math-gguf-q4-k-m",
@@ -21597,8 +21137,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-math-gguf-q4-k-m",
@@ -21653,8 +21192,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-math-gguf-q4-k-m",
@@ -21709,8 +21247,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-math-gguf-q4-k-m",
@@ -21765,8 +21302,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-math-gguf-q4-k-m",
@@ -21821,8 +21357,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.183276+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-math-gguf-q4-k-m",
@@ -21877,8 +21412,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-math-gguf-q8-0",
@@ -21933,8 +21467,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-math-gguf-q8-0",
@@ -21989,8 +21522,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-math-gguf-q8-0",
@@ -22045,8 +21577,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-math-gguf-q8-0",
@@ -22101,8 +21632,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-math-gguf-q8-0",
@@ -22157,8 +21687,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-math-gguf-q8-0",
@@ -22213,8 +21742,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-math-gguf-q8-0",
@@ -22269,8 +21797,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-math-gguf-q8-0",
@@ -22325,8 +21852,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-math-gguf-q8-0",
@@ -22381,8 +21907,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-math-gguf-q8-0",
@@ -22437,8 +21962,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-math-awq-int4",
@@ -22493,8 +22017,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-math-awq-int4",
@@ -22549,8 +22072,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-math-awq-int4",
@@ -22605,8 +22127,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-math-awq-int4",
@@ -22661,8 +22182,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-math-awq-int4",
@@ -22717,8 +22237,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-math-awq-int4",
@@ -22773,8 +22292,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-math-awq-int4",
@@ -22829,8 +22347,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-math-awq-int4",
@@ -22885,8 +22402,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-math-awq-int4",
@@ -22941,8 +22457,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-math-awq-int4",
@@ -22997,8 +22512,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-math-gptq-4bit",
@@ -23053,8 +22567,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-math-gptq-4bit",
@@ -23109,8 +22622,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-math-gptq-4bit",
@@ -23165,8 +22677,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-math-gptq-4bit",
@@ -23221,8 +22732,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-math-gptq-4bit",
@@ -23277,8 +22787,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-math-gptq-4bit",
@@ -23333,8 +22842,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-math-gptq-4bit",
@@ -23389,8 +22897,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-math-gptq-4bit",
@@ -23445,8 +22952,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-math-gptq-4bit",
@@ -23501,8 +23007,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-math-gptq-4bit",
@@ -23557,8 +23062,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-math-exl2-5-0bpw",
@@ -23613,8 +23117,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-math-exl2-5-0bpw",
@@ -23669,8 +23172,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-math-exl2-5-0bpw",
@@ -23725,8 +23227,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-math-exl2-5-0bpw",
@@ -23781,8 +23282,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-math-exl2-5-0bpw",
@@ -23837,8 +23337,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-math-exl2-5-0bpw",
@@ -23893,8 +23392,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-math-exl2-5-0bpw",
@@ -23949,8 +23447,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-math-exl2-5-0bpw",
@@ -24005,8 +23502,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-math-exl2-5-0bpw",
@@ -24061,8 +23557,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-math-exl2-5-0bpw",
@@ -24117,8 +23612,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-math-fp8-quant",
@@ -24173,8 +23667,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-math-fp8-quant",
@@ -24229,8 +23722,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-math-fp8-quant",
@@ -24285,8 +23777,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-math-fp8-quant",
@@ -24341,8 +23832,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-math-fp8-quant",
@@ -24397,8 +23887,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-math-fp8-quant",
@@ -24453,8 +23942,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-math-fp8-quant",
@@ -24509,8 +23997,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-math-fp8-quant",
@@ -24565,8 +24052,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-math-fp8-quant",
@@ -24621,8 +24107,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.221738+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-math-fp8-quant",
@@ -24677,8 +24162,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-math-fp16-full",
@@ -24733,8 +24217,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-math-fp16-full",
@@ -24789,8 +24272,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-math-fp16-full",
@@ -24845,8 +24327,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-math-fp16-full",
@@ -24901,8 +24382,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-math-fp16-full",
@@ -24957,8 +24437,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-math-fp16-full",
@@ -25013,8 +24492,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-math-fp16-full",
@@ -25069,8 +24547,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-math-fp16-full",
@@ -25125,8 +24602,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-math-fp16-full",
@@ -25181,8 +24657,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-math-fp16-full",
@@ -25237,8 +24712,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-math-uncensored-instruct",
@@ -25293,8 +24767,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-math-uncensored-instruct",
@@ -25349,8 +24822,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-math-uncensored-instruct",
@@ -25405,8 +24877,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-math-uncensored-instruct",
@@ -25461,8 +24932,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-math-uncensored-instruct",
@@ -25517,8 +24987,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-math-uncensored-instruct",
@@ -25573,8 +25042,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-math-uncensored-instruct",
@@ -25629,8 +25097,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-math-uncensored-instruct",
@@ -25685,8 +25152,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-math-uncensored-instruct",
@@ -25741,8 +25207,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-math-uncensored-instruct",
@@ -25797,8 +25262,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-math-rag-finetune",
@@ -25853,8 +25317,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-math-rag-finetune",
@@ -25909,8 +25372,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-math-rag-finetune",
@@ -25965,8 +25427,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-math-rag-finetune",
@@ -26021,8 +25482,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-math-rag-finetune",
@@ -26077,8 +25537,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-math-rag-finetune",
@@ -26133,8 +25592,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-math-rag-finetune",
@@ -26189,8 +25647,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-math-rag-finetune",
@@ -26245,8 +25702,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-math-rag-finetune",
@@ -26301,8 +25757,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-math-rag-finetune",
@@ -26357,8 +25812,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-math-hermes-3",
@@ -26413,8 +25867,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-math-hermes-3",
@@ -26469,8 +25922,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-math-hermes-3",
@@ -26525,8 +25977,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-math-hermes-3",
@@ -26581,8 +26032,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-math-hermes-3",
@@ -26637,8 +26087,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-math-hermes-3",
@@ -26693,8 +26142,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-math-hermes-3",
@@ -26749,8 +26197,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-math-hermes-3",
@@ -26805,8 +26252,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-math-hermes-3",
@@ -26861,8 +26307,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-math-hermes-3",
@@ -26917,8 +26362,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-math-openchat-3-5",
@@ -26973,8 +26417,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-math-openchat-3-5",
@@ -27029,8 +26472,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-math-openchat-3-5",
@@ -27085,8 +26527,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-math-openchat-3-5",
@@ -27141,8 +26582,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-math-openchat-3-5",
@@ -27197,8 +26637,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-math-openchat-3-5",
@@ -27253,8 +26692,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-math-openchat-3-5",
@@ -27309,8 +26747,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-math-openchat-3-5",
@@ -27365,8 +26802,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-math-openchat-3-5",
@@ -27421,8 +26857,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.279992+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-math-openchat-3-5",
@@ -27477,8 +26912,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.316907+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-math-nexus-agent",
@@ -27533,8 +26967,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.316907+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-math-nexus-agent",
@@ -27589,8 +27022,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.316907+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-math-nexus-agent",
@@ -27645,8 +27077,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.316907+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-math-nexus-agent",
@@ -27701,8 +27132,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.316907+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-math-nexus-agent",
@@ -27757,8 +27187,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.316907+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-math-nexus-agent",
@@ -27813,8 +27242,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.316907+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-math-nexus-agent",
@@ -27869,8 +27297,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.316907+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-math-nexus-agent",
@@ -27925,8 +27352,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.316907+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-math-nexus-agent",
@@ -27981,8 +27407,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.316907+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-math-nexus-agent",
@@ -28037,8 +27462,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.316907+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "llama-3-1-medical-gguf-q4-k-m",
@@ -28093,8 +27517,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.316907+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "qwen-2-5-medical-gguf-q4-k-m",
@@ -28149,8 +27572,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.316907+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "deepseek-v3-medical-gguf-q4-k-m",
@@ -28205,8 +27627,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.316907+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "mistral-7b-medical-gguf-q4-k-m",
@@ -28261,8 +27682,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.316907+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "gemma-2-medical-gguf-q4-k-m",
@@ -28317,8 +27737,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.316907+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "phi-3-5-medical-gguf-q4-k-m",
@@ -28373,8 +27792,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.316907+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "granite-3-1-medical-gguf-q4-k-m",
@@ -28429,8 +27847,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.316907+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "yi-1-5-medical-gguf-q4-k-m",
@@ -28485,8 +27902,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.316907+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "falcon-2-medical-gguf-q4-k-m",
@@ -28541,8 +27957,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.316907+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "bge-m3-medical-gguf-q4-k-m",
@@ -28597,8 +28012,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "",
-    "created_at": "2026-08-06T17:54:39.316907+00:00"
+    "bestForCategory": ""
   },
   {
     "slug": "openrouter-meta-muse-spark-1-2",
@@ -28648,8 +28062,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-qwen-qwen3-8-max",
@@ -28699,8 +28112,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "sentence-transformers-all-minilm-l6-v2",
@@ -28752,8 +28164,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T17:54:39.022577+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "google-bert-bert-base-uncased",
@@ -28805,8 +28216,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "coding",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "coding"
   },
   {
     "slug": "cross-encoder-ms-marco-minilm-l6-v2",
@@ -28858,8 +28268,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "google-electra-base-discriminator",
@@ -28911,8 +28320,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-deepseek-deepseek-v4-flash-latest",
@@ -28962,8 +28370,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-deepseek-deepseek-v4-flash-0731",
@@ -29013,8 +28420,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-thinkingmachines-inkling-small",
@@ -29064,8 +28470,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "baai-bge-m3",
@@ -29117,8 +28522,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "sentence-transformers-all-mpnet-base-v2",
@@ -29170,8 +28574,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "facebookai-xlm-roberta-base",
@@ -29223,8 +28626,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "coding",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "coding"
   },
   {
     "slug": "baai-bge-reranker-v2-m3",
@@ -29276,8 +28678,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "lpiccinelli-unidepth-v2-vitl14",
@@ -29329,8 +28730,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "amazon-chronos-2",
@@ -29382,8 +28782,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-qwen-qwen3-7-flash",
@@ -29433,8 +28832,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-opus-5-fast",
@@ -29484,8 +28882,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-opus-5",
@@ -29535,8 +28932,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "baai-bge-large-en-v1-5",
@@ -29588,8 +28984,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "nomic-ai-nomic-embed-text-v1-5",
@@ -29641,8 +29036,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "intfloat-multilingual-e5-small",
@@ -29694,8 +29088,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "facebookai-roberta-large",
@@ -29747,8 +29140,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "coding",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "coding"
   },
   {
     "slug": "timm-mobilenetv3-small-100-lamb-in1k",
@@ -29800,8 +29192,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "qwen-qwen3-5-9b",
@@ -29853,8 +29244,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-opus-5-batch",
@@ -29904,8 +29294,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-inclusionai-ling-3-0-flash",
@@ -29955,8 +29344,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-poolside-laguna-s-2-1",
@@ -30006,8 +29394,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-poolside-laguna-s-2-1-free",
@@ -30057,8 +29444,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "sentence-transformers-paraphrase-multilingual-mpnet-base-v2",
@@ -30110,8 +29496,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "hexgrad-kokoro-82m",
@@ -30163,8 +29548,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "facebookai-roberta-base",
@@ -30216,8 +29600,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "coding",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "coding"
   },
   {
     "slug": "autogluon-chronos-bolt-small",
@@ -30269,8 +29652,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "autogluon-chronos-2",
@@ -30322,8 +29704,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemini-3-6-flash",
@@ -30373,8 +29754,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemini-3-6-flash-batch",
@@ -30424,8 +29804,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemini-3-5-flash-lite",
@@ -30475,8 +29854,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemini-3-5-flash-lite-batch",
@@ -30526,8 +29904,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "baai-bge-base-en-v1-5",
@@ -30579,8 +29956,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "qwen-qwen3-embedding-0-6b",
@@ -30632,8 +30008,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "coqui-xtts-v2",
@@ -30683,8 +30058,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "distilbert-distilbert-base-uncased",
@@ -30736,8 +30110,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "coding",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "coding"
   },
   {
     "slug": "cross-encoder-ms-marco-minilm-l4-v2",
@@ -30789,8 +30162,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "bingsu-adetailer",
@@ -30841,8 +30213,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-meituan-longcat-2-0",
@@ -30892,8 +30263,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-thinkingmachines-inkling",
@@ -30943,8 +30313,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-thinkingmachines-inkling-batch",
@@ -30994,8 +30363,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openrouter-auto-beta",
@@ -31045,8 +30413,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "pyannote-speaker-diarization-3-1",
@@ -31098,8 +30465,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "openai-whisper-large-v3-turbo",
@@ -31151,8 +30517,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "comfy-org-stable-diffusion-v1-5-archive",
@@ -31204,8 +30569,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openai-clip-vit-large-patch14",
@@ -31257,8 +30621,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "qwen-qwen3-6-27b-fp8",
@@ -31310,8 +30673,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-moonshotai-kimi-k3",
@@ -31361,8 +30723,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-meta-muse-spark-1-1",
@@ -31412,8 +30773,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-kwaipilot-kat-coder-air-v2-5",
@@ -31463,8 +30823,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-kwaipilot-kat-coder-pro-v2-5",
@@ -31514,8 +30873,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "intfloat-multilingual-e5-large",
@@ -31567,8 +30925,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "intfloat-multilingual-e5-base",
@@ -31620,8 +30977,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "facebookai-xlm-roberta-large",
@@ -31673,8 +31029,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "coding",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "coding"
   },
   {
     "slug": "facebook-contriever",
@@ -31725,8 +31080,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "pyannote-wespeaker-voxceleb-resnet34-lm",
@@ -31778,8 +31132,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-6-luna-pro",
@@ -31829,8 +31182,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-6-luna-pro-batch",
@@ -31880,8 +31232,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-6-luna",
@@ -31931,8 +31282,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-6-luna-batch",
@@ -31982,8 +31332,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openai-whisper-large-v3",
@@ -32035,8 +31384,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "answerdotai-modernbert-base",
@@ -32088,8 +31436,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "coding",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "coding"
   },
   {
     "slug": "prosusai-finbert",
@@ -32141,8 +31488,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "pyannote-segmentation-3-0",
@@ -32194,8 +31540,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "qwen-qwen3-6-35b-a3b",
@@ -32247,8 +31592,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-6-terra-pro",
@@ -32298,8 +31642,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-6-terra-pro-batch",
@@ -32349,8 +31692,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-6-terra",
@@ -32400,8 +31742,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "pyannote-speaker-diarization-community-1",
@@ -32453,8 +31794,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "mixedbread-ai-mxbai-embed-large-v1",
@@ -32506,8 +31846,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "nomic-ai-nomic-embed-text-v1",
@@ -32559,8 +31898,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "comfy-org-z-image-turbo",
@@ -32609,8 +31947,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "mistralai-mistral-7b-instruct-v0-3",
@@ -32662,8 +31999,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "redhatai-gemma-4-31b-it-fp8-block",
@@ -32715,8 +32051,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-6-terra-batch",
@@ -32766,8 +32101,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-6-sol-pro",
@@ -32817,8 +32151,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-6-sol-pro-batch",
@@ -32868,8 +32201,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "jonatasgrosman-wav2vec2-large-xlsr-53-portuguese",
@@ -32921,8 +32253,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "openai-whisper-base",
@@ -32974,8 +32305,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "baai-bge-small-zh-v1-5",
@@ -33027,8 +32357,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "microsoft-mdeberta-v3-base",
@@ -33080,8 +32409,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "coding",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "coding"
   },
   {
     "slug": "qwen-qwen3-vl-8b-instruct",
@@ -33133,8 +32461,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "google-vit-base-patch16-224",
@@ -33186,8 +32513,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-6-sol",
@@ -33237,8 +32563,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-6-sol-batch",
@@ -33288,8 +32613,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-x-ai-grok-4-5",
@@ -33339,8 +32663,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "qwen-qwen3-asr-0-6b",
@@ -33392,8 +32715,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "google-bert-bert-base-multilingual-uncased",
@@ -33445,8 +32767,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "coding",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "coding"
   },
   {
     "slug": "meta-llama-prompt-guard-86m",
@@ -33498,8 +32819,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "baai-bge-reranker-base",
@@ -33551,8 +32871,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "openai-clip-vit-large-patch14-336",
@@ -33604,8 +32923,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "facebook-dinov2-small",
@@ -33657,8 +32975,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "google-gemma-4-e2b-it",
@@ -33710,8 +33027,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-x-ai-grok-latest",
@@ -33761,8 +33077,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-aion-labs-aion-3-0-mini",
@@ -33812,8 +33127,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-aion-labs-aion-3-0",
@@ -33863,8 +33177,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-tencent-hy3",
@@ -33914,8 +33227,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "jonatasgrosman-wav2vec2-large-xlsr-53-russian",
@@ -33967,8 +33279,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "ibm-granite-granite-embedding-small-english-r2",
@@ -34020,8 +33331,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "distilbert-distilbert-base-uncased-finetuned-sst-2-english",
@@ -34073,8 +33383,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "qwen-qwen3-vl-4b-instruct",
@@ -34126,8 +33435,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "laion-clip-vit-b-32-laion2b-s34b-b79k",
@@ -34179,8 +33487,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-poolside-laguna-xs-2-1",
@@ -34230,8 +33537,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-poolside-laguna-xs-2-1-free",
@@ -34281,8 +33587,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-sonnet-5",
@@ -34332,8 +33637,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-sonnet-5-batch",
@@ -34383,8 +33687,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemini-3-1-flash-lite-image",
@@ -34434,8 +33737,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "qwen-qwen3-embedding-4b",
@@ -34487,8 +33789,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "sentence-transformers-all-minilm-l12-v2",
@@ -34540,8 +33841,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "google-bert-bert-base-cased",
@@ -34593,8 +33893,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "coding",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "coding"
   },
   {
     "slug": "cyankiwi-gemma-4-26b-a4b-it-awq-4bit",
@@ -34646,8 +33945,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-nex-agi-nex-n2-mini",
@@ -34697,8 +33995,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-sakana-fugu-ultra",
@@ -34748,8 +34045,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemini-3-1-flash-image",
@@ -34799,8 +34095,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemini-3-pro-image",
@@ -34850,8 +34145,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-cohere-north-mini-code-free",
@@ -34901,8 +34195,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "jinaai-jina-embeddings-v3",
@@ -34954,8 +34247,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "w11wo-indonesian-roberta-base-posp-tagger",
@@ -35007,8 +34299,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "qwen-qwen3-5-0-8b",
@@ -35060,8 +34351,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "llava-hf-llava-1-5-7b-hf",
@@ -35113,8 +34403,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-z-ai-glm-5-2",
@@ -35164,8 +34453,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-z-ai-glm-5-2-batch",
@@ -35215,8 +34503,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openrouter-fusion",
@@ -35266,8 +34553,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-moonshotai-kimi-k2-7-code",
@@ -35317,8 +34603,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-moonshotai-kimi-k2-7-code-batch",
@@ -35368,8 +34653,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-fable-latest",
@@ -35419,8 +34703,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "jonatasgrosman-wav2vec2-large-xlsr-53-japanese",
@@ -35472,8 +34755,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "autogluon-chronos-bolt-tiny",
@@ -35525,8 +34807,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "dima806-fairface-age-image-detection",
@@ -35578,8 +34859,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-fable-5",
@@ -35629,8 +34909,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-fable-5-batch",
@@ -35680,8 +34959,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-nex-agi-nex-n2-pro",
@@ -35731,8 +35009,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-nvidia-nemotron-3-5-content-safety-free",
@@ -35782,8 +35059,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "xenova-all-minilm-l6-v2",
@@ -35835,8 +35111,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "sentence-transformers-paraphrase-minilm-l6-v2",
@@ -35888,8 +35163,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "daekeun-ml-koelectra-small-v3-nsmc",
@@ -35941,8 +35215,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "baidu-unlimited-ocr",
@@ -35994,8 +35267,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "patrickjohncyh-fashion-clip",
@@ -36047,8 +35319,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-nvidia-nemotron-3-ultra-550b-a55b",
@@ -36098,8 +35369,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-nvidia-nemotron-3-ultra-550b-a55b-batch",
@@ -36149,8 +35419,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-nvidia-nemotron-3-ultra-550b-a55b-free",
@@ -36200,8 +35469,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-qwen-qwen3-7-plus",
@@ -36251,8 +35519,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "pyannote-voice-activity-detection",
@@ -36304,8 +35571,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "jonatasgrosman-wav2vec2-large-xlsr-53-polish",
@@ -36357,8 +35623,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "microsoft-deberta-v3-base",
@@ -36410,8 +35675,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "coding",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "coding"
   },
   {
     "slug": "colbert-ir-colbertv2-0",
@@ -36463,8 +35727,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "rostlab-prot-t5-xl-uniref50",
@@ -36516,8 +35779,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-minimax-minimax-m3",
@@ -36567,8 +35829,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-minimax-minimax-m3-batch",
@@ -36618,8 +35879,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-stepfun-step-3-7-flash",
@@ -36669,8 +35929,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-opus-4-8-fast",
@@ -36720,8 +35979,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-opus-4-8",
@@ -36771,8 +36029,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "sentence-transformers-paraphrase-minilm-l3-v2",
@@ -36824,8 +36081,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "cardiffnlp-twitter-roberta-base-sentiment-latest",
@@ -36877,8 +36133,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "qwen-qwen3-5-2b",
@@ -36930,8 +36185,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "qwen-qwen3-5-27b",
@@ -36983,8 +36237,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-opus-4-8-batch",
@@ -37034,8 +36287,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-qwen-qwen3-7-max",
@@ -37085,8 +36337,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-x-ai-grok-build-0-1",
@@ -37136,8 +36387,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemini-3-5-flash",
@@ -37187,8 +36437,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemini-3-5-flash-batch",
@@ -37238,8 +36487,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "intfloat-e5-large-v2",
@@ -37291,8 +36539,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "docling-project-docling-models",
@@ -37344,8 +36591,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "timm-resnet50-a1-in1k",
@@ -37397,8 +36643,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "hustvl-yolos-small",
@@ -37450,8 +36695,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "vision-language",
-    "created_at": "2026-08-06T19:08:42.791965+00:00"
+    "bestForCategory": "vision-language"
   },
   {
     "slug": "openrouter-anthropic-claude-opus-4-7-fast",
@@ -37501,8 +36745,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-perceptron-perceptron-mk1",
@@ -37552,8 +36795,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-inclusionai-ring-2-6-1t",
@@ -37603,8 +36845,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "qwen-qwen3-asr-1-7b",
@@ -37656,8 +36897,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "mahmoudashraf-mms-300m-1130-forced-aligner",
@@ -37709,8 +36949,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "baai-bge-reranker-large",
@@ -37762,8 +37001,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "google-bert-bert-base-multilingual-cased",
@@ -37815,8 +37053,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "coding",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "coding"
   },
   {
     "slug": "cross-encoder-mmarco-mminilmv2-l12-h384-v1",
@@ -37868,8 +37105,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "alibaba-nlp-gte-reranker-modernbert-base",
@@ -37921,8 +37157,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemini-3-1-flash-lite",
@@ -37972,8 +37207,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemini-3-1-flash-lite-batch",
@@ -38023,8 +37257,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-chat-latest",
@@ -38074,8 +37307,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "qwen-qwen3-vl-embedding-8b",
@@ -38127,8 +37359,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "resembleai-chatterbox",
@@ -38180,8 +37411,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "microsoft-deberta-v3-large",
@@ -38233,8 +37463,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "coding",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "coding"
   },
   {
     "slug": "autogluon-chronos-bolt-base",
@@ -38286,8 +37515,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "comfy-org-minimax-h3",
@@ -38339,8 +37567,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "pyannote-segmentation",
@@ -38392,8 +37619,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "openrouter-x-ai-grok-4-3",
@@ -38443,8 +37669,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-ibm-granite-granite-4-1-8b",
@@ -38494,8 +37719,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-mistralai-mistral-medium-3-5",
@@ -38545,8 +37769,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-nvidia-nemotron-3-nano-omni-30b-a3b-reasoning-free",
@@ -38596,8 +37819,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-haiku-latest",
@@ -38647,8 +37869,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "emilyalsentzer-bio-clinicalbert",
@@ -38700,8 +37921,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "coding",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "coding"
   },
   {
     "slug": "trl-internal-testing-tiny-qwen2forsequenceclassification-2-5",
@@ -38753,8 +37973,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "comfy-org-wan-2-1-comfyui-repackaged",
@@ -38803,8 +38022,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "deepseek-ai-deepseek-ocr",
@@ -38856,8 +38074,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-mini-latest",
@@ -38907,8 +38124,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemini-pro-latest",
@@ -38958,8 +38174,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-moonshotai-kimi-latest",
@@ -39009,8 +38224,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "intfloat-multilingual-e5-large-instruct",
@@ -39062,8 +38276,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "qwen-qwen3-tts-12hz-1-7b-customvoice",
@@ -39115,8 +38328,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "biohub-esmc-6b",
@@ -39168,8 +38380,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "coding",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "coding"
   },
   {
     "slug": "facebook-esm2-t33-650m-ur50d",
@@ -39221,8 +38432,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "coding",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "coding"
   },
   {
     "slug": "qwen-qwen3-5-122b-a10b",
@@ -39274,8 +38484,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "qwen-qwen3-vl-2b-instruct",
@@ -39327,8 +38536,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemini-flash-latest",
@@ -39378,8 +38586,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-sonnet-latest",
@@ -39429,8 +38636,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-latest",
@@ -39480,8 +38686,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-qwen-qwen3-5-plus-20260420",
@@ -39531,8 +38736,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "salesforce-blip-image-captioning-base",
@@ -39586,8 +38790,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "vision-language",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "vision-language"
   },
   {
     "slug": "systran-faster-whisper-small",
@@ -39639,8 +38842,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "google-embeddinggemma-300m",
@@ -39692,8 +38894,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "datasocietyco-bge-base-en-v1-5-course-recommender-v5",
@@ -39745,8 +38946,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "facebook-esmfold-v1",
@@ -39798,8 +38998,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "google-diffusiongemma-26b-a4b-it",
@@ -39851,8 +39050,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-qwen-qwen3-6-flash",
@@ -39902,8 +39100,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-qwen-qwen3-6-35b-a3b",
@@ -39953,8 +39150,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-qwen-qwen3-6-max-preview",
@@ -40004,8 +39200,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-qwen-qwen3-6-27b",
@@ -40055,8 +39250,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "jonatasgrosman-wav2vec2-large-xlsr-53-dutch",
@@ -40108,8 +39302,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "snowflake-snowflake-arctic-embed-xs",
@@ -40161,8 +39354,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "amazon-chronos-bolt-tiny",
@@ -40214,8 +39406,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "hauhaucs-qwen3-6-35b-a3b-uncensored-hauhaucs-aggressive",
@@ -40267,8 +39458,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "unsloth-qwen3-6-35b-a3b-nvfp4",
@@ -40320,8 +39510,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-5-pro",
@@ -40371,8 +39560,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-5-pro-batch",
@@ -40422,8 +39610,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-5",
@@ -40473,8 +39660,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-5-batch",
@@ -40524,8 +39710,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-deepseek-deepseek-v4-pro",
@@ -40575,8 +39760,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "mlx-community-parakeet-tdt-0-6b-v2",
@@ -40628,8 +39812,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "sentence-transformers-multi-qa-mpnet-base-dot-v1",
@@ -40681,8 +39864,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "stanfordaimi-stanford-deidentifier-base",
@@ -40734,8 +39916,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "deepseek-ai-deepseek-ocr-2",
@@ -40787,8 +39968,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-deepseek-deepseek-v4-flash",
@@ -40838,8 +40018,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-inclusionai-ling-2-6-1t",
@@ -40889,8 +40068,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-tencent-hy3-preview",
@@ -40940,8 +40118,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "handy-computer-parakeet-unified-en-0-6b-gguf",
@@ -40993,8 +40170,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "nvidia-parakeet-ctc-1-1b",
@@ -41046,8 +40222,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "microsoft-trellis-image-large",
@@ -41098,8 +40273,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "qwen-qwen2-5-vl-7b-instruct-awq",
@@ -41151,8 +40325,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "google-flan-t5-base",
@@ -41204,8 +40377,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:41.765387+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openai-clip-vit-base-patch16",
@@ -41257,8 +40429,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-xiaomi-mimo-v2-5-pro",
@@ -41308,8 +40479,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-xiaomi-mimo-v2-5",
@@ -41359,8 +40529,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-4-image-2",
@@ -41410,8 +40579,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "indonesian-nlp-wav2vec2-indonesian-javanese-sundanese",
@@ -41463,8 +40631,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "baai-bge-large-zh-v1-5",
@@ -41516,8 +40683,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "jhgan-ko-sroberta-multitask",
@@ -41569,8 +40735,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "kijai-wanvideo-comfy",
@@ -41621,8 +40786,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "docling-project-docling-layout-heron",
@@ -41672,8 +40836,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "speechbrain-spkrec-ecapa-voxceleb",
@@ -41725,8 +40888,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-inclusionai-ling-2-6-flash",
@@ -41776,8 +40938,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-opus-latest",
@@ -41827,8 +40988,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openrouter-pareto-code",
@@ -41878,8 +41038,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-moonshotai-kimi-k2-6",
@@ -41929,8 +41088,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-opus-4-7",
@@ -41980,8 +41138,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-opus-4-7-batch",
@@ -42031,8 +41188,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "sentence-transformers-testing-stsb-bert-tiny-safetensors",
@@ -42084,8 +41240,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "rhasspy-faster-whisper-base-int8",
@@ -42135,8 +41290,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "rhasspy-faster-whisper-tiny-int8",
@@ -42186,8 +41340,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-z-ai-glm-5-1",
@@ -42237,8 +41390,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemma-4-26b-a4b-it",
@@ -42288,8 +41440,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemma-4-26b-a4b-it-free",
@@ -42339,8 +41490,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemma-4-31b-it",
@@ -42390,8 +41540,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "distil-whisper-distil-large-v3",
@@ -42443,8 +41592,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "baai-bge-base-zh-v1-5",
@@ -42496,8 +41644,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "neuralmind-bert-large-portuguese-cased",
@@ -42549,8 +41696,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "coding",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "coding"
   },
   {
     "slug": "distilbert-distilroberta-base",
@@ -42602,8 +41748,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "coding",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "coding"
   },
   {
     "slug": "facebook-wav2vec2-xls-r-300m",
@@ -42655,8 +41800,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "qwen-qwen2-5-omni-3b",
@@ -42708,8 +41852,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemma-4-31b-it-free",
@@ -42759,8 +41902,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-qwen-qwen3-6-plus",
@@ -42810,8 +41952,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-z-ai-glm-5v-turbo",
@@ -42861,8 +42002,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "cambridgeltl-sapbert-from-pubmedbert-fulltext",
@@ -42914,8 +42054,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "alibaba-nlp-gte-large-en-v1-5",
@@ -42967,8 +42106,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "sentence-transformers-paraphrase-mpnet-base-v2",
@@ -43020,8 +42158,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "google-gemma-4-12b-it-qat-w4a16-ct",
@@ -43073,8 +42210,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "google-t5-t5-base",
@@ -43127,8 +42263,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "google-siglip2-base-patch16-naflex",
@@ -43180,8 +42315,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-arcee-ai-trinity-large-thinking",
@@ -43231,8 +42365,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-x-ai-grok-4-20-multi-agent",
@@ -43282,8 +42415,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-x-ai-grok-4-20",
@@ -43333,8 +42465,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-lyria-3-pro-preview",
@@ -43384,8 +42515,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-lyria-3-clip-preview",
@@ -43435,8 +42565,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-kwaipilot-kat-coder-pro-v2",
@@ -43486,8 +42615,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "baai-bge-small-en",
@@ -43539,8 +42667,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "qwen-qwen3-tts-12hz-0-6b-customvoice",
@@ -43592,8 +42719,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "amazon-chronos-bolt-base",
@@ -43645,8 +42771,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-rekaai-reka-edge",
@@ -43696,8 +42821,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-minimax-minimax-m2-7",
@@ -43747,8 +42871,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-4-nano",
@@ -43798,8 +42921,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-4-nano-batch",
@@ -43849,8 +42971,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-4-mini",
@@ -43900,8 +43021,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-4-mini-batch",
@@ -43951,8 +43071,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "rizvandwiki-gender-classification",
@@ -44004,8 +43123,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "peft-internal-testing-tiny-clip-text-2",
@@ -44057,8 +43175,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "google-siglip2-giant-opt-patch16-384",
@@ -44110,8 +43227,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-mistralai-mistral-small-2603",
@@ -44161,8 +43277,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-z-ai-glm-5-turbo",
@@ -44212,8 +43327,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-nvidia-nemotron-3-super-120b-a12b",
@@ -44263,8 +43377,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-nvidia-nemotron-3-super-120b-a12b-free",
@@ -44314,8 +43427,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "systran-faster-whisper-base",
@@ -44367,8 +43479,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "finiteautomata-bertweet-base-sentiment-analysis",
@@ -44420,8 +43531,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "ai21labs-jamba-tiny-dev",
@@ -44471,8 +43581,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "amazon-chronos-t5-tiny",
@@ -44524,8 +43633,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "opengvlab-internvl2-2b",
@@ -44577,8 +43685,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-bytedance-seed-seed-2-0-lite",
@@ -44628,8 +43735,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-qwen-qwen3-5-9b",
@@ -44679,8 +43785,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-4-pro",
@@ -44730,8 +43835,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "stabilityai-stable-diffusion-xl-base-1-0",
@@ -44783,8 +43887,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "image-gen",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "image-gen"
   },
   {
     "slug": "mlx-community-parakeet-tdt-0-6b-v3",
@@ -44836,8 +43939,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "jonatasgrosman-wav2vec2-large-xlsr-53-arabic",
@@ -44889,8 +43991,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "nomic-ai-nomic-embed-text-v2-moe",
@@ -44942,8 +44043,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "microsoft-trellis-2-4b",
@@ -44994,8 +44094,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "qwen-qwen2-vl-7b-instruct",
@@ -45047,8 +44146,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-4-pro-batch",
@@ -45098,8 +44196,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-4",
@@ -45149,8 +44246,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-4-batch",
@@ -45200,8 +44296,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-inception-mercury-2",
@@ -45251,8 +44346,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "comodoro-wav2vec2-xls-r-300m-cs-250",
@@ -45304,8 +44398,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "onnx-community-kokoro-82m-v1-0-onnx",
@@ -45357,8 +44450,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "alsgyu-sentiment-analysis-fine-tuned-model",
@@ -45407,8 +44499,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "unsloth-gemma-4-26b-a4b-it-gguf",
@@ -45460,8 +44551,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "neoquasar-kronos-base",
@@ -45513,8 +44603,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-3-chat",
@@ -45564,8 +44653,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemini-3-1-flash-lite-preview",
@@ -45615,8 +44703,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-bytedance-seed-seed-2-0-mini",
@@ -45666,8 +44753,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemini-3-1-flash-image-preview",
@@ -45717,8 +44803,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "facebook-w2v-bert-2-0",
@@ -45770,8 +44855,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "nvidia-llama-3-1-nemotron-nano-vl-8b-v1",
@@ -45823,8 +44907,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "quanttrio-qwen3-5-9b-awq",
@@ -45876,8 +44959,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "prajjwal1-bert-tiny",
@@ -45929,8 +45011,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "microsoft-phi-3-5-vision-instruct",
@@ -45982,8 +45063,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-qwen-qwen3-5-35b-a3b",
@@ -46033,8 +45113,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-qwen-qwen3-5-27b",
@@ -46084,8 +45163,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-qwen-qwen3-5-122b-a10b",
@@ -46135,8 +45213,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-qwen-qwen3-5-flash-02-23",
@@ -46186,8 +45263,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemini-3-1-pro-preview-customtools",
@@ -46237,8 +45313,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-3-codex",
@@ -46288,8 +45363,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-aion-labs-aion-2-0",
@@ -46339,8 +45413,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "suno-bark",
@@ -46392,8 +45465,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:09:02.978764+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "google-gemma-4-31b-it-assistant",
@@ -46445,8 +45517,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemini-3-1-pro-preview",
@@ -46496,8 +45567,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemini-3-1-pro-preview-batch",
@@ -46547,8 +45617,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-sonnet-4-6",
@@ -46598,8 +45667,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-sonnet-4-6-batch",
@@ -46649,8 +45717,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-qwen-qwen3-5-plus-02-15",
@@ -46700,8 +45767,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "dslim-bert-base-ner",
@@ -46753,8 +45819,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "gaunernst-gemma-3-27b-it-int4-awq",
@@ -46806,8 +45871,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "deepseek-ai-deepseek-vl2-tiny",
@@ -46859,8 +45923,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "qwen-qwen3-5-122b-a10b-fp8",
@@ -46912,8 +45975,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-qwen-qwen3-5-397b-a17b",
@@ -46963,8 +46025,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-minimax-minimax-m2-5",
@@ -47014,8 +46075,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-z-ai-glm-5",
@@ -47065,8 +46125,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-qwen-qwen3-max-thinking",
@@ -47116,8 +46175,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-opus-4-6",
@@ -47167,8 +46225,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "gigant-romanian-wav2vec2",
@@ -47220,8 +46277,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "alibaba-nlp-gte-multilingual-base",
@@ -47273,8 +46329,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "datalab-to-surya-ocr-2",
@@ -47326,8 +46381,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "lmstudio-community-gemma-4-e4b-it-mlx-4bit",
@@ -47379,8 +46433,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-opus-4-6-batch",
@@ -47430,8 +46483,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-qwen-qwen3-coder-next",
@@ -47481,8 +46533,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openrouter-free",
@@ -47532,8 +46583,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-stepfun-step-3-5-flash",
@@ -47583,8 +46633,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-moonshotai-kimi-k2-5",
@@ -47634,8 +46683,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-upstage-solar-pro-3",
@@ -47685,8 +46733,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "systran-faster-whisper-tiny-en",
@@ -47738,8 +46785,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "alibaba-nlp-gte-qwen2-1-5b-instruct",
@@ -47791,8 +46837,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "redhatai-gemma-4-26b-a4b-it-fp8-dynamic",
@@ -47844,8 +46889,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-minimax-minimax-m2-her",
@@ -47895,8 +46939,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-writer-palmyra-x5",
@@ -47946,8 +46989,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-audio",
@@ -47997,8 +47039,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-audio-mini",
@@ -48048,8 +47089,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "systran-faster-whisper-large-v3",
@@ -48101,8 +47141,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "microsoft-table-transformer-detection",
@@ -48154,8 +47193,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "vision-language",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "vision-language"
   },
   {
     "slug": "microsoft-resnet-50",
@@ -48207,8 +47245,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "unsloth-qwen3-5-4b-gguf",
@@ -48260,8 +47297,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "cross-encoder-ms-marco-minilm-l2-v2",
@@ -48313,8 +47349,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-z-ai-glm-4-7-flash",
@@ -48364,8 +47399,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-2-codex",
@@ -48415,8 +47449,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-bytedance-seed-seed-1-6-flash",
@@ -48466,8 +47499,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-bytedance-seed-seed-1-6",
@@ -48517,8 +47549,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-minimax-minimax-m2-1",
@@ -48568,8 +47599,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "theainerd-wav2vec2-large-xlsr-hindi",
@@ -48621,8 +47651,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "michaelfeil-bge-small-en-v1-5",
@@ -48674,8 +47703,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "intfloat-e5-base-v2",
@@ -48727,8 +47755,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "hfl-rbt3",
@@ -48780,8 +47807,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "coding",
-    "created_at": "2026-08-06T19:09:03.186852+00:00"
+    "bestForCategory": "coding"
   },
   {
     "slug": "neoquasar-kronos-small",
@@ -48833,8 +47859,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-z-ai-glm-4-7",
@@ -48884,8 +47909,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemini-3-flash-preview",
@@ -48935,8 +47959,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemini-3-flash-preview-batch",
@@ -48986,8 +48009,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "airesearch-wav2vec2-large-xlsr-53-th",
@@ -49039,8 +48061,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "baai-bge-multilingual-gemma2",
@@ -49092,8 +48113,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "qdrant-all-minilm-l6-v2-onnx",
@@ -49145,8 +48165,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "fixie-ai-ultravox-v0-5-llama-3-2-1b",
@@ -49198,8 +48217,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "nvidia-nemotron-3-nano-omni-30b-a3b-reasoning-fp8",
@@ -49251,8 +48269,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "jinaai-jina-reranker-v3",
@@ -49304,8 +48321,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-nvidia-nemotron-3-nano-30b-a3b",
@@ -49355,8 +48371,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-nvidia-nemotron-3-nano-30b-a3b-free",
@@ -49406,8 +48421,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-2-chat",
@@ -49457,8 +48471,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "tongyi-mai-z-image-turbo",
@@ -49510,8 +48523,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "image-gen",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "image-gen"
   },
   {
     "slug": "unslothai-1",
@@ -49563,8 +48575,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "almanach-camembert-base",
@@ -49616,8 +48627,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "coding",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "coding"
   },
   {
     "slug": "compvis-stable-diffusion-safety-checker",
@@ -49668,8 +48678,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "cidas-clipseg-rd64-refined",
@@ -49721,8 +48730,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "image-gen",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "image-gen"
   },
   {
     "slug": "hustvl-vitmatte-small-composition-1k",
@@ -49774,8 +48782,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-2-pro",
@@ -49825,8 +48832,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-2-pro-batch",
@@ -49876,8 +48882,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-2",
@@ -49927,8 +48932,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-2-batch",
@@ -49978,8 +48982,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "anuragshas-wav2vec2-large-xlsr-53-telugu",
@@ -50031,8 +49034,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "jinaai-jina-embeddings-v2-small-en",
@@ -50084,8 +49086,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "snowflake-snowflake-arctic-embed-l-v2-0",
@@ -50137,8 +49138,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "huggingfacetb-smolvlm-256m-instruct",
@@ -50190,8 +49190,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "amazon-chronos-t5-small",
@@ -50243,8 +49242,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-relace-relace-search",
@@ -50294,8 +49292,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-z-ai-glm-4-6v",
@@ -50345,8 +49342,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openrouter-bodybuilder",
@@ -50396,8 +49392,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "coherelabs-cohere-transcribe-03-2026",
@@ -50449,8 +49444,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "whereisai-uae-large-v1",
@@ -50502,8 +49496,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "sentence-transformers-distiluse-base-multilingual-cased-v2",
@@ -50555,8 +49548,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "llava-hf-llava-onevision-qwen2-0-5b-ov-hf",
@@ -50608,8 +49600,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "black-forest-labs-flux-2-dev",
@@ -50661,8 +49652,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "image-gen",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "image-gen"
   },
   {
     "slug": "unsloth-qwen3-5-9b-gguf",
@@ -50714,8 +49704,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-1-codex-max",
@@ -50765,8 +49754,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-amazon-nova-2-lite-v1",
@@ -50816,8 +49804,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-mistralai-ministral-14b-2512",
@@ -50867,8 +49854,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "jonatasgrosman-wav2vec2-large-xlsr-53-persian",
@@ -50920,8 +49906,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "handy-computer-cohere-transcribe-03-2026-gguf",
@@ -50973,8 +49958,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "intfloat-e5-base",
@@ -51026,8 +50010,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "microsoft-biomednlp-biomedbert-base-uncased-abstract",
@@ -51079,8 +50062,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "coding",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "coding"
   },
   {
     "slug": "trustsafeai-radar-vicuna-7b",
@@ -51132,8 +50114,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "jinaai-jina-reranker-v2-base-multilingual",
@@ -51185,8 +50166,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-mistralai-ministral-8b-2512",
@@ -51236,8 +50216,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-mistralai-ministral-3b-2512",
@@ -51287,8 +50266,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-mistralai-mistral-large-2512",
@@ -51338,8 +50316,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-deepseek-deepseek-v3-2",
@@ -51389,8 +50366,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "briaai-fibo",
@@ -51442,8 +50418,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": false,
     "isDeprecated": false,
-    "bestForCategory": "image-gen",
-    "created_at": "2026-08-06T19:09:01.892381+00:00"
+    "bestForCategory": "image-gen"
   },
   {
     "slug": "unslothai-repeat",
@@ -51495,8 +50470,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "qdrant-bm25",
@@ -51548,8 +50522,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "trl-internal-testing-tiny-qwen2-5-vlforconditionalgeneration",
@@ -51601,8 +50574,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "autogluon-chronos-bolt-mini",
@@ -51654,8 +50626,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-opus-4-5",
@@ -51705,8 +50676,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-opus-4-5-batch",
@@ -51756,8 +50726,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-allenai-olmo-3-32b-think",
@@ -51807,8 +50776,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-google-gemini-3-pro-image-preview",
@@ -51858,8 +50826,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-deepcogito-cogito-v2-1-671b",
@@ -51909,8 +50876,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-1",
@@ -51960,8 +50926,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "pysentimiento-robertuito-sentiment-analysis",
@@ -52013,8 +50978,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "qwen-qwen3-5-35b-a3b-fp8",
@@ -52066,8 +51030,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "moonshotai-kimi-k2-5",
@@ -52119,8 +51082,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-1-batch",
@@ -52170,8 +51132,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-1-codex",
@@ -52221,8 +51182,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-1-codex-mini",
@@ -52272,8 +51232,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-moonshotai-kimi-k2-thinking",
@@ -52323,8 +51282,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-amazon-nova-premier-v1",
@@ -52374,8 +51332,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "lxyuan-distilbert-base-multilingual-cased-sentiments-student",
@@ -52427,8 +51384,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "cardiffnlp-twitter-xlm-roberta-base-sentiment",
@@ -52480,8 +51436,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "google-vit-base-patch16-224-in21k",
@@ -52533,8 +51488,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "microsoft-tapex-base-finetuned-wikisql",
@@ -52586,8 +51540,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-perplexity-sonar-pro-search",
@@ -52637,8 +51590,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-mistralai-voxtral-small-24b-2507",
@@ -52688,8 +51640,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-oss-safeguard-20b",
@@ -52739,8 +51690,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-nvidia-nemotron-nano-12b-v2-vl-free",
@@ -52790,8 +51740,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "facebook-hubert-base-ls960",
@@ -52843,8 +51792,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "microsoft-wavlm-base-plus",
@@ -52896,8 +51844,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "thenlper-gte-large",
@@ -52949,8 +51896,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "embeddings-rag",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "embeddings-rag"
   },
   {
     "slug": "openbmb-minicpm-v-4-6",
@@ -53002,8 +51948,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "helsinki-nlp-opus-mt-fr-en",
@@ -53056,8 +52001,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-minimax-minimax-m2",
@@ -53107,8 +52051,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-qwen-qwen3-vl-32b-instruct",
@@ -53158,8 +52101,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-ibm-granite-granite-4-0-h-micro",
@@ -53209,8 +52151,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-openai-gpt-5-image-mini",
@@ -53260,8 +52201,7 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "lykon-dreamshaper-7",
@@ -53313,8 +52253,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "image-gen",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "image-gen"
   },
   {
     "slug": "kingabzpro-wav2vec2-large-xls-r-300m-urdu",
@@ -53366,8 +52305,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "audio-speech",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "audio-speech"
   },
   {
     "slug": "comfy-org-qwen-image-edit-comfyui",
@@ -53417,8 +52355,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "google-siglip2-base-patch16-224",
@@ -53470,8 +52407,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "lmstudio-community-gemma-4-26b-a4b-it-qat-mlx-4bit",
@@ -53523,8 +52459,7 @@ export const MODELS: AIModel[] = [
     "featured": false,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:08:42.689404+00:00"
+    "bestForCategory": "text-chat"
   },
   {
     "slug": "openrouter-anthropic-claude-haiku-4-5",
@@ -53574,7 +52509,6 @@ export const MODELS: AIModel[] = [
     "featured": true,
     "trending": true,
     "isDeprecated": false,
-    "bestForCategory": "text-chat",
-    "created_at": "2026-08-06T19:13:23.365564+00:00"
+    "bestForCategory": "text-chat"
   }
 ];

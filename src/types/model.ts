@@ -39,7 +39,7 @@ export interface AIModel {
   pricing: PricingType;
   pricingDetails: string;
   contextWindow: string; // e.g. "128k", "200k", "1M"
-  hardwareRequirements?: string; // for local models
+  hardwareRequirements?: string | null; // for local models
   benchmarks: BenchmarkScore[];
   releaseDate: string;
   lastUpdated: string;
@@ -47,15 +47,16 @@ export interface AIModel {
   strengths: string[];
   weaknesses: string[];
   docUrl: string;
-  playgroundUrl?: string;
-  modelCardUrl?: string;
+  playgroundUrl?: string | null;
+  modelCardUrl?: string | null;
   tags: string[];
-  aliases?: string[];
+  aliases?: string[] | null;
   featured?: boolean;
   trending?: boolean;
   isDeprecated?: boolean;
-  bestForCategory?: string;
+  bestForCategory?: string | null;
 }
+
 
 export interface Provider {
   slug: string;

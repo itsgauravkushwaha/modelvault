@@ -3,7 +3,7 @@ import { AIModel, BenchmarkScore } from "@/types/model";
 /**
  * Enriches AI model records with detailed architectural descriptions,
  * category-specific benchmark suites, hardware requirements, strengths, weaknesses,
- * and modality-aware code snippets.
+ * plain-English summaries, real-world use case examples, and step-by-step usage guides.
  */
 export function enrichModelData(model: AIModel): AIModel {
   const name = model.name || "";
@@ -16,7 +16,119 @@ export function enrichModelData(model: AIModel): AIModel {
   const primaryUseCase = useCases[0] || "text-chat";
   const primaryModality = modalities[0] || "text";
 
-  // 1. Generate Rich Architectural & Capability Description if default is generic
+  // 1. Plain English Summary ("What is this model & who is it for?")
+  let plainEnglishSummary = model.plainEnglishSummary || "";
+  if (!plainEnglishSummary) {
+    if (primaryUseCase === "image-gen" || primaryUseCase === "image-edit" || modalities.includes("image")) {
+      plainEnglishSummary = `Think of ${name} as your personal AI photo artist and editor. You can type simple text instructions (like 'change lighting to sunset' or 'remove background objects'), and the AI modifies your photo or generates brand-new images instantly without needing complex software like Photoshop.`;
+    } else if (primaryUseCase === "coding") {
+      plainEnglishSummary = `Think of ${name} as a smart coding partner inside your editor. It autocompletes lines of code, writes entire software functions, detects hidden bugs, and explains complex code logic in clear, plain language.`;
+    } else if (primaryUseCase === "vision-language") {
+      plainEnglishSummary = `Think of ${name} as an AI with eyes. You can upload photos, receipts, financial charts, or scanned documents, and ask it to read text, analyze visual contents, or answer questions about what it sees.`;
+    } else if (primaryUseCase === "audio-speech") {
+      plainEnglishSummary = `Think of ${name} as a super-fast automated transcriber. It listens to audio recordings, podcasts, or voice memos and turns speech into accurate written text while translating across languages.`;
+    } else if (primaryUseCase === "video-gen") {
+      plainEnglishSummary = `Think of ${name} as an AI video studio. You type a prompt or upload an image, and it generates realistic high-definition video clips with consistent camera motion and realistic physics.`;
+    } else if (primaryUseCase === "reasoning") {
+      plainEnglishSummary = `Think of ${name} as an advanced math and logic tutor. It breaks down complex calculus, physics equations, and algorithmic puzzles into clear, step-by-step explanations.`;
+    } else {
+      plainEnglishSummary = `Think of ${name} as a versatile AI assistant for writing, research, and brainstorming. It helps you draft emails, write essays, summarize long articles, and generate creative ideas on any topic.`;
+    }
+  }
+
+  // 2. Real-World Use Cases & Practical Examples
+  let realWorldExamples = model.realWorldExamples || [];
+  if (!realWorldExamples || realWorldExamples.length === 0) {
+    if (primaryUseCase === "image-gen" || primaryUseCase === "image-edit") {
+      realWorldExamples = [
+        "📸 Product Catalog Editing: Swap background scenes and studio lighting for e-commerce products.",
+        "🎨 Creative Photo Restoration: Remove unwanted objects, strangers, or blemishes from photos with text prompts.",
+        "📱 Social Media Graphics: Generate custom banners, thumbnails, and brand artwork in seconds.",
+        "🏡 Interior Design Preview: Visualize how furniture or wall colors look inside your living space.",
+      ];
+    } else if (primaryUseCase === "coding") {
+      realWorldExamples = [
+        "⚡ Instant Code Autocomplete: Automatically write complete functions and API handlers as you type.",
+        "🐛 Bug Hunting & Repair: Paste error logs or broken code snippets to receive instant explanations and fixes.",
+        "🧪 Unit Test Generator: Automatically create unit tests for Python, JavaScript, or C++ codebases.",
+        "🔄 Language Conversion: Translate legacy Python scripts into modern TypeScript or Rust.",
+      ];
+    } else if (primaryUseCase === "vision-language") {
+      realWorldExamples = [
+        "📄 Document & Receipt Parsing: Extract total amounts, dates, and line items from invoices and receipts.",
+        "📊 Chart & Graph Analysis: Upload financial reports to extract trends and summary insights.",
+        "🔍 Visual Inspection: Identify products, serial numbers, or visual damage in uploaded photos.",
+        "🖼️ Image Captioning: Generate detailed alt-text and descriptions for accessibility and SEO.",
+      ];
+    } else if (primaryUseCase === "audio-speech") {
+      realWorldExamples = [
+        "🎙️ Meeting Transcription: Turn recorded Zoom meetings or voice memos into searchable text notes.",
+        "🌍 Video Subtitles & Translation: Generate multi-lingual captions for YouTube and course videos.",
+        "📞 Call Center Analysis: Transcribe customer support calls to evaluate sentiment and key topics.",
+      ];
+    } else {
+      realWorldExamples = [
+        "✍️ Email & Article Drafting: Draft professional emails, blog posts, and press releases in seconds.",
+        "📚 Long Document Summarization: Condense 50-page PDF reports into actionable bullet points.",
+        "💡 Brainstorming & Strategy: Generate marketing ideas, product names, and event outlines.",
+        "🎓 Learning Partner: Ask questions and get step-by-step explanations on any topic.",
+      ];
+    }
+  }
+
+  // 3. Step-by-Step Guide: How to Run & Use This Model
+  let howToUseSteps = model.howToUseSteps || [];
+  if (!howToUseSteps || howToUseSteps.length === 0) {
+    if (isLocal) {
+      howToUseSteps = [
+        {
+          step: 1,
+          title: "Download a One-Click App (No Coding Required)",
+          description: `Download a free local AI launcher like LM Studio (lmstudio.ai) or Ollama (ollama.com) on your Mac, Windows, or Linux PC.`,
+        },
+        {
+          step: 2,
+          title: "Load the Model",
+          description: `In LM Studio, search for "${name}". In Ollama, open your terminal and run "ollama run ${slug}".`,
+        },
+        {
+          step: 3,
+          title: "Start Chatting or Generating",
+          description: `Type your text instructions or upload files into the app. The AI runs 100% privately on your hardware without internet requirement!`,
+        },
+        {
+          step: 4,
+          title: "Developer API Integration",
+          description: `Developers can integrate ${name} directly via Python (using Hugging Face transformers/diffusers) or connect via local OpenAI-compatible REST server (http://localhost:11434).`,
+        },
+      ];
+    } else {
+      howToUseSteps = [
+        {
+          step: 1,
+          title: "Sign Up & Get API Access",
+          description: `Create a account on ${provider}'s official developer portal and obtain your API Key.`,
+        },
+        {
+          step: 2,
+          title: "Try the Interactive Playground",
+          description: `Click the "Try Playground" button at the top of this page to test prompts instantly inside your web browser.`,
+        },
+        {
+          step: 3,
+          title: "Send Your First Request",
+          description: `Use standard HTTP cURL requests or official Python/Node.js SDKs to send prompts to the endpoint.`,
+        },
+        {
+          step: 4,
+          title: "Integrate Into Your App",
+          description: `Pass the model ID "${slug}" into your code payload to power chatbots, workflows, and web applications.`,
+        },
+      ];
+    }
+  }
+
+  // 4. Generate Rich Architectural & Capability Description if default is generic
   let description = model.description || "";
   const isGenericDescription =
     !description ||
@@ -43,7 +155,7 @@ export function enrichModelData(model: AIModel): AIModel {
     }
   }
 
-  // 2. Generate Category-Specific Benchmarks if empty
+  // 5. Generate Category-Specific Benchmarks if empty
   let benchmarks = model.benchmarks || [];
   if (!benchmarks || benchmarks.length === 0) {
     if (primaryUseCase === "image-gen" || primaryUseCase === "image-edit") {
@@ -90,7 +202,7 @@ export function enrichModelData(model: AIModel): AIModel {
     }
   }
 
-  // 3. Hardware Requirements Calculation
+  // 6. Hardware Requirements Calculation
   let hardwareRequirements = model.hardwareRequirements;
   if (!hardwareRequirements || hardwareRequirements.includes("Requires GPU")) {
     if (slug.includes("70b") || slug.includes("72b")) {
@@ -110,7 +222,7 @@ export function enrichModelData(model: AIModel): AIModel {
     }
   }
 
-  // 4. Strengths & Limitations
+  // 7. Strengths & Limitations
   let strengths = model.strengths || [];
   if (!strengths || strengths.length < 2 || strengths.includes("Open Weights")) {
     if (primaryUseCase.includes("image")) {
@@ -166,6 +278,9 @@ export function enrichModelData(model: AIModel): AIModel {
 
   return {
     ...model,
+    plainEnglishSummary,
+    realWorldExamples,
+    howToUseSteps,
     description,
     benchmarks,
     hardwareRequirements,

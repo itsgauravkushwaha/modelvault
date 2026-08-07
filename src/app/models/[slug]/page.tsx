@@ -16,11 +16,12 @@ export const dynamicParams = true; // On-demand rendering for remaining 10,000+ 
 
 export async function generateStaticParams() {
   const models = await db.getModels();
-  // Prerender top 500 models (featured / trending / popular) during build
-  return models.slice(0, 500).map((model) => ({
+  // Prerender top 200 models (featured / trending / popular) during build
+  return models.slice(0, 200).map((model) => ({
     slug: model.slug,
   }));
 }
+
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;

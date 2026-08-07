@@ -55,7 +55,11 @@ export interface AIModel {
   trending?: boolean;
   isDeprecated?: boolean;
   bestForCategory?: string | null;
+  plainEnglishSummary?: string | null;
+  realWorldExamples?: string[] | null;
+  howToUseSteps?: { step: number; title: string; description: string }[] | null;
 }
+
 
 
 export interface Provider {

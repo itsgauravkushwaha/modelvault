@@ -10,6 +10,7 @@ import { Footer } from "@/components/directory/Footer";
 import { AvailabilityBadge, PricingBadge } from "@/components/directory/Badges";
 import { ModelCard } from "@/components/directory/ModelCard";
 import { ArrowUpRightIcon, CheckIcon, CodeIcon, CpuIcon, ExternalLinkIcon, HeartFillIcon, HeartIcon } from "@/components/directory/icons";
+import { ModelFeedback } from "@/components/directory/ModelFeedback";
 import { enrichModelData, getModalityCodeSnippet } from "@/lib/utils/model-enricher";
 
 interface ModelDetailProps {
@@ -361,6 +362,11 @@ export const ModelDetailView: React.FC<ModelDetailProps> = ({ slug }) => {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Community Feedback */}
+          <div className="mt-8">
+            <ModelFeedback slug={model.slug} />
           </div>
 
           {/* Similar Models */}

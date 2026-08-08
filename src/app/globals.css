@@ -143,3 +143,15 @@ body {
     padding-inline: 2rem;
   }
 }
+
+/* Cross-browser custom scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.backdrop-blur-md {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+

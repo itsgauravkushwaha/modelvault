@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
+
 import { useDirectoryStore } from "@/stores/use-directory-store";
 import { Header } from "@/components/directory/Header";
 import { Footer } from "@/components/directory/Footer";
@@ -13,10 +15,20 @@ export const CompareView = () => {
   const removeFromCompare = useDirectoryStore((s) => s.removeFromCompare);
   const clearCompare = useDirectoryStore((s) => s.clearCompare);
   const toggleCompare = useDirectoryStore((s) => s.toggleCompare);
+  const [modelSearch, setModelSearch] = useState("");
 
   const comparedModels = compareList
     .map((slug) => allModels.find((m) => m.slug === slug))
     .filter(Boolean);
+
+  const availableModels = modelSearch.trim()
+    ? allModels.filter(
+        (m) =>
+          m.name.toLowerCase().includes(modelSearch.toLowerCase()) ||
+          m.provider.toLowerCase().includes(modelSearch.toLowerCase()) ||
+          m.slug.toLowerCase().includes(modelSearch.toLowerCase())
+      ).slice(0, 15)
+    : allModels.slice(0, 12);
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
@@ -45,13 +57,22 @@ export const CompareView = () => {
             )}
           </div>
 
-          {/* Model Selector Bar */}
+          {/* Model Selector Bar with Search */}
           <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm mb-8">
-            <h3 className="text-xs font-extrabold uppercase tracking-wider text-slate-400 mb-3">
-              Add models to comparison (Max 4):
-            </h3>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+              <h3 className="text-xs font-extrabold uppercase tracking-wider text-slate-500">
+                Add models to comparison (Max 4):
+              </h3>
+              <input
+                type="text"
+                value={modelSearch}
+                onChange={(e) => setModelSearch(e.target.value)}
+                placeholder="Search all 11,000+ models..."
+                className="px-3 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:outline-none focus:border-blue-500 focus:bg-white transition-all w-full sm:w-64"
+              />
+            </div>
             <div className="flex flex-wrap gap-2">
-              {allModels.slice(0, 10).map((model) => {
+              {availableModels.map((model) => {
                 const isAdded = compareList.includes(model.slug);
                 return (
                   <button
@@ -77,7 +98,7 @@ export const CompareView = () => {
               <table className="w-full text-left text-xs border-collapse">
                 <thead>
                   <tr className="border-b border-slate-200 bg-slate-50">
-                    <th className="p-4 font-extrabold text-slate-400 uppercase tracking-wider w-44">
+                    <th className="p-4 font-extrabold text-slate-600 uppercase tracking-wider w-44 sticky left-0 z-10 bg-slate-100 border-r border-slate-200 shadow-sm">
                       Specification
                     </th>
                     {comparedModels.map((model) => (
@@ -105,7 +126,7 @@ export const CompareView = () => {
                 <tbody className="divide-y divide-slate-100 font-medium">
                   {/* Type */}
                   <tr>
-                    <td className="p-4 font-bold text-slate-500 bg-slate-50/50">Model Type</td>
+                    <td className="p-4 font-bold text-slate-700 bg-slate-100/90 sticky left-0 z-10 border-r border-slate-200 shadow-sm">Model Type</td>
                     {comparedModels.map((m) => (
                       <td key={m!.slug} className="p-4 text-slate-900 font-bold">{m!.type}</td>
                     ))}
@@ -113,7 +134,7 @@ export const CompareView = () => {
 
                   {/* Pricing */}
                   <tr>
-                    <td className="p-4 font-bold text-slate-500 bg-slate-50/50">Pricing</td>
+                    <td className="p-4 font-bold text-slate-700 bg-slate-100/90 sticky left-0 z-10 border-r border-slate-200 shadow-sm">Pricing</td>
                     {comparedModels.map((m) => (
                       <td key={m!.slug} className="p-4">
                         <PricingBadge pricing={m!.pricing} />
@@ -124,7 +145,7 @@ export const CompareView = () => {
 
                   {/* Context Window */}
                   <tr>
-                    <td className="p-4 font-bold text-slate-500 bg-slate-50/50">Context Window</td>
+                    <td className="p-4 font-bold text-slate-700 bg-slate-100/90 sticky left-0 z-10 border-r border-slate-200 shadow-sm">Context Window</td>
                     {comparedModels.map((m) => (
                       <td key={m!.slug} className="p-4 font-extrabold text-slate-900 text-sm">{m!.contextWindow}</td>
                     ))}
@@ -132,7 +153,7 @@ export const CompareView = () => {
 
                   {/* Availability */}
                   <tr>
-                    <td className="p-4 font-bold text-slate-500 bg-slate-50/50">Availability</td>
+                    <td className="p-4 font-bold text-slate-700 bg-slate-100/90 sticky left-0 z-10 border-r border-slate-200 shadow-sm">Availability</td>
                     {comparedModels.map((m) => (
                       <td key={m!.slug} className="p-4">
                         <AvailabilityBadge availability={m!.availability} />
@@ -142,7 +163,7 @@ export const CompareView = () => {
 
                   {/* License */}
                   <tr>
-                    <td className="p-4 font-bold text-slate-500 bg-slate-50/50">License</td>
+                    <td className="p-4 font-bold text-slate-700 bg-slate-100/90 sticky left-0 z-10 border-r border-slate-200 shadow-sm">License</td>
                     {comparedModels.map((m) => (
                       <td key={m!.slug} className="p-4 text-slate-800 font-semibold">{m!.license}</td>
                     ))}
@@ -150,7 +171,7 @@ export const CompareView = () => {
 
                   {/* Hardware */}
                   <tr>
-                    <td className="p-4 font-bold text-slate-500 bg-slate-50/50">Local VRAM / HW</td>
+                    <td className="p-4 font-bold text-slate-700 bg-slate-100/90 sticky left-0 z-10 border-r border-slate-200 shadow-sm">Local VRAM / HW</td>
                     {comparedModels.map((m) => (
                       <td key={m!.slug} className="p-4 text-slate-700">
                         {m!.hardwareRequirements || "Cloud API standard"}
@@ -160,7 +181,7 @@ export const CompareView = () => {
 
                   {/* Primary Benchmark */}
                   <tr>
-                    <td className="p-4 font-bold text-slate-500 bg-slate-50/50">Key Benchmark</td>
+                    <td className="p-4 font-bold text-slate-700 bg-slate-100/90 sticky left-0 z-10 border-r border-slate-200 shadow-sm">Key Benchmark</td>
                     {comparedModels.map((m) => (
                       <td key={m!.slug} className="p-4">
                         {m!.benchmarks[0] ? (
@@ -176,7 +197,7 @@ export const CompareView = () => {
 
                   {/* Strengths */}
                   <tr>
-                    <td className="p-4 font-bold text-slate-500 bg-slate-50/50">Top Strengths</td>
+                    <td className="p-4 font-bold text-slate-700 bg-slate-100/90 sticky left-0 z-10 border-r border-slate-200 shadow-sm">Top Strengths</td>
                     {comparedModels.map((m) => (
                       <td key={m!.slug} className="p-4">
                         <ul className="list-disc list-inside text-slate-700 space-y-1">
@@ -190,6 +211,7 @@ export const CompareView = () => {
                 </tbody>
               </table>
             </div>
+
           ) : (
             <div className="rounded-2xl border border-slate-200 bg-white p-12 text-center">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 mx-auto mb-4">

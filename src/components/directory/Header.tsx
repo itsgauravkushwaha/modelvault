@@ -19,6 +19,7 @@ import {
 export const Header = () => {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [toolsOpen, setToolsOpen] = useState(false);
 
   const compareList = useDirectoryStore((s) => s.compareList);
   const { searchQuery, handleSearchChange, handleSearchSubmit } = useDirectorySearch();
@@ -30,9 +31,10 @@ export const Header = () => {
     initializeDashboard();
   }, [initializeDashboard]);
 
-  // Close mobile menu on route change
+  // Close menus on route change
   useEffect(() => {
     setMobileMenuOpen(false);
+    setToolsOpen(false);
   }, [pathname]);
 
   return (
@@ -92,9 +94,15 @@ export const Header = () => {
           </Link>
 
           {/* Developer Tools Dropdown */}
-          <div className="relative group">
+          <div
+            className="relative group"
+            onMouseEnter={() => setToolsOpen(true)}
+            onMouseLeave={() => setToolsOpen(false)}
+          >
             <button
+              onClick={() => setToolsOpen((prev) => !prev)}
               aria-haspopup="true"
+              aria-expanded={toolsOpen}
               aria-label="Developer Tools menu"
               className={`flex items-center gap-1 px-3 py-1.5 rounded-md transition-colors text-xs font-semibold ${
                 pathname.startsWith("/tools")
@@ -103,11 +111,18 @@ export const Header = () => {
               }`}
             >
               <span>Dev Tools</span>
-              <ChevronDownIcon className="w-3 h-3 transition-transform duration-150 group-hover:rotate-180" />
+              <ChevronDownIcon className={`w-3 h-3 transition-transform duration-150 ${toolsOpen ? "rotate-180" : ""}`} />
             </button>
 
             {/* Dropdown Panel */}
-            <div className="absolute right-0 top-full pt-1.5 w-56 origin-top-right scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-150 ease-out z-50">
+            <div
+              className={`absolute right-0 top-full pt-1.5 w-56 origin-top-right transition-all duration-150 ease-out z-50 ${
+                toolsOpen
+                  ? "opacity-100 scale-100 pointer-events-auto"
+                  : "opacity-0 scale-95 pointer-events-none"
+              }`}
+            >
+
               <div className="rounded-xl border border-slate-200 bg-white shadow-xl p-1.5 flex flex-col gap-0.5">
                 <Link
                   href="/tools/cost-calculator"

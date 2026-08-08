@@ -93,6 +93,26 @@ export const TokenCalculatorView = () => {
       <Header />
 
       <main className="flex-1 py-12">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              name: "ModelVault Prompt Token Counter & Estimator",
+              url: "https://modelvault.space/tools/token-calculator",
+              applicationCategory: "DeveloperApplication",
+              operatingSystem: "All",
+              description:
+                "Convert prompt text into token counts and estimate costs across OpenAI, Claude, Llama 3, and DeepSeek tokenizers.",
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+              },
+            }),
+          }}
+        />
         <div className="shell max-w-5xl">
           {/* Header */}
           <div className="mb-10 text-center max-w-2xl mx-auto">

@@ -105,6 +105,15 @@ export const Header = () => {
             </span>
           </Link>
 
+          <Link
+            href="/telemetry"
+            className={`px-3 py-1.5 rounded-md transition-colors font-semibold ${
+              pathname === "/telemetry" ? "bg-slate-100 text-blue-600 font-bold" : "hover:text-blue-600"
+            }`}
+          >
+            Telemetry ⚡
+          </Link>
+
           {/* Developer Tools Dropdown */}
           <div
             className="relative group"

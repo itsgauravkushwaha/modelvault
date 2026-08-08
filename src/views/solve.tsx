@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Header } from "@/components/directory/Header";
 import { Footer } from "@/components/directory/Footer";
 import { SparklesIcon, CheckIcon, CopyIcon, ArrowUpRightIcon } from "@/components/directory/icons";
+import { useDirectoryStore } from "@/stores/use-directory-store";
 
 interface SolutionPlaybook {
   modelName: string;
@@ -24,7 +25,7 @@ const PLAYBOOKS: Record<string, SolutionPlaybook> = {
   "legal-private": {
     modelName: "DeepSeek-R1 (Q4_K_M)",
     provider: "DeepSeek",
-    slug: "deepseek-r1-q4-km",
+    slug: "jamescallander-deepseek-r1-distill-qwen-14b-w8a8-g128-rk3588-rkllm",
     type: "Local Open-Weights (Ollama / GGUF)",
     vram: "14GB–24GB VRAM (Mac M1/M2/M3 or RTX 4080)",
     estimatedCost: "$0.00 / month (100% Free Local Execution)",
@@ -53,7 +54,7 @@ print(response.json()["response"])`,
   "legal-cloud": {
     modelName: "Claude 3.5 Sonnet",
     provider: "Anthropic",
-    slug: "claude-3-5-sonnet-20241022",
+    slug: "claude-3-5-sonnet",
     type: "Cloud API (200k Context)",
     vram: "Cloud API (0 MB VRAM Required)",
     estimatedCost: "~$15.00 / month (Based on 500 contract reviews)",
@@ -77,9 +78,9 @@ print(message.content[0].text)`,
     alternativeModel: "GPT-4o (OpenAI)",
   },
   "healthcare-private": {
-    modelName: "Llama 3.1 8B Instruct (Q4_K_M)",
+    modelName: "Llama 3.1 8B Instruct",
     provider: "Meta AI",
-    slug: "llama-3-1-8b-instruct",
+    slug: "nousresearch-meta-llama-3-1-8b-instruct",
     type: "Local Open-Weights (Offline)",
     vram: "6GB–8GB VRAM (Standard Laptop / Mac M1)",
     estimatedCost: "$0.00 / month (100% Free Off-Grid)",
@@ -102,7 +103,7 @@ print(res.json()["message"]["content"])`,
   "education-budget": {
     modelName: "Qwen 2.5 3B Instruct",
     provider: "Qwen / Alibaba",
-    slug: "qwen-2-5-3b-instruct",
+    slug: "qwen-qwen2-5-3b-instruct-awq",
     type: "Ultra-Lightweight Open Weights",
     vram: "2.5GB–4GB VRAM (Raspberry Pi 4 / Low-Cost Smartphone)",
     estimatedCost: "$0.00 / month (Zero Infrastructure Overhead)",
@@ -123,7 +124,7 @@ print(res.json()["response"])`,
   "support-chatbot": {
     modelName: "DeepSeek-V3",
     provider: "DeepSeek",
-    slug: "deepseek-v3",
+    slug: "deepseek-v3-math-gguf-q8-0",
     type: "High-Throughput Cloud API",
     vram: "Cloud API (Serverless)",
     estimatedCost: "~$2.50 / month (Ultra-Low $0.27/1M token API rate)",
@@ -145,14 +146,14 @@ print(response.choices[0].message.content)`,
     alternativeModel: "Gemini 2.0 Flash (Google)",
   },
   "code-audit": {
-    modelName: "Qwen 2.5 Coder 32B Instruct",
+    modelName: "Qwen 2.5 Coder 30B",
     provider: "Qwen / Alibaba",
-    slug: "qwen-2-5-coder-32b-instruct",
+    slug: "stelterlab-qwen3-coder-30b-a3b-instruct-awq",
     type: "Specialized Coding Engine",
     vram: "20GB–24GB VRAM (Mac Studio / RTX 3090/4090)",
     estimatedCost: "$0.00 / month (Self-Hosted Developer Engine)",
     whyThisModel:
-      "Qwen 2.5 Coder 32B matches Sonnet 3.5 coding benchmarks across Python, TypeScript, and Rust, detecting edge-case security bugs without transmitting codebase source to cloud servers.",
+      "Qwen 2.5 Coder 30B matches Sonnet 3.5 coding benchmarks across Python, TypeScript, and Rust, detecting edge-case security bugs without transmitting codebase source to cloud servers.",
     terminalCommand: "ollama run qwen2.5-coder:32b",
     promptTemplate: `Act as a principal software security architect. Perform a security and performance code review on the following function:
 
@@ -181,6 +182,13 @@ export const SolveView = () => {
   const [copiedCmd, setCopiedCmd] = useState(false);
   const [copiedPrompt, setCopiedPrompt] = useState(false);
 
+  const allModels = useDirectoryStore((s) => s.allModels);
+  const loadModelsFromDb = useDirectoryStore((s) => s.loadModelsFromDb);
+
+  useEffect(() => {
+    loadModelsFromDb();
+  }, [loadModelsFromDb]);
+
   // Match key
   let key = `${domain}-${privacy}`;
   if (domain === "education") key = "education-budget";
@@ -189,6 +197,18 @@ export const SolveView = () => {
   if (!PLAYBOOKS[key]) key = "legal-private";
 
   const playbook = PLAYBOOKS[key];
+
+  // Robust Model Route Link Resolution
+  const targetModel = allModels.find(
+    (m) =>
+      m.slug === playbook.slug ||
+      m.slug.includes(playbook.slug) ||
+      m.name.toLowerCase().includes(playbook.modelName.toLowerCase().split(" ")[0])
+  );
+
+  const modelHref = targetModel
+    ? `/models/${targetModel.slug}`
+    : `/models?search=${encodeURIComponent(playbook.provider)}`;
 
   const copyText = (text: string, isPrompt: boolean) => {
     navigator.clipboard.writeText(text);
@@ -320,7 +340,7 @@ export const SolveView = () => {
                   </p>
                 </div>
                 <Link
-                  href={`/models/${playbook.slug}`}
+                  href={modelHref}
                   className="inline-flex items-center gap-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 text-xs font-bold transition-all shadow-md shrink-0 self-start sm:self-auto"
                 >
                   <span>View Model Specs</span>

@@ -30,6 +30,11 @@ export const ModelCard: React.FC<ModelCardProps> = ({ model }) => {
             {model.provider}
           </span>
           <div className="flex items-center gap-1.5 shrink-0">
+            {model.isVerified && (
+              <span className="inline-flex items-center rounded-full bg-emerald-50 px-1.5 py-0.5 text-[0.6rem] font-extrabold text-emerald-700 border border-emerald-200">
+                ✓ Verified
+              </span>
+            )}
             <PricingBadge pricing={model.pricing} />
             <button
               onClick={() => toggleFavorite(model.slug)}

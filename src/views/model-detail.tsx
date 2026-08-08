@@ -73,6 +73,11 @@ export const ModelDetailView: React.FC<ModelDetailProps> = ({ slug }) => {
                     {model.provider}
                   </span>
                   <PricingBadge pricing={model.pricing} />
+                  {model.isVerified && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 text-[0.65rem] font-extrabold text-emerald-700">
+                      <span>✓</span> Verified Spec & Code
+                    </span>
+                  )}
                 </div>
 
                 <div className="flex items-center gap-3">

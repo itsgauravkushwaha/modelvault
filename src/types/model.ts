@@ -58,6 +58,7 @@ export interface AIModel {
   plainEnglishSummary?: string | null;
   realWorldExamples?: string[] | null;
   howToUseSteps?: { step: number; title: string; description: string }[] | null;
+  isVerified?: boolean;
 }
 
 

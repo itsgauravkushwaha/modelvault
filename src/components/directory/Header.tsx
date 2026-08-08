@@ -93,6 +93,18 @@ export const Header = () => {
             Cloud APIs
           </Link>
 
+          <Link
+            href="/solve"
+            className={`px-3 py-1.5 rounded-md transition-colors flex items-center gap-1 ${
+              pathname === "/solve" ? "bg-blue-50 text-blue-600 font-extrabold" : "text-blue-600 hover:text-blue-700 font-bold"
+            }`}
+          >
+            <span>Solution Wizard</span>
+            <span className="text-[0.6rem] bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded-full font-black uppercase">
+              New
+            </span>
+          </Link>
+
           {/* Developer Tools Dropdown */}
           <div
             className="relative group"

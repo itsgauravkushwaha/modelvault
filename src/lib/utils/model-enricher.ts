@@ -276,6 +276,24 @@ export function enrichModelData(model: AIModel): AIModel {
     }
   }
 
+  const isVerified =
+    model.isVerified ??
+    Boolean(
+      model.featured ||
+        model.trending ||
+        [
+          "gpt-4o",
+          "claude-3-5-sonnet",
+          "deepseek-r1",
+          "deepseek-v3",
+          "llama-3.3-70b",
+          "gemini-2.0-flash",
+          "mistral-large",
+          "qwen-2.5-72b",
+          "flux-1",
+        ].some((s) => model.slug.toLowerCase().includes(s))
+    );
+
   return {
     ...model,
     plainEnglishSummary,
@@ -286,6 +304,7 @@ export function enrichModelData(model: AIModel): AIModel {
     hardwareRequirements,
     strengths,
     weaknesses,
+    isVerified,
   };
 }
 

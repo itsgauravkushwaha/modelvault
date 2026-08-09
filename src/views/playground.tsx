@@ -253,7 +253,7 @@ export const PlaygroundView = () => {
                     {model.provider}
                   </span>
                   <span className="text-[0.65rem] font-extrabold rounded-md bg-slate-100 px-2 py-0.5 text-slate-600">
-                    ~{model.downloadMb} MB
+                    ~{model.downloadMb} MB (1-Time Download)
                   </span>
                 </div>
                 <h3 className="text-sm font-extrabold text-slate-900 mb-1">{model.name}</h3>

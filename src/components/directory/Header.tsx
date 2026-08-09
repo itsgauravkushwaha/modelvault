@@ -357,6 +357,12 @@ export const Header = () => {
               Developer Tools
             </span>
             <div className="grid grid-cols-2 gap-2 text-xs font-semibold text-slate-800">
+              <Link href="/tools/model-finder" className="p-3 rounded-xl bg-blue-50 text-blue-700 font-extrabold hover:bg-blue-100 transition-colors flex items-center justify-between col-span-2 sm:col-span-1">
+                <span>Smart Model Finder 🔍</span>
+                <span className="text-[0.55rem] bg-blue-200 text-blue-800 px-1.5 py-0.5 rounded-full font-black uppercase">
+                  Finder
+                </span>
+              </Link>
               <Link href="/tools/cost-calculator" className="p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors">
                 AI Cost Calculator
               </Link>

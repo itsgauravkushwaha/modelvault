@@ -35,6 +35,13 @@ export const SearchHero = () => {
         {/* Primary & Secondary CTA Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
           <Link
+            href="/tools/model-finder"
+            className="inline-flex items-center gap-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white px-5 sm:px-6 py-3 text-xs font-bold transition-all shadow-lg hover:shadow-purple-500/25"
+          >
+            <SparklesIcon className="w-4 h-4 text-purple-200" />
+            <span>Smart Model Finder 🔍</span>
+          </Link>
+          <Link
             href="/models"
             className="inline-flex items-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white px-5 sm:px-6 py-3 text-xs font-bold transition-all shadow-lg hover:shadow-blue-500/25"
           >

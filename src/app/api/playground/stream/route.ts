@@ -1,5 +1,26 @@
 import { NextRequest, NextResponse } from "next/server";
 import { checkRateLimit } from "@/lib/rate-limit";
+import fs from "fs";
+import path from "path";
+
+function getGroqKey(): string {
+  if (process.env.GROQ_API_KEY && process.env.GROQ_API_KEY.trim()) {
+    return process.env.GROQ_API_KEY.trim();
+  }
+  try {
+    const envPath = path.join(process.cwd(), ".env.local");
+    if (fs.existsSync(envPath)) {
+      const content = fs.readFileSync(envPath, "utf8");
+      const match = content.match(/GROQ_API_KEY=(.+)/);
+      if (match && match[1]) {
+        return match[1].trim();
+      }
+    }
+  } catch {
+    // Ignore
+  }
+  return "";
+}
 
 // Supported Cloud Playground Models
 export const PLAYGROUND_MODELS: Record<string, { name: string; provider: string; speed: number; reasoning: boolean }> = {
@@ -82,8 +103,8 @@ export async function POST(req: NextRequest) {
 
     const selectedModel = PLAYGROUND_MODELS[modelId] || PLAYGROUND_MODELS["llama-3.3-70b"];
 
-    // Check if real Groq API key is configured in env
-    const groqApiKey = process.env.GROQ_API_KEY;
+    // Check if real Groq API key is configured in env or .env.local
+    const groqApiKey = getGroqKey();
 
     if (groqApiKey) {
       try {

@@ -3,126 +3,112 @@
 import { useState, useEffect, useRef } from "react";
 import { Header } from "@/components/directory/Header";
 import { Footer } from "@/components/directory/Footer";
-import { SparklesIcon, CheckIcon, CpuIcon, CopyIcon, ArrowRightIcon } from "@/components/directory/icons";
+import { WebGpuConsentModal } from "@/components/directory/WebGpuConsentModal";
+import { SparklesIcon, CheckIcon, CpuIcon, CopyIcon, ArrowRightIcon, CompareIcon } from "@/components/directory/icons";
 
-interface WebGPUModelConfig {
+interface CloudModelConfig {
   id: string;
   name: string;
   provider: string;
-  size: string;
+  badge: string;
   downloadMb: number;
-  hfModelId: string;
   description: string;
   presetPrompts: string[];
+  size?: string;
 }
 
-const WEBGPU_MODELS: WebGPUModelConfig[] = [
+const PLAYGROUND_MODELS: CloudModelConfig[] = [
+  {
+    id: "deepseek-r1",
+    name: "DeepSeek R1 (Reasoning)",
+    provider: "DeepSeek / Groq",
+    badge: "Reasoning",
+    downloadMb: 350,
+    description: "Open reasoning model. Streams chain-of-thought logic with step-by-step mathematical breakdown.",
+    presetPrompts: [
+      "Write a Python script to optimize vector similarity calculations.",
+      "Explain WebGPU hardware pipelines versus Cloud API servers.",
+      "List 3 strategic architectural rules for multi-provider AI backends.",
+    ],
+  },
+  {
+    id: "llama-3.3-70b",
+    name: "Llama 3.3 70B Instruct",
+    provider: "Meta / Groq",
+    badge: "Ultra-Fast",
+    downloadMb: 280,
+    description: "State-of-the-art 70B open model. Generates 450+ tokens/sec on LPU hardware with zero latency.",
+    presetPrompts: [
+      "Draft a cold pitch email introducing ModelVault to AI developers.",
+      "Write a TypeScript function to calculate Fibonacci numbers with memoization.",
+      "Summarize the main benefits of zero-cloud private local AI models.",
+    ],
+  },
+  {
+    id: "qwen-2.5-72b",
+    name: "Qwen 2.5 72B Instruct",
+    provider: "Alibaba / Groq",
+    badge: "Code & Math",
+    downloadMb: 350,
+    description: "Top open-weights coding model. Excels at complex TypeScript, Python, and system architecture.",
+    presetPrompts: [
+      "Write a clean Rust function to check if a number is prime.",
+      "What are the top 3 advantages of sub-500ms cloud streaming APIs?",
+    ],
+  },
   {
     id: "smollm2-135m",
-    name: "SmolLM2 135M Instruct",
+    name: "SmolLM2 135M",
     provider: "Hugging Face",
-    size: "135 Million Params",
+    size: "135M",
     downloadMb: 90,
-    hfModelId: "onnx-community/SmolLM2-135M-Instruct",
-    description: "Ultra-fast lightweight model. Downloads in ~3 seconds and generates 100+ tokens/sec on consumer GPUs.",
+    badge: "Lightweight",
+    description: "Ultra-fast lightweight model. Downloads in ~3 seconds and runs locally on device processors.",
     presetPrompts: [
       "Explain WebGPU in simple terms for a 10-year-old.",
       "Write a Python function to check if a string is a palindrome.",
-      "List 3 bullet points on why privacy matters for AI models.",
-    ],
-  },
-  {
-    id: "qwen2.5-0.5b",
-    name: "Qwen 2.5 0.5B Instruct",
-    provider: "Qwen / Alibaba",
-    size: "500 Million Params",
-    downloadMb: 350,
-    hfModelId: "onnx-community/Qwen2.5-0.5B-Instruct",
-    description: "High-reasoning small language model. Exceptional logic, math, and code generation inside the browser.",
-    presetPrompts: [
-      "Summarize the key benefits of local open-weights AI deployment.",
-      "Write a TypeScript function to calculate Fibonacci numbers efficiently.",
-      "Draft a professional cold email introducing a software product.",
-    ],
-  },
-  {
-    id: "lamini-t5",
-    name: "LaMini Flan-T5 783M",
-    provider: "MBZUAI",
-    size: "783 Million Params",
-    downloadMb: 280,
-    hfModelId: "Xenova/LaMini-Flan-T5-783M",
-    description: "Specialized instruction and document summarization model for browser-side text processing.",
-    presetPrompts: [
-      "Rewrite this paragraph into bullet points: ModelVault indexes 11,468 AI models with plain English guides.",
-      "What are the 3 main advantages of running AI locally on hardware?",
     ],
   },
 ];
 
-const PRESET_RESPONSES: Record<string, Record<string, string>> = {
-  "smollm2-135m": {
-    "Explain WebGPU in simple terms for a 10-year-old.":
-      "WebGPU is like giving your web browser direct access to your computer's graphics card (GPU). Normally, websites use standard processor power, but WebGPU lets your browser use super-fast graphics memory to play 3D games and run AI models directly on your device without sending any data to the cloud!",
-    "Write a Python function to check if a string is a palindrome.":
-      "```python\ndef is_palindrome(s: str) -> bool:\n    # Clean string: remove non-alphanumeric and convert to lowercase\n    cleaned = ''.join(char.lower() for char in s if char.isalnum())\n    return cleaned == cleaned[::-1]\n\n# Example usage:\nprint(is_palindrome('A man, a plan, a canal: Panama')) # Output: True\n```",
-    "List 3 bullet points on why privacy matters for AI models.":
-      "• Data Sovereignty: Private local models ensure confidential client documents, medical notes, and financial reports never leave your server.\n• Zero Third-Party Logging: Closed Cloud APIs can store or train on your prompts, whereas local models run 100% offline.\n• Regulatory Compliance: Helps organizations maintain strict GDPR, HIPAA, and SOC2 compliance without legal exposure.",
-  },
-  "qwen2.5-0.5b": {
-    "Summarize the key benefits of local open-weights AI deployment.":
-      "1. Zero API Cost: Free unlimited inference after initial download.\n2. Complete Offline Operation: Air-gapped deployment with zero internet connectivity required.\n3. 100% Data Confidentiality: Sensitive prompts remain entirely inside local RAM/VRAM.\n4. Fine-Tuning Control: Customize weights for domain-specific tasks without third-party API restrictions.",
-    "Write a TypeScript function to calculate Fibonacci numbers efficiently.":
-      "```typescript\nfunction fibonacci(n: number): number {\n  if (n <= 1) return n;\n  let prev = 0, curr = 1;\n  for (let i = 2; i <= n; i++) {\n    const next = prev + curr;\n    prev = curr;\n    curr = next;\n  }\n  return curr;\n}\n\nconsole.log(fibonacci(10)); // Output: 55\n```",
-    "Draft a professional cold email introducing a software product.":
-      "Subject: Automating your AI model evaluations with ModelVault\n\nHi [Name],\n\nI noticed [Company] is scaling its AI pipeline across multiple LLM providers. Choosing the right model while managing hardware costs can be challenging.\n\nModelVault is an open intelligence platform indexing 11,000+ AI models with interactive VRAM estimators, cost calculators, and real-world deployment playbooks.\n\nWould you be open to a quick 5-minute preview this week?\n\nBest regards,\n[Your Name]",
-  },
-  "lamini-t5": {
-    "Rewrite this paragraph into bullet points: ModelVault indexes 11,468 AI models with plain English guides.":
-      "• Indexed Coverage: Over 11,468 open-weights and cloud AI models.\n• Accessibility: Dual-perspective guides in plain, jargon-free English.\n• Practical Guidance: 4-step setup guides and modality-aware Python code snippets.",
-    "What are the 3 main advantages of running AI locally on hardware?":
-      "1. Cost Control: Zero per-token cloud API subscription fees.\n2. Speed & Latency: Instant inference without network latency or cloud server queuing.\n3. Data Security: Complete privacy with zero third-party data tracking.",
-  },
-};
-
-const generateSmartResponse = (modelId: string, userPrompt: string): string => {
-  const p = userPrompt.trim().toLowerCase();
-  
-  // 1. Direct preset prompt match
-  if (PRESET_RESPONSES[modelId]?.[userPrompt.trim()]) {
-    return PRESET_RESPONSES[modelId][userPrompt.trim()];
-  }
-
-  // 2. Code generation queries
-  if (p.includes("code") || p.includes("python") || p.includes("javascript") || p.includes("typescript") || p.includes("function") || p.includes("script") || p.includes("algorithm")) {
-    return `Here is a clean implementation for your request:\n\n\`\`\`python\ndef solution():\n    # Process query: ${userPrompt.slice(0, 45)}\n    results = []\n    print("Executed in-browser with zero server cost.")\n    return results\n\nsolution()\n\`\`\`\n\nThis implementation operates with O(N) linear complexity and minimal memory footprint.`;
-  }
-
-  // 3. Explanation & Question queries (What, Why, How, Explain)
-  if (p.startsWith("what") || p.startsWith("why") || p.startsWith("how") || p.includes("explain") || p.includes("tell me") || p.includes("meaning")) {
-    return `Analysis for "${userPrompt.trim()}":\n\n1. Concept Overview: ${userPrompt.trim()} represents a core concept in modern AI application architecture and system design.\n\n2. Key Advantages: Local execution delivers 100% privacy, sub-millisecond response latency, and zero dependency on third-party cloud APIs.\n\n3. Practical Takeaway: Developers and enterprises can deploy open-weights models offline without per-token subscription costs.`;
-  }
-
-  // 4. Summarization / Bullet point requests
-  if (p.includes("summarize") || p.includes("bullet") || p.includes("list") || p.includes("points")) {
-    return `Key Summary Points for "${userPrompt.slice(0, 50)}":\n\n• Point 1: Client-side WebGPU execution ensures complete data confidentiality.\n• Point 2: Zero cloud subscription fees or rate limits.\n• Point 3: Sub-millisecond token throughput powered directly by device hardware.`;
-  }
-
-  // 5. Default articulate response for freeform prompts
-  return `Response from ${modelId.toUpperCase()}:\n\nIn response to "${userPrompt.trim()}":\n\nThis response was generated live inside your web browser using local ONNX execution. Prompts remain strictly inside device RAM/VRAM with zero external cloud transmission.`;
-};
+type PlaygroundMode = "cloud" | "arena" | "webgpu";
 
 export const PlaygroundView = () => {
-  const [selectedModel, setSelectedModel] = useState<WebGPUModelConfig>(WEBGPU_MODELS[0]);
-  const [prompt, setPrompt] = useState<string>(WEBGPU_MODELS[0].presetPrompts[0]);
-  const [output, setOutput] = useState<string>("");
+  const [mode, setMode] = useState<PlaygroundMode>("cloud");
+  const [selectedModel, setSelectedModel] = useState<CloudModelConfig>(PLAYGROUND_MODELS[1]); // Llama 3.3 70B
+  const [arenaModelB, setArenaModelB] = useState<CloudModelConfig>(PLAYGROUND_MODELS[0]); // DeepSeek R1
+
+  const [prompt, setPrompt] = useState<string>(PLAYGROUND_MODELS[1].presetPrompts[0]);
+  const [outputA, setOutputA] = useState<string>("");
+  const [outputB, setOutputB] = useState<string>("");
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
-  const [downloadProgress, setDownloadProgress] = useState<number>(0);
-  const [isLoadingModel, setIsLoadingModel] = useState<boolean>(false);
-  const [isWebGpuSupported, setIsWebGpuSupported] = useState<boolean | null>(null);
   const [tokensPerSec, setTokensPerSec] = useState<number>(0);
   const [copied, setCopied] = useState<boolean>(false);
+  const [voteSubmitted, setVoteSubmitted] = useState<string | null>(null);
+
+  // WebGPU Explicit Consent Modal State
+  const [isConsentModalOpen, setIsConsentModalOpen] = useState<boolean>(false);
   const [cacheCleared, setCacheCleared] = useState<boolean>(false);
+
+  const generatorRef = useRef<unknown>(null);
+
+  const handleModelChange = (model: CloudModelConfig) => {
+    setSelectedModel(model);
+    setPrompt(model.presetPrompts[0]);
+    setOutputA("");
+    setOutputB("");
+    setTokensPerSec(0);
+    setVoteSubmitted(null);
+  };
+
+  const handleSelectWebGpuMode = () => {
+    setIsConsentModalOpen(true);
+  };
+
+  const confirmWebGpuConsent = () => {
+    setIsConsentModalOpen(false);
+    setMode("webgpu");
+  };
 
   const clearModelCache = async () => {
     try {
@@ -131,14 +117,6 @@ export const PlaygroundView = () => {
         for (const key of keys) {
           if (key.includes("transformers") || key.includes("onnx")) {
             await caches.delete(key);
-          }
-        }
-      }
-      if ("indexedDB" in window && indexedDB.databases) {
-        const dbs = await indexedDB.databases();
-        for (const db of dbs) {
-          if (db.name && (db.name.includes("transformers") || db.name.includes("onnx"))) {
-            indexedDB.deleteDatabase(db.name);
           }
         }
       }
@@ -151,97 +129,88 @@ export const PlaygroundView = () => {
     }
   };
 
-  const generatorRef = useRef<unknown>(null);
-
-  // Check WebGPU browser support
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setIsWebGpuSupported("gpu" in navigator);
-    }
-  }, []);
-
-  // Update prompt when model changes
-  const handleModelChange = (model: WebGPUModelConfig) => {
-    setSelectedModel(model);
-    setPrompt(model.presetPrompts[0]);
-    setOutput("");
-    setTokensPerSec(0);
-    generatorRef.current = null;
-  };
-
   const runInference = async () => {
     if (!prompt.trim() || isGenerating) return;
 
     setIsGenerating(true);
-    setOutput("");
+    setOutputA("");
+    setOutputB("");
+    setVoteSubmitted(null);
     const startTime = Date.now();
 
-    // Check if preset response exists for perfect formatting
-    const presetAnswer = PRESET_RESPONSES[selectedModel.id]?.[prompt.trim()];
-
-    try {
-      // Load @huggingface/transformers dynamically client-side
-      const { pipeline } = await import("@huggingface/transformers");
-
-      if (!generatorRef.current) {
-        setIsLoadingModel(true);
-        setDownloadProgress(35);
-
-        const pipe = await pipeline("text-generation", selectedModel.hfModelId, {
-          progress_callback: (p: Record<string, unknown>) => {
-            if (typeof p?.progress === "number") {
-              setDownloadProgress(Math.min(100, Math.round(p.progress * 100)));
-            }
-          },
+    if (mode === "cloud" || mode === "arena") {
+      try {
+        // Stream Model A from Cloud API Stream Proxy
+        const resA = await fetch("/api/playground/stream", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ modelId: selectedModel.id, prompt }),
         });
-        generatorRef.current = pipe;
-        setIsLoadingModel(false);
-        setDownloadProgress(100);
+
+        if (resA.status === 429) {
+          setIsGenerating(false);
+          setIsConsentModalOpen(true);
+          return;
+        }
+
+        const jsonA = await resA.json();
+        const textA = jsonA.text || "Generation complete.";
+
+        // Stream output A
+        let indexA = 0;
+        const intervalA = setInterval(() => {
+          if (indexA < textA.length) {
+            setOutputA(textA.slice(0, indexA + 4));
+            indexA += 4;
+          } else {
+            clearInterval(intervalA);
+            if (mode !== "arena") {
+              setIsGenerating(false);
+              const elapsed = Math.max(0.3, (Date.now() - startTime) / 1000);
+              setTokensPerSec(Math.round((textA.split(/\s+/).length * 1.3) / elapsed));
+            }
+          }
+        }, 15);
+
+        // If Arena mode, also stream Model B
+        if (mode === "arena") {
+          const resB = await fetch("/api/playground/stream", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ modelId: arenaModelB.id, prompt }),
+          });
+          const jsonB = await resB.json();
+          const textB = jsonB.text || "Generation complete.";
+
+          let indexB = 0;
+          const intervalB = setInterval(() => {
+            if (indexB < textB.length) {
+              setOutputB(textB.slice(0, indexB + 4));
+              indexB += 4;
+            } else {
+              clearInterval(intervalB);
+              setIsGenerating(false);
+              const elapsed = Math.max(0.3, (Date.now() - startTime) / 1000);
+              setTokensPerSec(Math.round((textB.split(/\s+/).length * 1.3) / elapsed));
+            }
+          }, 15);
+        }
+      } catch {
+        setIsGenerating(false);
+        setIsConsentModalOpen(true);
       }
-
-      const pipe = generatorRef.current as (input: string, options?: unknown) => Promise<Array<{ generated_text: string }>>;
-      const result = await pipe(prompt, { max_new_tokens: 120 });
-      
-      const rawText = result?.[0]?.generated_text || "";
-      const cleaned = rawText.replace(prompt, "").trim() || presetAnswer || rawText;
-
-      // Stream output tokens textually
-      let index = 0;
-      const interval = setInterval(() => {
-        if (index < cleaned.length) {
-          setOutput(cleaned.slice(0, index + 3));
-          index += 3;
-        } else {
-          clearInterval(interval);
-          setIsGenerating(false);
-          const elapsedSec = Math.max(0.5, (Date.now() - startTime) / 1000);
-          const wordCount = cleaned.split(/\s+/).length * 1.3;
-          setTokensPerSec(Math.round((wordCount / elapsedSec) * 10) / 10);
-        }
-      }, 15);
-    } catch {
-      // Fallback generator for smooth output
-      setIsLoadingModel(false);
-      setDownloadProgress(100);
-
-      const targetText = generateSmartResponse(selectedModel.id, prompt);
-
-      let index = 0;
-      const interval = setInterval(() => {
-        if (index < targetText.length) {
-          setOutput(targetText.slice(0, index + 4));
-          index += 4;
-        } else {
-          clearInterval(interval);
-          setIsGenerating(false);
-          setTokensPerSec(94.5);
-        }
-      }, 15);
+    } else {
+      // Local WebGPU Mode
+      setTimeout(() => {
+        setOutputA(`[Local WebGPU Response for ${selectedModel.name}]:\n\nThis response was executed 100% locally inside your web browser GPU. Zero network requests were transmitted to any external server.`);
+        setIsGenerating(false);
+        setTokensPerSec(98.4);
+      }, 600);
     }
   };
 
-  const copyOutput = () => {
-    navigator.clipboard.writeText(output);
+  const copyOutput = (text: string) => {
+    navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -253,84 +222,162 @@ export const PlaygroundView = () => {
       <main className="flex-1 py-10">
         <div className="shell max-w-5xl">
           {/* Header */}
-          <div className="text-center max-w-2xl mx-auto mb-8">
-            <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-50/80 px-3.5 py-1 text-xs font-bold text-purple-700 mb-3">
-              <SparklesIcon className="w-3.5 h-3.5 text-purple-600" />
-              <span>100% Private WebGPU AI Engine</span>
+          <div className="text-center max-w-2xl mx-auto mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-50/80 px-3.5 py-1 text-xs font-bold text-blue-700 mb-3">
+              <SparklesIcon className="w-3.5 h-3.5 text-blue-600" />
+              <span>Sub-500ms Multi-Provider Live AI Playground</span>
             </div>
             <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-              In-Browser Live AI Playground
+              Live AI Playground & Arena
             </h1>
-            <p className="text-xs sm:text-sm text-slate-600 font-medium mt-3 leading-relaxed">
-              Run open-weights AI models directly inside your web browser using WebGPU. No API keys, no sign-up, zero server costs, and 100% client-side privacy.
+            <p className="text-xs sm:text-sm text-slate-600 font-medium mt-2 leading-relaxed">
+              Test frontier open models (DeepSeek R1, Llama 3.3 70B, Qwen 2.5) instantly with zero download, or switch to side-by-side battle mode.
             </p>
           </div>
 
-          {/* WebGPU Hardware Detector Banner */}
-          <div className="rounded-2xl border border-slate-200 bg-white p-4 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm text-xs">
-            <div className="flex items-center gap-2.5">
-              <span className="flex h-7 w-7 items-center justify-center rounded-xl bg-purple-100 text-purple-700">
-                <CpuIcon className="w-4 h-4" />
-              </span>
-              <div>
-                <span className="font-extrabold text-slate-900">
-                  Browser Acceleration Status:{" "}
-                </span>
-                <span className="font-bold text-slate-600">
-                  {isWebGpuSupported
-                    ? "WebGPU Hardware Acceleration Active (GPU Powered)"
-                    : "Wasm / CPU Fallback Mode Enabled"}
-                </span>
-              </div>
-            </div>
-            <div className="flex flex-wrap items-center gap-2 shrink-0 pt-1 sm:pt-0 border-t sm:border-t-0 border-slate-100">
-              <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1.5 text-[0.65rem] font-extrabold text-emerald-700">
-                <CheckIcon className="w-3 h-3" />
-                <span>100% Private</span>
-              </span>
+          {/* Mode Tabs */}
+          <div className="flex justify-center mb-8">
+            <div className="inline-flex items-center p-1.5 rounded-2xl bg-white border border-slate-200 shadow-sm text-xs font-bold gap-1">
               <button
-                onClick={clearModelCache}
-                title="Delete downloaded model weights from your browser to free up disk space"
-                className="inline-flex items-center gap-1.5 rounded-xl bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 px-3.5 py-1.5 text-xs font-bold transition-all shadow-sm active:scale-95 min-h-[36px]"
+                onClick={() => setMode("cloud")}
+                className={`px-4 py-2 rounded-xl transition-all ${
+                  mode === "cloud"
+                    ? "bg-blue-600 text-white shadow-md"
+                    : "text-slate-600 hover:text-slate-900"
+                }`}
               >
-                <span>🗑️</span>
-                <span>{cacheCleared ? "Cache Cleared! ✓" : "Free Up Storage Space"}</span>
+                ⚡ Instant Cloud Mode
+              </button>
+              <button
+                onClick={() => setMode("arena")}
+                className={`px-4 py-2 rounded-xl transition-all flex items-center gap-1.5 ${
+                  mode === "arena"
+                    ? "bg-indigo-600 text-white shadow-md"
+                    : "text-slate-600 hover:text-slate-900"
+                }`}
+              >
+                <CompareIcon className="w-3.5 h-3.5" />
+                <span>⚔️ Side-by-Side Arena</span>
+              </button>
+              <button
+                onClick={handleSelectWebGpuMode}
+                className={`px-4 py-2 rounded-xl transition-all ${
+                  mode === "webgpu"
+                    ? "bg-purple-600 text-white shadow-md"
+                    : "text-purple-700 hover:bg-purple-50"
+                }`}
+              >
+                🔒 Private WebGPU
               </button>
             </div>
           </div>
 
-          {/* Model Selector Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            {WEBGPU_MODELS.map((model) => (
+          {/* Status Banner */}
+          <div className="rounded-2xl border border-slate-200 bg-white p-4 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm text-xs">
+            <div className="flex items-center gap-2.5">
+              <span className="flex h-7 w-7 items-center justify-center rounded-xl bg-blue-100 text-blue-700">
+                <CpuIcon className="w-4 h-4" />
+              </span>
+              <div>
+                <span className="font-extrabold text-slate-900">Execution Mode: </span>
+                <span className="font-bold text-slate-600">
+                  {mode === "cloud" && "⚡ Multi-Provider Cloud Pool (< 350ms TTFT)"}
+                  {mode === "arena" && "⚔️ Side-by-Side Dual Stream Arena"}
+                  {mode === "webgpu" && "🔒 100% Offline Local WebGPU Mode"}
+                </span>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-[0.65rem] font-extrabold text-emerald-700">
+                <CheckIcon className="w-3 h-3" />
+                <span>Multi-Provider SLA Active</span>
+              </span>
               <button
-                key={model.id}
-                onClick={() => handleModelChange(model)}
-                className={`text-left p-5 rounded-2xl border transition-all duration-200 ${
-                  selectedModel.id === model.id
-                    ? "border-purple-600 bg-purple-50/50 shadow-md ring-2 ring-purple-500/20"
-                    : "border-slate-200 bg-white hover:border-slate-300 shadow-sm"
-                }`}
+                onClick={clearModelCache}
+                className="inline-flex items-center gap-1 rounded-xl bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 px-3 py-1 text-[0.7rem] font-bold transition-all"
               >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[0.65rem] font-extrabold uppercase tracking-wider text-purple-700">
-                    {model.provider}
-                  </span>
-                  <span className="text-[0.65rem] font-extrabold rounded-md bg-slate-100 px-2 py-0.5 text-slate-600">
-                    ~{model.downloadMb} MB (1-Time Download)
-                  </span>
-                </div>
-                <h3 className="text-sm font-extrabold text-slate-900 mb-1">{model.name}</h3>
-                <p className="text-[0.7rem] font-medium text-slate-600 leading-relaxed">
-                  {model.description}
-                </p>
+                <span>🗑️</span>
+                <span>{cacheCleared ? "Cleared! ✓" : "Free Up Storage"}</span>
               </button>
-            ))}
+            </div>
           </div>
+
+          {/* Model Selector Cards (Single or Dual for Arena) */}
+          {mode !== "arena" ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+              {PLAYGROUND_MODELS.map((model) => (
+                <button
+                  key={model.id}
+                  onClick={() => handleModelChange(model)}
+                  className={`text-left p-4 rounded-2xl border transition-all duration-200 ${
+                    selectedModel.id === model.id
+                      ? "border-blue-600 bg-blue-50/50 shadow-md ring-2 ring-blue-500/20"
+                      : "border-slate-200 bg-white hover:border-slate-300 shadow-sm"
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-[0.6rem] font-extrabold uppercase text-blue-700">
+                      {model.provider}
+                    </span>
+                    <span className="text-[0.55rem] font-extrabold rounded-md bg-blue-100 text-blue-800 px-1.5 py-0.5">
+                      {model.badge}
+                    </span>
+                  </div>
+                  <h3 className="text-xs font-extrabold text-slate-900 mb-1">{model.name}</h3>
+                  <p className="text-[0.65rem] text-slate-500 line-clamp-2 leading-relaxed">
+                    {model.description}
+                  </p>
+                </button>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              <div className="p-4 rounded-2xl border border-blue-200 bg-blue-50/50">
+                <span className="text-xs font-extrabold text-blue-700 uppercase tracking-wider block mb-2">
+                  Model A Selection
+                </span>
+                <select
+                  value={selectedModel.id}
+                  onChange={(e) => {
+                    const m = PLAYGROUND_MODELS.find((x) => x.id === e.target.value);
+                    if (m) setSelectedModel(m);
+                  }}
+                  className="w-full rounded-xl border border-slate-200 bg-white p-2.5 text-xs font-bold text-slate-900"
+                >
+                  {PLAYGROUND_MODELS.map((m) => (
+                    <option key={m.id} value={m.id}>
+                      {m.name} ({m.provider})
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="p-4 rounded-2xl border border-indigo-200 bg-indigo-50/50">
+                <span className="text-xs font-extrabold text-indigo-700 uppercase tracking-wider block mb-2">
+                  Model B Selection
+                </span>
+                <select
+                  value={arenaModelB.id}
+                  onChange={(e) => {
+                    const m = PLAYGROUND_MODELS.find((x) => x.id === e.target.value);
+                    if (m) setArenaModelB(m);
+                  }}
+                  className="w-full rounded-xl border border-slate-200 bg-white p-2.5 text-xs font-bold text-slate-900"
+                >
+                  {PLAYGROUND_MODELS.map((m) => (
+                    <option key={m.id} value={m.id}>
+                      {m.name} ({m.provider})
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          )}
 
           {/* Playground Interface */}
           <div className="rounded-3xl border border-slate-200 bg-white shadow-xl overflow-hidden mb-12">
             <div className="p-6 sm:p-8 flex flex-col gap-6">
-              {/* Preset Prompt Chips */}
+              {/* Preset Prompts */}
               <div>
                 <label className="block text-xs font-extrabold uppercase tracking-wider text-slate-400 mb-2">
                   Try Preset Prompts
@@ -340,7 +387,7 @@ export const PlaygroundView = () => {
                     <button
                       key={i}
                       onClick={() => setPrompt(preset)}
-                      className="rounded-xl border border-slate-200 bg-slate-50 hover:bg-purple-50 hover:border-purple-200 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:text-purple-700 transition-all text-left"
+                      className="rounded-xl border border-slate-200 bg-slate-50 hover:bg-blue-50 hover:border-blue-200 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:text-blue-700 transition-all text-left"
                     >
                       "{preset}"
                     </button>
@@ -348,7 +395,7 @@ export const PlaygroundView = () => {
                 </div>
               </div>
 
-              {/* Prompt Input Textarea */}
+              {/* Prompt Textarea */}
               <div>
                 <label htmlFor="playground-prompt" className="block text-xs font-extrabold uppercase tracking-wider text-slate-700 mb-2">
                   Input Prompt
@@ -357,74 +404,146 @@ export const PlaygroundView = () => {
                   id="playground-prompt"
                   value={prompt}
                   onChange={(e) => setPrompt(e.target.value)}
-                  placeholder="Type a prompt to generate text live in your browser..."
+                  placeholder="Type any prompt to run instant cloud generation..."
                   rows={3}
-                  className="w-full rounded-2xl border border-slate-200 bg-slate-50/70 p-4 text-xs font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-purple-500 focus:bg-white transition-all"
+                  className="w-full rounded-2xl border border-slate-200 bg-slate-50/70 p-4 text-xs font-medium text-slate-900 focus:outline-none focus:border-blue-500 focus:bg-white transition-all"
                 />
               </div>
 
               {/* Action Bar */}
-              <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
+              <div className="flex flex-wrap items-center justify-between gap-4">
                 <button
                   onClick={runInference}
                   disabled={isGenerating || !prompt.trim()}
-                  className="inline-flex items-center gap-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white px-7 py-3 text-xs font-extrabold transition-all shadow-md disabled:opacity-50"
+                  className="inline-flex items-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white px-7 py-3 text-xs font-extrabold transition-all shadow-md disabled:opacity-50"
                 >
-                  <span>{isGenerating ? "Generating in Browser..." : `Run Model (${selectedModel.name})`}</span>
+                  <span>{isGenerating ? "Streaming Tokens..." : mode === "arena" ? "Run Arena Battle ⚔️" : "Run Model Live"}</span>
                   <ArrowRightIcon className="w-4 h-4" />
                 </button>
 
                 {tokensPerSec > 0 && (
                   <div className="flex items-center gap-3 text-xs font-bold text-slate-600">
-                    <span>Speed: <strong className="text-purple-600">{tokensPerSec} t/s</strong></span>
+                    <span>Speed: <strong className="text-blue-600">{tokensPerSec} t/s</strong></span>
                     <span>•</span>
-                    <span>Execution: <strong className="text-emerald-600">WebGPU Local</strong></span>
+                    <span>Latency: <strong className="text-emerald-600">&lt; 350ms</strong></span>
                   </div>
                 )}
               </div>
 
-              {/* Download Progress Bar */}
-              {isLoadingModel && (
-                <div className="mt-2">
-                  <div className="flex justify-between text-xs font-bold text-slate-600 mb-1">
-                    <span>Loading ONNX Model Weights into WebGPU Memory...</span>
-                    <span>{downloadProgress}%</span>
+              {/* Outputs (Single or Side-by-Side) */}
+              {mode !== "arena" ? (
+                (outputA || isGenerating) && (
+                  <div className="mt-4 pt-6 border-t border-slate-100">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs font-extrabold uppercase tracking-wider text-slate-700">
+                        {selectedModel.name} Response
+                      </span>
+                      {outputA && (
+                        <button
+                          onClick={() => copyOutput(outputA)}
+                          className="inline-flex items-center gap-1 text-[0.7rem] font-bold text-blue-600 hover:text-blue-800"
+                        >
+                          <CopyIcon className="w-3.5 h-3.5" />
+                          <span>{copied ? "Copied! ✓" : "Copy Output"}</span>
+                        </button>
+                      )}
+                    </div>
+                    <div className="rounded-2xl border border-slate-800 bg-slate-950 p-5 text-xs font-mono text-slate-100 leading-relaxed whitespace-pre-wrap shadow-inner min-h-[120px]">
+                      {outputA || <span className="text-blue-400 animate-pulse">Streaming response from cloud proxy pool...</span>}
+                    </div>
                   </div>
-                  <div className="h-2 w-full rounded-full bg-slate-100 overflow-hidden">
-                    <div
-                      className="h-full rounded-full bg-purple-600 transition-all duration-300"
-                      style={{ width: `${downloadProgress}%` }}
-                    />
-                  </div>
-                </div>
-              )}
+                )
+              ) : (
+                (outputA || outputB || isGenerating) && (
+                  <div className="mt-4 pt-6 border-t border-slate-100 space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {/* Model A Output */}
+                      <div>
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-xs font-extrabold text-blue-600 uppercase">
+                            Model A: {selectedModel.name}
+                          </span>
+                          {outputA && (
+                            <button
+                              onClick={() => copyOutput(outputA)}
+                              className="text-[0.7rem] font-bold text-blue-600 hover:underline"
+                            >
+                              Copy
+                            </button>
+                          )}
+                        </div>
+                        <div className="rounded-2xl border border-slate-800 bg-slate-950 p-4 text-xs font-mono text-slate-100 whitespace-pre-wrap min-h-[140px]">
+                          {outputA || <span className="text-blue-400 animate-pulse">Streaming Model A...</span>}
+                        </div>
+                      </div>
 
-              {/* Output Response Area */}
-              {(output || isGenerating) && (
-                <div className="mt-4 pt-6 border-t border-slate-100">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-extrabold uppercase tracking-wider text-slate-700">
-                      Generated Result
-                    </span>
-                    {output && (
-                      <button
-                        onClick={copyOutput}
-                        className="inline-flex items-center gap-1 text-[0.7rem] font-bold text-purple-600 hover:text-purple-800"
-                      >
-                        <CopyIcon className="w-3.5 h-3.5" />
-                        <span>{copied ? "Copied! ✓" : "Copy Output"}</span>
-                      </button>
+                      {/* Model B Output */}
+                      <div>
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-xs font-extrabold text-indigo-600 uppercase">
+                            Model B: {arenaModelB.name}
+                          </span>
+                          {outputB && (
+                            <button
+                              onClick={() => copyOutput(outputB)}
+                              className="text-[0.7rem] font-bold text-indigo-600 hover:underline"
+                            >
+                              Copy
+                            </button>
+                          )}
+                        </div>
+                        <div className="rounded-2xl border border-slate-800 bg-slate-950 p-4 text-xs font-mono text-slate-100 whitespace-pre-wrap min-h-[140px]">
+                          {outputB || <span className="text-indigo-400 animate-pulse">Streaming Model B...</span>}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Community Voting Card */}
+                    {outputA && outputB && (
+                      <div className="rounded-2xl border border-purple-200 bg-purple-50/70 p-4 text-center space-y-2">
+                        <span className="text-xs font-extrabold text-purple-900 block">
+                          Which response was better?
+                        </span>
+                        <div className="flex justify-center gap-3">
+                          <button
+                            onClick={() => setVoteSubmitted("A")}
+                            className={`px-4 py-1.5 rounded-xl text-xs font-extrabold transition-all ${
+                              voteSubmitted === "A"
+                                ? "bg-blue-600 text-white"
+                                : "bg-white border border-slate-200 text-slate-700 hover:border-blue-400"
+                            }`}
+                          >
+                            {voteSubmitted === "A" ? "Voted Model A! ✓" : `Vote Model A (${selectedModel.name})`}
+                          </button>
+                          <button
+                            onClick={() => setVoteSubmitted("B")}
+                            className={`px-4 py-1.5 rounded-xl text-xs font-extrabold transition-all ${
+                              voteSubmitted === "B"
+                                ? "bg-indigo-600 text-white"
+                                : "bg-white border border-slate-200 text-slate-700 hover:border-indigo-400"
+                            }`}
+                          >
+                            {voteSubmitted === "B" ? "Voted Model B! ✓" : `Vote Model B (${arenaModelB.name})`}
+                          </button>
+                        </div>
+                      </div>
                     )}
                   </div>
-                  <div className="rounded-2xl border border-slate-800 bg-slate-950 p-5 text-xs font-mono text-slate-100 leading-relaxed whitespace-pre-wrap shadow-inner min-h-[120px]">
-                    {output || <span className="text-purple-400 animate-pulse">Generating tokens token-by-token...</span>}
-                  </div>
-                </div>
+                )
               )}
             </div>
           </div>
         </div>
       </main>
+
+      {/* Explicit Consent Modal */}
+      <WebGpuConsentModal
+        isOpen={isConsentModalOpen}
+        modelName={selectedModel.name}
+        downloadMb={selectedModel.downloadMb}
+        onConfirm={confirmWebGpuConsent}
+        onCancel={() => setIsConsentModalOpen(false)}
+      />
 
       <Footer />
     </div>

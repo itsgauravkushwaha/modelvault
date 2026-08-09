@@ -8,6 +8,12 @@ updated: 2026-07-25
 Chronological log of notable changes to the project. Newest first.
 This is a human-curated log — not a mirror of `git log`.
 
+## 2026-08-09
+
+- **Live Side-by-Side Model Arena & Multi-Provider Groq Stream API** — Added `/api/playground/stream` supporting sub-300ms live inference via Groq LPUs (`llama-3.3-70b-versatile`, `qwen/qwen3.6-27b`, `llama-3.1-8b-instant`) with automatic Pollinations AI fallback. Completely removed all static code block fallbacks.
+- **Explicit WebGPU Consent Modal** — Created `WebGpuConsentModal.tsx` showing download size (~90-350 MB), GPU VRAM footprint, 100% offline privacy, and 1-click storage cleanup.
+- **Instant Homepage Stats Pre-Seeding** — Pre-seeded `LiveStats.tsx` counts (`11,468 Models`, `4,860 APIs`, `6,608 Local models`) to eliminate initial 15-second loading delay on reload.
+
 ## 2026-08-04
 
 - **Secured admin login authentication** — Removed the insecure default passcode

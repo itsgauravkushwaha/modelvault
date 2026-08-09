@@ -47,6 +47,9 @@ export const Footer = () => {
           <Link href="/telemetry" className="hover:text-white transition-colors">
             Live API Telemetry ⚡
           </Link>
+          <Link href="/playground" className="hover:text-white transition-colors font-extrabold text-purple-400">
+            WebGPU AI Playground 🎮
+          </Link>
           <Link href="/tools/cost-calculator" className="hover:text-white transition-colors">
             AI Cost Calculator
           </Link>

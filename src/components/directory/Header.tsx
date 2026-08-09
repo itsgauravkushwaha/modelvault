@@ -114,6 +114,18 @@ export const Header = () => {
             Telemetry ⚡
           </Link>
 
+          <Link
+            href="/playground"
+            className={`px-3 py-1.5 rounded-md transition-colors font-extrabold flex items-center gap-1 ${
+              pathname === "/playground" ? "bg-purple-100 text-purple-700" : "text-purple-600 hover:text-purple-800"
+            }`}
+          >
+            <span>Playground</span>
+            <span className="text-[0.6rem] bg-purple-200 text-purple-800 px-1.5 py-0.5 rounded-full font-black uppercase">
+              WebGPU
+            </span>
+          </Link>
+
           {/* Developer Tools Dropdown */}
           <div
             className="relative group"

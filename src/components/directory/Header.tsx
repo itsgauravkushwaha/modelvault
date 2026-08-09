@@ -19,6 +19,7 @@ import {
 export const Header = () => {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [modelsOpen, setModelsOpen] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
 
   const compareList = useDirectoryStore((s) => s.compareList);
@@ -34,12 +35,13 @@ export const Header = () => {
   // Close menus on route change
   useEffect(() => {
     setMobileMenuOpen(false);
+    setModelsOpen(false);
     setToolsOpen(false);
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md">
-      <div className="shell flex items-center justify-between gap-2 sm:gap-4 py-3.5">
+    <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur-md">
+      <div className="shell flex items-center justify-between gap-3 py-3">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2 text-base sm:text-lg font-extrabold tracking-tight text-neutral-900 shrink-0">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white shadow-sm shrink-0">
@@ -51,48 +53,76 @@ export const Header = () => {
           </span>
         </Link>
 
-        {/* Global Quick Search (Desktop) */}
-        <form onSubmit={handleSearchSubmit} className="hidden md:flex flex-1 max-w-md items-center relative">
-          <SearchIcon className="absolute left-3 w-4 h-4 text-neutral-400 pointer-events-none" />
+        {/* Global Search Input */}
+        <form onSubmit={handleSearchSubmit} className="relative hidden md:block max-w-xs flex-1">
+          <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-neutral-400 pointer-events-none" />
           <input
             type="text"
             value={searchQuery}
             onChange={handleSearchChange}
-            placeholder="Search 11,000+ models, benchmarks, providers..."
+            placeholder="Search 11,000+ models, benchmarks..."
             aria-label="Search models"
             className="w-full pl-9 pr-4 py-1.5 text-xs bg-slate-100/70 border border-slate-200 rounded-lg text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-all"
           />
         </form>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-2.5 text-xs font-semibold text-neutral-700">
-          <Link
-            href="/models"
-            className={`px-3 py-1.5 rounded-md transition-colors ${
-              pathname === "/models" ? "bg-slate-100 text-blue-600 font-bold" : "hover:text-blue-600"
-            }`}
+        <nav className="hidden lg:flex items-center gap-1.5 text-xs font-semibold text-neutral-700">
+          {/* Models Catalog Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setModelsOpen(true)}
+            onMouseLeave={() => setModelsOpen(false)}
           >
-            All Models
-          </Link>
+            <button
+              onClick={() => setModelsOpen((prev) => !prev)}
+              aria-haspopup="true"
+              aria-expanded={modelsOpen}
+              className={`flex items-center gap-1 px-3 py-1.5 rounded-md transition-colors text-xs font-bold ${
+                pathname === "/models" || pathname === "/cloud" || pathname === "/local"
+                  ? "bg-slate-100 text-blue-600 font-extrabold"
+                  : "text-neutral-700 hover:text-blue-600"
+              }`}
+            >
+              <span>Catalog</span>
+              <ChevronDownIcon className={`w-3 h-3 transition-transform duration-150 ${modelsOpen ? "rotate-180" : ""}`} />
+            </button>
 
-          <Link
-            href="/local"
-            className={`px-3 py-1.5 rounded-md transition-colors ${
-              pathname === "/local" ? "bg-slate-100 text-blue-600 font-bold" : "hover:text-blue-600"
-            }`}
-          >
-            Local Run
-          </Link>
+            {/* Models Dropdown Panel */}
+            <div
+              className={`absolute left-0 top-full pt-1.5 w-52 origin-top-left transition-all duration-150 ease-out z-50 ${
+                modelsOpen
+                  ? "opacity-100 scale-100 pointer-events-auto"
+                  : "opacity-0 scale-95 pointer-events-none"
+              }`}
+            >
+              <div className="rounded-xl border border-slate-200 bg-white shadow-xl p-1.5 flex flex-col gap-0.5">
+                <Link
+                  href="/models"
+                  className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-semibold text-slate-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                >
+                  <span>All Models Index</span>
+                  <span className="text-[0.6rem] font-bold text-slate-400">11k+</span>
+                </Link>
+                <Link
+                  href="/cloud"
+                  className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-semibold text-slate-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                >
+                  <span>Cloud API Models</span>
+                  <span className="text-[0.6rem] font-bold text-slate-400">APIs</span>
+                </Link>
+                <Link
+                  href="/local"
+                  className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-semibold text-slate-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                >
+                  <span>Local Models (Ollama)</span>
+                  <span className="text-[0.6rem] font-bold text-emerald-600">Free</span>
+                </Link>
+              </div>
+            </div>
+          </div>
 
-          <Link
-            href="/cloud"
-            className={`px-3 py-1.5 rounded-md transition-colors ${
-              pathname === "/cloud" ? "bg-slate-100 text-blue-600 font-bold" : "hover:text-blue-600"
-            }`}
-          >
-            Cloud APIs
-          </Link>
-
+          {/* Solution Wizard Link */}
           <Link
             href="/solve"
             className={`px-3 py-1.5 rounded-md transition-colors flex items-center gap-1 ${
@@ -100,11 +130,25 @@ export const Header = () => {
             }`}
           >
             <span>Solution Wizard</span>
-            <span className="text-[0.6rem] bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded-full font-black uppercase">
+            <span className="text-[0.55rem] bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded-full font-black uppercase">
               New
             </span>
           </Link>
 
+          {/* WebGPU Playground Link */}
+          <Link
+            href="/playground"
+            className={`px-3 py-1.5 rounded-md transition-colors font-extrabold flex items-center gap-1 ${
+              pathname === "/playground" ? "bg-purple-100 text-purple-700" : "text-purple-600 hover:text-purple-800"
+            }`}
+          >
+            <span>Playground</span>
+            <span className="text-[0.55rem] bg-purple-200 text-purple-800 px-1.5 py-0.5 rounded-full font-black uppercase">
+              WebGPU
+            </span>
+          </Link>
+
+          {/* Telemetry Link */}
           <Link
             href="/telemetry"
             className={`px-3 py-1.5 rounded-md transition-colors font-semibold ${
@@ -114,21 +158,9 @@ export const Header = () => {
             Telemetry ⚡
           </Link>
 
-          <Link
-            href="/playground"
-            className={`px-3 py-1.5 rounded-md transition-colors font-extrabold flex items-center gap-1 ${
-              pathname === "/playground" ? "bg-purple-100 text-purple-700" : "text-purple-600 hover:text-purple-800"
-            }`}
-          >
-            <span>Playground</span>
-            <span className="text-[0.6rem] bg-purple-200 text-purple-800 px-1.5 py-0.5 rounded-full font-black uppercase">
-              WebGPU
-            </span>
-          </Link>
-
           {/* Developer Tools Dropdown */}
           <div
-            className="relative group"
+            className="relative"
             onMouseEnter={() => setToolsOpen(true)}
             onMouseLeave={() => setToolsOpen(false)}
           >
@@ -136,7 +168,6 @@ export const Header = () => {
               onClick={() => setToolsOpen((prev) => !prev)}
               aria-haspopup="true"
               aria-expanded={toolsOpen}
-              aria-label="Developer Tools menu"
               className={`flex items-center gap-1 px-3 py-1.5 rounded-md transition-colors text-xs font-semibold ${
                 pathname.startsWith("/tools")
                   ? "bg-slate-100 text-blue-600 font-bold"
@@ -155,71 +186,55 @@ export const Header = () => {
                   : "opacity-0 scale-95 pointer-events-none"
               }`}
             >
-
               <div className="rounded-xl border border-slate-200 bg-white shadow-xl p-1.5 flex flex-col gap-0.5">
                 <Link
                   href="/tools/cost-calculator"
-                  className="flex items-center justify-between rounded-lg px-3 py-2.5 text-xs font-semibold text-slate-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                  className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-semibold text-slate-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
                 >
                   <span>AI Cost Calculator</span>
-                  <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[0.55rem] font-extrabold uppercase tracking-wide text-emerald-700">
-                    Live
+                  <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[0.55rem] font-extrabold uppercase text-emerald-700">
+                    Calculator
                   </span>
                 </Link>
-
-                <div className="h-px bg-slate-100 mx-1 my-0.5" />
-
-                <Link
-                  href="/tools/model-finder"
-                  className="flex items-center justify-between rounded-lg px-3 py-2.5 text-xs font-semibold text-slate-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
-                >
-                  <span>AI Model Finder</span>
-                  <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[0.55rem] font-extrabold uppercase tracking-wide text-emerald-700">
-                    Live
-                  </span>
-                </Link>
-
-                <Link
-                  href="/tools/token-calculator"
-                  className="flex items-center justify-between rounded-lg px-3 py-2.5 text-xs font-semibold text-slate-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
-                >
-                  <span>Token Calculator</span>
-                  <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[0.55rem] font-extrabold uppercase tracking-wide text-emerald-700">
-                    Live
-                  </span>
-                </Link>
-
-                <Link
-                  href="/tools/context-calculator"
-                  className="flex items-center justify-between rounded-lg px-3 py-2.5 text-xs font-semibold text-slate-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
-                >
-                  <span>Context Calculator</span>
-                  <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[0.55rem] font-extrabold uppercase tracking-wide text-emerald-700">
-                    Live
-                  </span>
-                </Link>
-
                 <Link
                   href="/tools/vram-calculator"
-                  className="flex items-center justify-between rounded-lg px-3 py-2.5 text-xs font-semibold text-slate-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                  className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-semibold text-slate-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
                 >
-                  <span>VRAM Calculator</span>
-                  <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[0.55rem] font-extrabold uppercase tracking-wide text-emerald-700">
-                    Live
+                  <span>VRAM Hardware Estimator</span>
+                  <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[0.55rem] font-extrabold uppercase text-emerald-700">
+                    GPU
+                  </span>
+                </Link>
+                <Link
+                  href="/tools/token-calculator"
+                  className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-semibold text-slate-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                >
+                  <span>Token Counter</span>
+                  <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[0.55rem] font-extrabold uppercase text-emerald-700">
+                    Tokens
+                  </span>
+                </Link>
+                <Link
+                  href="/tools/context-calculator"
+                  className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-semibold text-slate-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                >
+                  <span>Context Capacity</span>
+                  <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[0.55rem] font-extrabold uppercase text-emerald-700">
+                    Context
+                  </span>
+                </Link>
+                <Link
+                  href="/tools/model-finder"
+                  className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-semibold text-slate-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                >
+                  <span>Smart Model Finder</span>
+                  <span className="rounded-full bg-blue-100 px-2 py-0.5 text-[0.55rem] font-extrabold uppercase text-blue-700">
+                    Finder
                   </span>
                 </Link>
               </div>
             </div>
           </div>
-
-          <Link
-            href="/admin"
-            className={`px-3 py-1.5 rounded-md border border-slate-200 text-slate-700 hover:bg-slate-100 transition-colors font-bold ${
-              pathname.startsWith("/admin") ? "bg-slate-100 text-blue-600" : ""
-            }`}
-          >
-            Admin Panel
-          </Link>
 
           <Link
             href="/dashboard"
@@ -228,7 +243,7 @@ export const Header = () => {
             }`}
           >
             <LayoutDashboardIcon className="w-3.5 h-3.5" />
-            <span>Dashboard</span>
+            <span>Saved</span>
             {favorites.length > 0 && (
               <span className="flex h-4 w-4 items-center justify-center rounded-full bg-rose-500 text-[0.65rem] font-bold text-white">
                 {favorites.length}
@@ -239,7 +254,7 @@ export const Header = () => {
           {/* Compare Link */}
           <Link
             href="/compare"
-            className="relative flex items-center gap-1.5 rounded-lg bg-neutral-900 hover:bg-black text-white px-3 py-1.5 text-xs font-semibold transition-all shadow-sm"
+            className="relative flex items-center gap-1.5 rounded-lg bg-neutral-900 hover:bg-black text-white px-3 py-1.5 text-xs font-semibold transition-all shadow-sm ml-1"
           >
             <CompareIcon className="w-3.5 h-3.5" />
             <span>Compare</span>
@@ -278,7 +293,7 @@ export const Header = () => {
 
       {/* Mobile Drawer Navigation Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-slate-200 bg-white px-4 py-4 space-y-4 shadow-xl animate-in slide-in-from-top-2 duration-200">
+        <div className="lg:hidden border-t border-slate-200 bg-white px-4 py-4 space-y-4 shadow-xl max-h-[85vh] overflow-y-auto">
           {/* Mobile Search Input */}
           <form onSubmit={handleSearchSubmit} className="relative w-full">
             <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 pointer-events-none" />
@@ -292,84 +307,79 @@ export const Header = () => {
             />
           </form>
 
-          {/* Navigation Links */}
-          <div className="grid grid-cols-2 gap-2 text-xs font-bold text-slate-800">
+          {/* Primary Quick Links */}
+          <div className="grid grid-cols-2 gap-2 text-xs font-bold">
             <Link
-              href="/models"
-              className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors min-h-[44px]"
+              href="/solve"
+              className="flex items-center justify-between p-3 rounded-xl bg-blue-50 text-blue-700 min-h-[44px]"
             >
-              <span>All Models Index</span>
+              <span>Solution Wizard 🪄</span>
+              <span className="text-[0.55rem] bg-blue-200 text-blue-800 px-1.5 py-0.5 rounded-full font-black uppercase">
+                New
+              </span>
             </Link>
 
             <Link
-              href="/local"
-              className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors min-h-[44px]"
+              href="/playground"
+              className="flex items-center justify-between p-3 rounded-xl bg-purple-50 text-purple-700 min-h-[44px]"
             >
-              <span>Local Run (Ollama)</span>
+              <span>WebGPU Playground 🎮</span>
+              <span className="text-[0.55rem] bg-purple-200 text-purple-800 px-1.5 py-0.5 rounded-full font-black uppercase">
+                WebGPU
+              </span>
             </Link>
+          </div>
 
-            <Link
-              href="/cloud"
-              className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors min-h-[44px]"
-            >
-              <span>Cloud API Models</span>
+          {/* Catalog Group */}
+          <div>
+            <span className="text-[0.65rem] font-extrabold uppercase tracking-wider text-slate-400 block mb-2 px-1">
+              Model Catalog & Directories
+            </span>
+            <div className="grid grid-cols-2 gap-2 text-xs font-semibold text-slate-800">
+              <Link href="/models" className="p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                All Models (11k+)
+              </Link>
+              <Link href="/cloud" className="p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                Cloud API Models
+              </Link>
+              <Link href="/local" className="p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                Local Models (Ollama)
+              </Link>
+              <Link href="/telemetry" className="p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                Live Telemetry ⚡
+              </Link>
+            </div>
+          </div>
+
+          {/* Developer Tools Group */}
+          <div>
+            <span className="text-[0.65rem] font-extrabold uppercase tracking-wider text-slate-400 block mb-2 px-1">
+              Developer Tools
+            </span>
+            <div className="grid grid-cols-2 gap-2 text-xs font-semibold text-slate-800">
+              <Link href="/tools/cost-calculator" className="p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                AI Cost Calculator
+              </Link>
+              <Link href="/tools/vram-calculator" className="p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                VRAM Estimator
+              </Link>
+              <Link href="/tools/token-calculator" className="p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                Token Counter
+              </Link>
+              <Link href="/tools/context-calculator" className="p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors">
+                Context Capacity
+              </Link>
+            </div>
+          </div>
+
+          {/* Workspace Links */}
+          <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-700">
+            <Link href="/dashboard" className="flex items-center gap-1.5 p-2 hover:text-blue-600">
+              <LayoutDashboardIcon className="w-4 h-4" />
+              <span>Saved Items ({favorites.length})</span>
             </Link>
-
-            <Link
-              href="/tools/cost-calculator"
-              className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors min-h-[44px]"
-            >
-              <span>AI Cost Calculator</span>
-            </Link>
-
-            <Link
-              href="/tools/model-finder"
-              className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors min-h-[44px]"
-            >
-              <span>AI Model Finder</span>
-            </Link>
-
-            <Link
-              href="/tools/token-calculator"
-              className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors min-h-[44px]"
-            >
-              <span>Token Calculator</span>
-            </Link>
-
-            <Link
-              href="/tools/context-calculator"
-              className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors min-h-[44px]"
-            >
-              <span>Context Calculator</span>
-            </Link>
-
-            <Link
-              href="/tools/vram-calculator"
-              className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors min-h-[44px]"
-            >
-              <span>VRAM Calculator</span>
-            </Link>
-
-            <Link
-              href="/dashboard"
-              className="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors min-h-[44px]"
-            >
-              <div className="flex items-center gap-1.5">
-                <LayoutDashboardIcon className="w-3.5 h-3.5" />
-                <span>Dashboard</span>
-              </div>
-              {favorites.length > 0 && (
-                <span className="flex h-4 w-4 items-center justify-center rounded-full bg-rose-500 text-[0.65rem] font-bold text-white">
-                  {favorites.length}
-                </span>
-              )}
-            </Link>
-
-            <Link
-              href="/admin"
-              className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors min-h-[44px]"
-            >
-              <span>Admin Panel</span>
+            <Link href="/admin" className="p-2 text-slate-500 hover:text-slate-800">
+              Admin Panel
             </Link>
           </div>
         </div>

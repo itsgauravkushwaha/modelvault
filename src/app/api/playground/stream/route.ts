@@ -87,6 +87,13 @@ export async function POST(req: NextRequest) {
 
     if (groqApiKey) {
       try {
+        const targetGroqModel =
+          modelId === "qwen-2.5-72b"
+            ? "qwen/qwen3.6-27b"
+            : modelId === "smollm2-135m"
+            ? "llama-3.1-8b-instant"
+            : "llama-3.3-70b-versatile";
+
         const groqRes = await fetch("https://api.groq.com/openai/v1/chat/completions", {
           method: "POST",
           headers: {
@@ -94,7 +101,7 @@ export async function POST(req: NextRequest) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            model: modelId === "deepseek-r1" ? "deepseek-r1-distill-llama-70b" : "llama-3.3-70b-versatile",
+            model: targetGroqModel,
             messages: [{ role: "user", content: prompt }],
             temperature: 0.7,
             max_tokens: 350,

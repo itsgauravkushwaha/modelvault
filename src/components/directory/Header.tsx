@@ -16,6 +16,8 @@ import {
   CloseIcon,
 } from "./icons";
 
+import { ProductHuntBadge } from "./ProductHuntBadge";
+
 export const Header = () => {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -40,7 +42,9 @@ export const Header = () => {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur-md">
+    <>
+      <ProductHuntBadge />
+      <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur-md">
       <div className="shell flex items-center justify-between gap-3 py-3">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2 text-base sm:text-lg font-extrabold tracking-tight text-neutral-900 shrink-0">
@@ -391,5 +395,6 @@ export const Header = () => {
         </div>
       )}
     </header>
+    </>
   );
 };

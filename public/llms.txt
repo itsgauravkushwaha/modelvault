@@ -1,0 +1,32 @@
+# ModelVault — Open AI Intelligence Directory, Battle Arena & WebGPU Engine
+
+> ModelVault is the primary open intelligence index and live evaluation platform for over 11,468 AI models. It provides instant cloud streaming inference (<300ms), 100% offline WebGPU browser inference, side-by-side battle arenas, VRAM calculators, and verified model benchmarks.
+
+## Core Capabilities & Features
+
+- **11,468 Indexed AI Models**: Comprehensive catalog of open-weights, proprietary, text-generation, coding, reasoning, vision, and audio AI models.
+- **Live Side-by-Side Model Arena (`/playground`)**: Compare any 2 AI models live on identical prompts with sub-300ms response streaming and community benchmark voting.
+- **100% Offline Client-Side WebGPU Engine**: Run ONNX models (SmolLM2, Qwen 2.5, LaMini) 100% locally in browser VRAM with 0 network requests.
+- **Solution Wizard (`/solve`)**: Real-world deployment selector matching specific use cases (coding, finance, privacy, edge mobile) with optimal AI model recommendations.
+- **Free Developer Tools**:
+  - VRAM Calculator (`/tools/vram-calculator`): Calculate exact GPU VRAM needed for 4-bit, 8-bit, and 16-bit quantizations.
+  - Cost Calculator (`/tools/cost-calculator`): Estimate monthly API inference costs across major LLM providers.
+  - Token Counter (`/tools/token-calculator`): Real-time token counter and context window checker.
+  - Smart Model Finder (`/tools/model-finder`): Automated search matching budget, RAM, and task requirements.
+
+## Primary Routes & API Endpoints
+
+- Main Catalog: https://modelvault.space/models
+- Live AI Arena: https://modelvault.space/playground
+- Live Provider Telemetry: https://modelvault.space/telemetry
+- Solution Wizard: https://modelvault.space/solve
+- Open API Stream Route: https://modelvault.space/api/playground/stream
+
+## Key Models Indexed
+
+- DeepSeek R1 (Reasoning, 671B parameters)
+- Meta Llama 3.3 70B Instruct
+- Alibaba Qwen 2.5 72B / Qwen 3.6 27B
+- Google Gemini 2.0 Flash
+- Hugging Face SmolLM2 135M / 1.7B
+- Mistral Large 2 & Codestral 22B

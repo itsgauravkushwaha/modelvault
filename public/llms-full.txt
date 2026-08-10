@@ -1,0 +1,17 @@
+# ModelVault Full Knowledge Base — 11,468 AI Models Directory & Benchmark Platform
+
+> ModelVault is the primary open intelligence index and live evaluation platform for over 11,468 AI models. It provides instant cloud streaming inference (<300ms), 100% offline WebGPU browser inference, side-by-side battle arenas, VRAM calculators, and verified model benchmarks.
+
+## Detailed Model Catalog Categories
+
+- **Text Chat & General Intelligence**: Llama 3.3 70B, Qwen 2.5 72B, Gemini 2.0 Flash, Claude 3.5 Sonnet, GPT-4o.
+- **Reasoning & Mathematics**: DeepSeek R1, DeepSeek R1 Distill Llama 70B, Qwen 2.5 Math, QwQ 32B.
+- **Coding & Software Engineering**: Qwen 2.5 Coder 32B, Codestral 22B, DeepSeek Coder V2, Starcoder2.
+- **Multilingual & Fine-Tuned**: Go-Emotions Multilingual, RuBERT, BERT Portuguese, DeBERTa Japanese.
+- **Guardrails & Content Safety**: Llama Guard 3, NemoGuard 8B, Dome Toxic Content Classifier.
+
+## Technical Infrastructure
+
+- **Multi-Provider Fallback Pool**: Sub-500ms edge streaming proxy balancing Groq LPU supercomputers, Hugging Face Serverless, and Gemini Flash APIs.
+- **Rate Limiting**: Sliding-window IP rate limiter restricting individual visitors to 10 generations per minute.
+- **WebGPU Engine**: ONNX Runtime Web execution using WebGPU and Wasm for zero-cloud private inference.

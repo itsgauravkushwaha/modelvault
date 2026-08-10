@@ -5,6 +5,7 @@ import { generateMetadata as generatePageMetadata } from "@/utils/seo/generate-p
 import {
   getBreadcrumbStructuredData,
   getModelStructuredData,
+  getFaqStructuredData,
 } from "@/utils/seo/structured-data";
 
 interface PageProps {
@@ -12,7 +13,7 @@ interface PageProps {
 }
 
 export const revalidate = 3600; // ISR cache for 1 hour
-export const dynamicParams = true; // On-demand rendering for remaining 10,000+ models
+export const dynamicParams = true; // On-demand rendering for remaining 11,000+ models
 
 export async function generateStaticParams() {
   const models = await db.getModels();
@@ -21,7 +22,6 @@ export async function generateStaticParams() {
     slug: model.slug,
   }));
 }
-
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
@@ -35,10 +35,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     });
   }
 
-  const fallbackDescription = `${model.name} by ${model.provider}: specifications, context window (${model.contextWindow}), pricing, and performance benchmarks on ModelVault.`;
+  const fallbackDescription = `${model.name} by ${model.provider}: specs, hardware footprint (${model.hardwareRequirements || 'Cloud Hosted'}), context window (${model.contextWindow}), pricing, and live AI battle arena on ModelVault.`;
 
   return generatePageMetadata({
-    title: `${model.name} — AI Model Specs, Benchmarks & Pricing | ModelVault`,
+    title: `${model.name}: Specs, Hardware & Live AI Battle | ModelVault`,
     description: model.description?.trim() || fallbackDescription,
     url: `/models/${model.slug}`,
   });
@@ -55,6 +55,7 @@ export default async function ModelDetailPage({ params }: PageProps) {
   ]);
 
   const modelJsonLd = model ? getModelStructuredData(model) : null;
+  const faqJsonLd = model ? getFaqStructuredData(model) : null;
 
   return (
     <>
@@ -66,6 +67,12 @@ export default async function ModelDetailPage({ params }: PageProps) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(modelJsonLd) }}
+        />
+      )}
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
       )}
       <ModelDetailView slug={slug} />

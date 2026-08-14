@@ -389,7 +389,7 @@ export const PlaygroundView = () => {
                       onClick={() => setPrompt(preset)}
                       className="rounded-xl border border-slate-200 bg-slate-50 hover:bg-blue-50 hover:border-blue-200 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:text-blue-700 transition-all text-left"
                     >
-                      "{preset}"
+                      &quot;{preset}&quot;
                     </button>
                   ))}
                 </div>

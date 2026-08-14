@@ -168,7 +168,7 @@ export const ModelFeedback: React.FC<ModelFeedbackProps> = ({ slug }) => {
                   className="inline-flex items-center gap-1.5 rounded-xl bg-red-50 border border-red-200 hover:bg-red-100 px-4 py-2 text-xs font-bold text-red-700 transition-all"
                 >
                   <span>👎</span>
-                  <span>No, it didn't</span>
+                  <span>No, it didn&apos;t</span>
                 </button>
               </div>
             </div>

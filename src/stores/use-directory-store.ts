@@ -73,12 +73,7 @@ export const useDirectoryStore = create<DirectoryStore>((set, get) => ({
   isFilterOpen: false,
 
   loadModelsFromDb: async () => {
-    if (get().isDbLoaded) return;
-    // If allModels is already pre-seeded with static data, skip full network download
-    if (get().allModels && get().allModels.length > 500) {
-      set({ isDbLoaded: true });
-      return;
-    }
+    if (get().isDbLoaded && get().allModels.length > 500) return;
     try {
       const res = await fetch("/api/models");
       const json = await res.json();

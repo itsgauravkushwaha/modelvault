@@ -44,6 +44,132 @@ function normalizeSlug(raw: string): string {
     .replace(/^-+|-+$/g, "");
 }
 
+/**
+ * Intelligent link resolution for a model.
+ */
+function resolveOfficialLinks(model: { slug: string; name: string; provider: string; providerSlug: string; docUrl?: string; playgroundUrl?: string; modelCardUrl?: string }): {
+  docUrl: string;
+  playgroundUrl: string;
+  modelCardUrl: string;
+} {
+  const pSlug = (model.providerSlug || "").toLowerCase();
+  const pName = (model.provider || "").toLowerCase();
+  const mSlug = (model.slug || "").toLowerCase();
+  const mName = (model.name || "").toLowerCase();
+
+  let docUrl = model.docUrl || "";
+  let playgroundUrl = model.playgroundUrl || "";
+  let modelCardUrl = model.modelCardUrl || "";
+
+  // 1. OpenAI
+  if (pSlug === "openai" || pName.includes("openai")) {
+    docUrl = "https://platform.openai.com/docs/models";
+    modelCardUrl = "https://platform.openai.com/docs/models";
+    playgroundUrl = "https://platform.openai.com/playground";
+
+    if (mSlug.includes("gpt-4o-mini") || mName.includes("gpt-4o mini")) {
+      docUrl = "https://platform.openai.com/docs/models/gpt-4o-mini";
+      modelCardUrl = "https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/";
+    } else if (mSlug.includes("gpt-4o") || mName.includes("gpt-4o")) {
+      docUrl = "https://platform.openai.com/docs/models/gpt-4o";
+      modelCardUrl = "https://openai.com/index/hello-gpt-4o/";
+    } else if (mSlug.includes("o1") || mSlug.includes("o3") || mName.includes("o1") || mName.includes("o3")) {
+      docUrl = "https://platform.openai.com/docs/guides/reasoning";
+      modelCardUrl = "https://openai.com/index/learning-to-reason-with-llms/";
+    } else if (mSlug.includes("dall-e")) {
+      docUrl = "https://platform.openai.com/docs/guides/images";
+      modelCardUrl = "https://openai.com/index/dall-e-3/";
+    }
+  }
+  // 2. Anthropic
+  else if (pSlug === "anthropic" || pName.includes("anthropic")) {
+    docUrl = "https://docs.anthropic.com/en/docs/about-claude/models";
+    modelCardUrl = "https://docs.anthropic.com/en/docs/about-claude/models";
+    playgroundUrl = "https://console.anthropic.com/workbench";
+
+    if (mSlug.includes("claude-3-5-sonnet")) {
+      docUrl = "https://docs.anthropic.com/en/docs/about-claude/models/claude-3-5-sonnet";
+      modelCardUrl = "https://www.anthropic.com/news/claude-3-5-sonnet";
+    } else if (mSlug.includes("claude-3-5-haiku")) {
+      docUrl = "https://docs.anthropic.com/en/docs/about-claude/models/claude-3-5-haiku";
+      modelCardUrl = "https://www.anthropic.com/news/claude-3-5-haiku";
+    }
+  }
+  // 3. Google AI
+  else if (pSlug === "google" || pName.includes("google") || mSlug.includes("gemini") || mSlug.includes("gemma")) {
+    docUrl = "https://ai.google.dev/gemini-api/docs/models/gemini";
+    modelCardUrl = "https://ai.google.dev/gemini-api/docs/models/gemini";
+    playgroundUrl = "https://aistudio.google.com/app/prompts/new_chat";
+
+    if (mSlug.includes("gemma")) {
+      docUrl = "https://ai.google.dev/gemma/docs";
+      modelCardUrl = "https://ai.google.dev/gemma";
+    } else if (mSlug.includes("imagen")) {
+      docUrl = "https://ai.google.dev/gemini-api/docs/imagen";
+      modelCardUrl = "https://deepmind.google/technologies/imagen-3/";
+    }
+  }
+  // 4. Meta AI / Llama
+  else if (pSlug === "meta" || pName.includes("meta") || mSlug.includes("llama")) {
+    docUrl = "https://www.llama.com/docs/overview/";
+    modelCardUrl = "https://www.llama.com/docs/model-cards-and-prompt-formats/";
+    playgroundUrl = `https://openrouter.ai/chat?models=meta-llama/${mSlug}`;
+
+    if (mSlug.includes("llama-3-3")) {
+      docUrl = "https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_3/";
+      modelCardUrl = "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct";
+    } else if (mSlug.includes("llama-3-2")) {
+      docUrl = "https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_2/";
+      modelCardUrl = "https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct";
+    }
+  }
+  // 5. DeepSeek
+  else if (pSlug === "deepseek" || pName.includes("deepseek") || mSlug.includes("deepseek")) {
+    docUrl = "https://api-docs.deepseek.com/";
+    modelCardUrl = "https://github.com/deepseek-ai";
+    playgroundUrl = "https://chat.deepseek.com/";
+
+    if (mSlug.includes("r1")) {
+      docUrl = "https://github.com/deepseek-ai/DeepSeek-R1";
+      modelCardUrl = "https://huggingface.co/deepseek-ai/DeepSeek-R1";
+    } else if (mSlug.includes("v3")) {
+      docUrl = "https://github.com/deepseek-ai/DeepSeek-V3";
+      modelCardUrl = "https://huggingface.co/deepseek-ai/DeepSeek-V3";
+    }
+  }
+  // 6. Mistral AI
+  else if (pSlug === "mistral" || pName.includes("mistral") || mSlug.includes("mistral")) {
+    docUrl = "https://docs.mistral.ai/getting-started/models/";
+    modelCardUrl = "https://docs.mistral.ai/getting-started/models/";
+    playgroundUrl = "https://chat.mistral.ai/";
+  }
+  // 7. Alibaba Qwen
+  else if (pSlug === "alibaba" || pName.includes("alibaba") || mSlug.includes("qwen")) {
+    docUrl = "https://qwen.readthedocs.io/";
+    modelCardUrl = "https://github.com/QwenLM";
+    playgroundUrl = "https://huggingface.co/spaces/Qwen/Qwen2.5-72B-Instruct";
+
+    if (mSlug.includes("qwen-2-5") || mSlug.includes("qwen2.5")) {
+      docUrl = "https://qwenlm.github.io/blog/qwen2.5/";
+      modelCardUrl = "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct";
+    }
+  }
+  // 8. General HF / OpenRouter fallback
+  else {
+    if (!docUrl || docUrl.includes("huggingface.co/models?search=")) {
+      docUrl = `https://huggingface.co/${model.providerSlug || "models"}/${mSlug}`;
+    }
+    if (!modelCardUrl || modelCardUrl.includes("huggingface.co/models?search=")) {
+      modelCardUrl = docUrl;
+    }
+    if (!playgroundUrl) {
+      playgroundUrl = "https://openrouter.ai/models";
+    }
+  }
+
+  return { docUrl, playgroundUrl, modelCardUrl };
+}
+
 // Helper to format context window
 function formatContextWindow(num: number): string {
   if (!num || num <= 0) return "128k";
@@ -73,6 +199,13 @@ async function fetchOpenRouterModels(): Promise<Partial<AIModel>[]> {
         ? `$${promptCost.toFixed(2)}/1M in | $${completionCost.toFixed(2)}/1M out`
         : "Free Cloud API";
 
+      const links = resolveOfficialLinks({
+        slug,
+        name: item.name || item.id,
+        provider: providerName,
+        providerSlug: normalizeSlug(providerName),
+      });
+
       return {
         slug,
         name: item.name || item.id,
@@ -90,6 +223,7 @@ async function fetchOpenRouterModels(): Promise<Partial<AIModel>[]> {
         pricingDetails,
         license: "Proprietary / API",
         trending: true,
+        ...links,
       };
     });
   } catch (err) {
@@ -118,6 +252,15 @@ async function fetchHuggingFaceModels(): Promise<Partial<AIModel>[]> {
       const isVision = item.pipeline_tag?.includes("vision") || item.pipeline_tag?.includes("image");
       const isAudio = item.pipeline_tag?.includes("audio") || item.pipeline_tag?.includes("speech");
 
+      const links = resolveOfficialLinks({
+        slug,
+        name: repoName,
+        provider: providerName,
+        providerSlug: normalizeSlug(providerName),
+        docUrl: `https://huggingface.co/${item.id}`,
+        modelCardUrl: `https://huggingface.co/${item.id}`,
+      });
+
       return {
         slug,
         name: repoName,
@@ -135,6 +278,7 @@ async function fetchHuggingFaceModels(): Promise<Partial<AIModel>[]> {
         pricingDetails: "Free Open Weights",
         license: "Apache-2.0 / Open Source",
         trending: item.downloads > 50000,
+        ...links,
       };
     });
   } catch (err) {
@@ -173,6 +317,9 @@ async function fetchCivitAIModels(): Promise<Partial<AIModel>[]> {
         pricingDetails: "Free Download",
         license: "Creative Commons",
         trending: true,
+        docUrl: `https://civitai.com/models/${item.id}`,
+        modelCardUrl: `https://civitai.com/models/${item.id}`,
+        playgroundUrl: `https://civitai.com/models/${item.id}`,
       };
     });
   } catch (err) {
@@ -296,6 +443,9 @@ export async function GET(req: Request) {
           modalities: item.modalities || existing.modalities,
           availability: item.availability || existing.availability,
           trending: item.trending !== undefined ? item.trending : existing.trending,
+          docUrl: existing.docUrl && !existing.docUrl.includes("search=") ? existing.docUrl : (item.docUrl || existing.docUrl),
+          playgroundUrl: existing.playgroundUrl || item.playgroundUrl,
+          modelCardUrl: existing.modelCardUrl && !existing.modelCardUrl.includes("search=") ? existing.modelCardUrl : (item.modelCardUrl || existing.modelCardUrl),
           lastVerified: todayStr,
         };
 
@@ -303,7 +453,7 @@ export async function GET(req: Request) {
         upsertPayload.push(updated);
         updatedCount++;
       } else {
-        // INSERT-NEW logic: insert new model without generating fake benchmarks
+        // INSERT-NEW logic: insert new model with resolved official URLs
         const newModel: AIModel = {
           slug: item.slug,
           name: item.name,
@@ -321,13 +471,15 @@ export async function GET(req: Request) {
           pricingDetails: item.pricingDetails || "Free Access",
           contextWindow: item.contextWindow || "128k",
           hardwareRequirements: item.availability === "local" ? "Recommended 16GB VRAM GPU" : undefined,
-          benchmarks: [], // REAL DATA ONLY — Never generate fake random benchmark scores
+          benchmarks: [],
           releaseDate: todayStr,
           lastUpdated: todayStr,
           lastVerified: todayStr,
           strengths: ["High throughput execution"],
           weaknesses: ["Context boundary evaluation required"],
-          docUrl: `https://modelvault.space/models/${item.slug}`,
+          docUrl: item.docUrl || `https://modelvault.space/models/${item.slug}`,
+          playgroundUrl: item.playgroundUrl,
+          modelCardUrl: item.modelCardUrl,
           tags: [item.provider || "AI", item.type || "LLM"],
           trending: item.trending ?? false,
           featured: false,
@@ -359,6 +511,15 @@ export async function GET(req: Request) {
 
     // Always persist to local models_db.json
     saveLocalModels(finalModelsList);
+
+    // Invalidate Next.js path cache so fresh model data is served
+    try {
+      const { revalidatePath } = await import("next/cache");
+      revalidatePath("/models");
+      revalidatePath("/");
+    } catch {
+      // Ignore outside request context
+    }
 
     const executionTimeMs = Date.now() - startTime;
 

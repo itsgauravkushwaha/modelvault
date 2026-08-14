@@ -14,7 +14,14 @@ export async function GET(_request: Request, { params }: Params) {
       return NextResponse.json({ error: "Model not found" }, { status: 404 });
     }
 
-    return NextResponse.json({ data: model });
+    return NextResponse.json(
+      { data: model },
+      {
+        headers: {
+          "Cache-Control": "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400",
+        },
+      }
+    );
   } catch (error) {
     console.error("GET /api/models/[slug] error:", error);
     return NextResponse.json({ error: "Failed to fetch model details" }, { status: 500 });

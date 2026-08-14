@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { AIModel } from "@/types/model";
 import { useDirectoryStore } from "@/stores/use-directory-store";
 import { useDashboardStore } from "@/stores/use-dashboard-store";
 import { Header } from "@/components/directory/Header";
@@ -13,20 +13,16 @@ import { ArrowUpRightIcon, CheckIcon, CodeIcon, CpuIcon, ExternalLinkIcon, Heart
 
 interface ModelDetailProps {
   slug: string;
+  initialModel?: AIModel | null;
 }
 
-export const ModelDetailView: React.FC<ModelDetailProps> = ({ slug }) => {
+export const ModelDetailView: React.FC<ModelDetailProps> = ({ slug, initialModel }) => {
   const allModels = useDirectoryStore((s) => s.allModels);
-  const loadModelsFromDb = useDirectoryStore((s) => s.loadModelsFromDb);
 
   const isFav = useDashboardStore((s) => s.favorites.includes(slug));
   const toggleFavorite = useDashboardStore((s) => s.toggleFavorite);
 
-  useEffect(() => {
-    loadModelsFromDb();
-  }, [loadModelsFromDb]);
-
-  const model = allModels.find((m) => m.slug === slug);
+  const model = initialModel || allModels.find((m) => m.slug === slug);
 
   if (!model) {
     return notFound();

@@ -1,5 +1,7 @@
 import fs from "fs";
 import path from "path";
+import { cache } from "react";
+import { revalidatePath } from "next/cache";
 import { AIModel } from "@/types/model";
 import { MODELS as INITIAL_MODELS } from "@/data/models";
 import { supabase } from "@/lib/supabase";
@@ -7,14 +9,17 @@ import { publicEnv } from "@/env";
 
 const DB_PATH = path.join(process.cwd(), "src/data/models_db.json");
 
-// In-memory server-side cache with TTL for ultra fast reads
+// In-memory fallback cache
 let memoryCache: AIModel[] | null = null;
-let cacheExpiry: number = 0;
-const CACHE_TTL_MS = 60 * 1000; // 60 seconds TTL
 
 function invalidateCache(): void {
   memoryCache = null;
-  cacheExpiry = 0;
+  try {
+    revalidatePath("/models");
+    revalidatePath("/");
+  } catch {
+    // Ignore outside request scope
+  }
 }
 
 function ensureLocalDbFile(): AIModel[] {
@@ -39,66 +44,73 @@ function saveLocalDbFile(models: AIModel[]): void {
   }
 }
 
+/**
+ * Fetch all models using fast module-scoped memory cache and local JSON file fallback.
+ */
+function fetchAllModelsInternal(): AIModel[] {
+  if (memoryCache && memoryCache.length > 0) {
+    return memoryCache;
+  }
+  memoryCache = ensureLocalDbFile();
+  return memoryCache;
+}
+
+/**
+ * Single-model fetching logic with direct SQL query by slug.
+ */
+async function fetchModelBySlugInternal(slug: string): Promise<AIModel | undefined> {
+  if (!slug) return undefined;
+  const isPlaceholder = publicEnv.NEXT_PUBLIC_SUPABASE_URL?.includes("placeholder");
+
+  if (!isPlaceholder) {
+    try {
+      const { data, error } = await supabase
+        .from("models")
+        .select("*")
+        .eq("slug", slug)
+        .maybeSingle();
+
+      if (!error && data) {
+        return data as AIModel;
+      }
+    } catch (err) {
+      console.warn(`Failed to fetch model by slug "${slug}" from Supabase:`, err);
+    }
+  }
+
+  // Fast fallback to local dataset file
+  const localModels = fetchAllModelsInternal();
+  return localModels.find((m) => m.slug === slug);
+}
+
+/**
+ * React-cached per-request single model fetch.
+ * Sharing the same promise across generateMetadata and Page in the same render tree.
+ */
+const getModelBySlugCached = cache(async (slug: string): Promise<AIModel | undefined> => {
+  return fetchModelBySlugInternal(slug);
+});
+
 export const db = {
   /**
-   * Reads all models from Supabase with TTL caching and local JSON fallback.
+   * Reads all models instantly.
    */
   async getModels(): Promise<AIModel[]> {
-    const now = Date.now();
-    if (memoryCache && now < cacheExpiry) {
-      return memoryCache;
-    }
-
-    const isPlaceholder = publicEnv.NEXT_PUBLIC_SUPABASE_URL?.includes("placeholder");
-
-    if (!isPlaceholder) {
-      try {
-        let allSupabaseModels: AIModel[] = [];
-        let page = 0;
-        const pageSize = 1000;
-
-        while (page < 20) {
-          const { data, error } = await supabase
-            .from("models")
-            .select("*")
-            .range(page * pageSize, (page + 1) * pageSize - 1);
-
-          if (error || !data || data.length === 0) break;
-          allSupabaseModels.push(...(data as AIModel[]));
-          page++;
-          if (data.length < pageSize) break;
-        }
-
-        if (allSupabaseModels.length > 0) {
-          memoryCache = allSupabaseModels;
-          cacheExpiry = now + CACHE_TTL_MS;
-          return memoryCache;
-        }
-      } catch (err) {
-        console.warn("Failed to connect to Supabase, using local JSON fallback:", err);
-      }
-    }
-
-    // Fallback to local JSON file
-    memoryCache = ensureLocalDbFile();
-    cacheExpiry = now + CACHE_TTL_MS;
-    return memoryCache;
+    return fetchAllModelsInternal();
   },
 
   /**
-   * Get single model by slug.
+   * Get single model by slug (Deduplicated per request via React.cache, direct SQL query).
    */
   async getModelBySlug(slug: string): Promise<AIModel | undefined> {
-    const models = await this.getModels();
-    return models.find((m) => m.slug === slug);
+    return getModelBySlugCached(slug);
   },
 
   /**
    * Create new model.
    */
   async createModel(newModel: AIModel): Promise<{ success: boolean; model?: AIModel; error?: string }> {
-    const models = await this.getModels();
-    const existing = models.find((m) => m.slug === newModel.slug);
+    const existing = await this.getModelBySlug(newModel.slug);
     if (existing) {
       return { success: false, error: `Model with slug "${newModel.slug}" already exists.` };
     }
@@ -126,8 +138,7 @@ export const db = {
    * Update existing model.
    */
   async updateModel(slug: string, updates: Partial<AIModel>): Promise<{ success: boolean; model?: AIModel; error?: string }> {
-    const models = await this.getModels();
-    const existing = models.find((m) => m.slug === slug);
+    const existing = await this.getModelBySlug(slug);
     if (!existing) {
       return { success: false, error: `Model with slug "${slug}" not found.` };
     }
@@ -165,8 +176,7 @@ export const db = {
    * Delete model by slug.
    */
   async deleteModel(slug: string): Promise<{ success: boolean; error?: string }> {
-    const models = await this.getModels();
-    const existing = models.find((m) => m.slug === slug);
+    const existing = await this.getModelBySlug(slug);
     if (!existing) {
       return { success: false, error: `Model with slug "${slug}" not found.` };
     }
@@ -223,3 +233,4 @@ export const db = {
     return { success: true, count: result.length };
   },
 };
+

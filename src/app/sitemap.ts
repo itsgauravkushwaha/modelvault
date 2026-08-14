@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 import { db } from "@/lib/db";
 
+export const revalidate = 86400; // Cache sitemap for 24 hours at Edge CDN
+
 /**
  * Generates `/sitemap.xml`.
  * Static routes are listed explicitly; dynamic model pages are derived from

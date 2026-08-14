@@ -11,7 +11,7 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export const revalidate = 3600; // ISR cache for 1 hour
+export const revalidate = 86400; // ISR cache for 24 hours
 export const dynamicParams = true; // On-demand rendering for remaining 10,000+ models
 
 export async function generateStaticParams() {
@@ -67,7 +67,8 @@ export default async function ModelDetailPage({ params }: PageProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(modelJsonLd) }}
         />
       )}
-      <ModelDetailView slug={slug} />
+      <ModelDetailView slug={slug} initialModel={model} />
     </>
   );
 }
+

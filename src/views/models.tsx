@@ -26,6 +26,7 @@ export const ModelsView = () => {
   const isFilterOpen = useDirectoryStore((s) => s.isFilterOpen);
   const toggleFilterOpen = useDirectoryStore((s) => s.toggleFilterOpen);
   const getFilteredModels = useDirectoryStore((s) => s.getFilteredModels);
+  const resetFilters = useDirectoryStore((s) => s.resetFilters);
   const loadModelsFromDb = useDirectoryStore((s) => s.loadModelsFromDb);
 
   // Hydrate from database API on mount
@@ -74,9 +75,12 @@ export const ModelsView = () => {
                 </p>
               </div>
               {activeFilterCount > 0 && (
-                <span className="text-[0.7rem] font-bold text-blue-600 bg-blue-50 rounded-full px-3 py-1 self-start sm:self-auto">
-                  {activeFilterCount} filter{activeFilterCount > 1 ? "s" : ""} active
-                </span>
+                <button
+                  onClick={resetFilters}
+                  className="text-[0.7rem] font-bold text-blue-600 bg-blue-50 hover:bg-blue-100 rounded-full px-3 py-1 self-start sm:self-auto transition-colors"
+                >
+                  {activeFilterCount} filter{activeFilterCount > 1 ? "s" : ""} active • Reset
+                </button>
               )}
             </div>
 
@@ -101,29 +105,33 @@ export const ModelsView = () => {
               )}
             </div>
 
+            {/* Quick Use Case Chips */}
             <FilterChips />
           </div>
 
-          {/* Catalog Layout: Sidebar + Grid */}
-          <div className="flex flex-col lg:flex-row gap-6 items-start">
-            {/* Mobile Filter Toggle */}
-            <button
-              onClick={toggleFilterOpen}
-              className="lg:hidden flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white py-2.5 text-xs font-bold text-slate-800 shadow-sm"
-            >
-              <FilterIcon className="w-4 h-4 text-blue-600" />
-              <span>{isFilterOpen ? "Hide Filters" : "Show Advanced Filters"}</span>
-            </button>
+          <div className="flex flex-col lg:flex-row items-start gap-6">
+            {/* Filter Trigger (Mobile) */}
+            <div className="w-full lg:hidden flex justify-between items-center mb-2">
+              <button
+                onClick={toggleFilterOpen}
+                className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-bold text-slate-800 shadow-sm"
+              >
+                <FilterIcon className="w-4 h-4 text-blue-600" />
+                <span>Filters {activeFilterCount > 0 ? `(${activeFilterCount})` : ""}</span>
+              </button>
+
+              <SortDropdown />
+            </div>
 
             {/* Sidebar Filters */}
-            <div className={`${isFilterOpen ? "block" : "hidden"} lg:block w-full lg:w-auto`}>
+            <div className={`w-full lg:w-64 shrink-0 ${isFilterOpen ? "block" : "hidden lg:block"}`}>
               <FilterSidebar />
             </div>
 
             {/* Main Listing Area */}
             <div className="flex-1 w-full">
-              {/* Controls bar */}
-              <div className="flex items-center justify-between gap-4 mb-4 bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+              {/* Controls bar (Hidden on desktop as it's redundant with Sidebar) */}
+              <div className="hidden lg:flex items-center justify-between gap-4 mb-4 bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
                 <span className="text-xs font-bold text-slate-700">
                   Showing <span className="text-blue-600">{Math.min(displayCount, filteredModels.length)}</span> of{" "}
                   <span className="text-slate-900 font-extrabold">{filteredModels.length.toLocaleString()}</span> models
@@ -155,9 +163,15 @@ export const ModelsView = () => {
               ) : (
                 <div className="rounded-xl border border-slate-200 bg-white p-12 text-center">
                   <h3 className="text-lg font-bold text-slate-900">No models found</h3>
-                  <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto">
-                    No AI models match your current filter combination. Try clearing some filters or searching for another keyword.
+                  <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto mb-6">
+                    No AI models match your current filter combination. Try clearing your filters or searching for another keyword.
                   </p>
+                  <button
+                    onClick={resetFilters}
+                    className="inline-flex items-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 text-xs font-bold shadow-sm transition-all"
+                  >
+                    Reset All Filters
+                  </button>
                 </div>
               )}
             </div>

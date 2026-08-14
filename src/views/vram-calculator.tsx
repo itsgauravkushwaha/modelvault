@@ -117,6 +117,26 @@ export const VramCalculatorView = () => {
       <Header />
 
       <main className="flex-1 py-12">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              name: "ModelVault Local VRAM Hardware Calculator",
+              url: "https://modelvault.space/tools/vram-calculator",
+              applicationCategory: "DeveloperApplication",
+              operatingSystem: "All",
+              description:
+                "Calculate GPU VRAM requirements for local LLM inference across FP16, INT8, and GGUF INT4 quantization levels for Llama 3, DeepSeek, and Qwen models.",
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+              },
+            }),
+          }}
+        />
         <div className="shell max-w-5xl">
           {/* Header */}
           <div className="mb-10 text-center max-w-2xl mx-auto">

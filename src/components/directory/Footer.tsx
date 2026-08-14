@@ -20,7 +20,7 @@ export const Footer = () => {
 
           <div className="flex items-center gap-2 pt-1">
             <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-[0.7rem] font-bold text-slate-400">All 520+ Model Specifications Active</span>
+            <span className="text-[0.7rem] font-bold text-slate-400">All 11,000+ Model Specifications Active</span>
           </div>
         </div>
 
@@ -40,6 +40,15 @@ export const Footer = () => {
           </Link>
           <Link href="/cloud" className="hover:text-white transition-colors">
             Cloud API Models
+          </Link>
+          <Link href="/solve" className="hover:text-white transition-colors font-bold text-blue-400">
+            Real-World Solution Wizard 🪄
+          </Link>
+          <Link href="/telemetry" className="hover:text-white transition-colors">
+            Live API Telemetry ⚡
+          </Link>
+          <Link href="/playground" className="hover:text-white transition-colors font-extrabold text-purple-400">
+            WebGPU AI Playground 🎮
           </Link>
           <Link href="/tools/cost-calculator" className="hover:text-white transition-colors">
             AI Cost Calculator
@@ -70,7 +79,7 @@ export const Footer = () => {
           <span className="font-extrabold text-white uppercase tracking-wider text-[0.65rem]">
             Management & Legal
           </span>
-          <Link href="/admin" className="hover:text-white transition-colors font-bold text-blue-400">
+          <Link href="/admin/login" className="hover:text-white transition-colors font-bold text-blue-400">
             Admin Console ↗
           </Link>
           <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
@@ -82,7 +91,8 @@ export const Footer = () => {
       </div>
 
       <div className="shell border-t border-slate-800/80 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 font-medium">
-        <div>© 2025 ModelVault AI Directory. All model specifications verified.</div>
+        <div>© 2026 ModelVault AI Directory. All model specifications verified.</div>
+
         <div className="mt-2 sm:mt-0 font-semibold">Built for high-performance AI workflows</div>
       </div>
     </footer>

@@ -143,6 +143,26 @@ export const ContextCalculatorView = () => {
       <Header />
 
       <main className="flex-1 py-12">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              name: "ModelVault Context Window Capacity Calculator",
+              url: "https://modelvault.space/tools/context-calculator",
+              applicationCategory: "DeveloperApplication",
+              operatingSystem: "All",
+              description:
+                "Calculate and compare context window capacity for LLMs in pages, RAG chunks, code functions, and legal agreements.",
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+              },
+            }),
+          }}
+        />
         <div className="shell max-w-5xl">
           {/* Header */}
           <div className="mb-10 text-center max-w-2xl mx-auto">

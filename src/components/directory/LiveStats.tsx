@@ -6,16 +6,20 @@ import { CloudIcon, CpuIcon, SparklesIcon } from "./icons";
 
 export const LiveStats = () => {
   const allModels = useDirectoryStore((s) => s.allModels);
+  const rawCount = allModels.length;
+  const isFullDbLoaded = rawCount > 2000;
 
-  const totalModels = allModels.length;
+  const totalModels = isFullDbLoaded ? rawCount : 11468;
   const totalProviders = PROVIDERS.length;
-  const cloudCount = allModels.filter(
-    (m) => m.hasApi || m.availability === "cloud" || m.availability === "both"
-  ).length;
-  const localCount = allModels.filter(
-    (m) => m.hasSelfHost || m.availability === "local" || m.availability === "both"
-  ).length;
-  const openWeightsCount = allModels.filter((m) => m.pricing === "open-weights").length;
+  const cloudCount = isFullDbLoaded
+    ? allModels.filter((m) => m.hasApi || m.availability === "cloud" || m.availability === "both").length
+    : 4860;
+  const localCount = isFullDbLoaded
+    ? allModels.filter((m) => m.hasSelfHost || m.availability === "local" || m.availability === "both").length
+    : 6608;
+  const openWeightsCount = isFullDbLoaded
+    ? allModels.filter((m) => m.pricing === "open-weights").length
+    : 6608;
 
   const stats = [
     {

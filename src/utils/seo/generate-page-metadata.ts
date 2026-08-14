@@ -49,6 +49,8 @@ export function generateMetadata({
     };
   }
 
+  const cleanCanonicalUrl = (url || "/").split("?")[0];
+
   return {
     // Resolves every relative URL below to an absolute one.
     metadataBase: new URL(siteConfig.url),
@@ -58,8 +60,9 @@ export function generateMetadata({
     creator: author,
     publisher: author,
     alternates: {
-      canonical: url,
+      canonical: cleanCanonicalUrl,
     },
+
     openGraph: {
       title,
       description,

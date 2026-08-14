@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getServerEnv } from "@/env";
 import { checkRateLimit } from "@/lib/rate-limit";
+import { generateAdminSessionToken } from "@/lib/auth";
 
 export async function POST(request: Request) {
   try {
@@ -27,14 +28,16 @@ export async function POST(request: Request) {
     const { passcode } = body;
 
     if (passcode === secretKey) {
+      const sessionToken = generateAdminSessionToken(secretKey);
+
       const response = NextResponse.json({
         success: true,
         message: "Authentication successful",
-        token: passcode,
+        token: sessionToken,
       });
 
       // Set HTTP-only cookie for browser-based session persistence
-      response.cookies.set("admin_token", secretKey, {
+      response.cookies.set("admin_token", sessionToken, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         sameSite: "lax",

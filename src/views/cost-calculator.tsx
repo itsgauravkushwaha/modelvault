@@ -218,6 +218,26 @@ export const CostCalculatorView = () => {
       <Header />
 
       <main className="flex-1">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              name: "ModelVault AI API Cost Calculator",
+              url: "https://modelvault.space/tools/cost-calculator",
+              applicationCategory: "DeveloperApplication",
+              operatingSystem: "All",
+              description:
+                "Calculate and compare monthly LLM API costs across OpenAI, Anthropic, DeepSeek, Google Gemini, and Llama 3 models based on input, output, and cached tokens.",
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+              },
+            }),
+          }}
+        />
         {/* ---- HERO ---- */}
         <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white py-16 sm:py-20">
           <div className="absolute inset-0 pointer-events-none">

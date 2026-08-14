@@ -26,10 +26,15 @@ export const ModelCard: React.FC<ModelCardProps> = ({ model }) => {
       <div>
         {/* Header: Provider, Badges & Favorite Heart Button */}
         <div className="flex items-center justify-between gap-2 mb-3">
-          <span className="text-[0.65rem] font-extrabold text-slate-400 uppercase tracking-widest">
+          <span className="text-[0.65rem] font-extrabold text-slate-500 uppercase tracking-widest truncate">
             {model.provider}
           </span>
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1.5 shrink-0">
+            {model.isVerified && (
+              <span className="inline-flex items-center rounded-full bg-emerald-50 px-1.5 py-0.5 text-[0.6rem] font-extrabold text-emerald-700 border border-emerald-200">
+                ✓ Verified
+              </span>
+            )}
             <PricingBadge pricing={model.pricing} />
             <button
               onClick={() => toggleFavorite(model.slug)}
@@ -47,8 +52,8 @@ export const ModelCard: React.FC<ModelCardProps> = ({ model }) => {
 
         {/* Title */}
         <Link href={`/models/${model.slug}`} className="group-hover:text-blue-600 transition-colors">
-          <h3 className="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight flex items-center justify-between">
-            <span className="truncate pr-2">{model.name}</span>
+          <h3 className="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight flex items-center justify-between gap-1 break-words">
+            <span className="truncate pr-1">{model.name}</span>
             <ArrowUpRightIcon className="w-4 h-4 shrink-0 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-blue-600" />
           </h3>
         </Link>
@@ -66,11 +71,11 @@ export const ModelCard: React.FC<ModelCardProps> = ({ model }) => {
         {/* Key Metadata Row */}
         <div className="grid grid-cols-2 gap-2 py-2.5 px-3 rounded-xl bg-slate-50 border border-slate-100 text-xs mb-4">
           <div>
-            <span className="text-[0.65rem] uppercase font-bold text-slate-400 block">Context Window</span>
+            <span className="text-[0.65rem] uppercase font-bold text-slate-500 block">Context Window</span>
             <span className="font-extrabold text-slate-800">{model.contextWindow}</span>
           </div>
           <div>
-            <span className="text-[0.65rem] uppercase font-bold text-slate-400 block">
+            <span className="text-[0.65rem] uppercase font-bold text-slate-500 block">
               {primaryBenchmark ? primaryBenchmark.name : "License"}
             </span>
             <span className="font-extrabold text-slate-800">
@@ -78,6 +83,7 @@ export const ModelCard: React.FC<ModelCardProps> = ({ model }) => {
             </span>
           </div>
         </div>
+
 
         {/* Availability */}
         <div className="mb-4">

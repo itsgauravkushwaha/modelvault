@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AIModel } from "@/types/model";
@@ -10,6 +11,8 @@ import { Footer } from "@/components/directory/Footer";
 import { AvailabilityBadge, PricingBadge } from "@/components/directory/Badges";
 import { ModelCard } from "@/components/directory/ModelCard";
 import { ArrowUpRightIcon, CheckIcon, CodeIcon, CpuIcon, ExternalLinkIcon, HeartFillIcon, HeartIcon } from "@/components/directory/icons";
+import { ModelFeedback } from "@/components/directory/ModelFeedback";
+import { enrichModelData, getModalityCodeSnippet } from "@/lib/utils/model-enricher";
 
 interface ModelDetailProps {
   slug: string;
@@ -21,12 +24,25 @@ export const ModelDetailView: React.FC<ModelDetailProps> = ({ slug, initialModel
 
   const isFav = useDashboardStore((s) => s.favorites.includes(slug));
   const toggleFavorite = useDashboardStore((s) => s.toggleFavorite);
+  const [activeTab, setActiveTab] = useState<"python" | "rest">("python");
+  const [copied, setCopied] = useState(false);
 
-  const model = initialModel || allModels.find((m) => m.slug === slug);
+  const rawModel = initialModel || allModels.find((m) => m.slug === slug);
 
-  if (!model) {
+  if (!rawModel) {
     return notFound();
   }
+
+  const model = enrichModelData(rawModel);
+  const codeSnippet = getModalityCodeSnippet(model);
+
+  const copyCode = () => {
+    const text = activeTab === "python" ? codeSnippet.python : codeSnippet.rest;
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
 
   const similarModels = allModels.filter(
     (m) => m.slug !== model.slug && m.providerSlug === model.providerSlug
@@ -54,6 +70,11 @@ export const ModelDetailView: React.FC<ModelDetailProps> = ({ slug, initialModel
                     {model.provider}
                   </span>
                   <PricingBadge pricing={model.pricing} />
+                  {model.isVerified && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 text-[0.65rem] font-extrabold text-emerald-700">
+                      <span>✓</span> Verified Spec & Code
+                    </span>
+                  )}
                 </div>
 
                 <div className="flex items-center gap-3">
@@ -130,11 +151,74 @@ export const ModelDetailView: React.FC<ModelDetailProps> = ({ slug, initialModel
             </div>
           </div>
 
+          {/* Plain English Summary (Everyday User Friendly) */}
+          {model.plainEnglishSummary && (
+            <div className="rounded-2xl border border-blue-200/80 bg-gradient-to-r from-blue-50/90 to-indigo-50/90 p-6 sm:p-7 shadow-sm mb-8">
+              <div className="flex items-center gap-2.5 mb-2">
+                <span className="flex h-7 w-7 items-center justify-center rounded-xl bg-blue-600 text-white text-xs font-black shadow-sm">
+                  💡
+                </span>
+                <h2 className="text-xs font-extrabold uppercase tracking-wider text-blue-950">
+                  Plain English Summary (What is this model & who is it for?)
+                </h2>
+              </div>
+              <p className="text-sm font-semibold text-slate-800 leading-relaxed pl-9">
+                {model.plainEnglishSummary}
+              </p>
+            </div>
+          )}
+
           {/* Details Content Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             {/* Left 2 Cols: Main Info */}
             <div className="lg:col-span-2 flex flex-col gap-8">
+              {/* Real-World Use Cases & Examples */}
+              {model.realWorldExamples && model.realWorldExamples.length > 0 && (
+                <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <h2 className="text-lg font-extrabold text-slate-900 mb-4">
+                    💡 Real-World Use Cases & Practical Examples
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {model.realWorldExamples.map((ex, i) => (
+                      <div key={i} className="rounded-xl border border-slate-100 bg-slate-50/80 p-3.5 text-xs font-semibold text-slate-800 leading-snug">
+                        {ex}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Step-by-Step Guide: How to Run & Use */}
+              {model.howToUseSteps && model.howToUseSteps.length > 0 && (
+                <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <h2 className="text-lg font-extrabold text-slate-900 mb-1">
+                    🚀 How to Run & Use This Model (Step-by-Step Guide)
+                  </h2>
+                  <p className="text-xs font-medium text-slate-500 mb-6">
+                    Simple setup instructions for everyday users and developers.
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {model.howToUseSteps.map((step) => (
+                      <div key={step.step} className="rounded-xl border border-slate-200 bg-slate-50/70 p-4">
+                        <div className="flex items-center gap-2.5 mb-2">
+                          <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-blue-600 text-white text-xs font-extrabold shadow-sm">
+                            {step.step}
+                          </span>
+                          <h3 className="text-xs font-extrabold text-slate-900 leading-tight">
+                            {step.title}
+                          </h3>
+                        </div>
+                        <p className="text-xs font-medium text-slate-600 leading-relaxed">
+                          {step.description}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Benchmarks Section */}
+
               <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
                 <h2 className="text-lg font-extrabold text-slate-900 mb-4">
                   Benchmark Performance
@@ -208,30 +292,47 @@ export const ModelDetailView: React.FC<ModelDetailProps> = ({ slug, initialModel
                 </div>
               </div>
 
-              {/* Sample Code API snippet */}
-              <div className="rounded-2xl border border-slate-200 bg-slate-950 p-6 text-white shadow-sm">
-                <div className="flex items-center justify-between mb-3 text-xs font-bold text-slate-400">
-                  <span className="flex items-center gap-1.5">
-                    <CodeIcon className="w-4 h-4 text-blue-400" /> API Sample Code
-                  </span>
-                  <span className="text-[0.65rem] uppercase tracking-wider text-slate-500">Python / REST</span>
+              {/* Modality-Aware API Code Snippet */}
+              <div className="rounded-2xl border border-slate-800 bg-slate-950 p-6 text-white shadow-md">
+                <div className="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-800">
+                  <div className="flex items-center gap-2">
+                    <CodeIcon className="w-4 h-4 text-blue-400" />
+                    <span className="text-xs font-extrabold text-slate-200 uppercase tracking-wider">
+                      Integration Code ({model.useCases[0] || "API"})
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center rounded-lg bg-slate-900 p-0.5 border border-slate-800">
+                      <button
+                        onClick={() => setActiveTab("python")}
+                        className={`px-3 py-1 text-[0.7rem] font-bold rounded-md transition-all ${
+                          activeTab === "python" ? "bg-blue-600 text-white shadow-sm" : "text-slate-400 hover:text-white"
+                        }`}
+                      >
+                        Python
+                      </button>
+                      <button
+                        onClick={() => setActiveTab("rest")}
+                        className={`px-3 py-1 text-[0.7rem] font-bold rounded-md transition-all ${
+                          activeTab === "rest" ? "bg-blue-600 text-white shadow-sm" : "text-slate-400 hover:text-white"
+                        }`}
+                      >
+                        cURL / REST
+                      </button>
+                    </div>
+                    <button
+                      onClick={copyCode}
+                      className="px-2.5 py-1 text-[0.7rem] font-bold rounded-lg border border-slate-800 bg-slate-900 text-slate-300 hover:text-white hover:border-slate-700 transition-all"
+                    >
+                      {copied ? "Copied! ✓" : "Copy"}
+                    </button>
+                  </div>
                 </div>
-                <pre className="text-xs font-mono text-slate-200 overflow-x-auto bg-slate-900/80 p-4 rounded-xl leading-relaxed">
-                  {`import openai
-
-client = openai.OpenAI()
-
-response = client.chat.completions.create(
-    model="${model.slug}",
-    messages=[
-        {"role": "system", "content": "You are a helpful expert assistant."},
-        {"role": "user", "content": "Explain quantum computing in 2 sentences."}
-    ]
-)
-
-print(response.choices[0].message.content)`}
+                <pre className="text-xs font-mono text-slate-200 overflow-x-auto bg-slate-900/90 p-4 rounded-xl leading-relaxed whitespace-pre-wrap">
+                  {activeTab === "python" ? codeSnippet.python : codeSnippet.rest}
                 </pre>
               </div>
+
             </div>
 
             {/* Right Col: Pricing & Meta */}
@@ -263,6 +364,11 @@ print(response.choices[0].message.content)`}
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Community Feedback */}
+          <div className="mt-8">
+            <ModelFeedback slug={model.slug} />
           </div>
 
           {/* Similar Models */}

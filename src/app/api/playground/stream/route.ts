@@ -1,28 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { checkRateLimit } from "@/lib/rate-limit";
-import fs from "fs";
-import path from "path";
-
-// Hardcoded fallback key for ModelVault edge playground
-const DEFAULT_GROQ_KEY = "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";
 
 function getGroqKey(): string {
-  if (process.env.GROQ_API_KEY && process.env.GROQ_API_KEY.trim()) {
-    return process.env.GROQ_API_KEY.trim();
-  }
-  try {
-    const envPath = path.join(process.cwd(), ".env.local");
-    if (fs.existsSync(envPath)) {
-      const content = fs.readFileSync(envPath, "utf8");
-      const match = content.match(/GROQ_API_KEY=(.+)/);
-      if (match && match[1] && match[1].trim()) {
-        return match[1].trim();
-      }
-    }
-  } catch {
-    // Ignore
-  }
-  return DEFAULT_GROQ_KEY;
+  return process.env.GROQ_API_KEY?.trim() || "";
 }
 
 // Supported Cloud Playground Models
@@ -62,40 +42,42 @@ export async function POST(req: NextRequest) {
         ? "llama-3.1-8b-instant"
         : "llama-3.3-70b-versatile";
 
-    // Primary Execution Path: Live Groq Supercomputer API
-    try {
-      const groqRes = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${groqApiKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          model: targetGroqModel,
-          messages: [{ role: "user", content: prompt }],
-          temperature: 0.7,
-          max_tokens: 450,
-        }),
-      });
+    // Primary Execution Path: Live Groq Supercomputer API (if key is set)
+    if (groqApiKey) {
+      try {
+        const groqRes = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${groqApiKey}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            model: targetGroqModel,
+            messages: [{ role: "user", content: prompt }],
+            temperature: 0.7,
+            max_tokens: 450,
+          }),
+        });
 
-      if (groqRes.ok) {
-        const groqJson = await groqRes.json();
-        const text = groqJson.choices?.[0]?.message?.content || "";
-        if (text) {
-          return NextResponse.json({
-            text,
-            provider: `${selectedModel.provider} (Live LLM)`,
-            speed: selectedModel.speed,
-            modelName: selectedModel.name,
-            realApiCall: true,
-          });
+        if (groqRes.ok) {
+          const groqJson = await groqRes.json();
+          const text = groqJson.choices?.[0]?.message?.content || "";
+          if (text) {
+            return NextResponse.json({
+              text,
+              provider: `${selectedModel.provider} (Live LLM)`,
+              speed: selectedModel.speed,
+              modelName: selectedModel.name,
+              realApiCall: true,
+            });
+          }
+        } else {
+          const errDetails = await groqRes.text();
+          console.error("Groq API call returned non-200:", groqRes.status, errDetails);
         }
-      } else {
-        const errDetails = await groqRes.text();
-        console.error("Groq API call returned non-200:", groqRes.status, errDetails);
+      } catch (e) {
+        console.error("Groq API fetch exception:", e);
       }
-    } catch (e) {
-      console.error("Groq API fetch exception:", e);
     }
 
     // Secondary Execution Path: Free Hugging Face / Serverless AI Fallback

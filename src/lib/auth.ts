@@ -12,6 +12,14 @@ export function generateAdminSessionToken(secretKey: string): string {
     .digest("hex");
 }
 
+function safeCompare(a: string, b: string): boolean {
+  if (!a || !b) return false;
+  const bufA = Buffer.from(a);
+  const bufB = Buffer.from(b);
+  if (bufA.length !== bufB.length) return false;
+  return crypto.timingSafeEqual(bufA, bufB);
+}
+
 /**
  * Verifies admin authentication on API routes.
  * Checks HTTP headers (`x-admin-passcode`, `Authorization`) or cookies (`admin_token`).
@@ -30,7 +38,7 @@ export function verifyAdminAuth(req: Request): boolean {
 
     // 1. Check custom header x-admin-passcode
     const headerPasscode = req.headers.get("x-admin-passcode");
-    if (headerPasscode && (headerPasscode === secretKey || headerPasscode === expectedSessionToken)) {
+    if (headerPasscode && (safeCompare(headerPasscode, secretKey) || safeCompare(headerPasscode, expectedSessionToken))) {
       return true;
     }
 
@@ -38,7 +46,7 @@ export function verifyAdminAuth(req: Request): boolean {
     const authHeader = req.headers.get("authorization");
     if (authHeader && authHeader.startsWith("Bearer ")) {
       const token = authHeader.substring(7);
-      if (token === secretKey || token === expectedSessionToken) {
+      if (safeCompare(token, secretKey) || safeCompare(token, expectedSessionToken)) {
         return true;
       }
     }
@@ -53,7 +61,7 @@ export function verifyAdminAuth(req: Request): boolean {
         })
       );
       const token = cookies["admin_token"];
-      if (token && (token === secretKey || token === expectedSessionToken)) {
+      if (token && (safeCompare(token, secretKey) || safeCompare(token, expectedSessionToken))) {
         return true;
       }
     }

@@ -9,16 +9,18 @@ interface RateLimitRecord {
 }
 
 const ipMap = new Map<string, RateLimitRecord>();
+let lastCleanup = Date.now();
 
-// Clean up expired IP records every 5 minutes to prevent memory leaks
-setInterval(() => {
+function cleanupExpired() {
   const now = Date.now();
+  if (now - lastCleanup < 60 * 1000) return; // run at most once a minute on incoming requests
+  lastCleanup = now;
   for (const [key, value] of ipMap.entries()) {
     if (now > value.resetTime) {
       ipMap.delete(key);
     }
   }
-}, 5 * 60 * 1000);
+}
 
 export function getClientIp(req: Request): string {
   const forwarded = req.headers.get("x-forwarded-for");
@@ -42,6 +44,7 @@ export function checkRateLimit(
   limit: number = 10,
   windowMs: number = 60 * 1000
 ): { allowed: boolean; remainingMs: number } {
+  cleanupExpired();
   const ip = getClientIp(req);
   const key = `${routeKey}:${ip}`;
   const now = Date.now();

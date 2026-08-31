@@ -2,12 +2,28 @@ import { create } from "zustand";
 import { AIModel, Availability, Modality, PricingType, UseCase } from "@/types/model";
 import { MODELS } from "@/data/models";
 
+const contextWindowCache = new Map<string, number>();
 function parseContextWindow(ctx: string): number {
   if (!ctx || ctx === "N/A") return 0;
+  const cached = contextWindowCache.get(ctx);
+  if (cached !== undefined) return cached;
   const lower = ctx.toLowerCase().trim();
-  if (lower.endsWith("m")) return parseFloat(lower) * 1_000_000;
-  if (lower.endsWith("k")) return parseFloat(lower) * 1_000;
-  return parseFloat(lower) || 0;
+  let val = 0;
+  if (lower.endsWith("m")) val = parseFloat(lower) * 1_000_000;
+  else if (lower.endsWith("k")) val = parseFloat(lower) * 1_000;
+  else val = parseFloat(lower) || 0;
+  contextWindowCache.set(ctx, val);
+  return val;
+}
+
+const releaseDateCache = new Map<string, number>();
+function getReleaseTimestamp(dateStr: string): number {
+  if (!dateStr) return 0;
+  const cached = releaseDateCache.get(dateStr);
+  if (cached !== undefined) return cached;
+  const ts = new Date(dateStr).getTime() || 0;
+  releaseDateCache.set(dateStr, ts);
+  return ts;
 }
 
 function getBenchmarkScore(m: AIModel): number {
@@ -215,7 +231,7 @@ export const useDirectoryStore = create<DirectoryStore>((set, get) => ({
       return true;
     }).sort((a, b) => {
       if (sortBy === "newest") {
-        return new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime();
+        return getReleaseTimestamp(b.releaseDate) - getReleaseTimestamp(a.releaseDate);
       }
       if (sortBy === "name") {
         return a.name.localeCompare(b.name);

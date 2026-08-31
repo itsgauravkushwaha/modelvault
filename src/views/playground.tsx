@@ -91,8 +91,30 @@ export const PlaygroundView = () => {
   const [cacheCleared, setCacheCleared] = useState<boolean>(false);
 
   const generatorRef = useRef<unknown>(null);
+  const streamIntervalsRef = useRef<{ a: ReturnType<typeof setInterval> | null; b: ReturnType<typeof setInterval> | null }>({
+    a: null,
+    b: null,
+  });
+
+  const clearStreamIntervals = () => {
+    if (streamIntervalsRef.current.a) {
+      clearInterval(streamIntervalsRef.current.a);
+      streamIntervalsRef.current.a = null;
+    }
+    if (streamIntervalsRef.current.b) {
+      clearInterval(streamIntervalsRef.current.b);
+      streamIntervalsRef.current.b = null;
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      clearStreamIntervals();
+    };
+  }, []);
 
   const handleModelChange = (model: CloudModelConfig) => {
+    clearStreamIntervals();
     setSelectedModel(model);
     setPrompt(model.presetPrompts[0]);
     setOutputA("");
@@ -132,6 +154,7 @@ export const PlaygroundView = () => {
   const runInference = async () => {
     if (!prompt.trim() || isGenerating) return;
 
+    clearStreamIntervals();
     setIsGenerating(true);
     setOutputA("");
     setOutputB("");
@@ -158,12 +181,15 @@ export const PlaygroundView = () => {
 
         // Stream output A
         let indexA = 0;
-        const intervalA = setInterval(() => {
+        streamIntervalsRef.current.a = setInterval(() => {
           if (indexA < textA.length) {
             setOutputA(textA.slice(0, indexA + 4));
             indexA += 4;
           } else {
-            clearInterval(intervalA);
+            if (streamIntervalsRef.current.a) {
+              clearInterval(streamIntervalsRef.current.a);
+              streamIntervalsRef.current.a = null;
+            }
             if (mode !== "arena") {
               setIsGenerating(false);
               const elapsed = Math.max(0.3, (Date.now() - startTime) / 1000);
@@ -183,12 +209,15 @@ export const PlaygroundView = () => {
           const textB = jsonB.text || "Generation complete.";
 
           let indexB = 0;
-          const intervalB = setInterval(() => {
+          streamIntervalsRef.current.b = setInterval(() => {
             if (indexB < textB.length) {
               setOutputB(textB.slice(0, indexB + 4));
               indexB += 4;
             } else {
-              clearInterval(intervalB);
+              if (streamIntervalsRef.current.b) {
+                clearInterval(streamIntervalsRef.current.b);
+                streamIntervalsRef.current.b = null;
+              }
               setIsGenerating(false);
               const elapsed = Math.max(0.3, (Date.now() - startTime) / 1000);
               setTokensPerSec(Math.round((textB.split(/\s+/).length * 1.3) / elapsed));
@@ -196,6 +225,7 @@ export const PlaygroundView = () => {
           }, 15);
         }
       } catch {
+        clearStreamIntervals();
         setIsGenerating(false);
         setIsConsentModalOpen(true);
       }

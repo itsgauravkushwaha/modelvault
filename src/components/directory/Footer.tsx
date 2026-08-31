@@ -90,10 +90,16 @@ export const Footer = () => {
         </div>
       </div>
 
-      <div className="shell border-t border-slate-800/80 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 font-medium">
+      <div className="shell border-t border-slate-800/80 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium text-center md:text-left">
         <div>© 2026 ModelVault AI Directory. All model specifications verified.</div>
 
-        <div className="mt-2 sm:mt-0 font-semibold">Built for high-performance AI workflows</div>
+        <div className="flex items-center gap-1.5 font-medium text-slate-400">
+          <span>Made with</span>
+          <span className="text-rose-500 inline-block">❤️</span>
+          <span>by <strong className="text-white font-bold tracking-tight">Gaurav Kushwaha</strong></span>
+        </div>
+
+        <div className="font-semibold text-slate-400">Built for high-performance AI workflows</div>
       </div>
     </footer>
   );

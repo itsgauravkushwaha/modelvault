@@ -15,12 +15,12 @@ export const Footer = () => {
           </div>
 
           <p className="text-xs text-slate-400 leading-relaxed max-w-sm font-medium">
-            The open directory for discovering, comparing, and benchmarking cloud and local AI models. Built for engineers, researchers, and technical leaders.
+            Find a suitable AI model for your task, budget and hardware, with sources and practical setup guidance.
           </p>
 
           <div className="flex items-center gap-2 pt-1">
-            <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-[0.7rem] font-bold text-slate-400">All 11,000+ Model Specifications Active</span>
+            <div className="h-2 w-2 rounded-full bg-emerald-500" />
+            <span className="text-[0.7rem] font-bold text-slate-400">Curated recommendations · Source-backed specifications</span>
           </div>
         </div>
 
@@ -42,7 +42,7 @@ export const Footer = () => {
             Cloud API Models
           </Link>
           <Link href="/solve" className="hover:text-white transition-colors font-bold text-blue-400">
-            Real-World Solution Wizard 🪄
+            Find a model
           </Link>
           <Link href="/telemetry" className="hover:text-white transition-colors">
             Live API Telemetry ⚡
@@ -91,7 +91,7 @@ export const Footer = () => {
       </div>
 
       <div className="shell border-t border-slate-800/80 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium text-center md:text-left">
-        <div>© 2026 ModelVault AI Directory. All model specifications verified.</div>
+        <div>© 2026 ModelVault AI Directory. Review model sources before deployment.</div>
 
         <div className="flex items-center gap-1.5 font-medium text-slate-400">
           <span>Made with</span>

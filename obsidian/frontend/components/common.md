@@ -108,3 +108,8 @@ async component must mirror its final layout with one of these
 ## Related
 
 [[component-conventions]] · [[components/animation-springs]]
+
+## Model finder
+
+See [[model-finder]] for the server view and the Finder, Constraints, Controls and
+RecommendationCard components, including data ownership and accessibility behavior.

@@ -1,0 +1,130 @@
+[
+  {
+    "id": "openai/gpt-6-astra",
+    "name": "GPT-6 Astra",
+    "provider": "OpenAI",
+    "deployment": "cloud",
+    "tasks": [
+      "coding",
+      "documents",
+      "extraction",
+      "chat"
+    ],
+    "taskOrder": {
+      "coding": 2,
+      "documents": 4,
+      "extraction": 4,
+      "chat": 4
+    },
+    "rationale": "A candidate for demanding coding and analysis when the estimated cost fits.",
+    "limitations": [
+      "Higher token cost than the compact options in this collection. Reasoning can add billed output tokens."
+    ],
+    "sourceUrl": "https://openrouter.ai/openai/gpt-6-astra",
+    "setupUrl": "https://openrouter.ai/docs/quickstart",
+    "checkedAt": "2026-09-08",
+    "contextTokens": 1050000,
+    "maxOutputTokens": 128000,
+    "cloud": {
+      "inputPerMillion": 10.0,
+      "outputPerMillion": 50.0,
+      "structuredOutput": true
+    }
+  },
+  {
+    "id": "anthropic/claude-sonnet-4.6",
+    "name": "Claude Sonnet 4.6",
+    "provider": "Anthropic",
+    "deployment": "cloud",
+    "tasks": [
+      "coding",
+      "documents",
+      "extraction",
+      "chat"
+    ],
+    "taskOrder": {
+      "coding": 1,
+      "documents": 3,
+      "extraction": 3,
+      "chat": 3
+    },
+    "rationale": "An option for iterative coding and text workflows with documented tool and schema support.",
+    "limitations": [
+      "Test on your own codebase; a model catalog does not establish real-world task accuracy."
+    ],
+    "sourceUrl": "https://openrouter.ai/anthropic/claude-sonnet-4.6",
+    "setupUrl": "https://openrouter.ai/docs/quickstart",
+    "checkedAt": "2026-09-08",
+    "contextTokens": 1000000,
+    "maxOutputTokens": 128000,
+    "cloud": {
+      "inputPerMillion": 3.0,
+      "outputPerMillion": 15.0,
+      "structuredOutput": true
+    }
+  },
+  {
+    "id": "google/gemini-3.8-flash",
+    "name": "Gemini 3.8 Flash",
+    "provider": "Google",
+    "deployment": "cloud",
+    "tasks": [
+      "coding",
+      "documents",
+      "extraction",
+      "chat"
+    ],
+    "taskOrder": {
+      "coding": 3,
+      "documents": 1,
+      "extraction": 2,
+      "chat": 2
+    },
+    "rationale": "An option for document and assistant workflows with a large advertised context allowance.",
+    "limitations": [
+      "A large context window does not guarantee accurate retrieval. Extra thinking and tool calls can increase cost."
+    ],
+    "sourceUrl": "https://openrouter.ai/google/gemini-3.8-flash",
+    "setupUrl": "https://openrouter.ai/docs/quickstart",
+    "checkedAt": "2026-09-08",
+    "contextTokens": 1048576,
+    "maxOutputTokens": 65536,
+    "cloud": {
+      "inputPerMillion": 0.75,
+      "outputPerMillion": 3.75,
+      "structuredOutput": true
+    }
+  },
+  {
+    "id": "openai/gpt-5-mini",
+    "name": "GPT-5 Mini",
+    "provider": "OpenAI",
+    "deployment": "cloud",
+    "tasks": [
+      "coding",
+      "documents",
+      "extraction",
+      "chat"
+    ],
+    "taskOrder": {
+      "coding": 4,
+      "documents": 2,
+      "extraction": 1,
+      "chat": 1
+    },
+    "rationale": "A lower-priced candidate for bounded text tasks and schema-based extraction.",
+    "limitations": [
+      "Complex coding and reasoning tasks may require a more capable model; validate using representative examples."
+    ],
+    "sourceUrl": "https://openrouter.ai/openai/gpt-5-mini",
+    "setupUrl": "https://openrouter.ai/docs/quickstart",
+    "checkedAt": "2026-09-08",
+    "contextTokens": 400000,
+    "maxOutputTokens": 128000,
+    "cloud": {
+      "inputPerMillion": 0.25,
+      "outputPerMillion": 2.0,
+      "structuredOutput": true
+    }
+  }
+]

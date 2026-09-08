@@ -29,6 +29,7 @@ humans and AI agents (Claude Code, Cursor).
 - [[environment-variables]] — config & secrets handling
 
 ### 02 — Frontend
+- [[model-finder]] — requirements-first recommendations, evidence and maintenance
 - [[routing]] — App Router conventions, route → view delegation
 - [[design-system]] — Tailwind v4 tokens, CSS layers, styling rules
 - [[animation-system]] — the spring component library (the core of this starter)

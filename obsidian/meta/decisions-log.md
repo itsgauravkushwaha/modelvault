@@ -10,6 +10,27 @@ consequences. Use [[templates/adr-note]] for new entries. Newest first.
 
 ---
 
+## ADR-0018 — Curated, requirements-first model selection
+
+- **Status:** Accepted for the first product slice
+- **Date:** 2026-09-08
+
+**Context.** Weighted scoring in the old finder could admit models that violated
+budget or deployment requirements. Static solution playbooks did not use hardware
+input and included unsupported model and cost claims.
+
+**Decision.** Use a small, explicitly admitted collection independent of bulk
+imports. Apply hard constraints before editorial ordering, expose sources and
+assumptions, expire stale evidence and support an honest no-match result. Serve
+one shared flow at `/` and `/solve`, redirect the legacy tool URL, and leave the
+existing catalog intact for separate data review.
+
+**Consequences.** The first version covers English text applications and requires
+regular evidence refresh. It makes no benchmark-leadership claims. The client
+needs no database credentials or paid model call. See [[model-finder]].
+
+---
+
 ## ADR-0017 — A skill states its preconditions and its own internal conflicts
 
 - **Status:** Accepted

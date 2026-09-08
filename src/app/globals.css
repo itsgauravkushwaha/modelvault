@@ -103,32 +103,9 @@ body {
 }
 
 @layer base {
+  /* Respect browser text size at every viewport; avoid tiny tablet text. */
   html {
-    font-size: 16px;
-  }
-
-  @media (max-width: 1920px) {
-    html {
-      font-size: 0.833333vw;
-    }
-  }
-
-  @media (max-width: 1440px) {
-    html {
-      font-size: 1.111111vw;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    html {
-      font-size: 1.5625vw;
-    }
-  }
-
-  @media (max-width: 640px) {
-    html {
-      font-size: 4.444444vw;
-    }
+    font-size: 100%;
   }
 }
 

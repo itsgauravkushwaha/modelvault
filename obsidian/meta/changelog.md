@@ -8,6 +8,19 @@ updated: 2026-07-25
 Chronological log of notable changes to the project. Newest first.
 This is a human-curated log — not a mirror of `git log`.
 
+## 2026-09-08
+
+- Replaced the homepage and both finder implementations with a shared curated,
+  requirements-first experience for four text application tasks.
+- Added strict deployment, cost, context, freshness and local memory filters;
+  source-backed metadata, editorial explanations, setup links and no-match states.
+- Added admitted-ID-only cloud refresh, meaningful decision-engine tests and
+  consent-aware recommendation funnel events. See [[model-finder]].
+- Removed global verified-all-specifications claims from the footer, aligned finder
+  navigation/metadata and restored browser-respecting root font size.
+- Preserved imported model records, production services, dependency versions and
+  protected spring components.
+
 ## 2026-08-09
 
 - **Live Side-by-Side Model Arena & Multi-Provider Groq Stream API** — Added `/api/playground/stream` supporting sub-300ms live inference via Groq LPUs (`llama-3.3-70b-versatile`, `qwen/qwen3.6-27b`, `llama-3.1-8b-instant`) with automatic Pollinations AI fallback. Completely removed all static code block fallbacks.

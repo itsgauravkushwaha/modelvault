@@ -1,0 +1,2539 @@
+From 9ddb15a9cc114f7ee7a838c7d3f4e5041c21161f Mon Sep 17 00:00:00 2001
+From: Codex <codex@openai.com>
+Date: Tue, 8 Sep 2026 18:44:49 +1000
+Subject: [PATCH] feat: add curated requirements-first model recommendations
+
+---
+ obsidian/README.md                           |   1 +
+ obsidian/frontend/components/common.md       |   5 +
+ obsidian/frontend/model-finder.md            | 122 +++++
+ obsidian/frontend/utils.md                   |   5 +
+ obsidian/meta/changelog.md                   |  13 +
+ obsidian/meta/decisions-log.md               |  21 +
+ scripts/refresh-curated-catalog.mjs          |  43 ++
+ scripts/test-recommendations.mjs             |  23 +
+ src/app/globals.css                          |  27 +-
+ src/app/page.tsx                             |  14 +-
+ src/app/solve/page.tsx                       |  13 +-
+ src/app/tools/model-finder/page.tsx          |  16 +-
+ src/components/directory/Footer.tsx          |  10 +-
+ src/components/directory/Header.tsx          |  16 +-
+ src/components/finder/Constraints.tsx        |  59 +++
+ src/components/finder/Controls.tsx           |  28 ++
+ src/components/finder/Finder.tsx             |  94 ++++
+ src/components/finder/RecommendationCard.tsx |  75 ++++
+ src/data/curated-cloud.json                  | 130 ++++++
+ src/data/curated-models.ts                   |  49 ++
+ src/data/finder-options.ts                   |  14 +
+ src/lib/recommendations/analytics.ts         |  12 +
+ src/lib/recommendations/engine.ts            | 100 +++++
+ src/lib/recommendations/types.ts             |  59 +++
+ src/lib/site.ts                              |   2 +-
+ src/views/home.tsx                           | 241 +---------
+ src/views/model-finder.tsx                   | 439 +-----------------
+ src/views/requirements-finder.tsx            |  48 ++
+ src/views/solve.tsx                          | 442 +------------------
+ tests/recommendations.test.ts                |  88 ++++
+ 30 files changed, 1014 insertions(+), 1195 deletions(-)
+ create mode 100644 obsidian/frontend/model-finder.md
+ create mode 100644 scripts/refresh-curated-catalog.mjs
+ create mode 100644 scripts/test-recommendations.mjs
+ create mode 100644 src/components/finder/Constraints.tsx
+ create mode 100644 src/components/finder/Controls.tsx
+ create mode 100644 src/components/finder/Finder.tsx
+ create mode 100644 src/components/finder/RecommendationCard.tsx
+ create mode 100644 src/data/curated-cloud.json
+ create mode 100644 src/data/curated-models.ts
+ create mode 100644 src/data/finder-options.ts
+ create mode 100644 src/lib/recommendations/analytics.ts
+ create mode 100644 src/lib/recommendations/engine.ts
+ create mode 100644 src/lib/recommendations/types.ts
+ create mode 100644 src/views/requirements-finder.tsx
+ create mode 100644 tests/recommendations.test.ts
+
+diff --git a/obsidian/README.md b/obsidian/README.md
+index 1798744..b5b220e 100644
+--- a/obsidian/README.md
++++ b/obsidian/README.md
+@@ -29,6 +29,7 @@ humans and AI agents (Claude Code, Cursor).
+ - [[environment-variables]] — config & secrets handling
+ 
+ ### 02 — Frontend
++- [[model-finder]] — requirements-first recommendations, evidence and maintenance
+ - [[routing]] — App Router conventions, route → view delegation
+ - [[design-system]] — Tailwind v4 tokens, CSS layers, styling rules
+ - [[animation-system]] — the spring component library (the core of this starter)
+diff --git a/obsidian/frontend/components/common.md b/obsidian/frontend/components/common.md
+index e09e0f3..2db13e0 100644
+--- a/obsidian/frontend/components/common.md
++++ b/obsidian/frontend/components/common.md
+@@ -108,3 +108,8 @@ async component must mirror its final layout with one of these
+ ## Related
+ 
+ [[component-conventions]] · [[components/animation-springs]]
++
++## Model finder
++
++See [[model-finder]] for the server view and the Finder, Constraints, Controls and
++RecommendationCard components, including data ownership and accessibility behavior.
+diff --git a/obsidian/frontend/model-finder.md b/obsidian/frontend/model-finder.md
+new file mode 100644
+index 0000000..e676682
+--- /dev/null
++++ b/obsidian/frontend/model-finder.md
+@@ -0,0 +1,122 @@
++---
++tags: [frontend, product, recommendation, stable]
++updated: 2026-09-08
++---
++
++# Requirements-first Model Finder
++
++## Product scope
++
++The homepage and `/solve` now open one working model-selection surface. The old
++`/tools/model-finder` view redirects to `/solve`. The initial audience is developers
++building English-language text applications: coding assistance, document Q&A,
++structured extraction and chat. Image, video, speech, language-specific evaluation
++and automatic free-text interpretation are deliberately not claimed.
++
++The first collection has four cloud IDs and four local Ollama packages. Existing
++Supabase rows and public catalog URLs are retained. Imported models cannot enter
++the finder without explicit admission to `src/data/curated-models.ts` or the reviewed
++cloud snapshot. No production database mutation or mass deletion is part of this change.
++
++## Components and data
++
++| File | Responsibility |
++| --- | --- |
++| `src/views/requirements-finder.tsx` | Server view, lightweight navigation, metadata and methodology |
++| `src/components/finder/Finder.tsx` | Task → requirements → shortlist, editing, reset, keyboard focus |
++| `src/components/finder/Constraints.tsx` | Conditional cloud/hardware controls and workload inputs |
++| `src/components/finder/Controls.tsx` | Native radio and number controls with existing design tokens |
++| `src/components/finder/RecommendationCard.tsx` | Reasons, limitations, sources, cost formula and exact setup target |
++| `src/data/curated-cloud.json` | Reviewed OpenRouter IDs and timestamped provider facts |
++| `src/data/curated-models.ts` | Local package admission, editorial ordering and memory policy |
++| `src/lib/recommendations/engine.ts` | Zod validation, exclusion rules, transparent ordering |
++| `src/lib/recommendations/analytics.ts` | Consent-aware, coarse funnel events |
++
++The finder does not load the 11,000-row directory or call a paid LLM. Requirements
++are processed in the browser. Header store subscriptions were avoided on finder
++routes so the bulk dataset is not needed there. Existing fonts and blue/neutral
++semantic tokens are reused. Root font sizing now respects the user's browser
++setting at every breakpoint instead of shrinking tablet text with viewport units.
++No animation engine files or dependency versions were changed.
++
++## Selection contract
++
++1. Validate active requirements; irrelevant hidden inputs cannot block switching modes.
++2. Consider only the selected deployment and models curated for the task.
++3. Exclude stale source evidence, insufficient context/output allowances, unavailable
++   pricing, missing structured-output support for cloud extraction, excessive API
++   cost and insufficient local memory.
++4. Order eligible candidates by task-specific editorial priority, or by estimated
++   API cost / local memory when the user chooses that priority.
++5. Return at most three. Never pad the result or silently relax a constraint.
++
++Editorial ordering is a starting hypothesis, not an independently measured quality
++ranking. No accuracy percentages, invented benchmarks, compliance guarantees or
++universal “best model” claims are produced.
++
++## Cost and hardware assumptions
++
++Cloud cost is requests × (input tokens × input rate + output tokens × output rate)
++÷ 1,000,000. Prices are OpenRouter USD rates, not direct-provider quotes. Reasoning
++must be included in the user's output allowance; taxes, credit fees, tools, retries,
++extra reasoning and other services are excluded. It is not a spending cap.
++Input is limited to 200,000 tokens to stay below the currently published pricing
++override thresholds. Refresh rejects a newly introduced tier within that range.
++
++Local memory allowances are conservative editorial estimates for the linked Q4
++packages, one concurrent request and <= 4,096 total tokens. They are **not measured**
++VRAM benchmarks. The finder requires model/runtime allowance plus 4 GB in system
++or unified RAM. Dedicated GPU mode additionally requires the full runtime allowance
++in VRAM; no CPU offloading is assumed. Unified memory is not double-counted. CPU
++mode explicitly warns about unmeasured speed. Runtime/GPU compatibility still needs
++confirmation on the target device. No hosted API charge does not mean zero ownership cost.
++
++Document Q&A results select the generation model, not the parsing, embeddings,
++retrieval and citation stack. Local extraction requires schema validation in the app.
++
++## Maintaining source evidence
++
++Source checks on 2026-09-08 used the OpenRouter catalog and exact Ollama library tags:
++
++- `https://openrouter.ai/api/v1/models`
++- `https://ollama.com/library/qwen3:4b`
++- `https://ollama.com/library/qwen3:8b`
++- `https://ollama.com/library/qwen2.5-coder:7b`
++- `https://ollama.com/library/qwen2.5-coder:14b`
++
++Run `node scripts/refresh-curated-catalog.mjs` from the repository root to refresh
++**only admitted cloud IDs**, review the diff, then commit and deploy it. The script
++does not alter editorial task rankings or publish automatically. It fails without
++overwriting the snapshot when an admitted ID disappears, expires, has unknown
++rates/limits, loses text support or needs tier-aware pricing.
++
++Cloud facts expire from recommendations after 14 days; local checks after 90 days,
++evaluated at form submission. Refresh cloud evidence at least weekly before shipping
++new snapshots; re-check local package sizes, tags, instructions and memory assumptions
++manually. An elapsed date must never be renewed without a real check. The existing
++bulk cron does **not** refresh or promote these curated entries.
++
++## Validation and measurement
++
++Run `node scripts/test-recommendations.mjs`, `npm run lint` (equivalent ESLint script
++to `yarn lint`), and `npm run build`. The tests use the existing TypeScript compiler
++and Node test runner; no test dependency is added. Scenarios cover strict budget,
++privacy/deployment isolation, VRAM/RAM distinctions, unified memory, long prompts,
++output limits, source freshness, malformed input, pricing math and no-match behavior.
++
++GA events, only when existing analytics consent is granted:
++`finder_started`, `finder_results`, `finder_no_match`, `finder_setup_opened`,
++`finder_command_copied`. Payloads contain task, deployment, model ID or result count;
++never raw prompts, budget or hardware values. These events show funnel progression,
++not proof that an installation worked. Confirm successful use through user interviews
++before claiming recommendation accuracy or demand.
++
++## Release boundaries
++
++This change prepares a reviewable product slice. It does not merge, change the live
++domain, rewrite the source catalog, execute model inference, collect visitor API keys,
++or establish that ModelVault is the best model finder. Next validation is a target-user
++trial and task-level evaluation. Audit the inherited broad Supabase write policies
++described in the handover before allowing production data to be treated as trusted.
++
++Related: [[design-system]] · [[components/common]] · [[decisions-log]]
+diff --git a/obsidian/frontend/utils.md b/obsidian/frontend/utils.md
+index 6ab5f29..32045d7 100644
+--- a/obsidian/frontend/utils.md
++++ b/obsidian/frontend/utils.md
+@@ -57,3 +57,8 @@ exception — note it clearly). Group by domain under `utils/<domain>/`.
+ ## Related
+ 
+ [[hooks]] · [[seo-metadata]] · [[smooth-scroll]]
++
++## Model recommendations
++
++`src/lib/recommendations/engine.ts` validates requirements and filters before ranking.
++`analytics.ts` records consent-aware coarse funnel events. See [[model-finder]].
+diff --git a/obsidian/meta/changelog.md b/obsidian/meta/changelog.md
+index 1c2a02a..59ebd26 100644
+--- a/obsidian/meta/changelog.md
++++ b/obsidian/meta/changelog.md
+@@ -8,6 +8,19 @@ updated: 2026-07-25
+ Chronological log of notable changes to the project. Newest first.
+ This is a human-curated log — not a mirror of `git log`.
+ 
++## 2026-09-08
++
++- Replaced the homepage and both finder implementations with a shared curated,
++  requirements-first experience for four text application tasks.
++- Added strict deployment, cost, context, freshness and local memory filters;
++  source-backed metadata, editorial explanations, setup links and no-match states.
++- Added admitted-ID-only cloud refresh, meaningful decision-engine tests and
++  consent-aware recommendation funnel events. See [[model-finder]].
++- Removed global verified-all-specifications claims from the footer, aligned finder
++  navigation/metadata and restored browser-respecting root font size.
++- Preserved imported model records, production services, dependency versions and
++  protected spring components.
++
+ ## 2026-08-09
+ 
+ - **Live Side-by-Side Model Arena & Multi-Provider Groq Stream API** — Added `/api/playground/stream` supporting sub-300ms live inference via Groq LPUs (`llama-3.3-70b-versatile`, `qwen/qwen3.6-27b`, `llama-3.1-8b-instant`) with automatic Pollinations AI fallback. Completely removed all static code block fallbacks.
+diff --git a/obsidian/meta/decisions-log.md b/obsidian/meta/decisions-log.md
+index 296b86f..53ee2b8 100644
+--- a/obsidian/meta/decisions-log.md
++++ b/obsidian/meta/decisions-log.md
+@@ -10,6 +10,27 @@ consequences. Use [[templates/adr-note]] for new entries. Newest first.
+ 
+ ---
+ 
++## ADR-0018 — Curated, requirements-first model selection
++
++- **Status:** Accepted for the first product slice
++- **Date:** 2026-09-08
++
++**Context.** Weighted scoring in the old finder could admit models that violated
++budget or deployment requirements. Static solution playbooks did not use hardware
++input and included unsupported model and cost claims.
++
++**Decision.** Use a small, explicitly admitted collection independent of bulk
++imports. Apply hard constraints before editorial ordering, expose sources and
++assumptions, expire stale evidence and support an honest no-match result. Serve
++one shared flow at `/` and `/solve`, redirect the legacy tool URL, and leave the
++existing catalog intact for separate data review.
++
++**Consequences.** The first version covers English text applications and requires
++regular evidence refresh. It makes no benchmark-leadership claims. The client
++needs no database credentials or paid model call. See [[model-finder]].
++
++---
++
+ ## ADR-0017 — A skill states its preconditions and its own internal conflicts
+ 
+ - **Status:** Accepted
+diff --git a/scripts/refresh-curated-catalog.mjs b/scripts/refresh-curated-catalog.mjs
+new file mode 100644
+index 0000000..7a2e5a5
+--- /dev/null
++++ b/scripts/refresh-curated-catalog.mjs
+@@ -0,0 +1,43 @@
++import { readFile, writeFile, rename } from "node:fs/promises";
++
++// Refresh evidence for admitted IDs only; never promote bulk-ingested models.
++const file = new URL("../src/data/curated-cloud.json", import.meta.url);
++const previous = JSON.parse(await readFile(file, "utf8"));
++const response = await fetch("https://openrouter.ai/api/v1/models", { signal: AbortSignal.timeout(20000) });
++if (!response.ok) throw new Error(`Catalog returned HTTP ${response.status}; snapshot unchanged.`);
++const payload = await response.json();
++if (!Array.isArray(payload.data)) throw new Error("Invalid catalog response; snapshot unchanged.");
++const catalog = new Map(payload.data.map((model) => [model.id, model]));
++const checkedAt = new Date().toISOString().slice(0, 10);
++const next = previous.map((row) => {
++  const model = catalog.get(row.id);
++  if (!model || (model.expiration_date && Date.parse(model.expiration_date) <= Date.now())) {
++    throw new Error(`${row.id} is unavailable or expired. Review it manually; snapshot unchanged.`);
++  }
++  const rate = (value) => {
++    if (typeof value !== "string" || value.trim() === "" || !Number.isFinite(Number(value)) || Number(value) < 0) {
++      throw new Error(`${row.id} has unknown pricing; snapshot unchanged.`);
++    }
++    return Number(value) * 1000000;
++  };
++  // The finder currently accepts at most 200,000 input tokens per request.
++  if (model.pricing?.overrides?.some((tier) => tier.min_prompt_tokens <= 200000)) {
++    throw new Error(`${row.id} needs tier-aware estimates before this snapshot can be refreshed.`);
++  }
++  const contextTokens = model.context_length;
++  const maxOutputTokens = model.top_provider?.max_completion_tokens;
++  if (!Number.isSafeInteger(contextTokens) || contextTokens <= 0 || !Number.isSafeInteger(maxOutputTokens) || maxOutputTokens <= 0) {
++    throw new Error(`${row.id} has unknown context/output limits; snapshot unchanged.`);
++  }
++  if (!model.architecture?.input_modalities?.includes("text") || !model.architecture?.output_modalities?.includes("text")) {
++    throw new Error(`${row.id} no longer supports text input/output; review its admission.`);
++  }
++  return { ...row, checkedAt, contextTokens, maxOutputTokens, cloud: {
++    inputPerMillion: rate(model.pricing?.prompt), outputPerMillion: rate(model.pricing?.completion),
++    structuredOutput: model.supported_parameters?.includes("structured_outputs") === true,
++  } };
++});
++const temporary = new URL(`${file.href}.tmp`);
++await writeFile(temporary, JSON.stringify(next, null, 2) + "\n");
++await rename(temporary, file);
++console.log(`Refreshed ${next.length} curated cloud models. Review and commit the snapshot before deployment.`);
+diff --git a/scripts/test-recommendations.mjs b/scripts/test-recommendations.mjs
+new file mode 100644
+index 0000000..5c30c96
+--- /dev/null
++++ b/scripts/test-recommendations.mjs
+@@ -0,0 +1,23 @@
++import { mkdtempSync, writeFileSync, rmSync, symlinkSync } from "node:fs";
++import { tmpdir } from "node:os";
++import { join } from "node:path";
++import { spawnSync } from "node:child_process";
++
++// Compile only the decision engine and its meaningful constraint scenarios.
++const root = process.cwd();
++const temporary = mkdtempSync(join(tmpdir(), "modelvault-tests-"));
++try {
++  const config = join(temporary, "tsconfig.json");
++  writeFileSync(config, JSON.stringify({
++    extends: join(root, "tsconfig.json"),
++    compilerOptions: { noEmit: false, incremental: false, module: "CommonJS", moduleResolution: "node", rootDir: root, outDir: join(temporary, "out"), typeRoots: [join(root, "node_modules/@types")], types: ["node"] },
++    include: [join(root, "tests/recommendations.test.ts")], exclude: [],
++  }));
++  let result = spawnSync(process.execPath, [join(root, "node_modules/typescript/bin/tsc"), "-p", config], { stdio: "inherit" });
++  if (result.status !== 0) process.exitCode = result.status ?? 1;
++  else {
++    symlinkSync(join(root, "node_modules"), join(temporary, "out/node_modules"), "junction");
++    result = spawnSync(process.execPath, ["--test", join(temporary, "out/tests/recommendations.test.js")], { stdio: "inherit" });
++    process.exitCode = result.status ?? 1;
++  }
++} finally { rmSync(temporary, { recursive: true, force: true }); }
+diff --git a/src/app/globals.css b/src/app/globals.css
+index 354f5b1..27f28f5 100644
+--- a/src/app/globals.css
++++ b/src/app/globals.css
+@@ -103,32 +103,9 @@ body {
+ }
+ 
+ @layer base {
++  /* Respect browser text size at every viewport; avoid tiny tablet text. */
+   html {
+-    font-size: 16px;
+-  }
+-
+-  @media (max-width: 1920px) {
+-    html {
+-      font-size: 0.833333vw;
+-    }
+-  }
+-
+-  @media (max-width: 1440px) {
+-    html {
+-      font-size: 1.111111vw;
+-    }
+-  }
+-
+-  @media (max-width: 1024px) {
+-    html {
+-      font-size: 1.5625vw;
+-    }
+-  }
+-
+-  @media (max-width: 640px) {
+-    html {
+-      font-size: 4.444444vw;
+-    }
++    font-size: 100%;
+   }
+ }
+ 
+diff --git a/src/app/page.tsx b/src/app/page.tsx
+index cd19813..381a1a1 100644
+--- a/src/app/page.tsx
++++ b/src/app/page.tsx
+@@ -1,14 +1,4 @@
+-import { Metadata } from "next";
+ import { HomeView } from "@/views/home";
+-import { generateMetadata as generatePageMetadata } from "@/utils/seo/generate-page-metadata";
++export { metadata } from "@/views/home";
+ 
+-export const metadata: Metadata = generatePageMetadata({
+-  title: "ModelVault — The Open AI Model Directory & Benchmark Matrix",
+-  description:
+-    "Discover, compare, and benchmark 11,000+ cloud and local AI models. Filter by modalities, context windows, pricing, providers, and performance benchmarks.",
+-  url: "/",
+-});
+-
+-export default function Home() {
+-  return <HomeView />;
+-}
++export default function Home() { return <HomeView />; }
+diff --git a/src/app/solve/page.tsx b/src/app/solve/page.tsx
+index 43d8854..2898268 100644
+--- a/src/app/solve/page.tsx
++++ b/src/app/solve/page.tsx
+@@ -1,13 +1,4 @@
+-import { generateMetadata as baseGenerateMetadata } from "@/utils/seo/generate-page-metadata";
+ import { SolveView } from "@/views/solve";
++export { metadata } from "@/views/solve";
+ 
+-export const metadata = baseGenerateMetadata({
+-  title: "AI Real-World Problem Solver & Playbook Generator | ModelVault",
+-  description:
+-    "Answer 3 quick questions about your real-world task, hardware, and privacy needs to receive an exact AI model recommendation, terminal setup commands, tested prompts, and cost estimates.",
+-  url: "/solve",
+-});
+-
+-export default function SolvePage() {
+-  return <SolveView />;
+-}
++export default function SolvePage() { return <SolveView />; }
+diff --git a/src/app/tools/model-finder/page.tsx b/src/app/tools/model-finder/page.tsx
+index 36d8639..2c2c589 100644
+--- a/src/app/tools/model-finder/page.tsx
++++ b/src/app/tools/model-finder/page.tsx
+@@ -1,17 +1,3 @@
+-import type { Metadata } from "next";
+ import { ModelFinderView } from "@/views/model-finder";
+ 
+-export const metadata: Metadata = {
+-  title: "AI Model Finder — Find the Best AI Model for Your Use Case | ModelVault",
+-  description:
+-    "Answer 3 quick questions and get personalized AI model recommendations based on your use case, budget, and deployment needs. Compare GPT-4o, Claude, DeepSeek, Llama, and 500+ models instantly.",
+-  openGraph: {
+-    title: "AI Model Finder — Find the Best AI Model for Your Use Case",
+-    description:
+-      "Answer 3 quick questions and get personalized AI model recommendations. Compare 500+ models instantly.",
+-  },
+-};
+-
+-export default function ModelFinderPage() {
+-  return <ModelFinderView />;
+-}
++export default function ModelFinderPage() { return <ModelFinderView />; }
+diff --git a/src/components/directory/Footer.tsx b/src/components/directory/Footer.tsx
+index 40f2dc4..d3d707a 100644
+--- a/src/components/directory/Footer.tsx
++++ b/src/components/directory/Footer.tsx
+@@ -15,12 +15,12 @@ export const Footer = () => {
+           </div>
+ 
+           <p className="text-xs text-slate-400 leading-relaxed max-w-sm font-medium">
+-            The open directory for discovering, comparing, and benchmarking cloud and local AI models. Built for engineers, researchers, and technical leaders.
++            Find a suitable AI model for your task, budget and hardware, with sources and practical setup guidance.
+           </p>
+ 
+           <div className="flex items-center gap-2 pt-1">
+-            <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+-            <span className="text-[0.7rem] font-bold text-slate-400">All 11,000+ Model Specifications Active</span>
++            <div className="h-2 w-2 rounded-full bg-emerald-500" />
++            <span className="text-[0.7rem] font-bold text-slate-400">Curated recommendations · Source-backed specifications</span>
+           </div>
+         </div>
+ 
+@@ -42,7 +42,7 @@ export const Footer = () => {
+             Cloud API Models
+           </Link>
+           <Link href="/solve" className="hover:text-white transition-colors font-bold text-blue-400">
+-            Real-World Solution Wizard 🪄
++            Find a model
+           </Link>
+           <Link href="/telemetry" className="hover:text-white transition-colors">
+             Live API Telemetry ⚡
+@@ -91,7 +91,7 @@ export const Footer = () => {
+       </div>
+ 
+       <div className="shell border-t border-slate-800/80 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium text-center md:text-left">
+-        <div>© 2026 ModelVault AI Directory. All model specifications verified.</div>
++        <div>© 2026 ModelVault AI Directory. Review model sources before deployment.</div>
+ 
+         <div className="flex items-center gap-1.5 font-medium text-slate-400">
+           <span>Made with</span>
+diff --git a/src/components/directory/Header.tsx b/src/components/directory/Header.tsx
+index ecd3b47..043a68d 100644
+--- a/src/components/directory/Header.tsx
++++ b/src/components/directory/Header.tsx
+@@ -53,7 +53,7 @@ export const Header = () => {
+           </div>
+           <span className="truncate">ModelVault</span>
+           <span className="hidden sm:inline-block rounded-full bg-blue-50 px-2 py-0.5 text-[0.65rem] font-bold uppercase tracking-wider text-blue-600">
+-            AI Index
++            Model Finder
+           </span>
+         </Link>
+ 
+@@ -126,14 +126,14 @@ export const Header = () => {
+             </div>
+           </div>
+ 
+-          {/* Solution Wizard Link */}
++          {/* Find a model Link */}
+           <Link
+             href="/solve"
+             className={`px-3 py-1.5 rounded-md transition-colors flex items-center gap-1 ${
+               pathname === "/solve" ? "bg-blue-50 text-blue-600 font-extrabold" : "text-blue-600 hover:text-blue-700 font-bold"
+             }`}
+           >
+-            <span>Solution Wizard</span>
++            <span>Find a model</span>
+             <span className="text-[0.55rem] bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded-full font-black uppercase">
+               New
+             </span>
+@@ -228,10 +228,10 @@ export const Header = () => {
+                   </span>
+                 </Link>
+                 <Link
+-                  href="/tools/model-finder"
++                  href="/solve"
+                   className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-semibold text-slate-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                 >
+-                  <span>Smart Model Finder</span>
++                  <span>Find a model</span>
+                   <span className="rounded-full bg-blue-100 px-2 py-0.5 text-[0.55rem] font-extrabold uppercase text-blue-700">
+                     Finder
+                   </span>
+@@ -317,7 +317,7 @@ export const Header = () => {
+               href="/solve"
+               className="flex items-center justify-between p-3 rounded-xl bg-blue-50 text-blue-700 min-h-[44px]"
+             >
+-              <span>Solution Wizard 🪄</span>
++              <span>Find a model</span>
+               <span className="text-[0.55rem] bg-blue-200 text-blue-800 px-1.5 py-0.5 rounded-full font-black uppercase">
+                 New
+               </span>
+@@ -361,8 +361,8 @@ export const Header = () => {
+               Developer Tools
+             </span>
+             <div className="grid grid-cols-2 gap-2 text-xs font-semibold text-slate-800">
+-              <Link href="/tools/model-finder" className="p-3 rounded-xl bg-blue-50 text-blue-700 font-extrabold hover:bg-blue-100 transition-colors flex items-center justify-between col-span-2 sm:col-span-1">
+-                <span>Smart Model Finder 🔍</span>
++              <Link href="/solve" className="p-3 rounded-xl bg-blue-50 text-blue-700 font-extrabold hover:bg-blue-100 transition-colors flex items-center justify-between col-span-2 sm:col-span-1">
++                <span>Find a model</span>
+                 <span className="text-[0.55rem] bg-blue-200 text-blue-800 px-1.5 py-0.5 rounded-full font-black uppercase">
+                   Finder
+                 </span>
+diff --git a/src/components/finder/Constraints.tsx b/src/components/finder/Constraints.tsx
+new file mode 100644
+index 0000000..7028382
+--- /dev/null
++++ b/src/components/finder/Constraints.tsx
+@@ -0,0 +1,59 @@
++import type { Requirements } from "@/lib/recommendations/types";
++import { Choice, controlClass, NumberField } from "./Controls";
++
++export function Constraints({ value: r, onChange }: { value: Requirements; onChange: (value: Requirements) => void }) {
++  const set = <K extends keyof Requirements>(key: K, value: Requirements[K]) => onChange({ ...r, [key]: value });
++  return <div className="space-y-8">
++    <fieldset className="space-y-3">
++      <legend className="mb-3 text-lg font-semibold">Where should your model run?</legend>
++      <div className="grid gap-3 sm:grid-cols-2">
++        <Choice name="deployment" value="cloud" checked={r.deployment === "cloud"} onChange={() => set("deployment", "cloud")}>
++          <strong className="block">Cloud API</strong><span className="text-sm text-muted">A provider processes your prompts. No local GPU needed.</span>
++        </Choice>
++        <Choice name="deployment" value="local" checked={r.deployment === "local"} onChange={() => set("deployment", "local")}>
++          <strong className="block">On my own device</strong><span className="text-sm text-muted">Download first, then run locally. Cloud models are excluded.</span>
++        </Choice>
++      </div>
++    </fieldset>
++    {r.deployment === "cloud" ? <fieldset className="space-y-4">
++      <legend className="mb-3 text-lg font-semibold">Your API budget and usage</legend>
++      <div className="grid gap-4 sm:grid-cols-2">
++        <NumberField label="Monthly API budget (USD)" value={r.monthlyBudget} min={0} max={1000000} onChange={(v) => set("monthlyBudget", v)} hint="USD pricing; a budget estimate, not a spending cap." />
++        <NumberField label="Requests per month" value={r.requestsPerMonth} min={1} max={1000000} onChange={(v) => set("requestsPerMonth", v)} />
++      </div>
++      <p className="text-sm text-muted">Start with the example usage, then adjust it for your application. API usage is billed separately from chat subscriptions.</p>
++    </fieldset> : <fieldset className="space-y-4">
++      <legend className="mb-3 text-lg font-semibold">Your available hardware</legend>
++      <label className="flex flex-col gap-2 text-sm font-medium">Memory setup
++        <select className={controlClass} value={r.hardware} onChange={(e) => set("hardware", e.target.value as Requirements["hardware"])}>
++          <option value="gpu">Dedicated GPU — fit entirely in VRAM</option>
++          <option value="unified">Unified memory — for example, Apple silicon</option>
++          <option value="cpu">CPU only — system RAM</option>
++        </select>
++      </label>
++      <div className="grid gap-4 sm:grid-cols-2">
++        <NumberField label={r.hardware === "unified" ? "Total unified memory (GB)" : "Total system RAM (GB)"} value={r.ramGB} min={2} max={512} onChange={(v) => set("ramGB", v)} />
++        {r.hardware === "gpu" && <NumberField label="Available GPU VRAM (GB)" value={r.vramGB} min={0} max={256} onChange={(v) => set("vramGB", v)} />}
++      </div>
++      <p className="text-sm text-muted">We reserve 4 GB of system memory and use a conservative model/runtime estimate. Local recommendations cover one request at a time with up to 4,096 total tokens.</p>
++    </fieldset>}
++    <fieldset className="space-y-4">
++      <legend className="mb-3 text-lg font-semibold">How much text per request?</legend>
++      <div className="grid gap-4 sm:grid-cols-2">
++        <NumberField label="Input tokens per request" value={r.inputTokens} min={1} max={200000} onChange={(v) => set("inputTokens", v)} hint="Include instructions, conversation history and retrieved document passages." />
++        <NumberField label="Output tokens per request" value={r.outputTokens} min={1} max={16000} onChange={(v) => set("outputTokens", v)} hint="Include your allowance for reasoning as well as the visible answer." />
++      </div>
++    </fieldset>
++    <fieldset className="space-y-3">
++      <legend className="mb-3 text-lg font-semibold">How should we order suitable options?</legend>
++      <div className="grid gap-3 sm:grid-cols-2">
++        <Choice name="priority" value="fit" checked={r.priority === "fit"} onChange={() => set("priority", "fit")}>
++          <strong className="block">Task shortlist</strong><span className="text-sm text-muted">ModelVault’s editorial starting order for this task.</span>
++        </Choice>
++        <Choice name="priority" value="cost" checked={r.priority === "cost"} onChange={() => set("priority", "cost")}>
++          <strong className="block">{r.deployment === "cloud" ? "Lowest estimated API cost" : "Smallest memory footprint"}</strong><span className="text-sm text-muted">Among models that meet every requirement.</span>
++        </Choice>
++      </div>
++    </fieldset>
++  </div>;
++}
+diff --git a/src/components/finder/Controls.tsx b/src/components/finder/Controls.tsx
+new file mode 100644
+index 0000000..3c48b5c
+--- /dev/null
++++ b/src/components/finder/Controls.tsx
+@@ -0,0 +1,28 @@
++import type { ReactNode } from "react";
++
++export const controlClass = "w-full rounded-control border border-line bg-background px-4 py-3 text-base text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
++export const primaryClass = "rounded-control bg-accent px-5 py-3 text-base font-semibold text-background hover:bg-accent-to focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
++export const secondaryClass = "rounded-control border border-line bg-background px-5 py-3 text-base font-semibold text-foreground hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
++
++export function NumberField({ label, value, onChange, min, max, hint }: {
++  label: string; value: number; onChange: (value: number) => void;
++  min: number; max: number; hint?: string;
++}) {
++  return <label className="flex flex-col gap-2 text-sm font-medium text-foreground">
++    {label}
++    <input className={controlClass} type="number" min={min} max={max} step="any"
++      value={Number.isFinite(value) ? value : ""} required
++      onChange={(event) => onChange(event.target.valueAsNumber)} />
++    {hint && <span className="text-sm font-normal text-muted">{hint}</span>}
++  </label>;
++}
++
++export function Choice({ name, value, checked, onChange, children }: {
++  name: string; value: string; checked: boolean; onChange: () => void; children: ReactNode;
++}) {
++  return <label className={`flex cursor-pointer items-start gap-3 rounded-card-sm border p-4 ${checked ? "border-accent bg-accent/5" : "border-line bg-background hover:bg-surface"}`}>
++    <input type="radio" name={name} value={value} checked={checked} onChange={onChange}
++      className="mt-1 h-4 w-4 shrink-0 accent-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent" />
++    <span className="min-w-0 text-base">{children}</span>
++  </label>;
++}
+diff --git a/src/components/finder/Finder.tsx b/src/components/finder/Finder.tsx
+new file mode 100644
+index 0000000..26ff9b7
+--- /dev/null
++++ b/src/components/finder/Finder.tsx
+@@ -0,0 +1,94 @@
++"use client";
++
++import { useEffect, useRef, useState } from "react";
++import type { CuratedModel, RecommendationResult, Requirements } from "@/lib/recommendations/types";
++import { DEFAULT_REQUIREMENTS, recommend, requirementsSchema } from "@/lib/recommendations/engine";
++import { TASK_OPTIONS } from "@/data/finder-options";
++import { Choice, primaryClass, secondaryClass } from "./Controls";
++import { Constraints } from "./Constraints";
++import { RecommendationCard } from "./RecommendationCard";
++import { trackFinderEvent } from "@/lib/recommendations/analytics";
++
++export function Finder({ models }: { models: readonly CuratedModel[] }) {
++  const [step, setStep] = useState(0);
++  const [requirements, setRequirements] = useState<Requirements>(DEFAULT_REQUIREMENTS);
++  const [result, setResult] = useState<RecommendationResult | null>(null);
++  const [error, setError] = useState("");
++  const heading = useRef<HTMLHeadingElement>(null);
++  const previousStep = useRef(step);
++  const selectedTask = TASK_OPTIONS.find((task) => task.value === requirements.task);
++  useEffect(() => {
++    if (previousStep.current !== step) heading.current?.focus();
++    previousStep.current = step;
++  }, [step]);
++  function submit(event: React.FormEvent<HTMLFormElement>) {
++    event.preventDefault();
++    if (step === 0) { trackFinderEvent("finder_started", { task: requirements.task }); setStep(1); return; }
++    const parsed = requirementsSchema.safeParse(requirements);
++    if (!parsed.success) { setError(parsed.error.issues[0]?.message ?? "Please check your inputs."); return; }
++    const next = recommend(models, parsed.data, new Date().toISOString());
++    trackFinderEvent(next.recommendations.length ? "finder_results" : "finder_no_match", {
++      task: requirements.task, deployment: requirements.deployment, result_count: next.recommendations.length,
++    });
++    setError(""); setResult(next); setStep(2);
++  }
++  function reset() { setRequirements(DEFAULT_REQUIREMENTS); setResult(null); setError(""); setStep(0); }
++  return <section aria-label="Model finder" className="space-y-6">
++    <ol aria-label="Your progress" className="flex flex-wrap gap-3 text-sm">
++      {["Your task", "Your requirements", "Your shortlist"].map((label, index) => <li key={label} aria-current={step === index ? "step" : undefined}
++        className={`rounded-pill px-4 py-2 ${step === index ? "bg-accent text-background font-semibold" : "bg-surface-2 text-muted"}`}>
++        {index + 1}. {label}
++      </li>)}
++    </ol>
++    <h2 ref={heading} tabIndex={-1} className="text-2xl font-bold tracking-tight focus:outline-none">
++      {step === 0 ? "What are you building?" : step === 1 ? "What does your model need to fit?" : "Your model shortlist"}
++    </h2>
++    {step < 2 ? <form onSubmit={submit} className="rounded-card border border-line bg-background p-5 sm:p-7">
++      {step === 0 ? <fieldset>
++        <legend className="mb-5 text-base text-muted">Choose the task closest to your project.</legend>
++        <div className="grid gap-4 sm:grid-cols-2">
++          {TASK_OPTIONS.map((task) => <Choice key={task.value} name="task" value={task.value}
++            checked={requirements.task === task.value} onChange={() => setRequirements({ ...requirements, task: task.value })}>
++            <strong className="block">{task.label}</strong>
++            <span className="mt-2 block text-sm leading-relaxed text-muted">{task.description}</span>
++            <span className="mt-3 block text-sm leading-relaxed">For example: {task.example}</span>
++          </Choice>)}
++        </div>
++      </fieldset> : <Constraints value={requirements} onChange={setRequirements} />}
++      {error && <p role="alert" className="mt-4 font-semibold">{error}</p>}
++      <div className="mt-7 flex flex-wrap items-center gap-3 border-t border-line pt-5">
++        {step > 0 && <button type="button" onClick={() => { setError(""); setStep(0); }} className={secondaryClass}>Back</button>}
++        <button type="submit" className={primaryClass}>{step === 0 ? "Set my requirements" : "Find suitable models"}</button>
++        <p className="text-sm text-muted">No sign-in or API key needed to get recommendations.</p>
++      </div>
++    </form> : <div className="space-y-5">
++      <div className="flex flex-wrap items-start justify-between gap-4 rounded-card-sm bg-surface-2 p-5">
++        <div className="space-y-1 text-base">
++          <p className="font-semibold">{selectedTask?.label} · {requirements.deployment === "cloud" ? "Cloud API" : "Local device"}</p>
++          <p className="text-sm text-muted">{requirements.deployment === "cloud"
++            ? `$${requirements.monthlyBudget}/month API budget · ${requirements.requestsPerMonth.toLocaleString()} requests/month`
++            : `${requirements.ramGB} GB ${requirements.hardware === "unified" ? "unified memory" : "RAM"}${requirements.hardware === "gpu" ? ` · ${requirements.vramGB} GB VRAM` : ""}`}</p>
++          <p className="text-sm text-muted">{requirements.inputTokens.toLocaleString()} input + {requirements.outputTokens.toLocaleString()} output tokens/request.</p>
++        </div>
++        <button type="button" onClick={() => setStep(1)} className={secondaryClass}>Edit requirements</button>
++      </div>
++      {result?.recommendations.length ? <>
++        <p role="status" className="text-base text-muted">Showing {result.recommendations.length} of {result.eligibleCount} eligible options in this curated collection. {requirements.priority === "cost" ? "Ordered by estimated API cost or local memory footprint." : "Ordered by ModelVault’s editorial task shortlist."} Try your own examples before committing.</p>
++        {result.recommendations.map((recommendation, index) => <RecommendationCard key={recommendation.model.id}
++          result={recommendation} index={index} requirements={requirements} />)}
++      </> : <div role="status" className="rounded-card border border-line bg-background p-6">
++        <h3 className="text-xl font-bold">No suitable model in this collection yet.</h3>
++        <p className="mt-3 text-base text-muted">{result?.error ?? "None of our curated models meet all your current requirements. We have not relaxed your budget, privacy choice or hardware limits."}</p>
++        <p className="mt-3 text-base">Review the reasons below, edit a requirement if it is flexible, or return when the collection expands.</p>
++      </div>}
++      {!!result && Object.keys(result.excluded).length > 0 && <details className="rounded-control border border-line p-4">
++        <summary className="cursor-pointer font-semibold">Why other models were excluded</summary>
++        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-muted">
++          {Object.entries(result.excluded).map(([reason, count]) => <li key={reason}>{reason}: {count}</li>)}
++        </ul>
++        <p className="mt-3 text-sm text-muted">Only the first exclusion reason is counted per model. Models in the other deployment category are not considered.</p>
++      </details>}
++      <button type="button" onClick={reset} className={secondaryClass}>Start a new search</button>
++    </div>}
++  </section>;
++}
+diff --git a/src/components/finder/RecommendationCard.tsx b/src/components/finder/RecommendationCard.tsx
+new file mode 100644
+index 0000000..c54de6a
+--- /dev/null
++++ b/src/components/finder/RecommendationCard.tsx
+@@ -0,0 +1,75 @@
++"use client";
++
++import { useState } from "react";
++import type { Recommendation, Requirements } from "@/lib/recommendations/types";
++import { secondaryClass } from "./Controls";
++import { trackFinderEvent } from "@/lib/recommendations/analytics";
++
++export function RecommendationCard({ result, index, requirements }: {
++  result: Recommendation; index: number; requirements: Requirements;
++}) {
++  const [copyStatus, setCopyStatus] = useState("");
++  const { model, estimatedMonthlyCost, reasons, caveats } = result;
++  const command = model.local ? `ollama run ${model.local.ollamaTag}` : null;
++  async function copyCommand() {
++    if (!command) return;
++    try { await navigator.clipboard.writeText(command); setCopyStatus("Command copied."); trackFinderEvent("finder_command_copied", { model_id: model.id }); }
++    catch { setCopyStatus("Could not copy. Select the command below and copy it manually."); }
++  }
++  return <article className={`min-w-0 rounded-card border bg-background p-5 sm:p-7 ${index === 0 ? "border-accent" : "border-line"}`}>
++    <div className="flex flex-wrap items-start justify-between gap-4">
++      <div>
++        <p className="mb-2 text-sm font-semibold text-accent">{index === 0 ? "First to try" : `Alternative ${index}`}</p>
++        <h3 className="text-2xl font-bold tracking-tight">{model.name}</h3>
++        <p className="mt-1 text-sm text-muted">{model.provider} · {model.deployment === "cloud" ? "Cloud API via OpenRouter" : "Local · Ollama Q4 package"}</p>
++      </div>
++      <div className="rounded-control bg-surface px-4 py-3">
++        <p className="text-lg font-bold">{estimatedMonthlyCost !== null
++          ? `${new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 2 }).format(estimatedMonthlyCost)}/month`
++          : "No hosted API charge"}</p>
++        <p className="text-sm text-muted">{model.local ? `About ${model.local.downloadGB} GB to download` : "Estimated text-token usage"}</p>
++      </div>
++    </div>
++    <div className="mt-6 grid gap-6 md:grid-cols-2">
++      <section aria-label={`Why ${model.name} fits`}>
++        <h4 className="font-semibold">Why it fits</h4>
++        <ul className="mt-3 list-disc space-y-2 pl-5 text-base leading-relaxed">{reasons.map((reason) => <li key={reason}>{reason}</li>)}</ul>
++      </section>
++      <section aria-label={`${model.name} trade-offs`}>
++        <h4 className="font-semibold">Before you choose</h4>
++        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted">{caveats.map((caveat) => <li key={caveat}>{caveat}</li>)}</ul>
++      </section>
++    </div>
++    <details className="mt-6 rounded-control border border-line p-4">
++      <summary className="cursor-pointer text-base font-semibold focus-visible:outline-2 focus-visible:outline-accent">Sources and calculation</summary>
++      <div className="mt-4 space-y-3 text-sm leading-relaxed">
++        <p>Source checked {model.checkedAt}. Specifications come from the linked catalog; ModelVault has not independently benchmarked this model. The order is editorial, not a measured quality score.</p>
++        {model.cloud ? <>
++          <p>OpenRouter listed rates: ${model.cloud.inputPerMillion} per million input tokens; ${model.cloud.outputPerMillion} per million output tokens.</p>
++          <p>{requirements.requestsPerMonth.toLocaleString()} requests × ({requirements.inputTokens.toLocaleString()} input tokens × ${model.cloud.inputPerMillion} + {requirements.outputTokens.toLocaleString()} output tokens × ${model.cloud.outputPerMillion}) ÷ 1,000,000.</p>
++          <p>Advertised context: {model.contextTokens.toLocaleString()} tokens. Provider availability and pricing can change; confirm before use.</p>
++        </> : <p>The {model.local?.estimatedMemoryGB} GB runtime allowance is a ModelVault estimate for the linked Q4 package at up to 4,096 total tokens, plus 4 GB system reserve. It is not a hardware benchmark or the model’s maximum supported context.</p>}
++        <a href={model.sourceUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-accent underline">Read the model source ↗</a>
++      </div>
++    </details>
++    <div className="mt-6 space-y-3 border-t border-line pt-5">
++      <h4 className="font-semibold">Start with this model</h4>
++      {command ? <>
++        <p className="text-sm text-muted">Install Ollama, then run the command. The first run downloads the weights. Use a 4,096-token context or smaller to stay within this estimate.</p>
++        <pre className="overflow-x-auto rounded-control bg-ink p-4 text-sm text-background"><code>{command}</code></pre>
++        <div className="flex flex-wrap items-center gap-3">
++          <button type="button" onClick={copyCommand} className={secondaryClass}>Copy command</button>
++          <a href={model.setupUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackFinderEvent("finder_setup_opened", { model_id: model.id })} className="text-base font-semibold text-accent underline">Ollama setup guide ↗</a>
++        </div>
++        <p role="status" className="text-sm text-muted">{copyStatus}</p>
++      </> : <>
++        <p className="text-sm text-muted">Create an OpenRouter account, configure billing and keep your API key on your server. Use this exact model ID:</p>
++        <code className="block break-all rounded-control bg-surface p-3 text-sm">{model.id}</code>
++        <div className="flex flex-wrap gap-4">
++          <a href={model.sourceUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackFinderEvent("finder_setup_opened", { model_id: model.id })} className="text-base font-semibold text-accent underline">Open model provider page ↗</a>
++          <a href={model.setupUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackFinderEvent("finder_setup_opened", { model_id: model.id })} className="text-base font-semibold text-accent underline">API quickstart ↗</a>
++        </div>
++      </>}
++    </div>
++  </article>;
++}
+diff --git a/src/data/curated-cloud.json b/src/data/curated-cloud.json
+new file mode 100644
+index 0000000..4528434
+--- /dev/null
++++ b/src/data/curated-cloud.json
+@@ -0,0 +1,130 @@
++[
++  {
++    "id": "openai/gpt-6-astra",
++    "name": "GPT-6 Astra",
++    "provider": "OpenAI",
++    "deployment": "cloud",
++    "tasks": [
++      "coding",
++      "documents",
++      "extraction",
++      "chat"
++    ],
++    "taskOrder": {
++      "coding": 2,
++      "documents": 4,
++      "extraction": 4,
++      "chat": 4
++    },
++    "rationale": "A candidate for demanding coding and analysis when the estimated cost fits.",
++    "limitations": [
++      "Higher token cost than the compact options in this collection. Reasoning can add billed output tokens."
++    ],
++    "sourceUrl": "https://openrouter.ai/openai/gpt-6-astra",
++    "setupUrl": "https://openrouter.ai/docs/quickstart",
++    "checkedAt": "2026-09-08",
++    "contextTokens": 1050000,
++    "maxOutputTokens": 128000,
++    "cloud": {
++      "inputPerMillion": 10.0,
++      "outputPerMillion": 50.0,
++      "structuredOutput": true
++    }
++  },
++  {
++    "id": "anthropic/claude-sonnet-4.6",
++    "name": "Claude Sonnet 4.6",
++    "provider": "Anthropic",
++    "deployment": "cloud",
++    "tasks": [
++      "coding",
++      "documents",
++      "extraction",
++      "chat"
++    ],
++    "taskOrder": {
++      "coding": 1,
++      "documents": 3,
++      "extraction": 3,
++      "chat": 3
++    },
++    "rationale": "An option for iterative coding and text workflows with documented tool and schema support.",
++    "limitations": [
++      "Test on your own codebase; a model catalog does not establish real-world task accuracy."
++    ],
++    "sourceUrl": "https://openrouter.ai/anthropic/claude-sonnet-4.6",
++    "setupUrl": "https://openrouter.ai/docs/quickstart",
++    "checkedAt": "2026-09-08",
++    "contextTokens": 1000000,
++    "maxOutputTokens": 128000,
++    "cloud": {
++      "inputPerMillion": 3.0,
++      "outputPerMillion": 15.0,
++      "structuredOutput": true
++    }
++  },
++  {
++    "id": "google/gemini-3.8-flash",
++    "name": "Gemini 3.8 Flash",
++    "provider": "Google",
++    "deployment": "cloud",
++    "tasks": [
++      "coding",
++      "documents",
++      "extraction",
++      "chat"
++    ],
++    "taskOrder": {
++      "coding": 3,
++      "documents": 1,
++      "extraction": 2,
++      "chat": 2
++    },
++    "rationale": "An option for document and assistant workflows with a large advertised context allowance.",
++    "limitations": [
++      "A large context window does not guarantee accurate retrieval. Extra thinking and tool calls can increase cost."
++    ],
++    "sourceUrl": "https://openrouter.ai/google/gemini-3.8-flash",
++    "setupUrl": "https://openrouter.ai/docs/quickstart",
++    "checkedAt": "2026-09-08",
++    "contextTokens": 1048576,
++    "maxOutputTokens": 65536,
++    "cloud": {
++      "inputPerMillion": 0.75,
++      "outputPerMillion": 3.75,
++      "structuredOutput": true
++    }
++  },
++  {
++    "id": "openai/gpt-5-mini",
++    "name": "GPT-5 Mini",
++    "provider": "OpenAI",
++    "deployment": "cloud",
++    "tasks": [
++      "coding",
++      "documents",
++      "extraction",
++      "chat"
++    ],
++    "taskOrder": {
++      "coding": 4,
++      "documents": 2,
++      "extraction": 1,
++      "chat": 1
++    },
++    "rationale": "A lower-priced candidate for bounded text tasks and schema-based extraction.",
++    "limitations": [
++      "Complex coding and reasoning tasks may require a more capable model; validate using representative examples."
++    ],
++    "sourceUrl": "https://openrouter.ai/openai/gpt-5-mini",
++    "setupUrl": "https://openrouter.ai/docs/quickstart",
++    "checkedAt": "2026-09-08",
++    "contextTokens": 400000,
++    "maxOutputTokens": 128000,
++    "cloud": {
++      "inputPerMillion": 0.25,
++      "outputPerMillion": 2.0,
++      "structuredOutput": true
++    }
++  }
++]
+diff --git a/src/data/curated-models.ts b/src/data/curated-models.ts
+new file mode 100644
+index 0000000..8d5b758
+--- /dev/null
++++ b/src/data/curated-models.ts
+@@ -0,0 +1,49 @@
++import cloudSnapshot from "./curated-cloud.json";
++import type { CuratedModel, Task } from "@/lib/recommendations/types";
++
++const GENERAL_TASKS: Task[] = ["documents", "extraction", "chat", "coding"];
++const localModels: CuratedModel[] = [
++  {
++    id: "ollama/qwen3:4b", name: "Qwen3 4B", provider: "Qwen", deployment: "local",
++    tasks: GENERAL_TASKS, taskOrder: { chat: 2, documents: 2, extraction: 2, coding: 4 },
++    rationale: "A compact general text model for a modest local memory budget.",
++    limitations: ["The compact model can struggle with difficult reasoning and long documents. Disable thinking for simple tasks if latency matters."],
++    sourceUrl: "https://ollama.com/library/qwen3:4b", setupUrl: "https://docs.ollama.com/quickstart",
++    checkedAt: "2026-09-08", contextTokens: 4096, maxOutputTokens: 2048,
++    local: { ollamaTag: "qwen3:4b", downloadGB: 2.5, estimatedMemoryGB: 5 },
++  },
++  {
++    id: "ollama/qwen3:8b", name: "Qwen3 8B", provider: "Qwen", deployment: "local",
++    tasks: GENERAL_TASKS, taskOrder: { chat: 1, documents: 1, extraction: 1, coding: 3 },
++    rationale: "A general text candidate when your device has more room for model weights and runtime memory.",
++    limitations: ["Needs more memory than the 4B option; output speed is device-dependent."],
++    sourceUrl: "https://ollama.com/library/qwen3:8b", setupUrl: "https://docs.ollama.com/quickstart",
++    checkedAt: "2026-09-08", contextTokens: 4096, maxOutputTokens: 2048,
++    local: { ollamaTag: "qwen3:8b", downloadGB: 5.2, estimatedMemoryGB: 8 },
++  },
++  {
++    id: "ollama/qwen2.5-coder:7b", name: "Qwen2.5 Coder 7B", provider: "Qwen", deployment: "local",
++    tasks: ["coding"], taskOrder: { coding: 2 },
++    rationale: "A coding-focused model with a documented Ollama package for local development tasks.",
++    limitations: ["This older coding specialist is included for its accessible package size, not as a frontier coding leader."],
++    sourceUrl: "https://ollama.com/library/qwen2.5-coder:7b", setupUrl: "https://docs.ollama.com/quickstart",
++    checkedAt: "2026-09-08", contextTokens: 4096, maxOutputTokens: 2048,
++    local: { ollamaTag: "qwen2.5-coder:7b", downloadGB: 4.7, estimatedMemoryGB: 7 },
++  },
++  {
++    id: "ollama/qwen2.5-coder:14b", name: "Qwen2.5 Coder 14B", provider: "Qwen", deployment: "local",
++    tasks: ["coding"], taskOrder: { coding: 1 },
++    rationale: "A larger local coding candidate for devices with enough dedicated or unified memory.",
++    limitations: ["This package will not fit entirely into a 6 GB GPU. CPU offloading is outside this finder's GPU-fit policy."],
++    sourceUrl: "https://ollama.com/library/qwen2.5-coder:14b", setupUrl: "https://docs.ollama.com/quickstart",
++    checkedAt: "2026-09-08", contextTokens: 4096, maxOutputTokens: 2048,
++    local: { ollamaTag: "qwen2.5-coder:14b", downloadGB: 9, estimatedMemoryGB: 13 },
++  },
++];
++
++// Explicitly reviewed IDs only. Bulk catalog sync cannot admit a model here.
++// JSON widens literal strings, so validate the fixed discriminants when importing.
++const cloudModels: CuratedModel[] = cloudSnapshot.map((row) => ({
++  ...row, deployment: "cloud", tasks: GENERAL_TASKS,
++}));
++export const CURATED_MODELS: readonly CuratedModel[] = [...cloudModels, ...localModels];
+diff --git a/src/data/finder-options.ts b/src/data/finder-options.ts
+new file mode 100644
+index 0000000..96a502b
+--- /dev/null
++++ b/src/data/finder-options.ts
+@@ -0,0 +1,14 @@
++import type { Task } from "@/lib/recommendations/types";
++
++export const TASK_OPTIONS: { value: Task; label: string; description: string; example: string }[] = [
++  { value: "documents", label: "Answer from my documents", description: "Choose the generation model for a document Q&A app.", example: "An assistant that answers questions using a company knowledge base." },
++  { value: "coding", label: "Write or understand code", description: "Generate functions, explain code and propose fixes.", example: "A developer assistant for Python and TypeScript." },
++  { value: "extraction", label: "Extract structured information", description: "Turn supplied text into fields your app can validate.", example: "Extract names, dates and amounts from invoice text." },
++  { value: "chat", label: "Build a text assistant", description: "Conversation, drafting and summarization.", example: "An assistant that summarizes messages and drafts replies." },
++];
++
++export const FINDER_COPY = {
++  title: "Find the right AI model for your project.",
++  description: "Choose your task, budget and setup. Get up to three curated options with reasons, trade-offs and a way to start.",
++  scope: "This first collection covers text applications in English. Image, video, speech and language-specific recommendations are not included yet.",
++};
+diff --git a/src/lib/recommendations/analytics.ts b/src/lib/recommendations/analytics.ts
+new file mode 100644
+index 0000000..749cfe9
+--- /dev/null
++++ b/src/lib/recommendations/analytics.ts
+@@ -0,0 +1,12 @@
++"use client";
++
++import { useCookieStore } from "@/components/common/Cookie/cookieStore";
++import { trackEvent } from "@/lib/analytics/events";
++
++type FinderEvent = "finder_started" | "finder_results" | "finder_no_match" | "finder_setup_opened" | "finder_command_copied";
++
++/** Coarse funnel events only. Never send raw prompts, budget or hardware values. */
++export function trackFinderEvent(name: FinderEvent, details: { task?: string; deployment?: string; model_id?: string; result_count?: number } = {}) {
++  const { consent, hydrated } = useCookieStore.getState();
++  if (hydrated && consent?.analytics) trackEvent(name, details);
++}
+diff --git a/src/lib/recommendations/engine.ts b/src/lib/recommendations/engine.ts
+new file mode 100644
+index 0000000..439c9a6
+--- /dev/null
++++ b/src/lib/recommendations/engine.ts
+@@ -0,0 +1,100 @@
++import { z } from "zod";
++import type { CuratedModel, Recommendation, RecommendationResult, Requirements } from "./types";
++
++const requirementFields = z.object({
++  task: z.enum(["coding", "documents", "extraction", "chat"]),
++  deployment: z.enum(["cloud", "local"]),
++  priority: z.enum(["fit", "cost"]),
++  monthlyBudget: z.number().finite().min(0).max(1_000_000),
++  requestsPerMonth: z.number().int().min(1).max(1_000_000),
++  inputTokens: z.number().int().min(1).max(200_000),
++  outputTokens: z.number().int().min(1).max(16_000),
++  hardware: z.enum(["gpu", "cpu", "unified"]),
++  ramGB: z.number().finite().min(2).max(512),
++  vramGB: z.number().finite().min(0).max(256),
++});
++
++export const DEFAULT_REQUIREMENTS: Requirements = {
++  task: "documents", deployment: "cloud", priority: "fit", monthlyBudget: 20,
++  requestsPerMonth: 1000, inputTokens: 2000, outputTokens: 500,
++  hardware: "gpu", ramGB: 16, vramGB: 6,
++};
++
++// Hidden fields from the other deployment mode cannot block the active form.
++export const requirementsSchema = z.preprocess((input) => {
++  if (!input || typeof input !== "object") return input;
++  const fields = input as Record<string, unknown>;
++  if (fields.deployment === "cloud") return { ...fields,
++    hardware: DEFAULT_REQUIREMENTS.hardware, ramGB: DEFAULT_REQUIREMENTS.ramGB, vramGB: DEFAULT_REQUIREMENTS.vramGB,
++  };
++  if (fields.deployment === "local") return { ...fields,
++    monthlyBudget: DEFAULT_REQUIREMENTS.monthlyBudget, requestsPerMonth: DEFAULT_REQUIREMENTS.requestsPerMonth,
++  };
++  return input;
++}, requirementFields);
++
++export function estimateMonthlyCost(model: CuratedModel, r: Requirements): number | null {
++  if (!model.cloud) return null;
++  return r.requestsPerMonth * (r.inputTokens * model.cloud.inputPerMillion +
++    r.outputTokens * model.cloud.outputPerMillion) / 1_000_000;
++}
++
++/** Hard requirements always precede editorial ranking. No fallback can relax them. */
++export function recommend(models: readonly CuratedModel[], input: unknown, asOf: string): RecommendationResult {
++  const parsed = requirementsSchema.safeParse(input);
++  if (!parsed.success || !Number.isFinite(Date.parse(asOf))) {
++    return { recommendations: [], eligibleCount: 0, excluded: {}, error: "Check your requirements: enter valid, positive usage and hardware values." };
++  }
++  const r = parsed.data;
++  const excluded: Record<string, number> = {};
++  const eligible: Recommendation[] = [];
++  const reject = (reason: string) => { excluded[reason] = (excluded[reason] ?? 0) + 1; };
++  for (const model of models) {
++    if (model.deployment !== r.deployment) continue;
++    if (!model.tasks.includes(r.task)) { reject("Not curated for this task"); continue; }
++    const ageDays = (Date.parse(asOf) - Date.parse(model.checkedAt)) / 86_400_000;
++    if (!Number.isFinite(ageDays) || ageDays < 0 || ageDays > (model.cloud ? 14 : 90)) {
++      reject("Source information needs refreshing"); continue;
++    }
++    if (r.inputTokens + r.outputTokens > model.contextTokens || r.outputTokens > model.maxOutputTokens) {
++      reject("Insufficient context or output allowance"); continue;
++    }
++    const monthly = estimateMonthlyCost(model, r);
++    const reasons = [model.rationale];
++    const caveats = [...model.limitations];
++    if (r.deployment === "cloud") {
++      if (!model.cloud || monthly === null || !Number.isFinite(monthly) || monthly < 0) {
++        reject("Pricing is not verified"); continue;
++      }
++      if (monthly > r.monthlyBudget) { reject("Above your estimated API budget"); continue; }
++      if (r.task === "extraction" && !model.cloud.structuredOutput) {
++        reject("Structured output is not documented"); continue;
++      }
++      reasons.push("Available through a hosted API; no local GPU required.");
++      reasons.push("Estimated text-token cost fits your monthly API budget.");
++      caveats.push("Estimate excludes taxes, credit fees, tools, retries and extra reasoning tokens; actual bills can exceed it. A ChatGPT or other chat subscription does not cover this API usage.");
++    } else {
++      if (!model.local) { reject("Local setup is not documented"); continue; }
++      const memory = model.local.estimatedMemoryGB;
++      if (r.ramGB < memory + 4 || (r.hardware === "gpu" && r.vramGB < memory)) {
++        reject("Above the conservative memory budget"); continue;
++      }
++      reasons.push(r.hardware === "gpu"
++        ? `Estimated ${memory} GB model/runtime budget fits your ${r.vramGB} GB VRAM, with 4 GB reserved in system RAM.`
++        : `Estimated ${memory} GB model/runtime budget fits your memory, with 4 GB reserved for the system.`);
++      reasons.push("Runs locally after downloading the model; no hosted inference API charge.");
++      caveats.push("Memory fit is an estimate for one request, Q4 weights and at most 4,096 total tokens. Speed and fit have not been measured on your device. Electricity and hardware still cost money.");
++      if (r.hardware === "cpu") caveats.push("CPU-only generation can be slow. This finder does not predict tokens per second.");
++    }
++    if (r.task === "documents") caveats.push("This is the answer-generation model. Document parsing, retrieval, embeddings and source citations still need to be built separately.");
++    if (r.task === "extraction") caveats.push("Validate extracted fields against your schema and examples; structured output does not guarantee correct values.");
++    eligible.push({ model, estimatedMonthlyCost: monthly, reasons, caveats });
++  }
++  eligible.sort((a, b) => {
++    const costA = a.estimatedMonthlyCost ?? a.model.local?.estimatedMemoryGB ?? Infinity;
++    const costB = b.estimatedMonthlyCost ?? b.model.local?.estimatedMemoryGB ?? Infinity;
++    const fit = (a.model.taskOrder[r.task] ?? 99) - (b.model.taskOrder[r.task] ?? 99);
++    return (r.priority === "cost" ? costA - costB || fit : fit || costA - costB) || a.model.id.localeCompare(b.model.id);
++  });
++  return { recommendations: eligible.slice(0, 3), eligibleCount: eligible.length, excluded };
++}
+diff --git a/src/lib/recommendations/types.ts b/src/lib/recommendations/types.ts
+new file mode 100644
+index 0000000..be6a69f
+--- /dev/null
++++ b/src/lib/recommendations/types.ts
+@@ -0,0 +1,59 @@
++export type Task = "coding" | "documents" | "extraction" | "chat";
++export type Deployment = "cloud" | "local";
++export type Hardware = "gpu" | "cpu" | "unified";
++export type Priority = "fit" | "cost";
++
++export interface Requirements {
++  task: Task;
++  deployment: Deployment;
++  priority: Priority;
++  monthlyBudget: number;
++  requestsPerMonth: number;
++  inputTokens: number;
++  outputTokens: number;
++  hardware: Hardware;
++  ramGB: number;
++  vramGB: number;
++}
++
++export interface CuratedModel {
++  id: string;
++  name: string;
++  provider: string;
++  deployment: Deployment;
++  tasks: Task[];
++  taskOrder: Partial<Record<Task, number>>;
++  rationale: string;
++  limitations: string[];
++  sourceUrl: string;
++  setupUrl: string;
++  checkedAt: string;
++  contextTokens: number;
++  maxOutputTokens: number;
++  // Provider metadata, not an independently measured performance score.
++  cloud?: {
++    inputPerMillion: number;
++    outputPerMillion: number;
++    structuredOutput: boolean;
++  };
++  local?: {
++    ollamaTag: string;
++    downloadGB: number;
++    // Conservative editorial budget for one request up to 4,096 total tokens.
++    estimatedMemoryGB: number;
++  };
++}
++
++export interface Recommendation {
++  model: CuratedModel;
++  estimatedMonthlyCost: number | null;
++  reasons: string[];
++  caveats: string[];
++}
++
++export interface RecommendationResult {
++  recommendations: Recommendation[];
++  eligibleCount: number;
++  excluded: Record<string, number>;
++  error?: string;
++}
+diff --git a/src/lib/site.ts b/src/lib/site.ts
+index b2a09b6..5997288 100644
+--- a/src/lib/site.ts
++++ b/src/lib/site.ts
+@@ -9,7 +9,7 @@ import { publicEnv } from "@/env";
+ export const siteConfig = {
+   name: "ModelVault",
+   description:
+-    "The open directory for discovering, comparing, and benchmarking 11,000+ cloud and local AI models. Built for engineers, researchers, and technical leaders.",
++    "Find suitable AI models for your task, budget and hardware. Compare a curated shortlist with sources, trade-offs and setup guidance.",
+   /**
+    * Public origin, no trailing slash. Drives canonical URLs, OG tags, the
+    * sitemap, and JSON-LD. Set `NEXT_PUBLIC_SITE_URL` in production.
+diff --git a/src/views/home.tsx b/src/views/home.tsx
+index 1752ad1..6146fee 100644
+--- a/src/views/home.tsx
++++ b/src/views/home.tsx
+@@ -1,240 +1 @@
+-"use client";
+-
+-import { useEffect } from "react";
+-import Link from "next/link";
+-import { useDirectoryStore } from "@/stores/use-directory-store";
+-import { Header } from "@/components/directory/Header";
+-import { SearchHero } from "@/components/directory/SearchHero";
+-import { LiveStats } from "@/components/directory/LiveStats";
+-import { CategoryCard } from "@/components/directory/CategoryCard";
+-import { ModelCard } from "@/components/directory/ModelCard";
+-import { BestForBlock } from "@/components/directory/BestForBlock";
+-import { WhyModelVault } from "@/components/directory/WhyModelVault";
+-import { FeaturedComparison } from "@/components/directory/FeaturedComparison";
+-import { DevToolsTeaser } from "@/components/directory/DevToolsTeaser";
+-import { Newsletter } from "@/components/directory/Newsletter";
+-import { Footer } from "@/components/directory/Footer";
+-import { CATEGORIES } from "@/data/categories";
+-import { PROVIDERS } from "@/data/providers";
+-import { UseCase } from "@/types/model";
+-import { ArrowRightIcon } from "@/components/directory/icons";
+-
+-export const HomeView = () => {
+-  const allModels = useDirectoryStore((s) => s.allModels);
+-  const loadModelsFromDb = useDirectoryStore((s) => s.loadModelsFromDb);
+-
+-  useEffect(() => {
+-    loadModelsFromDb();
+-  }, [loadModelsFromDb]);
+-
+-  const trendingModels = allModels.filter((m) => m.trending).slice(0, 6);
+-  const featuredCategories = CATEGORIES.slice(0, 6);
+-  const recentlyAdded = [...allModels]
+-    .sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime())
+-    .slice(0, 4);
+-
+-  const getCategoryCount = (slug: string) => {
+-    if (allModels.length === 0) return 0;
+-    return allModels.filter((m) => m.useCases && m.useCases.includes(slug as UseCase)).length;
+-  };
+-
+-  return (
+-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+-      <Header />
+-
+-      <main className="flex-1">
+-        {/* 1. Hero Section */}
+-        <SearchHero />
+-
+-        {/* 2. Live Statistics Section */}
+-        <section className="py-10 bg-white border-b border-slate-200/80">
+-          <div className="shell">
+-            <LiveStats />
+-          </div>
+-        </section>
+-
+-        {/* 3. Popular Categories */}
+-        <section className="py-14 bg-white border-b border-slate-200/80">
+-          <div className="shell">
+-            <div className="flex items-end justify-between mb-8">
+-              <div>
+-                <span className="text-xs font-extrabold text-blue-600 uppercase tracking-widest block mb-1">
+-                  Taxonomy & Modality
+-                </span>
+-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+-                  Popular Model Categories
+-                </h2>
+-              </div>
+-              <Link
+-                href="/models"
+-                className="hidden sm:inline-flex items-center gap-1.5 text-xs font-extrabold text-blue-600 hover:text-blue-700 transition-colors"
+-              >
+-                <span>View all categories</span>
+-                <ArrowRightIcon className="w-3.5 h-3.5" />
+-              </Link>
+-            </div>
+-
+-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+-              {featuredCategories.map((cat) => (
+-                <CategoryCard key={cat.slug} category={cat} overrideCount={getCategoryCount(cat.slug)} />
+-              ))}
+-            </div>
+-          </div>
+-        </section>
+-
+-        {/* 4. Trending Models */}
+-        <section className="py-14">
+-          <div className="shell">
+-            <div className="flex items-end justify-between mb-8">
+-              <div>
+-                <div className="inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-0.5 text-[0.7rem] font-extrabold text-amber-800 mb-2">
+-                  🔥 High Demand
+-                </div>
+-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+-                  Trending & Popular AI Models
+-                </h2>
+-              </div>
+-              <Link
+-                href="/models"
+-                className="inline-flex items-center gap-1.5 text-xs font-extrabold text-blue-600 hover:text-blue-700 transition-colors"
+-              >
+-                <span>Browse all {allModels.length} models</span>
+-                <ArrowRightIcon className="w-3.5 h-3.5" />
+-              </Link>
+-            </div>
+-
+-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+-              {trendingModels.map((model) => (
+-                <ModelCard key={model.slug} model={model} />
+-              ))}
+-            </div>
+-          </div>
+-        </section>
+-
+-        {/* "Best For" Recommendations Block */}
+-        <section className="py-14 bg-white border-y border-slate-200/80">
+-          <div className="shell">
+-            <div className="mb-6">
+-              <span className="text-xs font-extrabold text-blue-600 uppercase tracking-widest block mb-1">
+-                Curated Recommendations
+-              </span>
+-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+-                Best Models for Specific Roles
+-              </h2>
+-            </div>
+-
+-            <BestForBlock />
+-          </div>
+-        </section>
+-
+-        {/* Recently Released Models */}
+-        <section className="py-14">
+-          <div className="shell">
+-            <div className="flex items-end justify-between mb-8">
+-              <div>
+-                <span className="text-xs font-extrabold text-emerald-600 uppercase tracking-widest block mb-1">
+-                  Latest Indexing
+-                </span>
+-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+-                  Recently Added Models
+-                </h2>
+-              </div>
+-            </div>
+-
+-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+-              {recentlyAdded.map((model) => (
+-                <ModelCard key={model.slug} model={model} />
+-              ))}
+-            </div>
+-          </div>
+-        </section>
+-
+-        {/* 5. Why ModelVault */}
+-        <section className="py-16 bg-white border-y border-slate-200/80">
+-          <div className="shell">
+-            <div className="text-center max-w-xl mx-auto mb-10">
+-              <span className="text-xs font-extrabold text-blue-600 uppercase tracking-widest block mb-1">
+-                Platform Architecture
+-              </span>
+-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+-                Why Developers Choose ModelVault
+-              </h2>
+-              <p className="text-xs sm:text-sm text-slate-600 font-medium mt-2 leading-relaxed">
+-                Standardized metadata, hardware requirements, and benchmark transparency built for high-performance AI deployment.
+-              </p>
+-            </div>
+-
+-            <WhyModelVault />
+-          </div>
+-        </section>
+-
+-        {/* 6. Featured Comparison */}
+-        <section className="py-16">
+-          <div className="shell">
+-            <FeaturedComparison />
+-          </div>
+-        </section>
+-
+-        {/* 7. Developer Tools Preview */}
+-        <section className="py-16 bg-white border-t border-slate-200/80">
+-          <div className="shell">
+-            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-2">
+-              <div>
+-                <span className="text-xs font-extrabold text-purple-600 uppercase tracking-widest block mb-1">
+-                  Developer Utilities & Calculators
+-                </span>
+-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+-                  Interactive Developer Tools
+-                </h2>
+-              </div>
+-              <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+-                5 Tools Live
+-              </span>
+-            </div>
+-
+-            <DevToolsTeaser />
+-          </div>
+-        </section>
+-
+-        {/* Top Providers Section */}
+-        <section className="py-14 bg-slate-50 border-t border-slate-200/80">
+-          <div className="shell">
+-            <div className="text-center max-w-xl mx-auto mb-8">
+-              <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+-                Indexed AI Research Labs
+-              </h2>
+-              <p className="text-xs text-slate-600 font-medium mt-1">
+-                Leading creators of frontier models, open weights, and API infrastructure.
+-              </p>
+-            </div>
+-
+-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+-              {PROVIDERS.map((prov) => (
+-                <Link
+-                  key={prov.slug}
+-                  href={`/models?provider=${prov.slug}`}
+-                  className="flex flex-col items-center justify-center p-4 rounded-2xl border border-slate-200 bg-white hover:border-blue-300 hover:shadow-md transition-all text-center"
+-                >
+-                  <span className="font-extrabold text-sm text-slate-900">{prov.name}</span>
+-                  <span className="text-[0.7rem] font-bold text-slate-500 mt-1">
+-                    {prov.modelCount} Models Index
+-                  </span>
+-                </Link>
+-              ))}
+-            </div>
+-          </div>
+-        </section>
+-
+-        {/* 8. Newsletter Section */}
+-        <section className="py-16">
+-          <div className="shell">
+-            <Newsletter />
+-          </div>
+-        </section>
+-      </main>
+-
+-      {/* 9. Footer */}
+-      <Footer />
+-    </div>
+-  );
+-};
++export { RequirementsFinderView as HomeView, finderMetadata as metadata } from "./requirements-finder";
+diff --git a/src/views/model-finder.tsx b/src/views/model-finder.tsx
+index 85e2fd6..5cc1932 100644
+--- a/src/views/model-finder.tsx
++++ b/src/views/model-finder.tsx
+@@ -1,438 +1,3 @@
+-"use client";
++import { redirect } from "next/navigation";
+ 
+-import { useState, useMemo, useEffect } from "react";
+-import Link from "next/link";
+-import { useDirectoryStore } from "@/stores/use-directory-store";
+-import { Header } from "@/components/directory/Header";
+-import { Footer } from "@/components/directory/Footer";
+-import { ArrowRightIcon, SparklesIcon, CheckIcon } from "@/components/directory/icons";
+-import type { AIModel, UseCase, PricingType, Availability } from "@/types/model";
+-
+-/* ------------------------------------------------------------------ */
+-/*  Step definitions                                                    */
+-/* ------------------------------------------------------------------ */
+-interface StepOption<T extends string> {
+-  value: T;
+-  label: string;
+-  description: string;
+-  emoji: string;
+-}
+-
+-const USE_CASE_OPTIONS: StepOption<UseCase>[] = [
+-  { value: "text-chat", label: "Text / Chat", description: "Conversations, writing, translation", emoji: "💬" },
+-  { value: "reasoning", label: "Reasoning", description: "Complex logic, math, analysis", emoji: "🧠" },
+-  { value: "coding", label: "Coding", description: "Code generation, debugging, agents", emoji: "💻" },
+-  { value: "image-gen", label: "Image Generation", description: "Text-to-image, art, graphics", emoji: "🎨" },
+-  { value: "video-gen", label: "Video Generation", description: "Text-to-video, motion synthesis", emoji: "🎬" },
+-  { value: "audio-speech", label: "Audio & Speech", description: "Speech-to-text, voice synthesis", emoji: "🎤" },
+-  { value: "vision-language", label: "Vision / Multimodal", description: "Image understanding, documents", emoji: "👁️" },
+-  { value: "embeddings-rag", label: "Embeddings / RAG", description: "Vector search, knowledge retrieval", emoji: "🔗" },
+-  { value: "local", label: "Local / On-Device", description: "Run on your own hardware", emoji: "🖥️" },
+-  { value: "enterprise", label: "Enterprise", description: "SOC2, compliance, private deploy", emoji: "🏢" },
+-];
+-
+-type BudgetTier = "free" | "startup" | "enterprise";
+-const BUDGET_OPTIONS: StepOption<BudgetTier>[] = [
+-  { value: "free", label: "Free / Open Weights", description: "$0 — open-source or free tiers only", emoji: "🆓" },
+-  { value: "startup", label: "Startup Budget", description: "$0 – $50/month API spend", emoji: "🚀" },
+-  { value: "enterprise", label: "Enterprise / Unlimited", description: "$50+ / month, best quality first", emoji: "💎" },
+-];
+-
+-type DeployPref = "cloud" | "local" | "either";
+-const DEPLOY_OPTIONS: StepOption<DeployPref>[] = [
+-  { value: "cloud", label: "Cloud API Only", description: "Use hosted APIs (OpenAI, Anthropic, etc.)", emoji: "☁️" },
+-  { value: "local", label: "Self-Hosted / Local", description: "Run on my own GPUs or Ollama", emoji: "🖥️" },
+-  { value: "either", label: "Either Works", description: "Show me the best option regardless", emoji: "🔄" },
+-];
+-
+-/* ------------------------------------------------------------------ */
+-/*  Scoring algorithm                                                   */
+-/* ------------------------------------------------------------------ */
+-function scoreModel(
+-  model: AIModel,
+-  useCase: UseCase,
+-  budget: BudgetTier,
+-  deploy: DeployPref
+-): number {
+-  let score = 0;
+-
+-  // Use case match (highest weight)
+-  if (model.useCases.includes(useCase)) score += 50;
+-
+-  // Budget match
+-  if (budget === "free") {
+-    if (model.pricing === "free" || model.pricing === "open-weights") score += 30;
+-    else if (model.pricing === "freemium") score += 15;
+-  } else if (budget === "startup") {
+-    if (model.pricing === "free" || model.pricing === "open-weights") score += 25;
+-    else if (model.pricing === "freemium") score += 30;
+-    else if (model.pricing === "paid") score += 20;
+-  } else {
+-    // enterprise — quality first
+-    score += 20;
+-    if (model.pricing === "paid") score += 10;
+-  }
+-
+-  // Deploy preference
+-  if (deploy === "cloud") {
+-    if (model.availability === "cloud" || model.availability === "both") score += 20;
+-    if (model.hasApi) score += 5;
+-  } else if (deploy === "local") {
+-    if (model.availability === "local" || model.availability === "both") score += 20;
+-    if (model.hasSelfHost) score += 5;
+-  } else {
+-    score += 15; // either works — slight bonus for flexibility
+-    if (model.availability === "both") score += 5;
+-  }
+-
+-  // Bonus for featured/trending
+-  if (model.featured) score += 8;
+-  if (model.trending) score += 5;
+-
+-  // Bonus for having benchmarks
+-  if (model.benchmarks && model.benchmarks.length > 0) score += 3;
+-
+-  return score;
+-}
+-
+-/* ------------------------------------------------------------------ */
+-/*  View                                                                */
+-/* ------------------------------------------------------------------ */
+-export const ModelFinderView = () => {
+-  const allModels = useDirectoryStore((s) => s.allModels);
+-  const loadModelsFromDb = useDirectoryStore((s) => s.loadModelsFromDb);
+-
+-  useEffect(() => {
+-    loadModelsFromDb();
+-  }, [loadModelsFromDb]);
+-
+-  const [step, setStep] = useState(0); // 0 = use case, 1 = budget, 2 = deploy, 3 = results
+-  const [selectedUseCase, setSelectedUseCase] = useState<UseCase | null>(null);
+-  const [selectedBudget, setSelectedBudget] = useState<BudgetTier | null>(null);
+-  const [selectedDeploy, setSelectedDeploy] = useState<DeployPref | null>(null);
+-
+-  const recommendations = useMemo(() => {
+-    if (!selectedUseCase || !selectedBudget || !selectedDeploy) return [];
+-
+-    return allModels
+-      .map((model) => ({
+-        model,
+-        score: scoreModel(model, selectedUseCase, selectedBudget, selectedDeploy),
+-      }))
+-      .filter((r) => r.score > 40)
+-      .sort((a, b) => b.score - a.score)
+-      .slice(0, 5);
+-  }, [allModels, selectedUseCase, selectedBudget, selectedDeploy]);
+-
+-  const maxScore = recommendations.length > 0 ? recommendations[0].score : 100;
+-
+-  function handleSelectUseCase(val: UseCase) {
+-    setSelectedUseCase(val);
+-    setStep(1);
+-  }
+-
+-  function handleSelectBudget(val: BudgetTier) {
+-    setSelectedBudget(val);
+-    setStep(2);
+-  }
+-
+-  function handleSelectDeploy(val: DeployPref) {
+-    setSelectedDeploy(val);
+-    setStep(3);
+-  }
+-
+-  function handleReset() {
+-    setStep(0);
+-    setSelectedUseCase(null);
+-    setSelectedBudget(null);
+-    setSelectedDeploy(null);
+-  }
+-
+-  const stepLabels = ["Use Case", "Budget", "Deployment", "Results"];
+-
+-  return (
+-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+-      <Header />
+-
+-      <main className="flex-1 py-12">
+-        <div className="shell max-w-3xl">
+-          {/* Header */}
+-          <div className="mb-10 text-center">
+-            <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-3.5 py-1 text-xs font-semibold text-purple-600 mb-3">
+-              <SparklesIcon className="w-3.5 h-3.5" />
+-              <span>AI Model Recommendation Engine</span>
+-            </div>
+-
+-            <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+-              Find Your{" "}
+-              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+-                Perfect AI Model
+-              </span>
+-            </h1>
+-
+-            <p className="text-xs sm:text-sm text-slate-600 font-medium mt-3 leading-relaxed max-w-xl mx-auto">
+-              Answer 3 quick questions and get personalized recommendations from our database of {allModels.length}+ AI models.
+-            </p>
+-          </div>
+-
+-          {/* Progress Bar */}
+-          <div className="mb-10">
+-            <div className="flex items-center justify-between mb-2">
+-              {stepLabels.map((label, i) => (
+-                <button
+-                  key={label}
+-                  onClick={() => { if (i < step) setStep(i); }}
+-                  className={`text-[0.65rem] font-extrabold uppercase tracking-wider transition-colors ${
+-                    i <= step ? "text-purple-600" : "text-slate-400"
+-                  } ${i < step ? "cursor-pointer hover:text-purple-700" : "cursor-default"}`}
+-                >
+-                  {label}
+-                </button>
+-              ))}
+-            </div>
+-            <div className="h-1.5 bg-slate-200 rounded-full overflow-hidden">
+-              <div
+-                className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full transition-all duration-500 ease-out"
+-                style={{ width: `${((step + 1) / 4) * 100}%` }}
+-              />
+-            </div>
+-          </div>
+-
+-          {/* Step 0: Use Case */}
+-          {step === 0 && (
+-            <div className="space-y-3">
+-              <h2 className="text-lg font-extrabold text-slate-900 mb-4">
+-                What are you building?
+-              </h2>
+-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+-                {USE_CASE_OPTIONS.map((opt) => (
+-                  <button
+-                    key={opt.value}
+-                    onClick={() => handleSelectUseCase(opt.value)}
+-                    className={`flex items-start gap-3 rounded-2xl border p-4 text-left transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md ${
+-                      selectedUseCase === opt.value
+-                        ? "border-purple-500 bg-purple-50 shadow-md"
+-                        : "border-slate-200 bg-white hover:border-purple-300"
+-                    }`}
+-                  >
+-                    <span className="text-xl mt-0.5">{opt.emoji}</span>
+-                    <div>
+-                      <span className="block text-sm font-extrabold text-slate-900">{opt.label}</span>
+-                      <span className="block text-[0.7rem] text-slate-500 font-medium mt-0.5">{opt.description}</span>
+-                    </div>
+-                  </button>
+-                ))}
+-              </div>
+-            </div>
+-          )}
+-
+-          {/* Step 1: Budget */}
+-          {step === 1 && (
+-            <div className="space-y-3">
+-              <h2 className="text-lg font-extrabold text-slate-900 mb-4">
+-                What&apos;s your budget?
+-              </h2>
+-              <div className="grid grid-cols-1 gap-3">
+-                {BUDGET_OPTIONS.map((opt) => (
+-                  <button
+-                    key={opt.value}
+-                    onClick={() => handleSelectBudget(opt.value)}
+-                    className={`flex items-start gap-3 rounded-2xl border p-5 text-left transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md ${
+-                      selectedBudget === opt.value
+-                        ? "border-purple-500 bg-purple-50 shadow-md"
+-                        : "border-slate-200 bg-white hover:border-purple-300"
+-                    }`}
+-                  >
+-                    <span className="text-2xl">{opt.emoji}</span>
+-                    <div>
+-                      <span className="block text-sm font-extrabold text-slate-900">{opt.label}</span>
+-                      <span className="block text-[0.7rem] text-slate-500 font-medium mt-0.5">{opt.description}</span>
+-                    </div>
+-                  </button>
+-                ))}
+-              </div>
+-            </div>
+-          )}
+-
+-          {/* Step 2: Deployment */}
+-          {step === 2 && (
+-            <div className="space-y-3">
+-              <h2 className="text-lg font-extrabold text-slate-900 mb-4">
+-                How do you want to deploy?
+-              </h2>
+-              <div className="grid grid-cols-1 gap-3">
+-                {DEPLOY_OPTIONS.map((opt) => (
+-                  <button
+-                    key={opt.value}
+-                    onClick={() => handleSelectDeploy(opt.value)}
+-                    className={`flex items-start gap-3 rounded-2xl border p-5 text-left transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md ${
+-                      selectedDeploy === opt.value
+-                        ? "border-purple-500 bg-purple-50 shadow-md"
+-                        : "border-slate-200 bg-white hover:border-purple-300"
+-                    }`}
+-                  >
+-                    <span className="text-2xl">{opt.emoji}</span>
+-                    <div>
+-                      <span className="block text-sm font-extrabold text-slate-900">{opt.label}</span>
+-                      <span className="block text-[0.7rem] text-slate-500 font-medium mt-0.5">{opt.description}</span>
+-                    </div>
+-                  </button>
+-                ))}
+-              </div>
+-            </div>
+-          )}
+-
+-          {/* Step 3: Results */}
+-          {step === 3 && (
+-            <div>
+-              <div className="flex items-center justify-between mb-6">
+-                <h2 className="text-lg font-extrabold text-slate-900">
+-                  🎯 Your Top Recommendations
+-                </h2>
+-                <button
+-                  onClick={handleReset}
+-                  className="text-xs font-bold text-purple-600 hover:text-purple-700 transition-colors"
+-                >
+-                  Start Over →
+-                </button>
+-              </div>
+-
+-              {/* Selection Summary */}
+-              <div className="flex flex-wrap gap-2 mb-6">
+-                {selectedUseCase && (
+-                  <span className="inline-flex items-center gap-1 rounded-full bg-purple-100 px-3 py-1 text-[0.65rem] font-bold text-purple-700">
+-                    <CheckIcon className="w-3 h-3" />
+-                    {USE_CASE_OPTIONS.find((o) => o.value === selectedUseCase)?.label}
+-                  </span>
+-                )}
+-                {selectedBudget && (
+-                  <span className="inline-flex items-center gap-1 rounded-full bg-blue-100 px-3 py-1 text-[0.65rem] font-bold text-blue-700">
+-                    <CheckIcon className="w-3 h-3" />
+-                    {BUDGET_OPTIONS.find((o) => o.value === selectedBudget)?.label}
+-                  </span>
+-                )}
+-                {selectedDeploy && (
+-                  <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-3 py-1 text-[0.65rem] font-bold text-emerald-700">
+-                    <CheckIcon className="w-3 h-3" />
+-                    {DEPLOY_OPTIONS.find((o) => o.value === selectedDeploy)?.label}
+-                  </span>
+-                )}
+-              </div>
+-
+-              {recommendations.length === 0 ? (
+-                <div className="rounded-2xl border border-slate-200 bg-white p-8 text-center">
+-                  <p className="text-sm font-bold text-slate-600">
+-                    No strong matches found. Try broadening your criteria.
+-                  </p>
+-                  <button
+-                    onClick={handleReset}
+-                    className="mt-4 rounded-xl bg-purple-600 px-6 py-2.5 text-xs font-bold text-white hover:bg-purple-500 transition-colors"
+-                  >
+-                    Try Again
+-                  </button>
+-                </div>
+-              ) : (
+-                <div className="space-y-4">
+-                  {recommendations.map(({ model, score }, idx) => {
+-                    const matchPct = Math.round((score / maxScore) * 100);
+-                    return (
+-                      <Link
+-                        key={model.slug}
+-                        href={`/models/${model.slug}`}
+-                        className="group flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-purple-300"
+-                      >
+-                        {/* Rank */}
+-                        <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-extrabold text-sm text-white shadow-md ${
+-                          idx === 0
+-                            ? "bg-gradient-to-br from-amber-400 to-orange-500"
+-                            : idx === 1
+-                            ? "bg-gradient-to-br from-slate-400 to-slate-500"
+-                            : idx === 2
+-                            ? "bg-gradient-to-br from-amber-600 to-amber-700"
+-                            : "bg-gradient-to-br from-slate-300 to-slate-400"
+-                        }`}>
+-                          #{idx + 1}
+-                        </div>
+-
+-                        {/* Details */}
+-                        <div className="flex-1 min-w-0">
+-                          <div className="flex items-center gap-2 flex-wrap">
+-                            <h3 className="text-sm font-extrabold text-slate-900 group-hover:text-purple-600 transition-colors">
+-                              {model.name}
+-                            </h3>
+-                            <span className="text-[0.6rem] font-bold text-slate-500 bg-slate-100 rounded-full px-2 py-0.5">
+-                              {model.provider}
+-                            </span>
+-                            {model.trending && (
+-                              <span className="text-[0.6rem] font-bold text-amber-700 bg-amber-100 rounded-full px-2 py-0.5">
+-                                🔥 Trending
+-                              </span>
+-                            )}
+-                          </div>
+-
+-                          <p className="text-[0.7rem] text-slate-500 font-medium mt-1 line-clamp-2">
+-                            {model.description}
+-                          </p>
+-
+-                          {/* Tags */}
+-                          <div className="flex items-center gap-2 mt-2 flex-wrap">
+-                            <span className="text-[0.6rem] font-bold text-slate-600 bg-slate-100 rounded px-1.5 py-0.5">
+-                              {model.availability}
+-                            </span>
+-                            <span className="text-[0.6rem] font-bold text-slate-600 bg-slate-100 rounded px-1.5 py-0.5">
+-                              {model.pricing}
+-                            </span>
+-                            {model.contextWindow && (
+-                              <span className="text-[0.6rem] font-bold text-slate-600 bg-slate-100 rounded px-1.5 py-0.5">
+-                                ctx: {model.contextWindow}
+-                              </span>
+-                            )}
+-                          </div>
+-                        </div>
+-
+-                        {/* Match Score */}
+-                        <div className="shrink-0 text-right">
+-                          <div className="text-lg font-extrabold text-purple-600">{matchPct}%</div>
+-                          <div className="text-[0.6rem] font-bold text-slate-400">match</div>
+-                          <div className="mt-1.5 h-1.5 w-16 bg-slate-200 rounded-full overflow-hidden">
+-                            <div
+-                              className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"
+-                              style={{ width: `${matchPct}%` }}
+-                            />
+-                          </div>
+-                        </div>
+-
+-                        <ArrowRightIcon className="w-4 h-4 text-slate-400 group-hover:text-purple-500 group-hover:translate-x-0.5 transition-all shrink-0 mt-3" />
+-                      </Link>
+-                    );
+-                  })}
+-                </div>
+-              )}
+-
+-              {/* Share CTA */}
+-              {recommendations.length > 0 && (
+-                <div className="mt-8 text-center">
+-                  <p className="text-[0.7rem] text-slate-500 font-medium mb-3">
+-                    Found the right model? Share your results!
+-                  </p>
+-                  <a
+-                    href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+-                      `I used ModelVault's AI Model Finder and found ${recommendations[0].model.name} as my top pick! 🎯\n\nFind your perfect AI model → modelvault.com/tools/model-finder`
+-                    )}`}
+-                    target="_blank"
+-                    rel="noopener noreferrer"
+-                    className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-5 py-2.5 text-xs font-bold text-white hover:bg-slate-800 transition-colors shadow-md"
+-                  >
+-                    Share on 𝕏 / Twitter
+-                  </a>
+-                </div>
+-              )}
+-            </div>
+-          )}
+-        </div>
+-      </main>
+-
+-      <Footer />
+-    </div>
+-  );
+-};
++export function ModelFinderView() { return redirect("/solve"); }
+diff --git a/src/views/requirements-finder.tsx b/src/views/requirements-finder.tsx
+new file mode 100644
+index 0000000..127fdaf
+--- /dev/null
++++ b/src/views/requirements-finder.tsx
+@@ -0,0 +1,48 @@
++import Link from "next/link";
++import { Finder } from "@/components/finder/Finder";
++import { Footer } from "@/components/directory/Footer";
++import { CURATED_MODELS } from "@/data/curated-models";
++import { FINDER_COPY } from "@/data/finder-options";
++import { generateMetadata } from "@/utils/seo/generate-page-metadata";
++
++export const finderMetadata = generateMetadata({
++  title: "ModelVault — Find an AI Model That Fits Your Requirements",
++  description: FINDER_COPY.description, url: "/",
++});
++export const solveMetadata = generateMetadata({
++  title: "AI Model Finder — Task, Budget and Hardware | ModelVault",
++  description: FINDER_COPY.description, url: "/solve",
++});
++
++export function RequirementsFinderView() {
++  return <div className="min-h-screen bg-surface text-foreground">
++    <a href="#finder-main" className="sr-only focus:not-sr-only focus:block focus:p-4">Skip to model finder</a>
++    <header className="border-b border-line bg-background">
++      <div className="shell flex flex-wrap items-center justify-between gap-4 py-5">
++        <Link href="/" className="text-xl font-extrabold tracking-tight">Model<span className="text-accent">Vault</span></Link>
++        <nav aria-label="Main navigation" className="flex flex-wrap gap-5 text-sm font-semibold">
++          <Link href="/solve" className="text-accent">Find a model</Link>
++          <Link href="/models" className="hover:text-accent">Full catalog</Link>
++          <Link href="/tools/cost-calculator" className="hover:text-accent">Cost calculator</Link>
++          <Link href="/dashboard" className="hover:text-accent">Saved models</Link>
++        </nav>
++      </div>
++    </header>
++    <main id="finder-main" className="shell max-w-6xl py-8 sm:py-12">
++      <div className="mb-8 max-w-3xl">
++        <p className="mb-3 text-sm font-semibold text-accent">Your requirements come first</p>
++        <h1 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl">{FINDER_COPY.title}</h1>
++        <p className="mt-4 text-lg leading-relaxed text-muted">{FINDER_COPY.description}</p>
++      </div>
++      <Finder models={CURATED_MODELS} />
++      <aside aria-label="Recommendation methodology" className="mt-10 space-y-3 border-t border-line pt-6 text-sm leading-relaxed text-muted">
++        <h2 className="text-base font-semibold text-foreground">A shortlist you can inspect</h2>
++        <p>{CURATED_MODELS.length} curated model packages. We exclude unsuitable options before ranking and show fewer than three when necessary. Task order is editorial; it is not an independent benchmark or a guarantee that a model is the best available.</p>
++        <p>{FINDER_COPY.scope}</p>
++        <p>Cloud sources are eligible for 14 days after checking; local packages for 90 days. Stale entries are excluded until refreshed. Matching runs in your browser. With analytics consent, we record task and action events to improve recommendations; budget and hardware values are not included.</p>
++        <Link href="/contact" className="inline-block font-semibold text-accent underline">Tell us what the shortlist missed</Link>
++      </aside>
++    </main>
++    <Footer />
++  </div>;
++}
+diff --git a/src/views/solve.tsx b/src/views/solve.tsx
+index f747648..26fa3e1 100644
+--- a/src/views/solve.tsx
++++ b/src/views/solve.tsx
+@@ -1,441 +1 @@
+-"use client";
+-
+-import { useState, useEffect } from "react";
+-import Link from "next/link";
+-import { Header } from "@/components/directory/Header";
+-import { Footer } from "@/components/directory/Footer";
+-import { SparklesIcon, CheckIcon, CopyIcon, ArrowUpRightIcon } from "@/components/directory/icons";
+-import { useDirectoryStore } from "@/stores/use-directory-store";
+-
+-interface SolutionPlaybook {
+-  modelName: string;
+-  provider: string;
+-  slug: string;
+-  type: string;
+-  vram: string;
+-  estimatedCost: string;
+-  whyThisModel: string;
+-  terminalCommand: string;
+-  promptTemplate: string;
+-  pythonSnippet: string;
+-  alternativeModel: string;
+-}
+-
+-const PLAYBOOKS: Record<string, SolutionPlaybook> = {
+-  "legal-private": {
+-    modelName: "DeepSeek-R1 (Q4_K_M)",
+-    provider: "DeepSeek",
+-    slug: "jamescallander-deepseek-r1-distill-qwen-14b-w8a8-g128-rk3588-rkllm",
+-    type: "Local Open-Weights (Ollama / GGUF)",
+-    vram: "14GB–24GB VRAM (Mac M1/M2/M3 or RTX 4080)",
+-    estimatedCost: "$0.00 / month (100% Free Local Execution)",
+-    whyThisModel:
+-      "DeepSeek-R1 provides chain-of-thought reasoning comparable to o1 while executing completely offline on your hardware, ensuring zero HIPAA or client NDA data leakage.",
+-    terminalCommand: "ollama run deepseek-r1:14b",
+-    promptTemplate: `You are an expert legal compliance auditor. Analyze the following contract clause for hidden liabilities, unilateral termination rights, and indemnification caps:
+-
+-[PASTE CONTRACT CLAUSE HERE]
+-
+-Provide:
+-1. Executive Risk Level (Low/Medium/High)
+-2. 3 Specific Red-Flag Clauses
+-3. Recommended Counter-Draft Language`,
+-    pythonSnippet: `import requests
+-
+-prompt = "Analyze contract clause for indemnification risks..."
+-response = requests.post("http://localhost:11434/api/generate", json={
+-    "model": "deepseek-r1:14b",
+-    "prompt": prompt,
+-    "stream": False
+-})
+-print(response.json()["response"])`,
+-    alternativeModel: "Llama-3.3-70B-Instruct (Cloud API)",
+-  },
+-  "legal-cloud": {
+-    modelName: "Claude 3.5 Sonnet",
+-    provider: "Anthropic",
+-    slug: "claude-3-5-sonnet",
+-    type: "Cloud API (200k Context)",
+-    vram: "Cloud API (0 MB VRAM Required)",
+-    estimatedCost: "~$15.00 / month (Based on 500 contract reviews)",
+-    whyThisModel:
+-      "Claude 3.5 Sonnet offers industry-leading 200,000-token context length and unmatched document comprehension, perfect for parsing 100+ page legal agreements in seconds.",
+-    terminalCommand: "npm install @anthropic-ai/sdk",
+-    promptTemplate: `System: You are a senior legal counsel specializing in corporate governance.
+-Task: Summarize the key commercial terms, liability caps, and renewal dates in this agreement.
+-
+-Document Text:
+-[PASTE DOCUMENT HERE]`,
+-    pythonSnippet: `import anthropic
+-
+-client = anthropic.Anthropic()
+-message = client.messages.create(
+-    model="claude-3-5-sonnet-20241022",
+-    max_tokens=4000,
+-    messages=[{"role": "user", "content": "Analyze agreement liability caps..."}]
+-)
+-print(message.content[0].text)`,
+-    alternativeModel: "GPT-4o (OpenAI)",
+-  },
+-  "healthcare-private": {
+-    modelName: "Llama 3.1 8B Instruct",
+-    provider: "Meta AI",
+-    slug: "nousresearch-meta-llama-3-1-8b-instruct",
+-    type: "Local Open-Weights (Offline)",
+-    vram: "6GB–8GB VRAM (Standard Laptop / Mac M1)",
+-    estimatedCost: "$0.00 / month (100% Free Off-Grid)",
+-    whyThisModel:
+-      "Llama 3.1 8B runs effortlessly on consumer laptops without internet connection, enabling rural medical staff to summarize patient notes without violating privacy laws.",
+-    terminalCommand: "ollama run llama3.1:8b",
+-    promptTemplate: `You are a clinical documentation assistant. Summarize the following patient interaction into a standard SOAP note (Subjective, Objective, Assessment, Plan):
+-
+-Doctor-Patient Transcript:
+-[PASTE TRANSCRIPT HERE]`,
+-    pythonSnippet: `import requests
+-
+-res = requests.post("http://localhost:11434/api/chat", json={
+-    "model": "llama3.1:8b",
+-    "messages": [{"role": "user", "content": "Summarize transcript into SOAP note..."}]
+-})
+-print(res.json()["message"]["content"])`,
+-    alternativeModel: "Qwen 2.5 7B Instruct",
+-  },
+-  "education-budget": {
+-    modelName: "Qwen 2.5 3B Instruct",
+-    provider: "Qwen / Alibaba",
+-    slug: "qwen-qwen2-5-3b-instruct-awq",
+-    type: "Ultra-Lightweight Open Weights",
+-    vram: "2.5GB–4GB VRAM (Raspberry Pi 4 / Low-Cost Smartphone)",
+-    estimatedCost: "$0.00 / month (Zero Infrastructure Overhead)",
+-    whyThisModel:
+-      "Qwen 2.5 3B delivers astounding math and coding tutoring performance while consuming less than 3GB RAM, bringing interactive education to low-cost hardware globally.",
+-    terminalCommand: "ollama run qwen2.5:3b",
+-    promptTemplate: `You are a patient middle-school math teacher. Explain the Pythagorean Theorem using a real-world sports example, step-by-step, without using confusing jargon.`,
+-    pythonSnippet: `import requests
+-
+-res = requests.post("http://localhost:11434/api/generate", json={
+-    "model": "qwen2.5:3b",
+-    "prompt": "Explain fractions using pizza slices for a 10-year-old.",
+-    "stream": False
+-})
+-print(res.json()["response"])`,
+-    alternativeModel: "Phi-3-Mini 3.8B (Microsoft)",
+-  },
+-  "support-chatbot": {
+-    modelName: "DeepSeek-V3",
+-    provider: "DeepSeek",
+-    slug: "deepseek-v3-math-gguf-q8-0",
+-    type: "High-Throughput Cloud API",
+-    vram: "Cloud API (Serverless)",
+-    estimatedCost: "~$2.50 / month (Ultra-Low $0.27/1M token API rate)",
+-    whyThisModel:
+-      "DeepSeek-V3 rivals GPT-4o quality at 1/10th the token cost, making high-volume customer support automation financially sustainable for small businesses.",
+-    terminalCommand: "curl https://api.deepseek.com/v1/chat/completions",
+-    promptTemplate: `You are an automated support agent for ModelVault. Answer customer queries strictly using the knowledge base context below. If unsure, respond politely and offer human escalation.
+-
+-Knowledge Base Context:
+-[PASTE FAQ/DOCS HERE]`,
+-    pythonSnippet: `from openai import OpenAI
+-
+-client = OpenAI(api_key="YOUR_DEEPSEEK_KEY", base_url="https://api.deepseek.com")
+-response = client.chat.completions.create(
+-    model="deepseek-chat",
+-    messages=[{"role": "user", "content": "How do I reset my account password?"}]
+-)
+-print(response.choices[0].message.content)`,
+-    alternativeModel: "Gemini 2.0 Flash (Google)",
+-  },
+-  "code-audit": {
+-    modelName: "Qwen 2.5 Coder 30B",
+-    provider: "Qwen / Alibaba",
+-    slug: "stelterlab-qwen3-coder-30b-a3b-instruct-awq",
+-    type: "Specialized Coding Engine",
+-    vram: "20GB–24GB VRAM (Mac Studio / RTX 3090/4090)",
+-    estimatedCost: "$0.00 / month (Self-Hosted Developer Engine)",
+-    whyThisModel:
+-      "Qwen 2.5 Coder 30B matches Sonnet 3.5 coding benchmarks across Python, TypeScript, and Rust, detecting edge-case security bugs without transmitting codebase source to cloud servers.",
+-    terminalCommand: "ollama run qwen2.5-coder:32b",
+-    promptTemplate: `Act as a principal software security architect. Perform a security and performance code review on the following function:
+-
+-[PASTE CODE HERE]
+-
+-Identify:
+-1. Potential SQL Injection / XSS / Memory Leaks
+-2. Time Complexity O(N) Analysis
+-3. Optimized Refactored Code`,
+-    pythonSnippet: `import requests
+-
+-res = requests.post("http://localhost:11434/api/generate", json={
+-    "model": "qwen2.5-coder:32b",
+-    "prompt": "Audit TypeScript function for memory leaks...",
+-    "stream": False
+-})
+-print(res.json()["response"])`,
+-    alternativeModel: "Codestral 22B (Mistral AI)",
+-  },
+-};
+-
+-export const SolveView = () => {
+-  const [domain, setDomain] = useState<string>("legal");
+-  const [privacy, setPrivacy] = useState<string>("private");
+-  const [hardware, setHardware] = useState<string>("laptop");
+-  const [copiedCmd, setCopiedCmd] = useState(false);
+-  const [copiedPrompt, setCopiedPrompt] = useState(false);
+-
+-  const allModels = useDirectoryStore((s) => s.allModels);
+-  const loadModelsFromDb = useDirectoryStore((s) => s.loadModelsFromDb);
+-
+-  useEffect(() => {
+-    loadModelsFromDb();
+-  }, [loadModelsFromDb]);
+-
+-  // Match key
+-  let key = `${domain}-${privacy}`;
+-  if (domain === "education") key = "education-budget";
+-  if (domain === "support") key = "support-chatbot";
+-  if (domain === "coding") key = "code-audit";
+-  if (!PLAYBOOKS[key]) key = "legal-private";
+-
+-  const playbook = PLAYBOOKS[key];
+-
+-  // Robust Model Route Link Resolution
+-  const targetModel = allModels.find(
+-    (m) =>
+-      m.slug === playbook.slug ||
+-      m.slug.includes(playbook.slug) ||
+-      m.name.toLowerCase().includes(playbook.modelName.toLowerCase().split(" ")[0])
+-  );
+-
+-  const modelHref = targetModel
+-    ? `/models/${targetModel.slug}`
+-    : `/models?search=${encodeURIComponent(playbook.provider)}`;
+-
+-  const copyText = (text: string, isPrompt: boolean) => {
+-    navigator.clipboard.writeText(text);
+-    if (isPrompt) {
+-      setCopiedPrompt(true);
+-      setTimeout(() => setCopiedPrompt(false), 2000);
+-    } else {
+-      setCopiedCmd(true);
+-      setTimeout(() => setCopiedCmd(false), 2000);
+-    }
+-  };
+-
+-  return (
+-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+-      <Header />
+-
+-      <main className="flex-1 py-10">
+-        <div className="shell max-w-5xl">
+-          {/* Header */}
+-          <div className="text-center max-w-2xl mx-auto mb-10">
+-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-50/80 px-3.5 py-1 text-xs font-bold text-blue-600 mb-3">
+-              <SparklesIcon className="w-3.5 h-3.5" />
+-              <span>Real-World Solution Wizard</span>
+-            </div>
+-            <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+-              AI Problem-Solving Playbook Engine
+-            </h1>
+-            <p className="text-xs sm:text-sm text-slate-600 font-medium mt-3 leading-relaxed">
+-              Answer 3 quick questions about your real-world task, privacy needs, and hardware constraints. ModelVault outputs an exact model match, 1-click terminal setup commands, and tested prompt templates.
+-            </p>
+-          </div>
+-
+-          {/* Interactive Wizard Controls */}
+-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+-            {/* Question 1: Domain / Task */}
+-            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+-              <label className="block text-xs font-extrabold uppercase tracking-wider text-blue-600 mb-3">
+-                1. Select Real-World Task
+-              </label>
+-              <div className="flex flex-col gap-2">
+-                {[
+-                  { id: "legal", label: "📄 Legal Contract & Document Review" },
+-                  { id: "healthcare", label: "🏥 Healthcare & Clinical Notes (SOAP)" },
+-                  { id: "education", label: "🎓 Universal Education & Tutoring" },
+-                  { id: "support", label: "💬 Customer Support & Sales RAG Bot" },
+-                  { id: "coding", label: "💻 Code Security Audit & Refactoring" },
+-                ].map((item) => (
+-                  <button
+-                    key={item.id}
+-                    onClick={() => setDomain(item.id)}
+-                    className={`text-left px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
+-                      domain === item.id
+-                        ? "bg-blue-600 text-white shadow-sm"
+-                        : "bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-100"
+-                    }`}
+-                  >
+-                    {item.label}
+-                  </button>
+-                ))}
+-              </div>
+-            </div>
+-
+-            {/* Question 2: Privacy / Deployment */}
+-            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+-              <label className="block text-xs font-extrabold uppercase tracking-wider text-blue-600 mb-3">
+-                2. Privacy & Security Rule
+-              </label>
+-              <div className="flex flex-col gap-2">
+-                {[
+-                  { id: "private", label: "🔒 100% Offline / Private (Self-Hosted)" },
+-                  { id: "cloud", label: "🌐 Cloud API (Maximum Speed & Scale)" },
+-                ].map((item) => (
+-                  <button
+-                    key={item.id}
+-                    onClick={() => setPrivacy(item.id)}
+-                    className={`text-left px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
+-                      privacy === item.id
+-                        ? "bg-blue-600 text-white shadow-sm"
+-                        : "bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-100"
+-                    }`}
+-                  >
+-                    {item.label}
+-                  </button>
+-                ))}
+-              </div>
+-            </div>
+-
+-            {/* Question 3: Hardware Budget */}
+-            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+-              <label className="block text-xs font-extrabold uppercase tracking-wider text-blue-600 mb-3">
+-                3. Target Hardware / Budget
+-              </label>
+-              <div className="flex flex-col gap-2">
+-                {[
+-                  { id: "laptop", label: "💻 Standard Laptop / Mac M1-M3 (8-16GB RAM)" },
+-                  { id: "lowend", label: "📱 Low-Cost Device / Raspberry Pi (4GB RAM)" },
+-                  { id: "gpu", label: "🖥️ GPU Workstation / Server (24GB+ VRAM)" },
+-                ].map((item) => (
+-                  <button
+-                    key={item.id}
+-                    onClick={() => setHardware(item.id)}
+-                    className={`text-left px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
+-                      hardware === item.id
+-                        ? "bg-blue-600 text-white shadow-sm"
+-                        : "bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-100"
+-                    }`}
+-                  >
+-                    {item.label}
+-                  </button>
+-                ))}
+-              </div>
+-            </div>
+-          </div>
+-
+-          {/* Generated Solution Playbook Card */}
+-          <div className="rounded-3xl border border-blue-200/80 bg-white shadow-xl overflow-hidden mb-12">
+-            {/* Playbook Banner */}
+-            <div className="bg-gradient-to-r from-blue-950 via-slate-900 to-blue-950 text-white p-6 sm:p-8">
+-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+-                <div>
+-                  <span className="text-[0.65rem] font-extrabold uppercase tracking-widest text-blue-400 block mb-1">
+-                    Recommended Real-World Solution Playbook
+-                  </span>
+-                  <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+-                    {playbook.modelName}
+-                  </h2>
+-                  <p className="text-xs font-semibold text-slate-400 mt-1">
+-                    Developed by {playbook.provider} • {playbook.type}
+-                  </p>
+-                </div>
+-                <Link
+-                  href={modelHref}
+-                  className="inline-flex items-center gap-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 text-xs font-bold transition-all shadow-md shrink-0 self-start sm:self-auto"
+-                >
+-                  <span>View Model Specs</span>
+-                  <ArrowUpRightIcon className="w-4 h-4" />
+-                </Link>
+-              </div>
+-            </div>
+-
+-            <div className="p-6 sm:p-8 flex flex-col gap-8">
+-              {/* Why This Fits Grid */}
+-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+-                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+-                  <span className="text-[0.65rem] font-extrabold uppercase tracking-wider text-slate-400 block mb-1">
+-                    Hardware / VRAM Match
+-                  </span>
+-                  <span className="text-xs font-extrabold text-slate-900 block">{playbook.vram}</span>
+-                </div>
+-                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+-                  <span className="text-[0.65rem] font-extrabold uppercase tracking-wider text-slate-400 block mb-1">
+-                    Estimated Monthly Cost
+-                  </span>
+-                  <span className="text-xs font-extrabold text-emerald-600 block">{playbook.estimatedCost}</span>
+-                </div>
+-                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+-                  <span className="text-[0.65rem] font-extrabold uppercase tracking-wider text-slate-400 block mb-1">
+-                    Alternative Model Swap
+-                  </span>
+-                  <span className="text-xs font-extrabold text-blue-600 block">{playbook.alternativeModel}</span>
+-                </div>
+-              </div>
+-
+-              {/* Architectural Rationale */}
+-              <div className="rounded-2xl border border-blue-100 bg-blue-50/60 p-5">
+-                <h3 className="text-xs font-extrabold uppercase tracking-wider text-blue-900 mb-2 flex items-center gap-2">
+-                  <CheckIcon className="w-4 h-4 text-blue-600" />
+-                  <span>Why This Model Solves Your Problem</span>
+-                </h3>
+-                <p className="text-xs font-medium text-slate-700 leading-relaxed">
+-                  {playbook.whyThisModel}
+-                </p>
+-              </div>
+-
+-              {/* 1-Click Terminal Command */}
+-              <div>
+-                <div className="flex items-center justify-between mb-2">
+-                  <span className="text-xs font-extrabold uppercase tracking-wider text-slate-700">
+-                    Step 1: Run Terminal Setup Command
+-                  </span>
+-                  <button
+-                    onClick={() => copyText(playbook.terminalCommand, false)}
+-                    className="inline-flex items-center gap-1 text-[0.7rem] font-bold text-blue-600 hover:text-blue-800"
+-                  >
+-                    <CopyIcon className="w-3.5 h-3.5" />
+-                    <span>{copiedCmd ? "Copied! ✓" : "Copy Command"}</span>
+-                  </button>
+-                </div>
+-                <pre className="rounded-xl border border-slate-800 bg-slate-950 p-4 text-xs font-mono text-emerald-400 overflow-x-auto">
+-                  {playbook.terminalCommand}
+-                </pre>
+-              </div>
+-
+-              {/* Tested Prompt Template */}
+-              <div>
+-                <div className="flex items-center justify-between mb-2">
+-                  <span className="text-xs font-extrabold uppercase tracking-wider text-slate-700">
+-                    Step 2: Tested Real-World Prompt Template
+-                  </span>
+-                  <button
+-                    onClick={() => copyText(playbook.promptTemplate, true)}
+-                    className="inline-flex items-center gap-1 text-[0.7rem] font-bold text-blue-600 hover:text-blue-800"
+-                  >
+-                    <CopyIcon className="w-3.5 h-3.5" />
+-                    <span>{copiedPrompt ? "Copied! ✓" : "Copy Prompt"}</span>
+-                  </button>
+-                </div>
+-                <pre className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-xs font-mono text-slate-800 leading-relaxed whitespace-pre-wrap">
+-                  {playbook.promptTemplate}
+-                </pre>
+-              </div>
+-
+-              {/* Python Integration Snippet */}
+-              <div>
+-                <span className="text-xs font-extrabold uppercase tracking-wider text-slate-700 block mb-2">
+-                  Step 3: Python Integration Snippet
+-                </span>
+-                <pre className="rounded-xl border border-slate-800 bg-slate-950 p-4 text-xs font-mono text-blue-300 overflow-x-auto">
+-                  {playbook.pythonSnippet}
+-                </pre>
+-              </div>
+-            </div>
+-          </div>
+-        </div>
+-      </main>
+-
+-      <Footer />
+-    </div>
+-  );
+-};
++export { RequirementsFinderView as SolveView, solveMetadata as metadata } from "./requirements-finder";
+diff --git a/tests/recommendations.test.ts b/tests/recommendations.test.ts
+new file mode 100644
+index 0000000..6dd5bad
+--- /dev/null
++++ b/tests/recommendations.test.ts
+@@ -0,0 +1,88 @@
++import test from "node:test";
++import assert from "node:assert/strict";
++import { CURATED_MODELS } from "../src/data/curated-models";
++import { DEFAULT_REQUIREMENTS, recommend, estimateMonthlyCost } from "../src/lib/recommendations/engine";
++import type { Requirements } from "../src/lib/recommendations/types";
++
++const today = "2026-09-08T12:00:00Z";
++const run = (patch: Partial<Requirements> = {}) => recommend(CURATED_MODELS, { ...DEFAULT_REQUIREMENTS, ...patch }, today);
++
++test("cloud shortlist meets deployment, task and monthly budget without padding", () => {
++  const result = run({ task: "coding", monthlyBudget: 2 });
++  assert.equal(result.recommendations.length, 1);
++  for (const item of result.recommendations) {
++    assert.equal(item.model.deployment, "cloud");
++    assert.ok(item.model.tasks.includes("coding"));
++    assert.ok(item.estimatedMonthlyCost !== null && item.estimatedMonthlyCost <= 2);
++  }
++});
++test("zero cloud budget does not silently recommend paid or local models", () => {
++  const result = run({ monthlyBudget: 0 });
++  assert.equal(result.recommendations.length, 0);
++  assert.ok(result.excluded["Above your estimated API budget"]);
++});
++test("6 GB GPU and 16 GB RAM exclude oversized coding packages", () => {
++  const result = run({ deployment: "local", task: "coding", ramGB: 16, vramGB: 6 });
++  assert.equal(result.recommendations.length, 1);
++  assert.equal(result.recommendations[0].model.id, "ollama/qwen3:4b");
++  assert.equal(result.recommendations[0].estimatedMonthlyCost, null);
++});
++test("system RAM alone cannot make a dedicated GPU recommendation eligible", () => {
++  const result = run({ deployment: "local", hardware: "gpu", ramGB: 128, vramGB: 2 });
++  assert.equal(result.recommendations.length, 0);
++});
++test("unified memory is counted once with a system reserve", () => {
++  const result = run({ deployment: "local", hardware: "unified", ramGB: 8, vramGB: 256 });
++  assert.equal(result.recommendations.length, 0);
++});
++test("CPU choices ignore dedicated VRAM and explain speed uncertainty", () => {
++  const result = run({ deployment: "local", hardware: "cpu", ramGB: 16, vramGB: 0 });
++  assert.ok(result.recommendations.length > 0);
++  assert.ok(result.recommendations.every((item) => item.caveats.some((text) => text.includes("CPU-only"))));
++});
++test("local context policy rejects excessive prompt plus output", () => {
++  assert.equal(run({ deployment: "local", inputTokens: 4096, outputTokens: 500, ramGB: 128, vramGB: 80 }).recommendations.length, 0);
++});
++test("cost includes request volume and both input and output tokens", () => {
++  const model = CURATED_MODELS.find((item) => item.id === "openai/gpt-5-mini");
++  assert.ok(model);
++  assert.equal(estimateMonthlyCost(model, DEFAULT_REQUIREMENTS), 1.5);
++  assert.equal(estimateMonthlyCost(model, { ...DEFAULT_REQUIREMENTS, requestsPerMonth: 2000 }), 3);
++});
++test("cost priority changes ordering among eligible cloud models", () => {
++  const editorial = run({ monthlyBudget: 100 });
++  const cost = run({ monthlyBudget: 100, priority: "cost" });
++  assert.equal(editorial.recommendations[0].model.id, "google/gemini-3.8-flash");
++  assert.equal(cost.recommendations[0].model.id, "openai/gpt-5-mini");
++});
++test("stale cloud evidence is excluded while local evidence remains eligible", () => {
++  assert.equal(recommend(CURATED_MODELS, DEFAULT_REQUIREMENTS, "2026-10-01").recommendations.length, 0);
++  assert.ok(recommend(CURATED_MODELS, { ...DEFAULT_REQUIREMENTS, deployment: "local" }, "2026-10-01").recommendations.length > 0);
++  assert.equal(recommend(CURATED_MODELS, { ...DEFAULT_REQUIREMENTS, deployment: "local" }, "2027-01-01").recommendations.length, 0);
++});
++test("malformed and negative requirements fail closed", () => {
++  for (const patch of [{ monthlyBudget: -1 }, { inputTokens: NaN }, { requestsPerMonth: 1.5 }, { task: "audio" }]) {
++    const result = recommend(CURATED_MODELS, { ...DEFAULT_REQUIREMENTS, ...patch }, today);
++    assert.equal(result.recommendations.length, 0);
++    assert.ok(result.error);
++  }
++});
++test("structured extraction excludes models without documented schema support", () => {
++  const modified = CURATED_MODELS.map((m) => m.cloud ? { ...m, cloud: { ...m.cloud, structuredOutput: false } } : m);
++  assert.equal(recommend(modified, { ...DEFAULT_REQUIREMENTS, task: "extraction" }, today).recommendations.length, 0);
++});
++test("cloud output limits are enforced independently of total context", () => {
++  const modified = CURATED_MODELS.map((m) => ({ ...m, maxOutputTokens: 100 }));
++  assert.equal(recommend(modified, DEFAULT_REQUIREMENTS, today).recommendations.length, 0);
++});
++test("curated IDs are unique and links identify the exact package", () => {
++  assert.equal(new Set(CURATED_MODELS.map((m) => m.id)).size, CURATED_MODELS.length);
++  for (const model of CURATED_MODELS) {
++    assert.ok(model.sourceUrl.startsWith("https://"));
++    if (model.local) assert.ok(model.sourceUrl.endsWith(model.local.ollamaTag));
++  }
++});
++test("invalid hidden values do not block switching deployment modes", () => {
++  assert.ok(run({ deployment: "local", monthlyBudget: NaN }).recommendations.length > 0);
++  assert.ok(run({ deployment: "cloud", ramGB: NaN, vramGB: -1 }).recommendations.length > 0);
++});
+-- 
+2.51.1
+

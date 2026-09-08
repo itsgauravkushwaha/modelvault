@@ -53,7 +53,7 @@ export const Header = () => {
           </div>
           <span className="truncate">ModelVault</span>
           <span className="hidden sm:inline-block rounded-full bg-blue-50 px-2 py-0.5 text-[0.65rem] font-bold uppercase tracking-wider text-blue-600">
-            AI Index
+            Model Finder
           </span>
         </Link>
 
@@ -126,14 +126,14 @@ export const Header = () => {
             </div>
           </div>
 
-          {/* Solution Wizard Link */}
+          {/* Find a model Link */}
           <Link
             href="/solve"
             className={`px-3 py-1.5 rounded-md transition-colors flex items-center gap-1 ${
               pathname === "/solve" ? "bg-blue-50 text-blue-600 font-extrabold" : "text-blue-600 hover:text-blue-700 font-bold"
             }`}
           >
-            <span>Solution Wizard</span>
+            <span>Find a model</span>
             <span className="text-[0.55rem] bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded-full font-black uppercase">
               New
             </span>
@@ -228,10 +228,10 @@ export const Header = () => {
                   </span>
                 </Link>
                 <Link
-                  href="/tools/model-finder"
+                  href="/solve"
                   className="flex items-center justify-between rounded-lg px-3 py-2 text-xs font-semibold text-slate-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
                 >
-                  <span>Smart Model Finder</span>
+                  <span>Find a model</span>
                   <span className="rounded-full bg-blue-100 px-2 py-0.5 text-[0.55rem] font-extrabold uppercase text-blue-700">
                     Finder
                   </span>
@@ -317,7 +317,7 @@ export const Header = () => {
               href="/solve"
               className="flex items-center justify-between p-3 rounded-xl bg-blue-50 text-blue-700 min-h-[44px]"
             >
-              <span>Solution Wizard 🪄</span>
+              <span>Find a model</span>
               <span className="text-[0.55rem] bg-blue-200 text-blue-800 px-1.5 py-0.5 rounded-full font-black uppercase">
                 New
               </span>
@@ -361,8 +361,8 @@ export const Header = () => {
               Developer Tools
             </span>
             <div className="grid grid-cols-2 gap-2 text-xs font-semibold text-slate-800">
-              <Link href="/tools/model-finder" className="p-3 rounded-xl bg-blue-50 text-blue-700 font-extrabold hover:bg-blue-100 transition-colors flex items-center justify-between col-span-2 sm:col-span-1">
-                <span>Smart Model Finder 🔍</span>
+              <Link href="/solve" className="p-3 rounded-xl bg-blue-50 text-blue-700 font-extrabold hover:bg-blue-100 transition-colors flex items-center justify-between col-span-2 sm:col-span-1">
+                <span>Find a model</span>
                 <span className="text-[0.55rem] bg-blue-200 text-blue-800 px-1.5 py-0.5 rounded-full font-black uppercase">
                   Finder
                 </span>

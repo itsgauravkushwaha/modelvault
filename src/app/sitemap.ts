@@ -8,25 +8,24 @@ const MODELS_PER_SITEMAP = 5000;
 
 /**
  * Tells Next.js how many sitemap files to generate.
- * Produces a sitemap index at `/sitemap.xml` pointing to `/sitemap/0.xml`, `/sitemap/1.xml`, etc.
+ * Produces `/sitemap/0.xml`, `/sitemap/1.xml`, etc.
  *   - id 0: static + comparison routes
  *   - id 1..N: model detail pages (5,000 per file)
  */
 export async function generateSitemaps() {
   const models = await db.getModels();
   const modelChunks = Math.ceil(models.length / MODELS_PER_SITEMAP);
-  // id 0 = static routes, ids 1..N = model chunks
   return Array.from({ length: 1 + modelChunks }, (_, i) => ({ id: i }));
 }
 
 /**
  * Generates the sitemap for a given chunk id.
+ * Next.js 16 passes id as Promise<string> from the URL segment.
  */
-export default async function sitemap({
-  id,
-}: {
-  id: number;
-}): Promise<MetadataRoute.Sitemap> {
+export default async function sitemap(
+  props: { id: Promise<string> }
+): Promise<MetadataRoute.Sitemap> {
+  const id = Number(await props.id);
   const base = siteConfig.url;
   const now = new Date();
 
@@ -74,7 +73,7 @@ export default async function sitemap({
 
   /* ---- id 1..N: Model pages (5,000 per chunk) ---- */
   const models = await db.getModels();
-  const chunkIndex = id - 1; // id 1 → chunk 0, id 2 → chunk 1, etc.
+  const chunkIndex = id - 1;
   const start = chunkIndex * MODELS_PER_SITEMAP;
   const chunk = models.slice(start, start + MODELS_PER_SITEMAP);
 

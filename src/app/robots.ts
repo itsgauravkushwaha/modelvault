@@ -19,7 +19,10 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin/", "/api/admin/"],
       },
     ],
-    sitemap: `${siteConfig.url}/sitemap-index.xml`,
+    sitemap: [
+      `${siteConfig.url}/sitemap.xml`,
+      `${siteConfig.url}/sitemap-index.xml`,
+    ],
     host: siteConfig.url,
   };
 }

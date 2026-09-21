@@ -1,8 +1,4 @@
-"use client";
-
-import { useEffect } from "react";
 import Link from "next/link";
-import { useDirectoryStore } from "@/stores/use-directory-store";
 import { Header } from "@/components/directory/Header";
 import { SearchHero } from "@/components/directory/SearchHero";
 import { LiveStats } from "@/components/directory/LiveStats";
@@ -16,27 +12,23 @@ import { Newsletter } from "@/components/directory/Newsletter";
 import { Footer } from "@/components/directory/Footer";
 import { CATEGORIES } from "@/data/categories";
 import { PROVIDERS } from "@/data/providers";
-import { UseCase } from "@/types/model";
+import { AIModel } from "@/types/model";
 import { ArrowRightIcon } from "@/components/directory/icons";
 
-export const HomeView = () => {
-  const allModels = useDirectoryStore((s) => s.allModels);
-  const loadModelsFromDb = useDirectoryStore((s) => s.loadModelsFromDb);
+interface HomeViewProps {
+  trendingModels: AIModel[];
+  recentlyAdded: AIModel[];
+  totalModelCount: number;
+  categoryCounts: Record<string, number>;
+}
 
-  useEffect(() => {
-    loadModelsFromDb();
-  }, [loadModelsFromDb]);
-
-  const trendingModels = allModels.filter((m) => m.trending).slice(0, 6);
+export const HomeView = ({
+  trendingModels,
+  recentlyAdded,
+  totalModelCount,
+  categoryCounts,
+}: HomeViewProps) => {
   const featuredCategories = CATEGORIES.slice(0, 6);
-  const recentlyAdded = [...allModels]
-    .sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime())
-    .slice(0, 4);
-
-  const getCategoryCount = (slug: string) => {
-    if (allModels.length === 0) return 0;
-    return allModels.filter((m) => m.useCases && m.useCases.includes(slug as UseCase)).length;
-  };
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
@@ -76,7 +68,7 @@ export const HomeView = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {featuredCategories.map((cat) => (
-                <CategoryCard key={cat.slug} category={cat} overrideCount={getCategoryCount(cat.slug)} />
+                <CategoryCard key={cat.slug} category={cat} overrideCount={categoryCounts[cat.slug] ?? 0} />
               ))}
             </div>
           </div>
@@ -98,7 +90,7 @@ export const HomeView = () => {
                 href="/models"
                 className="inline-flex items-center gap-1.5 text-xs font-extrabold text-blue-600 hover:text-blue-700 transition-colors"
               >
-                <span>Browse all {allModels.length} models</span>
+                <span>Browse all {totalModelCount} models</span>
                 <ArrowRightIcon className="w-3.5 h-3.5" />
               </Link>
             </div>

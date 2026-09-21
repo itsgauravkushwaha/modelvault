@@ -57,8 +57,3 @@ exception — note it clearly). Group by domain under `utils/<domain>/`.
 ## Related
 
 [[hooks]] · [[seo-metadata]] · [[smooth-scroll]]
-
-## Model recommendations
-
-`src/lib/recommendations/engine.ts` validates requirements and filters before ranking.
-`analytics.ts` records consent-aware coarse funnel events. See [[model-finder]].
